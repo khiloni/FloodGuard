@@ -1,0 +1,94 @@
+id: "village-river-01"
+name: "Riverbank Village Flood Response"
+version: "1.0.0"
+description: "A rising tributary threatens three wards. Coordinate evacuations, deploy boats, and reinforce embankments before the flood crests."
+total_ticks: 24
+tick_duration_minutes: 30
+
+resources:
+  boats: 2
+  boat_capacity: 15
+  vehicles: 3
+  vehicle_capacity: 20
+  sandbags: 400
+
+embankment:
+  initial_height_cm: 380
+  initial_integrity: 100
+  sandbags_per_reinforce: 100
+  height_gain_per_reinforce_cm: 30
+  max_reinforced_height_cm: 470
+
+water_forecast_cm:
+  - 160
+  - 180
+  - 205
+  - 235
+  - 270
+  - 305
+  - 340
+  - 375
+  - 410
+  - 440
+  - 465
+  - 475
+  - 470
+  - 455
+  - 430
+  - 400
+  - 370
+  - 340
+  - 310
+  - 280
+  - 250
+  - 225
+  - 200
+  - 180
+
+zones:
+  - id: "ward-1"
+    name: "Ward 1 (Lowland Riverside)"
+    elevation_cm: 220
+    population: 120
+    vulnerable: 30
+    road_cutoff_depth_cm: 30
+
+  - id: "ward-2"
+    name: "Ward 2 (Market Settlement)"
+    elevation_cm: 360
+    population: 180
+    vulnerable: 40
+    road_cutoff_depth_cm: 40
+
+  - id: "ward-3"
+    name: "Ward 3 (Highland Ridge)"
+    elevation_cm: 520
+    population: 100
+    vulnerable: 15
+    road_cutoff_depth_cm: 50
+
+shelters:
+  - id: "school"
+    name: "Government High School Shelter"
+    elevation_cm: 500
+    capacity: 320
+    is_open: false
+
+npcs:
+  - id: "village_head"
+    name: "Sarpanch Ramesh"
+    role: "Elected Village Representative"
+    location: "ward-2"
+    initial_dialogue: "Water is swelling rapidly near Ward 1. The villagers look to us for clear instructions. Should we issue a formal alert?"
+
+  - id: "rescue_worker"
+    name: "Officer Sunita"
+    role: "Civil Defence Volunteer"
+    location: "ward-1"
+    initial_dialogue: "We have two motorized rescue boats and three transport trucks primed at the depot. Sandbagging supplies are ready."
+
+  - id: "family_member"
+    name: "Mohan"
+    role: "Resident caring for elderly parents"
+    location: "ward-1"
+    initial_dialogue: "My parents have mobility constraints. Please prioritize evacuation transport for our elders before the causeway goes underwater."

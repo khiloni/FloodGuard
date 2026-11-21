@@ -1,0 +1,34 @@
+- id: "RC-01"
+  title: "Early Public Warning Protocol"
+  category: "Alerts"
+  guidance: "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground."
+  keywords: ["warning", "alert", "broadcast", "early", "evacuation"]
+  source_reference: "General Community Disaster Preparedness Practice"
+
+- id: "RC-02"
+  title: "Assisting High-Vulnerability Residents"
+  category: "Evacuation"
+  guidance: "Prioritize specialized transportation and support for elderly individuals, young children, pregnant women, and persons with mobility impairments before access routes become inundated."
+  keywords: ["vulnerable", "elderly", "children", "disability", "mobility", "special needs"]
+  source_reference: "Inclusive Disaster Risk Management Standard"
+
+- id: "RC-03"
+  title: "Vehicle Safety in Floodwaters"
+  category: "Logistics"
+  guidance: "Do not dispatch standard wheeled motor vehicles through roads with moving floodwaters deeper than knee level. Use boats or high-clearance specialized equipment when roads submerge."
+  keywords: ["vehicle", "truck", "boat", "water depth", "road", "transport"]
+  source_reference: "Transport and Road Safety Flooding Guidelines"
+
+- id: "RC-04"
+  title: "Embankment Sandbagging Best Practices"
+  category: "Infrastructure"
+  guidance: "Deploy sandbag barriers along low-lying bunds prior to the flood peak. Reinforcing bunds early slows down localized breaches and buys crucial hours for evacuation."
+  keywords: ["embankment", "sandbags", "reinforce", "breach", "bund", "dike"]
+  source_reference: "Community Flood Mitigation Handbook"
+
+- id: "RC-05"
+  title: "Safe Shelter Operations"
+  category: "Shelter"
+  guidance: "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security."
+  keywords: ["shelter", "school", "intake", "capacity", "elevated", "open"]
+  source_reference: "Emergency Shelter Management Protocols"

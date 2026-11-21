@@ -1,0 +1,13 @@
+disallowed_words:
+  - "corpse"
+  - "corpses"
+  - "gore"
+  - "blood"
+  - "bloody"
+  - "slaughter"
+  - "slaughtered"
+  - "mutilated"
+  - "decapitated"
+  - "rotting"
+  - "gruesome"
+  - "carnage"
