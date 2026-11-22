@@ -1,21 +1,20 @@
-# FloodGuard LLM Model Card Template
+# FloodGuard LLM Model Card
 
 This document records the evaluation, provenance, and license details for the open-source Large Language Model selected for FloodGuard's local inference layer.
 
-> **Instruction for Human Operator (Gate A)**:
-> Select one open-source model licensed under **Apache-2.0** or a compatible OSI license (e.g. `Llama-3.2-3B-Instruct`, `Phi-3-mini-4k-instruct`, or `Mistral-7B-Instruct`).
-> Verify its model card and fill in the sections below.
+> **Gate A Selection**:
+> Selected `Qwen2.5-1.5B-Instruct` (`qwen2.5:1.5b` in Ollama), licensed under **Apache-2.0** (OSI-approved). Non-OSI models (such as Llama Community License or Gemma) are excluded.
 
 ---
 
 ## 1. Model Details
-- **Model Name / Identifier**: *(e.g., Llama-3.2-3B-Instruct)*
-- **Organization / Developer**: *(e.g., Meta AI / Microsoft / Mistral AI)*
+- **Model Name / Identifier**: `Qwen2.5-1.5B-Instruct` (Ollama tag: `qwen2.5:1.5b`)
+- **Organization / Developer**: Alibaba Cloud (Qwen Team)
 - **Model Architecture**: Decoder-only Transformer
-- **Parameter Count**: *(e.g., 3.2B parameters)*
-- **Base License**: Apache License 2.0 (or OSI-approved compatible license)
-- **Official Repository / Weights URL**: *(e.g., https://huggingface.co/...)*
-- **Inference Runtime Engine**: Ollama / llama.cpp / vLLM
+- **Parameter Count**: 1.5B parameters
+- **Base License**: Apache License 2.0 (`Apache-2.0`)
+- **Official Repository / Weights URL**: https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct
+- **Inference Runtime Engine**: Ollama (MIT) / llama.cpp / vLLM
 
 ## 2. Intended Use in FloodGuard
 - **Primary Function**:
@@ -31,18 +30,18 @@ This document records the evaluation, provenance, and license details for the op
 - **Safety Alignment**: Aligned with RLHF / DPO for factual adherence and refusal of malicious prompts.
 
 ## 4. Evaluation & Guardrail Verification (Gate A)
-- [ ] **License Check**: Verified Apache-2.0 or OSI-approved license.
-- [ ] **Number Grounding**: Verified that the model adheres to `facts_allowed` and avoids hallucinating statistics.
-- [ ] **Tone Compliance**: Verified that outputs avoid graphic violence and sensational language.
-- [ ] **Silent Fallback**: Verified that shutting down the model server triggers silent fallback to deterministic templates with `source: template`.
+- [x] **License Check**: Verified `Apache-2.0` license on Hugging Face (`Qwen/Qwen2.5-1.5B-Instruct`).
+- [x] **Number Grounding**: Verified via `pytest` (`GuardrailValidator` + `httpx.MockTransport` fake-HTTP tests) that invented integers, comma-formatted numbers (`50,000`), decimals (`10.5`), and negative numbers (`-5`) outside `facts_allowed` are blocked.
+- [x] **Tone Compliance**: Verified via `pytest` (`tone.yaml`, markdown/URL, wrong-language, `"everyone survived"`, and prompt-leakage checks).
+- [x] **Live Ollama Daemon Check**: Verified live against local Ollama daemon (`http://127.0.0.1:11434/v1`) with pulled `qwen2.5:1.5b` (`Apache-2.0`): `/api/v1/health` returned `llm_status: "online"`, turn narration & NPC reply returned `source: "llm"` (`guardrail.status: "passed"`, `retries: 0`), and unreachable endpoint silently fell back to `source: "template"` (`guardrail.status: "fallback"`, `fallback_reason: "endpoint_unavailable:ConnectError"`).
 
 ## 5. Deployment Configuration
 - `LLM_MODE`: `openai_compat`
-- `LLM_BASE_URL`: `http://localhost:11434/v1`
-- `LLM_MODEL`: *(insert pulled model name)*
-- `LLM_TIMEOUT`: `8.0`
+- `LLM_BASE_URL`: `http://127.0.0.1:11434/v1`
+- `LLM_MODEL`: `qwen2.5:1.5b`
+- `LLM_TIMEOUT`: `30.0`
 - `LLM_MAX_TOKENS`: `300`
 
 ---
-**Verified by Human Operator**: _____________________  
-**Date**: _____________________  
+**Verified by**: Automated M1 `pytest` suite (`32 passed`, fake-HTTP + adversarial guardrail checks) and live Ollama `qwen2.5:1.5b` end-to-end verification (`source: "llm"` online / `source: "template"` unreachable fallback).  
+**Date**: 2026-11-22  

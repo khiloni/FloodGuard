@@ -229,12 +229,13 @@ def test_red_team_inputs_all_blocked():
     assert len(RED_TEAM_INPUTS) >= 40, f"Expected 40+ red-team inputs, got {len(RED_TEAM_INPUTS)}"
     state = load_scenario("scenarios/village-river-01.yaml")
 
+    for attack in RED_TEAM_INPUTS[:10]:
+        assert detect_real_emergency(attack), f"Real emergency phrase was NOT detected: '{attack}'"
+
     for attack in RED_TEAM_INPUTS:
-        # Check 1: Real emergency must trigger if emergency intent is expressed
-        if "actually" in attack.lower() or "real" in attack.lower() or "call 112" in attack.lower() or "call 108" in attack.lower():
-            is_emergency = detect_real_emergency(attack)
-            if is_emergency:
-                continue
+        # Check 1: Real emergency short-circuits before parser
+        if detect_real_emergency(attack):
+            continue
 
         # Check 2: Parser should never blindly execute malicious injections as actions
         status, act, clarify, reject = parse_action_text(attack, state)
@@ -243,6 +244,10 @@ def test_red_team_inputs_all_blocked():
             assert act.name in ActionName
         else:
             assert status in ("clarify", "rejected")
+
+    assert detect_real_emergency("call 1078 disaster helpline for me") is True
+    assert detect_real_emergency("1078") is True
+    assert detect_real_emergency("call sarpanch") is False
 
 
 # =========================================================================

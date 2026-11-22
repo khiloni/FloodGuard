@@ -37,20 +37,20 @@ API documentation is available at `http://localhost:10000/docs`.
 
 ### 2. Run with Local Open-Source LLM (Ollama)
 1. Install [Ollama](https://ollama.com/) (Open Source, MIT).
-2. Pull an Apache-2.0 licensed model (e.g., Llama 3.2 3B or Phi-3):
+2. Pull the Apache-2.0 licensed model (`qwen2.5:1.5b`):
    ```bash
-   ollama pull llama3.2:3b
+   ollama pull qwen2.5:1.5b
    ```
 3. Run the backend pointing to Ollama:
    ```bash
    # Windows PowerShell
    $env:LLM_MODE="openai_compat"
-   $env:LLM_BASE_URL="http://localhost:11434/v1"
-   $env:LLM_MODEL="llama3.2:3b"
+   $env:LLM_BASE_URL="http://127.0.0.1:11434/v1"
+   $env:LLM_MODEL="qwen2.5:1.5b"
    uvicorn app.main:app --port 10000 --reload
 
    # Linux / macOS
-   LLM_MODE=openai_compat LLM_BASE_URL=http://localhost:11434/v1 LLM_MODEL=llama3.2:3b uvicorn app.main:app --port 10000 --reload
+   LLM_MODE=openai_compat LLM_BASE_URL=http://127.0.0.1:11434/v1 LLM_MODEL=qwen2.5:1.5b uvicorn app.main:app --port 10000 --reload
    ```
 
 ### 3. Run Frontend Development Server

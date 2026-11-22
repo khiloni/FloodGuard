@@ -33,6 +33,8 @@ def generate_template_narration(state: State, events: List[Event]) -> str:
             narrative_lines.append(f"CRITICAL BREACH: {event.description}")
         elif event.type == EventType.RESIDENTS_EVACUATED:
             narrative_lines.append(f"Evacuation progress: {event.description}")
+        elif event.type == EventType.VULNERABLE_EVACUATED:
+            narrative_lines.append(f"Priority evacuation: {event.description}")
         elif event.type == EventType.CASUALTY_OCCURRED:
             narrative_lines.append(f"CASUALTIES REPORTED: {event.description}")
         elif event.type == EventType.SESSION_COMPLETED:
@@ -77,6 +79,7 @@ def get_facts_allowed_from_state_and_events(state: State, events: List[Event]) -
             z.boats_assigned,
             z.vehicles_assigned,
         })
+    facts.add(sum(z.safe_evacuated for z in state.zones.values()))
 
     for s in state.shelters.values():
         facts.update({s.capacity, s.current_occupancy, s.elevation_cm})

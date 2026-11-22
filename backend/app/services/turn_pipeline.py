@@ -11,8 +11,8 @@ from ..services.narration import generate_template_narration, get_facts_allowed_
 from ..services.npc import generate_npc_message
 from ..llm.openai_compat import (
     is_llm_enabled,
-    generate_llm_narration,
-    generate_llm_npc,
+    narrate,
+    npc_reply,
     parse_llm_action_fallback,
     get_llm_mode,
 )
@@ -36,6 +36,7 @@ def process_turn(
     """Execute the full turn pipeline:
     Validate -> Parse -> Check Preconditions -> Step Engine -> Narrate -> Guardrail -> Store
     """
+    llm_mode = get_llm_mode()
     session = store.get_session(session_id)
     if not session:
         return {
@@ -47,8 +48,11 @@ def process_turn(
             "events": [],
             "narration": {"text": "Session not found.", "source": "template"},
             "npc_messages": [],
-            "guardrail": {"status": "passed", "retries": 0},
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": llm_mode,
             "disclaimer": SHORT_DISCLAIMER,
+            "cited_rulecards": [],
         }
 
     state = State.model_validate(session["state"])
@@ -62,40 +66,77 @@ def process_turn(
             "events": [],
             "narration": {"text": "Simulation finished.", "source": "template"},
             "npc_messages": [],
-            "guardrail": {"status": "passed", "retries": 0},
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": llm_mode,
             "disclaimer": SHORT_DISCLAIMER,
+            "cited_rulecards": [],
         }
 
     input_type = turn_input.get("type", "button")
 
     # 1. Real Emergency Detector
+    emergency_text = ""
     if input_type == "text":
-        user_text = turn_input.get("text", "")
-        if detect_real_emergency(user_text):
-            return {
-                "status": "real_emergency",
-                "parsed_action": None,
-                "clarify": None,
-                "reject_reason": "REAL EMERGENCY DETECTED",
-                "state": state.model_dump(),
-                "events": [],
-                "narration": {"text": EMERGENCY_RESPONSE_MESSAGE, "source": "emergency_override"},
-                "npc_messages": [],
-                "guardrail": {"status": "passed", "retries": 0},
-                "disclaimer": EMERGENCY_RESPONSE_MESSAGE,
-            }
+        raw_text = turn_input.get("text")
+        emergency_text = raw_text if isinstance(raw_text, str) else ""
+    elif input_type == "button":
+        act_data_raw = turn_input.get("action")
+        if isinstance(act_data_raw, dict) and act_data_raw.get("name") == "consult_npc":
+            params_raw = act_data_raw.get("params")
+            if isinstance(params_raw, dict):
+                raw_msg = params_raw.get("user_message")
+                emergency_text = raw_msg if isinstance(raw_msg, str) else ""
+
+    if detect_real_emergency(emergency_text):
+        return {
+            "status": "real_emergency",
+            "parsed_action": None,
+            "clarify": None,
+            "reject_reason": "REAL EMERGENCY DETECTED",
+            "state": state.model_dump(),
+            "events": [],
+            "narration": {"text": EMERGENCY_RESPONSE_MESSAGE, "source": "emergency_override"},
+            "npc_messages": [],
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": "emergency_override"},
+            "source": "emergency_override",
+            "llm_mode": llm_mode,
+            "disclaimer": EMERGENCY_RESPONSE_MESSAGE,
+            "cited_rulecards": [],
+        }
 
     # 2. Action Parsing / Resolution
     parsed_action: Optional[Action] = None
     if input_type == "button":
-        act_data = turn_input.get("action", {})
+        act_data = turn_input.get("action")
+        if not isinstance(act_data, dict):
+            return {
+                "status": "rejected",
+                "parsed_action": None,
+                "clarify": None,
+                "reject_reason": "Invalid or missing button action payload.",
+                "state": state.model_dump(),
+                "events": [],
+                "narration": {"text": "Unrecognized button action.", "source": "template"},
+                "npc_messages": [],
+                "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+                "source": "template",
+                "llm_mode": llm_mode,
+                "disclaimer": SHORT_DISCLAIMER,
+                "cited_rulecards": [],
+            }
         try:
             name_val = ActionName(act_data.get("name"))
-            parsed_action = Action(name=name_val, params=act_data.get("params", {}))
+            params_val = act_data.get("params")
+            if params_val is None:
+                params_val = {}
+            if not isinstance(params_val, dict):
+                raise ValueError("Action params must be an object.")
+            parsed_action = Action(name=name_val, params=params_val)
             status = "ok"
             clarify = None
             reject_reason = None
-        except ValueError as err:
+        except (ValueError, TypeError) as err:
             return {
                 "status": "rejected",
                 "parsed_action": None,
@@ -105,11 +146,31 @@ def process_turn(
                 "events": [],
                 "narration": {"text": "Unrecognized button action.", "source": "template"},
                 "npc_messages": [],
-                "guardrail": {"status": "passed", "retries": 0},
+                "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+                "source": "template",
+                "llm_mode": llm_mode,
                 "disclaimer": SHORT_DISCLAIMER,
+                "cited_rulecards": [],
             }
-    else:
-        user_text = turn_input.get("text", "")
+    elif input_type == "text":
+        raw_text = turn_input.get("text")
+        if not isinstance(raw_text, str):
+            return {
+                "status": "rejected",
+                "parsed_action": None,
+                "clarify": None,
+                "reject_reason": "Invalid or missing text input.",
+                "state": state.model_dump(),
+                "events": [],
+                "narration": {"text": "Invalid text input.", "source": "template"},
+                "npc_messages": [],
+                "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+                "source": "template",
+                "llm_mode": llm_mode,
+                "disclaimer": SHORT_DISCLAIMER,
+                "cited_rulecards": [],
+            }
+        user_text = raw_text
         status, parsed_action, clarify, reject_reason = parse_action_text(user_text, state)
         # If ambiguous/unrecognized and LLM is enabled, attempt LLM fallback parsing
         if status == "clarify" and is_llm_enabled():
@@ -119,7 +180,29 @@ def process_turn(
             elif llm_status == "rejected":
                 status, parsed_action, clarify, reject_reason = "rejected", None, None, llm_reject
             elif llm_clarify:
-                clarify = llm_clarify
+                is_existing_generic = (
+                    not clarify
+                    or str(clarify.get("question", "")).startswith("Could not determine action from ")
+                )
+                is_llm_generic = str(llm_clarify.get("question", "")).startswith("Could not determine an action from ")
+                if is_existing_generic or not is_llm_generic:
+                    clarify = llm_clarify
+    else:
+        return {
+            "status": "rejected",
+            "parsed_action": None,
+            "clarify": None,
+            "reject_reason": f"Invalid input type: {input_type!r}.",
+            "state": state.model_dump(),
+            "events": [],
+            "narration": {"text": "Invalid input type.", "source": "template"},
+            "npc_messages": [],
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": llm_mode,
+            "disclaimer": SHORT_DISCLAIMER,
+            "cited_rulecards": [],
+        }
 
     # If clarify or rejected: state and time DO NOT advance!
     if status in ("clarify", "rejected"):
@@ -135,8 +218,11 @@ def process_turn(
                 "source": "template",
             },
             "npc_messages": [],
-            "guardrail": {"status": "passed", "retries": 0},
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": llm_mode,
             "disclaimer": SHORT_DISCLAIMER,
+            "cited_rulecards": [],
         }
 
     # 3. Validate Preconditions
@@ -151,8 +237,11 @@ def process_turn(
             "events": [],
             "narration": {"text": reject_msg, "source": "template"},
             "npc_messages": [],
-            "guardrail": {"status": "passed", "retries": 0},
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": llm_mode,
             "disclaimer": SHORT_DISCLAIMER,
+            "cited_rulecards": [],
         }
 
     # 4. Advance Engine Step Deterministically
@@ -164,11 +253,10 @@ def process_turn(
     # 5. Retrieve Educational Rule Card (RAG)
     query_str = f"{parsed_action.name.value} {' '.join(str(v) for v in parsed_action.params.values())}"
     relevant_cards = retriever.query(query_str, top_k=1)
-    cited_cards = [c["id"] for c in relevant_cards] if relevant_cards else []
 
     # 6. Generate Narration and NPC Dialogue (LLM or Template Fallback)
     facts_allowed = get_facts_allowed_from_state_and_events(new_state, events)
-    narration_text, final_cited, narration_source, n_retries = generate_llm_narration(
+    nar_res = narrate(
         state=new_state,
         events=events,
         rule_cards=relevant_cards,
@@ -179,11 +267,11 @@ def process_turn(
 
     # NPC responses for consultation
     npc_messages: List[Dict[str, Any]] = []
-    npc_retries = 0
+    npc_res = None
     if parsed_action.name == ActionName.CONSULT_NPC:
         npc_id = parsed_action.params.get("npc_id", "village_head")
         user_msg = parsed_action.params.get("user_message", "")
-        npc_text, _, npc_source, npc_retries = generate_llm_npc(
+        npc_res = npc_reply(
             npc_id=npc_id,
             state=new_state,
             events=events,
@@ -194,12 +282,17 @@ def process_turn(
         )
         npc_messages.append({
             "npc_id": npc_id,
-            "text": npc_text,
-            "source": npc_source,
+            "text": npc_res.text,
+            "source": npc_res.source,
         })
 
-    total_retries = n_retries + npc_retries
-    guardrail_status = "passed" if (narration_source == "llm" or not is_llm_enabled()) else "fallback"
+    total_retries = nar_res.retries + (npc_res.retries if npc_res else 0)
+    if nar_res.status == "fallback" or (npc_res is not None and npc_res.status == "fallback"):
+        guardrail_status = "fallback"
+        fallback_reason = nar_res.reason or (npc_res.reason if npc_res else None)
+    else:
+        guardrail_status = "passed"
+        fallback_reason = None
 
     # 8. Store Session Update
     actions_list = session["actions"]
@@ -222,6 +315,10 @@ def process_turn(
             target=ev.target,
         )
 
+    top_source = nar_res.source
+    if npc_res is not None and (nar_res.source == "template" or npc_res.source == "template"):
+        top_source = "template"
+
     return {
         "status": "ok",
         "parsed_action": parsed_action.model_dump(),
@@ -229,11 +326,15 @@ def process_turn(
         "reject_reason": None,
         "state": new_state.model_dump(),
         "events": [e.model_dump() for e in events],
-        "narration": {"text": narration_text, "source": narration_source},
+        "narration": {"text": nar_res.text, "source": nar_res.source},
         "npc_messages": npc_messages,
-        "guardrail": {"status": guardrail_status, "retries": total_retries},
-        "source": narration_source,
-        "llm_mode": get_llm_mode(),
+        "guardrail": {
+            "status": guardrail_status,
+            "retries": total_retries,
+            "fallback_reason": fallback_reason,
+        },
+        "source": top_source,
+        "llm_mode": llm_mode,
         "disclaimer": SHORT_DISCLAIMER,
         "cited_rulecards": relevant_cards,
     }

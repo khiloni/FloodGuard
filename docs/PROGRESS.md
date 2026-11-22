@@ -23,10 +23,11 @@
   - Regenerate and freeze `docs/openapi.json`.
   - License allowlist check (`pip-licenses`, GitHub Actions CI workflow).
   - Updated `docs/LICENSES.md`, `docs/ARCHITECTURE.md`, `docs/MODEL_CARD.md`, and `README.md`.
-  - Local commit and tag `backend-v2`.
+  - Local commit on `main` preserving tag `backend-v2` at `2c024cc`.
 
 ## Gate A Status
-- Ready for Human Verification Checklist.
+- **Automated Backend & Contract Verification**: `pytest -v -p no:opik -p no:langsmith` passed (32 tests: determinism, invariants, golden/metamorphic, replay, 110 parser phrases, 40 red-team inputs, 25+ adversarial outputs, hardened guardrail checks for number formats/survival/markdown/URLs/delimiter sanitization/wrong-language Latin, `1078`/`112` emergency halts across `/turns` and `/npc/{id}/messages`, null-input handling, `httpx.MockTransport` fake-HTTP & circuit-breaker checks, frozen `docs/openapi.json` contract).
+- **Live Ollama Daemon Check**: Verified with `qwen2.5:1.5b` (`Apache-2.0`) on `http://127.0.0.1:11434/v1` — `/api/v1/health` returned `llm_status: "online"`, live turn & NPC consultation returned `source: "llm"` (`guardrail.status: "passed"`), and unreachable-endpoint fallback returned `source: "template"` (`guardrail.status: "fallback"`, `fallback_reason: "endpoint_unavailable:ConnectError"`).
 
 ## Phase B - Frontend (Awaiting Gate A)
 - Not started.

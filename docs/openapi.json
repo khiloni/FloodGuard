@@ -15,7 +15,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
               }
             }
           }
@@ -31,7 +33,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/MetaResponse"
+                }
               }
             }
           }
@@ -47,7 +51,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/ScenariosListResponse"
+                }
               }
             }
           }
@@ -73,7 +79,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/CreateSessionResponse"
+                }
               }
             }
           },
@@ -110,7 +118,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/SessionStateResponse"
+                }
               }
             }
           },
@@ -157,7 +167,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/TurnResponse"
+                }
               }
             }
           },
@@ -213,7 +225,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/NPCMessageResponse"
+                }
               }
             }
           },
@@ -250,7 +264,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/SessionLogResponse"
+                }
               }
             }
           },
@@ -287,7 +303,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/SessionReportResponse"
+                }
               }
             }
           },
@@ -324,44 +342,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
+                  "$ref": "#/components/schemas/EndSessionResponse"
                 }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/{full_path}": {
-      "get": {
-        "summary": "Serve Frontend",
-        "operationId": "serve_frontend__full_path__get",
-        "parameters": [
-          {
-            "name": "full_path",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Full Path"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful Response",
-            "content": {
-              "application/json": {
-                "schema": {}
               }
             }
           },
@@ -381,6 +364,75 @@
   },
   "components": {
     "schemas": {
+      "Action": {
+        "properties": {
+          "name": {
+            "$ref": "#/components/schemas/ActionName"
+          },
+          "params": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Params"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name"
+        ],
+        "title": "Action"
+      },
+      "ActionName": {
+        "type": "string",
+        "enum": [
+          "issue_warning",
+          "order_evacuation",
+          "assign_transport",
+          "prioritize_vulnerable",
+          "open_shelter",
+          "reinforce_embankment",
+          "consult_npc",
+          "wait"
+        ],
+        "title": "ActionName"
+      },
+      "CanvasModel": {
+        "properties": {
+          "width": {
+            "type": "integer",
+            "title": "Width",
+            "default": 1000
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height",
+            "default": 600
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "CanvasModel"
+      },
+      "ClarifyOut": {
+        "properties": {
+          "question": {
+            "type": "string",
+            "title": "Question"
+          },
+          "options": {
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            },
+            "type": "array",
+            "title": "Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "question",
+          "options"
+        ],
+        "title": "ClarifyOut"
+      },
       "CreateSessionRequest": {
         "properties": {
           "scenario_id": {
@@ -413,6 +465,304 @@
         "type": "object",
         "title": "CreateSessionRequest"
       },
+      "CreateSessionResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "seed": {
+            "type": "integer",
+            "title": "Seed"
+          },
+          "state": {
+            "$ref": "#/components/schemas/State"
+          },
+          "layout": {
+            "$ref": "#/components/schemas/LayoutModel"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/StateSummary"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "seed",
+          "state",
+          "layout",
+          "summary",
+          "disclaimer"
+        ],
+        "title": "CreateSessionResponse"
+      },
+      "DecorModel": {
+        "properties": {
+          "trees": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Trees"
+          },
+          "jetty": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Jetty"
+          },
+          "bridges": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Bridges"
+          },
+          "hills": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Hills"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "DecorModel"
+      },
+      "EmbankmentLayoutModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "crest_height_cm": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Crest Height Cm"
+          },
+          "segments": {
+            "items": {
+              "$ref": "#/components/schemas/EmbankmentSegmentModel"
+            },
+            "type": "array",
+            "title": "Segments"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "EmbankmentLayoutModel"
+      },
+      "EmbankmentSegmentModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "start": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Start"
+          },
+          "end": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "End"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "id"
+        ],
+        "title": "EmbankmentSegmentModel"
+      },
+      "EmbankmentState": {
+        "properties": {
+          "height_cm": {
+            "type": "integer",
+            "title": "Height Cm"
+          },
+          "integrity": {
+            "type": "integer",
+            "title": "Integrity"
+          },
+          "breached": {
+            "type": "boolean",
+            "title": "Breached"
+          },
+          "reinforced_count": {
+            "type": "integer",
+            "title": "Reinforced Count"
+          }
+        },
+        "type": "object",
+        "required": [
+          "height_cm",
+          "integrity",
+          "breached",
+          "reinforced_count"
+        ],
+        "title": "EmbankmentState"
+      },
+      "EndSessionResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "score": {
+            "$ref": "#/components/schemas/ScoreBreakdown"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "score"
+        ],
+        "title": "EndSessionResponse"
+      },
+      "EventOut": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "tick": {
+            "type": "integer",
+            "title": "Tick"
+          },
+          "zone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zone"
+          },
+          "target": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Target"
+          },
+          "caused_by": {
+            "type": "string",
+            "title": "Caused By"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "details": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Details"
+          },
+          "event_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Event Type"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "type",
+          "tick",
+          "caused_by",
+          "description"
+        ],
+        "title": "EventOut"
+      },
+      "GuardrailOut": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "retries": {
+            "type": "integer",
+            "title": "Retries"
+          },
+          "fallback_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fallback Reason"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "retries"
+        ],
+        "title": "GuardrailOut"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -426,6 +776,221 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "llm_mode": {
+            "type": "string",
+            "title": "Llm Mode"
+          },
+          "llm_status": {
+            "type": "string",
+            "title": "Llm Status"
+          },
+          "db": {
+            "type": "string",
+            "title": "Db"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "llm_mode",
+          "llm_status",
+          "db",
+          "version"
+        ],
+        "title": "HealthResponse"
+      },
+      "LayoutModel": {
+        "properties": {
+          "canvas": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CanvasModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "levels": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LevelsModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "river": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RiverModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "embankment": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/EmbankmentLayoutModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "zones": {
+            "items": {
+              "$ref": "#/components/schemas/ZoneLayoutModel"
+            },
+            "type": "array",
+            "title": "Zones"
+          },
+          "shelters": {
+            "items": {
+              "$ref": "#/components/schemas/ShelterLayoutModel"
+            },
+            "type": "array",
+            "title": "Shelters"
+          },
+          "routes": {
+            "items": {
+              "$ref": "#/components/schemas/RouteLayoutModel"
+            },
+            "type": "array",
+            "title": "Routes"
+          },
+          "decor": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DecorModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "LayoutModel"
+      },
+      "LevelsModel": {
+        "properties": {
+          "normal_level_cm": {
+            "type": "integer",
+            "title": "Normal Level Cm",
+            "default": 200
+          },
+          "warning_level_cm": {
+            "type": "integer",
+            "title": "Warning Level Cm",
+            "default": 300
+          },
+          "danger_level_cm": {
+            "type": "integer",
+            "title": "Danger Level Cm",
+            "default": 380
+          },
+          "crest_level_cm": {
+            "type": "integer",
+            "title": "Crest Level Cm",
+            "default": 475
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "LevelsModel"
+      },
+      "MetaResponse": {
+        "properties": {
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          },
+          "emergency_helpline": {
+            "type": "string",
+            "title": "Emergency Helpline"
+          },
+          "disaster_helpline": {
+            "type": "string",
+            "title": "Disaster Helpline"
+          },
+          "supported_languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Supported Languages"
+          },
+          "llm_mode": {
+            "type": "string",
+            "title": "Llm Mode"
+          },
+          "llm_status": {
+            "type": "string",
+            "title": "Llm Status"
+          },
+          "example_commands": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Example Commands"
+          }
+        },
+        "type": "object",
+        "required": [
+          "version",
+          "disclaimer",
+          "emergency_helpline",
+          "disaster_helpline",
+          "supported_languages",
+          "llm_mode",
+          "llm_status",
+          "example_commands"
+        ],
+        "title": "MetaResponse"
+      },
+      "NPCMessageOut": {
+        "properties": {
+          "npc_id": {
+            "type": "string",
+            "title": "Npc Id"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "npc_id",
+          "text",
+          "source"
+        ],
+        "title": "NPCMessageOut"
+      },
       "NPCMessageRequest": {
         "properties": {
           "message": {
@@ -436,6 +1001,840 @@
         },
         "type": "object",
         "title": "NPCMessageRequest"
+      },
+      "NPCMessageResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "parsed_action": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Action"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clarify": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClarifyOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reject_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reject Reason"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/State"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "layout": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LayoutModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StateSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/EventOut"
+            },
+            "type": "array",
+            "title": "Events"
+          },
+          "narration": {
+            "$ref": "#/components/schemas/NarrationOut"
+          },
+          "npc_messages": {
+            "items": {
+              "$ref": "#/components/schemas/NPCMessageOut"
+            },
+            "type": "array",
+            "title": "Npc Messages"
+          },
+          "guardrail": {
+            "$ref": "#/components/schemas/GuardrailOut"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": "template"
+          },
+          "llm_mode": {
+            "type": "string",
+            "title": "Llm Mode",
+            "default": "template"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          },
+          "cited_rulecards": {
+            "items": {
+              "$ref": "#/components/schemas/RuleCardOut"
+            },
+            "type": "array",
+            "title": "Cited Rulecards"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "narration",
+          "guardrail",
+          "disclaimer"
+        ],
+        "title": "NPCMessageResponse"
+      },
+      "NarrationOut": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Text"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text",
+          "source"
+        ],
+        "title": "NarrationOut"
+      },
+      "ResourceState": {
+        "properties": {
+          "total_boats": {
+            "type": "integer",
+            "title": "Total Boats"
+          },
+          "available_boats": {
+            "type": "integer",
+            "title": "Available Boats"
+          },
+          "boat_capacity": {
+            "type": "integer",
+            "title": "Boat Capacity"
+          },
+          "total_vehicles": {
+            "type": "integer",
+            "title": "Total Vehicles"
+          },
+          "available_vehicles": {
+            "type": "integer",
+            "title": "Available Vehicles"
+          },
+          "vehicle_capacity": {
+            "type": "integer",
+            "title": "Vehicle Capacity"
+          },
+          "sandbags": {
+            "type": "integer",
+            "title": "Sandbags"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_boats",
+          "available_boats",
+          "boat_capacity",
+          "total_vehicles",
+          "available_vehicles",
+          "vehicle_capacity",
+          "sandbags"
+        ],
+        "title": "ResourceState"
+      },
+      "RiverModel": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "flow_direction": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Flow Direction"
+          },
+          "center_path": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Center Path"
+          },
+          "north_bank": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "North Bank"
+          },
+          "south_bank": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "South Bank"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "RiverModel"
+      },
+      "RouteLayoutModel": {
+        "properties": {
+          "zone_id": {
+            "type": "string",
+            "title": "Zone Id"
+          },
+          "shelter_id": {
+            "type": "string",
+            "title": "Shelter Id"
+          },
+          "transport_modes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Transport Modes"
+          },
+          "road_cutoff_depth_cm": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Road Cutoff Depth Cm"
+          },
+          "waypoints": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "Waypoints"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "zone_id",
+          "shelter_id"
+        ],
+        "title": "RouteLayoutModel"
+      },
+      "RuleCardOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "category": {
+            "type": "string",
+            "title": "Category"
+          },
+          "guidance": {
+            "type": "string",
+            "title": "Guidance"
+          },
+          "keywords": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Keywords"
+          },
+          "source_reference": {
+            "type": "string",
+            "title": "Source Reference"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "category",
+          "guidance",
+          "source_reference"
+        ],
+        "title": "RuleCardOut"
+      },
+      "ScenarioSummary": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "version": {
+            "type": "string",
+            "title": "Version"
+          },
+          "total_ticks": {
+            "type": "integer",
+            "title": "Total Ticks"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "layout": {
+            "$ref": "#/components/schemas/LayoutModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "version",
+          "total_ticks",
+          "description",
+          "layout"
+        ],
+        "title": "ScenarioSummary"
+      },
+      "ScenariosListResponse": {
+        "properties": {
+          "scenarios": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioSummary"
+            },
+            "type": "array",
+            "title": "Scenarios"
+          }
+        },
+        "type": "object",
+        "required": [
+          "scenarios"
+        ],
+        "title": "ScenariosListResponse"
+      },
+      "ScoreBreakdown": {
+        "properties": {
+          "total_score": {
+            "type": "integer",
+            "title": "Total Score"
+          },
+          "residents_safe_score": {
+            "type": "integer",
+            "title": "Residents Safe Score"
+          },
+          "vulnerable_protected_score": {
+            "type": "integer",
+            "title": "Vulnerable Protected Score"
+          },
+          "response_time_score": {
+            "type": "integer",
+            "title": "Response Time Score"
+          },
+          "resource_efficiency_score": {
+            "type": "integer",
+            "title": "Resource Efficiency Score"
+          },
+          "infrastructure_preserved_score": {
+            "type": "integer",
+            "title": "Infrastructure Preserved Score"
+          },
+          "details": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Details"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_score",
+          "residents_safe_score",
+          "vulnerable_protected_score",
+          "response_time_score",
+          "resource_efficiency_score",
+          "infrastructure_preserved_score"
+        ],
+        "title": "ScoreBreakdown"
+      },
+      "SessionLogResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "scenario_id": {
+            "type": "string",
+            "title": "Scenario Id"
+          },
+          "seed": {
+            "type": "integer",
+            "title": "Seed"
+          },
+          "actions": {
+            "items": {
+              "$ref": "#/components/schemas/Action"
+            },
+            "type": "array",
+            "title": "Actions"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/EventOut"
+            },
+            "type": "array",
+            "title": "Events"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "scenario_id",
+          "seed",
+          "actions",
+          "events"
+        ],
+        "title": "SessionLogResponse"
+      },
+      "SessionReportResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "score": {
+            "$ref": "#/components/schemas/ScoreBreakdown"
+          },
+          "final_state": {
+            "$ref": "#/components/schemas/State"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/EventOut"
+            },
+            "type": "array",
+            "title": "Events"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "score",
+          "final_state",
+          "events",
+          "disclaimer"
+        ],
+        "title": "SessionReportResponse"
+      },
+      "SessionStateResponse": {
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "title": "Session Id"
+          },
+          "state": {
+            "$ref": "#/components/schemas/State"
+          },
+          "layout": {
+            "$ref": "#/components/schemas/LayoutModel"
+          },
+          "summary": {
+            "$ref": "#/components/schemas/StateSummary"
+          },
+          "is_ended": {
+            "type": "boolean",
+            "title": "Is Ended"
+          }
+        },
+        "type": "object",
+        "required": [
+          "session_id",
+          "state",
+          "layout",
+          "summary",
+          "is_ended"
+        ],
+        "title": "SessionStateResponse"
+      },
+      "ShelterLayoutModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "x": {
+            "type": "integer",
+            "title": "X"
+          },
+          "y": {
+            "type": "integer",
+            "title": "Y"
+          },
+          "width": {
+            "type": "integer",
+            "title": "Width"
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height"
+          },
+          "elevation_cm": {
+            "type": "integer",
+            "title": "Elevation Cm"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "x",
+          "y",
+          "width",
+          "height",
+          "elevation_cm"
+        ],
+        "title": "ShelterLayoutModel"
+      },
+      "ShelterState": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "elevation_cm": {
+            "type": "integer",
+            "title": "Elevation Cm"
+          },
+          "capacity": {
+            "type": "integer",
+            "title": "Capacity"
+          },
+          "current_occupancy": {
+            "type": "integer",
+            "title": "Current Occupancy"
+          },
+          "is_open": {
+            "type": "boolean",
+            "title": "Is Open"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "elevation_cm",
+          "capacity",
+          "current_occupancy",
+          "is_open"
+        ],
+        "title": "ShelterState"
+      },
+      "ShelterSummary": {
+        "properties": {
+          "occupancy": {
+            "type": "integer",
+            "title": "Occupancy"
+          },
+          "capacity": {
+            "type": "integer",
+            "title": "Capacity"
+          },
+          "is_open": {
+            "type": "boolean",
+            "title": "Is Open"
+          }
+        },
+        "type": "object",
+        "required": [
+          "occupancy",
+          "capacity",
+          "is_open"
+        ],
+        "title": "ShelterSummary"
+      },
+      "State": {
+        "properties": {
+          "scenario_id": {
+            "type": "string",
+            "title": "Scenario Id"
+          },
+          "scenario_version": {
+            "type": "string",
+            "title": "Scenario Version"
+          },
+          "tick": {
+            "type": "integer",
+            "title": "Tick"
+          },
+          "max_ticks": {
+            "type": "integer",
+            "title": "Max Ticks"
+          },
+          "water_level_cm": {
+            "type": "integer",
+            "title": "Water Level Cm"
+          },
+          "forecast_cm": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Forecast Cm"
+          },
+          "zones": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ZoneState"
+            },
+            "type": "object",
+            "title": "Zones"
+          },
+          "shelters": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ShelterState"
+            },
+            "type": "object",
+            "title": "Shelters"
+          },
+          "resources": {
+            "$ref": "#/components/schemas/ResourceState"
+          },
+          "embankment": {
+            "$ref": "#/components/schemas/EmbankmentState"
+          },
+          "first_warning_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Warning Tick"
+          },
+          "first_evacuation_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Evacuation Tick"
+          },
+          "is_finished": {
+            "type": "boolean",
+            "title": "Is Finished",
+            "default": false
+          },
+          "score": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ScoreBreakdown"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "scenario_id",
+          "scenario_version",
+          "tick",
+          "max_ticks",
+          "water_level_cm",
+          "forecast_cm",
+          "zones",
+          "shelters",
+          "resources",
+          "embankment"
+        ],
+        "title": "State"
+      },
+      "StateSummary": {
+        "properties": {
+          "water_level_cm": {
+            "type": "integer",
+            "title": "Water Level Cm"
+          },
+          "normal_level_cm": {
+            "type": "integer",
+            "title": "Normal Level Cm"
+          },
+          "warning_level_cm": {
+            "type": "integer",
+            "title": "Warning Level Cm"
+          },
+          "danger_level_cm": {
+            "type": "integer",
+            "title": "Danger Level Cm"
+          },
+          "crest_level_cm": {
+            "type": "integer",
+            "title": "Crest Level Cm"
+          },
+          "embankment_integrity": {
+            "type": "integer",
+            "title": "Embankment Integrity"
+          },
+          "embankment_height_cm": {
+            "type": "integer",
+            "title": "Embankment Height Cm"
+          },
+          "embankment_breached": {
+            "type": "boolean",
+            "title": "Embankment Breached"
+          },
+          "shelter": {
+            "$ref": "#/components/schemas/ShelterSummary"
+          },
+          "transport": {
+            "$ref": "#/components/schemas/TransportSummary"
+          },
+          "zones": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ZoneSummary"
+            },
+            "type": "object",
+            "title": "Zones"
+          }
+        },
+        "type": "object",
+        "required": [
+          "water_level_cm",
+          "normal_level_cm",
+          "warning_level_cm",
+          "danger_level_cm",
+          "crest_level_cm",
+          "embankment_integrity",
+          "embankment_height_cm",
+          "embankment_breached",
+          "shelter",
+          "transport",
+          "zones"
+        ],
+        "title": "StateSummary"
+      },
+      "TransportSummary": {
+        "properties": {
+          "boats_total": {
+            "type": "integer",
+            "title": "Boats Total"
+          },
+          "boats_available": {
+            "type": "integer",
+            "title": "Boats Available"
+          },
+          "boats_in_use": {
+            "type": "integer",
+            "title": "Boats In Use"
+          },
+          "vehicles_total": {
+            "type": "integer",
+            "title": "Vehicles Total"
+          },
+          "vehicles_available": {
+            "type": "integer",
+            "title": "Vehicles Available"
+          },
+          "vehicles_in_use": {
+            "type": "integer",
+            "title": "Vehicles In Use"
+          }
+        },
+        "type": "object",
+        "required": [
+          "boats_total",
+          "boats_available",
+          "boats_in_use",
+          "vehicles_total",
+          "vehicles_available",
+          "vehicles_in_use"
+        ],
+        "title": "TransportSummary"
       },
       "TurnRequest": {
         "properties": {
@@ -450,6 +1849,124 @@
           "input"
         ],
         "title": "TurnRequest"
+      },
+      "TurnResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "parsed_action": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Action"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clarify": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClarifyOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reject_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reject Reason"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/State"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "layout": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LayoutModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "summary": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StateSummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/EventOut"
+            },
+            "type": "array",
+            "title": "Events"
+          },
+          "narration": {
+            "$ref": "#/components/schemas/NarrationOut"
+          },
+          "npc_messages": {
+            "items": {
+              "$ref": "#/components/schemas/NPCMessageOut"
+            },
+            "type": "array",
+            "title": "Npc Messages"
+          },
+          "guardrail": {
+            "$ref": "#/components/schemas/GuardrailOut"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source",
+            "default": "template"
+          },
+          "llm_mode": {
+            "type": "string",
+            "title": "Llm Mode",
+            "default": "template"
+          },
+          "disclaimer": {
+            "type": "string",
+            "title": "Disclaimer"
+          },
+          "cited_rulecards": {
+            "items": {
+              "$ref": "#/components/schemas/RuleCardOut"
+            },
+            "type": "array",
+            "title": "Cited Rulecards"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "narration",
+          "guardrail",
+          "disclaimer"
+        ],
+        "title": "TurnResponse"
       },
       "ValidationError": {
         "properties": {
@@ -483,6 +2000,232 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "ZoneLayoutModel": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "x": {
+            "type": "integer",
+            "title": "X"
+          },
+          "y": {
+            "type": "integer",
+            "title": "Y"
+          },
+          "width": {
+            "type": "integer",
+            "title": "Width"
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height"
+          },
+          "elevation_cm": {
+            "type": "integer",
+            "title": "Elevation Cm"
+          },
+          "house_points": {
+            "items": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "title": "House Points"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "x",
+          "y",
+          "width",
+          "height",
+          "elevation_cm"
+        ],
+        "title": "ZoneLayoutModel"
+      },
+      "ZoneState": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "elevation_cm": {
+            "type": "integer",
+            "title": "Elevation Cm"
+          },
+          "initial_population": {
+            "type": "integer",
+            "title": "Initial Population"
+          },
+          "population_remaining": {
+            "type": "integer",
+            "title": "Population Remaining"
+          },
+          "initial_vulnerable": {
+            "type": "integer",
+            "title": "Initial Vulnerable"
+          },
+          "vulnerable_remaining": {
+            "type": "integer",
+            "title": "Vulnerable Remaining"
+          },
+          "safe_evacuated": {
+            "type": "integer",
+            "title": "Safe Evacuated"
+          },
+          "vulnerable_saved": {
+            "type": "integer",
+            "title": "Vulnerable Saved"
+          },
+          "in_transit": {
+            "type": "integer",
+            "title": "In Transit"
+          },
+          "lost": {
+            "type": "integer",
+            "title": "Lost"
+          },
+          "water_depth_cm": {
+            "type": "integer",
+            "title": "Water Depth Cm"
+          },
+          "evacuation_ordered": {
+            "type": "boolean",
+            "title": "Evacuation Ordered"
+          },
+          "warning_level": {
+            "type": "integer",
+            "title": "Warning Level"
+          },
+          "prioritize_vulnerable": {
+            "type": "boolean",
+            "title": "Prioritize Vulnerable"
+          },
+          "boats_assigned": {
+            "type": "integer",
+            "title": "Boats Assigned"
+          },
+          "vehicles_assigned": {
+            "type": "integer",
+            "title": "Vehicles Assigned"
+          },
+          "road_flooded": {
+            "type": "boolean",
+            "title": "Road Flooded"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "elevation_cm",
+          "initial_population",
+          "population_remaining",
+          "initial_vulnerable",
+          "vulnerable_remaining",
+          "safe_evacuated",
+          "vulnerable_saved",
+          "in_transit",
+          "lost",
+          "water_depth_cm",
+          "evacuation_ordered",
+          "warning_level",
+          "prioritize_vulnerable",
+          "boats_assigned",
+          "vehicles_assigned",
+          "road_flooded"
+        ],
+        "title": "ZoneState"
+      },
+      "ZoneSummary": {
+        "properties": {
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          },
+          "population_remaining": {
+            "type": "integer",
+            "title": "Population Remaining"
+          },
+          "safe_evacuated": {
+            "type": "integer",
+            "title": "Safe Evacuated"
+          },
+          "in_transit": {
+            "type": "integer",
+            "title": "In Transit"
+          },
+          "vulnerable_remaining": {
+            "type": "integer",
+            "title": "Vulnerable Remaining"
+          },
+          "vulnerable_saved": {
+            "type": "integer",
+            "title": "Vulnerable Saved"
+          },
+          "water_depth_cm": {
+            "type": "integer",
+            "title": "Water Depth Cm"
+          },
+          "road_flooded": {
+            "type": "boolean",
+            "title": "Road Flooded"
+          },
+          "evacuation_ordered": {
+            "type": "boolean",
+            "title": "Evacuation Ordered"
+          },
+          "warning_level": {
+            "type": "integer",
+            "title": "Warning Level"
+          },
+          "boats_assigned": {
+            "type": "integer",
+            "title": "Boats Assigned"
+          },
+          "vehicles_assigned": {
+            "type": "integer",
+            "title": "Vehicles Assigned"
+          }
+        },
+        "type": "object",
+        "required": [
+          "population_remaining",
+          "safe_evacuated",
+          "in_transit",
+          "vulnerable_remaining",
+          "vulnerable_saved",
+          "water_depth_cm",
+          "road_flooded",
+          "evacuation_ordered",
+          "warning_level",
+          "boats_assigned",
+          "vehicles_assigned"
+        ],
+        "title": "ZoneSummary"
       }
     }
   }

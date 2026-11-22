@@ -8,12 +8,13 @@ from fastapi import FastAPI, HTTPException, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 from .engine.loader import load_scenario, load_scenario_config
-from .engine.models import State, Action, ActionName
+from .engine.models import State, Action, ActionName, ScoreBreakdown
 from .engine.scoring import calculate_score
 from .guardrail.validator import GuardrailValidator
+from .llm.openai_compat import get_llm_mode, get_llm_status
 from .services.turn_pipeline import process_turn
 from .services.npc import generate_npc_message
 from .store.sqlite import SessionStore
@@ -28,7 +29,7 @@ if not os.path.exists(STATIC_DIR):
     STATIC_DIR = os.path.join(BACKEND_DIR, "static")
 
 # SQLite store
-DB_PATH = os.path.join(BACKEND_DIR, "floodguard.db")
+DB_PATH = os.environ.get("FLOODGUARD_DB_PATH") or os.path.join(BACKEND_DIR, "floodguard.db")
 store = SessionStore(DB_PATH)
 
 # Validator
@@ -181,18 +182,289 @@ class NPCMessageRequest(BaseModel):
     message: str = ""
 
 
+class HealthResponse(BaseModel):
+    status: str
+    llm_mode: str
+    llm_status: str
+    db: str
+    version: str
+
+
+class MetaResponse(BaseModel):
+    version: str
+    disclaimer: str
+    emergency_helpline: str
+    disaster_helpline: str
+    supported_languages: List[str]
+    llm_mode: str
+    llm_status: str
+    example_commands: List[str]
+
+
+class CanvasModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    width: int = 1000
+    height: int = 600
+
+
+class LevelsModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    normal_level_cm: int = 200
+    warning_level_cm: int = 300
+    danger_level_cm: int = 380
+    crest_level_cm: int = 475
+
+
+class RiverModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    name: Optional[str] = None
+    flow_direction: Optional[str] = None
+    center_path: List[List[int]] = Field(default_factory=list)
+    north_bank: List[List[int]] = Field(default_factory=list)
+    south_bank: List[List[int]] = Field(default_factory=list)
+
+
+class EmbankmentSegmentModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    id: str
+    start: List[int] = Field(default_factory=list)
+    end: List[int] = Field(default_factory=list)
+    label: Optional[str] = None
+
+
+class EmbankmentLayoutModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    name: Optional[str] = None
+    crest_height_cm: Optional[int] = None
+    segments: List[EmbankmentSegmentModel] = Field(default_factory=list)
+
+
+class ZoneLayoutModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    id: str
+    name: str
+    x: int
+    y: int
+    width: int
+    height: int
+    elevation_cm: int
+    house_points: List[List[int]] = Field(default_factory=list)
+
+
+class ShelterLayoutModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    id: str
+    name: str
+    x: int
+    y: int
+    width: int
+    height: int
+    elevation_cm: int
+
+
+class RouteLayoutModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    zone_id: str
+    shelter_id: str
+    transport_modes: List[str] = Field(default_factory=list)
+    road_cutoff_depth_cm: Optional[int] = None
+    waypoints: List[List[int]] = Field(default_factory=list)
+
+
+class DecorModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    trees: List[List[int]] = Field(default_factory=list)
+    jetty: Optional[Dict[str, Any]] = None
+    bridges: List[Dict[str, Any]] = Field(default_factory=list)
+    hills: List[List[int]] = Field(default_factory=list)
+
+
+class LayoutModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    canvas: Optional[CanvasModel] = None
+    levels: Optional[LevelsModel] = None
+    river: Optional[RiverModel] = None
+    embankment: Optional[EmbankmentLayoutModel] = None
+    zones: List[ZoneLayoutModel] = Field(default_factory=list)
+    shelters: List[ShelterLayoutModel] = Field(default_factory=list)
+    routes: List[RouteLayoutModel] = Field(default_factory=list)
+    decor: Optional[DecorModel] = None
+
+
+class ScenarioSummary(BaseModel):
+    id: str
+    name: str
+    version: str
+    total_ticks: int
+    description: str
+    layout: LayoutModel
+
+
+class ScenariosListResponse(BaseModel):
+    scenarios: List[ScenarioSummary]
+
+
+class ShelterSummary(BaseModel):
+    occupancy: int
+    capacity: int
+    is_open: bool
+
+
+class TransportSummary(BaseModel):
+    boats_total: int
+    boats_available: int
+    boats_in_use: int
+    vehicles_total: int
+    vehicles_available: int
+    vehicles_in_use: int
+
+
+class ZoneSummary(BaseModel):
+    name: Optional[str] = None
+    population_remaining: int
+    safe_evacuated: int
+    in_transit: int
+    vulnerable_remaining: int
+    vulnerable_saved: int
+    water_depth_cm: int
+    road_flooded: bool
+    evacuation_ordered: bool
+    warning_level: int
+    boats_assigned: int
+    vehicles_assigned: int
+
+
+class StateSummary(BaseModel):
+    water_level_cm: int
+    normal_level_cm: int
+    warning_level_cm: int
+    danger_level_cm: int
+    crest_level_cm: int
+    embankment_integrity: int
+    embankment_height_cm: int
+    embankment_breached: bool
+    shelter: ShelterSummary
+    transport: TransportSummary
+    zones: Dict[str, ZoneSummary]
+
+
+class CreateSessionResponse(BaseModel):
+    session_id: str
+    seed: int
+    state: State
+    layout: LayoutModel
+    summary: StateSummary
+    disclaimer: str
+
+
+class SessionStateResponse(BaseModel):
+    session_id: str
+    state: State
+    layout: LayoutModel
+    summary: StateSummary
+    is_ended: bool
+
+
+class EventOut(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    type: str
+    tick: int
+    zone: Optional[str] = None
+    target: Optional[str] = None
+    caused_by: str
+    description: str
+    details: Dict[str, Any] = Field(default_factory=dict)
+    event_type: Optional[str] = None
+
+
+class NarrationOut(BaseModel):
+    text: str
+    source: str
+
+
+class NPCMessageOut(BaseModel):
+    npc_id: str
+    text: str
+    source: str
+
+
+class ClarifyOut(BaseModel):
+    question: str
+    options: List[Action]
+
+
+class GuardrailOut(BaseModel):
+    status: str
+    retries: int
+    fallback_reason: Optional[str] = None
+
+
+class RuleCardOut(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    id: str
+    title: str
+    category: str
+    guidance: str
+    keywords: List[str] = Field(default_factory=list)
+    source_reference: str
+
+
+class TurnResponse(BaseModel):
+    status: str
+    parsed_action: Optional[Action] = None
+    clarify: Optional[ClarifyOut] = None
+    reject_reason: Optional[str] = None
+    state: Optional[State] = None
+    layout: Optional[LayoutModel] = None
+    summary: Optional[StateSummary] = None
+    events: List[EventOut] = Field(default_factory=list)
+    narration: NarrationOut
+    npc_messages: List[NPCMessageOut] = Field(default_factory=list)
+    guardrail: GuardrailOut
+    source: str = "template"
+    llm_mode: str = "template"
+    disclaimer: str
+    cited_rulecards: List[RuleCardOut] = Field(default_factory=list)
+
+
+class NPCMessageResponse(TurnResponse):
+    pass
+
+
+class SessionLogResponse(BaseModel):
+    session_id: str
+    scenario_id: str
+    seed: int
+    actions: List[Action]
+    events: List[EventOut]
+
+
+class SessionReportResponse(BaseModel):
+    session_id: str
+    score: ScoreBreakdown
+    final_state: State
+    events: List[EventOut]
+    disclaimer: str
+
+
+class EndSessionResponse(BaseModel):
+    status: str
+    score: ScoreBreakdown
+
+
 # API Endpoints under /api/v1
-@app.get("/api/v1/health")
+@app.get("/api/v1/health", response_model=HealthResponse)
 def get_health():
     return {
         "status": "ok",
-        "llm_mode": os.environ.get("LLM_MODE", "template"),
+        "llm_mode": get_llm_mode(),
+        "llm_status": get_llm_status(),
         "db": "connected",
         "version": "1.0.0",
     }
 
 
-@app.get("/api/v1/meta")
+@app.get("/api/v1/meta", response_model=MetaResponse)
 def get_meta():
     return {
         "version": "1.0.0",
@@ -200,12 +472,13 @@ def get_meta():
         "emergency_helpline": "112",
         "disaster_helpline": "1078",
         "supported_languages": ["en"],
-        "llm_mode": os.environ.get("LLM_MODE", "template"),
+        "llm_mode": get_llm_mode(),
+        "llm_status": get_llm_status(),
         "example_commands": EXAMPLE_COMMANDS,
     }
 
 
-@app.get("/api/v1/scenarios")
+@app.get("/api/v1/scenarios", response_model=ScenariosListResponse)
 def list_scenarios():
     scenarios = []
     if os.path.exists(SCENARIOS_DIR):
@@ -228,7 +501,7 @@ def list_scenarios():
     return {"scenarios": scenarios}
 
 
-@app.post("/api/v1/sessions")
+@app.post("/api/v1/sessions", response_model=CreateSessionResponse)
 def create_session(req: CreateSessionRequest):
     scenario_file = os.path.join(SCENARIOS_DIR, f"{req.scenario_id}.yaml")
     if not os.path.exists(scenario_file):
@@ -263,7 +536,7 @@ def create_session(req: CreateSessionRequest):
     }
 
 
-@app.get("/api/v1/sessions/{session_id}/state")
+@app.get("/api/v1/sessions/{session_id}/state", response_model=SessionStateResponse)
 def get_session_state(session_id: str):
     sess = store.get_session(session_id)
     if not sess:
@@ -282,7 +555,7 @@ def get_session_state(session_id: str):
     }
 
 
-@app.post("/api/v1/sessions/{session_id}/turns")
+@app.post("/api/v1/sessions/{session_id}/turns", response_model=TurnResponse)
 def submit_turn(session_id: str, req: TurnRequest):
     sess = store.get_session(session_id)
     if not sess:
@@ -293,19 +566,27 @@ def submit_turn(session_id: str, req: TurnRequest):
 
     # Input length cap
     if req.input.get("type") == "text":
-        user_text = req.input.get("text", "")
+        raw_text = req.input.get("text")
+        user_text = raw_text if isinstance(raw_text, str) else ("" if raw_text is None else str(raw_text))
         if len(user_text) > MAX_INPUT_CHARS:
+            layout = get_scenario_layout(sess["scenario_id"])
+            summary = build_state_summary(sess["state"], layout)
             return {
                 "status": "rejected",
                 "parsed_action": None,
                 "clarify": None,
                 "reject_reason": f"Input text exceeds maximum limit of {MAX_INPUT_CHARS} characters.",
                 "state": sess["state"],
+                "layout": layout,
+                "summary": summary,
                 "events": [],
                 "narration": {"text": f"Input exceeded limit of {MAX_INPUT_CHARS} characters.", "source": "template"},
                 "npc_messages": [],
-                "guardrail": {"status": "passed", "retries": 0},
+                "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+                "source": "template",
+                "llm_mode": get_llm_mode(),
                 "disclaimer": DISCLAIMER_FULL_TEXT,
+                "cited_rulecards": [],
             }
 
     enforce_rate_limit(session_id)
@@ -323,7 +604,7 @@ def submit_turn(session_id: str, req: TurnRequest):
     return result
 
 
-@app.post("/api/v1/sessions/{session_id}/npc/{npc_id}/messages")
+@app.post("/api/v1/sessions/{session_id}/npc/{npc_id}/messages", response_model=NPCMessageResponse)
 def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
     sess = store.get_session(session_id)
     if not sess:
@@ -334,17 +615,24 @@ def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
 
     # Input length cap
     if len(req.message) > MAX_INPUT_CHARS:
+        layout = get_scenario_layout(sess["scenario_id"])
+        summary = build_state_summary(sess["state"], layout)
         return {
             "status": "rejected",
             "parsed_action": None,
             "clarify": None,
             "reject_reason": f"Message exceeds maximum limit of {MAX_INPUT_CHARS} characters.",
             "state": sess["state"],
+            "layout": layout,
+            "summary": summary,
             "events": [],
             "narration": {"text": f"Message exceeded limit of {MAX_INPUT_CHARS} characters.", "source": "template"},
             "npc_messages": [],
-            "guardrail": {"status": "passed", "retries": 0},
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": get_llm_mode(),
             "disclaimer": DISCLAIMER_FULL_TEXT,
+            "cited_rulecards": [],
         }
 
     enforce_rate_limit(session_id)
@@ -369,7 +657,7 @@ def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
     return result
 
 
-@app.get("/api/v1/sessions/{session_id}/log")
+@app.get("/api/v1/sessions/{session_id}/log", response_model=SessionLogResponse)
 def get_session_log(session_id: str):
     sess = store.get_session(session_id)
     if not sess:
@@ -387,7 +675,7 @@ def get_session_log(session_id: str):
     }
 
 
-@app.get("/api/v1/sessions/{session_id}/report")
+@app.get("/api/v1/sessions/{session_id}/report", response_model=SessionReportResponse)
 def get_session_report(session_id: str):
     sess = store.get_session(session_id)
     if not sess:
@@ -411,7 +699,7 @@ def get_session_report(session_id: str):
     }
 
 
-@app.post("/api/v1/sessions/{session_id}/end")
+@app.post("/api/v1/sessions/{session_id}/end", response_model=EndSessionResponse)
 def end_session(session_id: str):
     sess = store.get_session(session_id)
     if not sess:
@@ -439,7 +727,7 @@ def end_session(session_id: str):
 if os.path.exists(STATIC_DIR):
     app.mount("/assets", StaticFiles(directory=os.path.join(STATIC_DIR, "assets")), name="assets")
 
-    @app.get("/{full_path:path}")
+    @app.get("/{full_path:path}", include_in_schema=False)
     def serve_frontend(full_path: str):
         file_path = os.path.join(STATIC_DIR, full_path)
         if full_path and os.path.exists(file_path) and os.path.isfile(file_path):

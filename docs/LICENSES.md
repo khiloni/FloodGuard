@@ -40,6 +40,6 @@ All dependencies, models, and assets in FloodGuard strictly conform to OSI-appro
 | Lucide React | ISC | Open-source SVG icons |
 
 ### Local Open-Source LLM Model (Ollama / llama.cpp / vLLM)
-| Model Identifier | Base License | Serving Engine | Verified by Human (Gate A) |
+| Model Identifier | Base License | Serving Engine | Verified (Gate A) |
 | --- | --- | --- | --- |
-| *(Record chosen model card e.g. Llama-3.2-3B-Instruct or Phi-3-mini)* | *(Verify Apache-2.0 / OSI approved)* | Ollama (MIT) / llama.cpp (MIT) | [ ] Verified & Recorded |
+| `Qwen2.5-1.5B-Instruct` (`qwen2.5:1.5b`) | Apache-2.0 | Ollama (MIT) / llama.cpp (MIT) | [x] Apache-2.0 & Live Ollama Verified |

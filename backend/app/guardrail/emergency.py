@@ -6,7 +6,8 @@ EMERGENCY_PATTERNS = [
     r"\breal(\s+life)?\s+flood\b",
     r"\breal\s+emergency\b",
     r"\bhelp\s+me\s+i('m|\s+am)\s+in\s+danger\b",
-    r"\bcall\s+(112|100|108|police|ambulance|ndrf)\s+for\s+me\b",
+    r"\b(call|dial|phone|ring|contact)\s+(?:the\s+)?(112|1078|100|108|police|ambulance|ndrf|disaster\s+helpline|emergency\s+(?:services|helpline|number))\b",
+    r"\b(112|1078)\b",
     r"\bsomeone\s+is\s+actually\s+dying\b",
     r"\bthis\s+is\s+not\s+a\s+game.*help\b",
 ]
