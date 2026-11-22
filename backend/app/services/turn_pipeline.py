@@ -316,7 +316,7 @@ def process_turn(
         )
 
     top_source = nar_res.source
-    if npc_res is not None and (nar_res.source == "template" or npc_res.source == "template"):
+    if npc_res is not None and npc_res.source == "template":
         top_source = "template"
 
     return {

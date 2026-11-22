@@ -396,8 +396,8 @@ def narrate(
 def _sanitize_player_input(text: Optional[str]) -> str:
     """Strip delimiter markers and repeated angle brackets so player input cannot spoof delimiters."""
     cleaned = re.sub(r"<{2,}|>{2,}", "", text or "")
-    cleaned = re.sub(r"<\s*(?:PLAYER_INPUT|END_INPUT)\s*>", "", cleaned)
-    cleaned = re.sub(r"\b(?:PLAYER_INPUT|END_INPUT)\b", "", cleaned)
+    cleaned = re.sub(r"<\s*(?:PLAYER_INPUT|END_INPUT)\s*>", "", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"\b(?:PLAYER_INPUT|END_INPUT)\b", "", cleaned, flags=re.IGNORECASE)
     return cleaned.strip()
 
 

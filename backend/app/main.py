@@ -565,29 +565,39 @@ def submit_turn(session_id: str, req: TurnRequest):
         )
 
     # Input length cap
+    user_text = ""
     if req.input.get("type") == "text":
         raw_text = req.input.get("text")
         user_text = raw_text if isinstance(raw_text, str) else ("" if raw_text is None else str(raw_text))
-        if len(user_text) > MAX_INPUT_CHARS:
-            layout = get_scenario_layout(sess["scenario_id"])
-            summary = build_state_summary(sess["state"], layout)
-            return {
-                "status": "rejected",
-                "parsed_action": None,
-                "clarify": None,
-                "reject_reason": f"Input text exceeds maximum limit of {MAX_INPUT_CHARS} characters.",
-                "state": sess["state"],
-                "layout": layout,
-                "summary": summary,
-                "events": [],
-                "narration": {"text": f"Input exceeded limit of {MAX_INPUT_CHARS} characters.", "source": "template"},
-                "npc_messages": [],
-                "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
-                "source": "template",
-                "llm_mode": get_llm_mode(),
-                "disclaimer": DISCLAIMER_FULL_TEXT,
-                "cited_rulecards": [],
-            }
+    elif req.input.get("type") == "button":
+        act_data = req.input.get("action")
+        if isinstance(act_data, dict) and act_data.get("name") == "consult_npc":
+            params = act_data.get("params")
+            if isinstance(params, dict):
+                raw_msg = params.get("user_message")
+                if isinstance(raw_msg, str):
+                    user_text = raw_msg
+
+    if len(user_text) > MAX_INPUT_CHARS:
+        layout = get_scenario_layout(sess["scenario_id"])
+        summary = build_state_summary(sess["state"], layout)
+        return {
+            "status": "rejected",
+            "parsed_action": None,
+            "clarify": None,
+            "reject_reason": f"Input text exceeds maximum limit of {MAX_INPUT_CHARS} characters.",
+            "state": sess["state"],
+            "layout": layout,
+            "summary": summary,
+            "events": [],
+            "narration": {"text": f"Input exceeded limit of {MAX_INPUT_CHARS} characters.", "source": "template"},
+            "npc_messages": [],
+            "guardrail": {"status": "passed", "retries": 0, "fallback_reason": None},
+            "source": "template",
+            "llm_mode": get_llm_mode(),
+            "disclaimer": DISCLAIMER_FULL_TEXT,
+            "cited_rulecards": [],
+        }
 
     enforce_rate_limit(session_id)
 

@@ -22,7 +22,7 @@ _SUFFIX_MULT = {"k": 1_000, "m": 1_000_000, "b": 1_000_000_000}
 _GROUP_NOUNS = r"(?:residents|villagers|citizens|people|families|elders|children|locals|inhabitants|persons)"
 _SINGLE_NOUNS = r"(?:resident|villager|citizen|person|family|elder|child|local|inhabitant)"
 _COMMUNITY_NOUNS = r"(?:village|town|community|population|ward|settlement|area)"
-_PREP_QUALIFIER = r"(?:\s+(?:in|of|from|across)\s+(?:the\s+)?[\w-]+(?:\s+[\w-]+){0,3})?"
+_PREP_QUALIFIER = r"(?:\s+(?:in|of|from|across)\s+(?:the\s+)?[\w,-]+(?:\s+[\w,-]+){0,8})?"
 _AUX_VERBS = r"(?:has\s+|have\s+|is\s+|are\s+|was\s+|were\s+|will\s+be\s+|remained\s+|stayed\s+)?"
 _SURVIVAL_OUTCOME = (
     r"(?:survived|saved|safe|unharmed|out\s+of\s+danger|made\s+it\s+out\s+alive|escaped\s+unharmed)"
@@ -39,15 +39,15 @@ UNCONDITIONAL_SURVIVAL_PATTERNS = [
         re.IGNORECASE,
     ),
     re.compile(
-        r"\b(?:all\s+(?:are\s+)?(?:safe|survived|saved|unharmed|made\s+it\s+out\s+alive)|"
-        r"everyone'?s\s+safe|everybody'?s\s+safe|"
-        r"100\s*(?:%|percent)\s+(?:of\s+(?:the\s+)?\w+\s+)?(?:safe|saved|survived|evacuated|rescued))\b",
+        rf"\b(?:all\s+(?:are\s+)?(?:safe|survived|saved|unharmed|made\s+it\s+out\s+alive)|"
+        rf"everyone'?s\s+safe|everybody'?s\s+safe|"
+        rf"100\s*(?:%|percent)\s+(?:of\s+(?:the\s+)?\w+\s+)?{_AUX_VERBS}(?:safe|saved|survived|evacuated|rescued))\b",
         re.IGNORECASE,
     ),
     re.compile(
         rf"\b(?:no|zero|not\s+a\s+single|none\s+of\s+the)\s+"
-        rf"(?:casualties|fatalities|deaths|losses|lives\s+lost|"
-        rf"(?:{_SINGLE_NOUNS}|{_GROUP_NOUNS}|one)\s+(?:died|drowned|perished|was\s+lost|were\s+lost|was\s+killed|were\s+killed|lost\s+their\s+life|lost\s+their\s+lives))\b",
+        rf"(?:casualties|fatalities|deaths|losses|lives\s+(?:(?:were|have\s+been|had\s+been|are)\s+)?lost|"
+        rf"(?:{_SINGLE_NOUNS}|{_GROUP_NOUNS}|one)\s+(?:died|drowned|perished|was\s+lost|were\s+lost|was\s+killed|were\s+killed|(?:was|were|got)\s+(?:injured|harmed)|lost\s+their\s+life|lost\s+their\s+lives))\b",
         re.IGNORECASE,
     ),
     re.compile(
@@ -75,7 +75,7 @@ MARKDOWN_URL_PATTERNS = [
     ("markdown bullet list", re.compile(r"(?m)^\s*[-*+•]\s+\S")),
     ("markdown numbered list", re.compile(r"(?m)^\s*\d+\.(?:\s+\S|[A-Za-z])")),
     ("markdown link", re.compile(r"!?\[[^\]]+\]\([^)]+\)")),
-    ("URL", re.compile(r"(?i)(?:https?://|ftp://|\bwww\.|\b[a-z0-9-]+\.(?:com|org|net|in|gov|edu|io|ly|co)\b(?:/\S*)?)")),
+    ("URL", re.compile(r"(?i)(?:https?://|ftp://|\bwww\.|\b[a-z0-9-]+\.(?:com|org|net|in|gov|edu|io|ly|co|info|biz|me|app)\b(?:/\S*)?)")),
 ]
 
 PROMPT_LEAKAGE_TOKENS = (

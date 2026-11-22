@@ -260,6 +260,27 @@ def test_api_clarify_emergency_halt_and_max_input_chars():
             assert "layout" in ln_data and ln_data["layout"] is not None
             assert "summary" in ln_data and ln_data["summary"] is not None
 
+            long_consult_btn = await client.post(
+                f"/api/v1/sessions/{sid}/turns",
+                json={
+                    "input": {
+                        "type": "button",
+                        "action": {
+                            "name": "consult_npc",
+                            "params": {"npc_id": "village_head", "user_message": long_text},
+                        },
+                    }
+                },
+            )
+            assert long_consult_btn.status_code == 200
+            lcb_data = long_consult_btn.json()
+            assert lcb_data["status"] == "rejected"
+            assert lcb_data["source"] == "template"
+            assert "llm_mode" in lcb_data
+            assert "layout" in lcb_data and lcb_data["layout"] is not None
+            assert "summary" in lcb_data and lcb_data["summary"] is not None
+            assert lcb_data["state"]["tick"] == 0
+
             # 4. Real-emergency halt on /npc/{npc_id}/messages -> tick remains 0
             for npc_emergency in (
                 "I am actually drowning call 112",
