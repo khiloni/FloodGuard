@@ -39,10 +39,22 @@ class SessionStore:
                     event_type TEXT NOT NULL,
                     description TEXT NOT NULL,
                     caused_by TEXT NOT NULL,
+                    zone TEXT,
+                    target TEXT,
                     details_json TEXT NOT NULL,
                     FOREIGN KEY (session_id) REFERENCES sessions (session_id)
                 )
             """)
+            # Check if columns zone, target exist in turn_events for migrations
+            try:
+                cursor = conn.execute("PRAGMA table_info(turn_events)")
+                columns = [col["name"] for col in cursor.fetchall()]
+                if "zone" not in columns:
+                    conn.execute("ALTER TABLE turn_events ADD COLUMN zone TEXT")
+                if "target" not in columns:
+                    conn.execute("ALTER TABLE turn_events ADD COLUMN target TEXT")
+            except Exception:
+                pass
             conn.commit()
 
     def create_session(
@@ -130,12 +142,19 @@ class SessionStore:
         description: str,
         caused_by: str,
         details: Dict[str, Any],
+        zone: Optional[str] = None,
+        target: Optional[str] = None,
     ):
+        if zone is None and "zone" in details:
+            zone = details.get("zone")
+        if target is None and "target" in details:
+            target = details.get("target")
+
         with self._get_conn() as conn:
             conn.execute(
                 """
-                INSERT INTO turn_events (session_id, tick, event_type, description, caused_by, details_json)
-                VALUES (?, ?, ?, ?, ?, ?)
+                INSERT INTO turn_events (session_id, tick, event_type, description, caused_by, zone, target, details_json)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
                 """,
                 (
                     session_id,
@@ -143,6 +162,8 @@ class SessionStore:
                     event_type,
                     description,
                     caused_by,
+                    zone,
+                    target,
                     json.dumps(details),
                 ),
             )
@@ -154,13 +175,20 @@ class SessionStore:
                 "SELECT * FROM turn_events WHERE session_id = ? ORDER BY id ASC",
                 (session_id,),
             ).fetchall()
-            return [
-                {
-                    "tick": r["tick"],
+            events = []
+            for r in rows:
+                details = json.loads(r["details_json"])
+                keys = r.keys()
+                zone = r["zone"] if "zone" in keys and r["zone"] is not None else details.get("zone")
+                target = r["target"] if "target" in keys and r["target"] is not None else details.get("target")
+                events.append({
+                    "type": r["event_type"],
                     "event_type": r["event_type"],
+                    "tick": r["tick"],
                     "description": r["description"],
                     "caused_by": r["caused_by"],
-                    "details": json.loads(r["details_json"]),
-                }
-                for r in rows
-            ]
+                    "zone": zone,
+                    "target": target,
+                    "details": details,
+                })
+            return events

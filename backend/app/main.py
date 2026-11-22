@@ -1,14 +1,16 @@
 import os
 import uuid
 import random
+import time
+from collections import defaultdict
 from typing import Dict, Any, List, Optional
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, status, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 
-from .engine.loader import load_scenario
+from .engine.loader import load_scenario, load_scenario_config
 from .engine.models import State, Action, ActionName
 from .engine.scoring import calculate_score
 from .guardrail.validator import GuardrailValidator
@@ -34,6 +36,106 @@ validator = GuardrailValidator(allowed_names={
     "village-river-01", "ward-1", "ward-2", "ward-3", "school",
     "village_head", "rescue_worker", "family_member", "sarpanch", "ramesh", "sunita", "mohan"
 })
+
+MAX_INPUT_CHARS = int(os.environ.get("MAX_INPUT_CHARS", "400"))
+RATE_LIMIT_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "30"))
+_rate_limit_records: Dict[str, List[float]] = defaultdict(list)
+
+
+def enforce_rate_limit(client_id: str):
+    if RATE_LIMIT_PER_MIN <= 0:
+        return
+    now = time.time()
+    window = 60.0
+    records = [t for t in _rate_limit_records[client_id] if now - t < window]
+    if len(records) >= RATE_LIMIT_PER_MIN:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail={"code": "RATE_LIMITED", "message": f"Rate limit of {RATE_LIMIT_PER_MIN} turns per minute exceeded. Please wait a moment."}
+        )
+    records.append(now)
+    _rate_limit_records[client_id] = records
+
+
+EXAMPLE_COMMANDS = [
+    "evacuate ward 1",
+    "send 2 boats to ward 2",
+    "reinforce embankment with 200 sandbags",
+    "warn all wards",
+    "open the school shelter",
+    "prioritize vulnerable in ward 1",
+    "talk to the village head",
+    "wait",
+]
+
+
+def get_scenario_layout(scenario_id: str) -> Dict[str, Any]:
+    fpath = os.path.join(SCENARIOS_DIR, f"{scenario_id}.yaml")
+    if os.path.exists(fpath):
+        cfg = load_scenario_config(fpath)
+        return cfg.get("layout", {})
+    return {}
+
+
+def build_state_summary(state_dict: Dict[str, Any], layout: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    levels = (layout or {}).get("levels", {})
+    zones = state_dict.get("zones", {})
+    shelters = state_dict.get("shelters", {})
+    resources = state_dict.get("resources", {})
+    embankment = state_dict.get("embankment", {})
+
+    total_boats = resources.get("total_boats", 0)
+    avail_boats = resources.get("available_boats", 0)
+    boats_in_use = total_boats - avail_boats
+
+    total_vehicles = resources.get("total_vehicles", 0)
+    avail_vehicles = resources.get("available_vehicles", 0)
+    vehicles_in_use = total_vehicles - avail_vehicles
+
+    shelter_occupancy = sum(s.get("current_occupancy", 0) for s in shelters.values())
+    shelter_capacity = sum(s.get("capacity", 0) for s in shelters.values())
+
+    zones_summary = {}
+    for zid, z in zones.items():
+        zones_summary[zid] = {
+            "name": z.get("name"),
+            "population_remaining": z.get("population_remaining"),
+            "safe_evacuated": z.get("safe_evacuated"),
+            "in_transit": z.get("in_transit", 0),
+            "vulnerable_remaining": z.get("vulnerable_remaining"),
+            "vulnerable_saved": z.get("vulnerable_saved"),
+            "water_depth_cm": z.get("water_depth_cm"),
+            "road_flooded": z.get("road_flooded"),
+            "evacuation_ordered": z.get("evacuation_ordered"),
+            "warning_level": z.get("warning_level"),
+            "boats_assigned": z.get("boats_assigned"),
+            "vehicles_assigned": z.get("vehicles_assigned"),
+        }
+
+    return {
+        "water_level_cm": state_dict.get("water_level_cm"),
+        "normal_level_cm": levels.get("normal_level_cm", 200),
+        "warning_level_cm": levels.get("warning_level_cm", 300),
+        "danger_level_cm": levels.get("danger_level_cm", 380),
+        "crest_level_cm": levels.get("crest_level_cm", 475),
+        "embankment_integrity": embankment.get("integrity", 100),
+        "embankment_height_cm": embankment.get("height_cm", 380),
+        "embankment_breached": embankment.get("breached", False),
+        "shelter": {
+            "occupancy": shelter_occupancy,
+            "capacity": shelter_capacity,
+            "is_open": any(s.get("is_open", False) for s in shelters.values()),
+        },
+        "transport": {
+            "boats_total": total_boats,
+            "boats_available": avail_boats,
+            "boats_in_use": boats_in_use,
+            "vehicles_total": total_vehicles,
+            "vehicles_available": avail_vehicles,
+            "vehicles_in_use": vehicles_in_use,
+        },
+        "zones": zones_summary,
+    }
 
 app = FastAPI(
     title="FloodGuard API",
@@ -99,6 +201,7 @@ def get_meta():
         "disaster_helpline": "1078",
         "supported_languages": ["en"],
         "llm_mode": os.environ.get("LLM_MODE", "template"),
+        "example_commands": EXAMPLE_COMMANDS,
     }
 
 
@@ -111,12 +214,14 @@ def list_scenarios():
                 fpath = os.path.join(SCENARIOS_DIR, fname)
                 try:
                     s = load_scenario(fpath)
+                    cfg = load_scenario_config(fpath)
                     scenarios.append({
                         "id": s.scenario_id,
-                        "name": fname.replace(".yaml", "").replace("-", " ").title(),
+                        "name": cfg.get("name", fname.replace(".yaml", "").replace("-", " ").title()),
                         "version": s.scenario_version,
                         "total_ticks": s.max_ticks,
-                        "description": "Riverside village simulation with 3 wards, 1 shelter, and flood forecast curve.",
+                        "description": cfg.get("description", "Riverside village simulation with 3 wards, 1 shelter, and flood forecast curve."),
+                        "layout": cfg.get("layout", {}),
                     })
                 except Exception:
                     pass
@@ -135,6 +240,9 @@ def create_session(req: CreateSessionRequest):
     seed = req.seed if req.seed is not None else random.randint(1000, 999999)
     initial_state = load_scenario(scenario_file)
     session_id = str(uuid.uuid4())
+    layout = get_scenario_layout(req.scenario_id)
+    state_dict = initial_state.model_dump()
+    summary = build_state_summary(state_dict, layout)
 
     store.create_session(
         session_id=session_id,
@@ -142,13 +250,15 @@ def create_session(req: CreateSessionRequest):
         seed=seed,
         difficulty=req.difficulty,
         language=req.language,
-        initial_state_dict=initial_state.model_dump(),
+        initial_state_dict=state_dict,
     )
 
     return {
         "session_id": session_id,
         "seed": seed,
-        "state": initial_state.model_dump(),
+        "state": state_dict,
+        "layout": layout,
+        "summary": summary,
         "disclaimer": DISCLAIMER_FULL_TEXT,
     }
 
@@ -161,9 +271,13 @@ def get_session_state(session_id: str):
             status_code=status.HTTP_404_NOT_FOUND,
             detail={"code": "SESSION_NOT_FOUND", "message": f"Session '{session_id}' not found."},
         )
+    layout = get_scenario_layout(sess["scenario_id"])
+    summary = build_state_summary(sess["state"], layout)
     return {
         "session_id": session_id,
         "state": sess["state"],
+        "layout": layout,
+        "summary": summary,
         "is_ended": sess["is_ended"],
     }
 
@@ -176,12 +290,36 @@ def submit_turn(session_id: str, req: TurnRequest):
             status_code=status.HTTP_404_NOT_FOUND,
             detail={"code": "SESSION_NOT_FOUND", "message": f"Session '{session_id}' not found."},
         )
+
+    # Input length cap
+    if req.input.get("type") == "text":
+        user_text = req.input.get("text", "")
+        if len(user_text) > MAX_INPUT_CHARS:
+            return {
+                "status": "rejected",
+                "parsed_action": None,
+                "clarify": None,
+                "reject_reason": f"Input text exceeds maximum limit of {MAX_INPUT_CHARS} characters.",
+                "state": sess["state"],
+                "events": [],
+                "narration": {"text": f"Input exceeded limit of {MAX_INPUT_CHARS} characters.", "source": "template"},
+                "npc_messages": [],
+                "guardrail": {"status": "passed", "retries": 0},
+                "disclaimer": DISCLAIMER_FULL_TEXT,
+            }
+
+    enforce_rate_limit(session_id)
+
     result = process_turn(
         session_id=session_id,
         turn_input=req.input,
         store=store,
         validator=validator,
     )
+    if result.get("state"):
+        layout = get_scenario_layout(sess["scenario_id"])
+        result["layout"] = layout
+        result["summary"] = build_state_summary(result["state"], layout)
     return result
 
 
@@ -193,6 +331,23 @@ def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
             status_code=status.HTTP_404_NOT_FOUND,
             detail={"code": "SESSION_NOT_FOUND", "message": f"Session '{session_id}' not found."},
         )
+
+    # Input length cap
+    if len(req.message) > MAX_INPUT_CHARS:
+        return {
+            "status": "rejected",
+            "parsed_action": None,
+            "clarify": None,
+            "reject_reason": f"Message exceeds maximum limit of {MAX_INPUT_CHARS} characters.",
+            "state": sess["state"],
+            "events": [],
+            "narration": {"text": f"Message exceeded limit of {MAX_INPUT_CHARS} characters.", "source": "template"},
+            "npc_messages": [],
+            "guardrail": {"status": "passed", "retries": 0},
+            "disclaimer": DISCLAIMER_FULL_TEXT,
+        }
+
+    enforce_rate_limit(session_id)
     
     turn_input = {
         "type": "button",
@@ -207,6 +362,10 @@ def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
         store=store,
         validator=validator,
     )
+    if result.get("state"):
+        layout = get_scenario_layout(sess["scenario_id"])
+        result["layout"] = layout
+        result["summary"] = build_state_summary(result["state"], layout)
     return result
 
 

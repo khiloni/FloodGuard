@@ -46,6 +46,8 @@ class Event(BaseModel):
     tick: int
     description: str
     caused_by: str
+    zone: Optional[str] = None
+    target: Optional[str] = None
     details: Dict[str, Any] = Field(default_factory=dict)
 
 

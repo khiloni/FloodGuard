@@ -8,6 +8,7 @@ from backend.app.main import (
     submit_turn,
     get_session_state,
     get_session_report,
+    get_session_log,
     CreateSessionRequest,
     TurnRequest,
 )
@@ -24,10 +25,21 @@ def test_api_meta_and_health():
     m = get_meta()
     assert "112" in m["disclaimer"]
     assert "educational simulation" in m["disclaimer"].lower()
+    assert "example_commands" in m
+    assert len(m["example_commands"]) == 8
 
     sc = list_scenarios()
     assert len(sc["scenarios"]) >= 1
-    assert sc["scenarios"][0]["id"] == "village-river-01"
+    s0 = sc["scenarios"][0]
+    assert s0["id"] == "village-river-01"
+    assert "layout" in s0
+    assert s0["layout"]["canvas"]["width"] == 1000
+    assert s0["layout"]["canvas"]["height"] == 600
+    assert "river" in s0["layout"]
+    assert "embankment" in s0["layout"]
+    assert "zones" in s0["layout"]
+    assert "shelters" in s0["layout"]
+    assert "routes" in s0["layout"]
 
 
 def test_api_session_lifecycle_and_turn():
@@ -36,6 +48,10 @@ def test_api_session_lifecycle_and_turn():
     sess_data = create_session(req)
     session_id = sess_data["session_id"]
     assert sess_data["state"]["tick"] == 0
+    assert "layout" in sess_data
+    assert "summary" in sess_data
+    assert "transport" in sess_data["summary"]
+    assert sess_data["summary"]["transport"]["boats_available"] == 2
 
     # 2. Submit button turn
     btn_turn = TurnRequest(
@@ -45,6 +61,13 @@ def test_api_session_lifecycle_and_turn():
     assert turn_res["status"] == "ok"
     assert turn_res["state"]["tick"] == 1
     assert turn_res["state"]["shelters"]["school"]["is_open"] is True
+    assert "layout" in turn_res
+    assert "summary" in turn_res
+    for ev in turn_res["events"]:
+        assert "type" in ev
+        assert "tick" in ev
+        assert "caused_by" in ev
+        assert ("zone" in ev or "target" in ev)
 
     # 3. Submit natural language turn (F2 free text)
     txt_turn = TurnRequest(input={"type": "text", "text": "evacuate ward 1"})
@@ -52,11 +75,29 @@ def test_api_session_lifecycle_and_turn():
     assert turn_res["status"] == "ok"
     assert turn_res["state"]["tick"] == 2
     assert turn_res["state"]["zones"]["ward-1"]["evacuation_ordered"] is True
+    for ev in turn_res["events"]:
+        assert "type" in ev
+        assert "tick" in ev
+        assert "caused_by" in ev
 
-    # 4. Check After-Action Report
+    # 4. Check After-Action Report and Log
     report = get_session_report(session_id)
     assert "score" in report
     assert 0 <= report["score"]["total_score"] <= 100
+
+    log = get_session_log(session_id)
+    assert len(log["events"]) > 0
+    for ev in log["events"]:
+        assert "type" in ev
+        assert "tick" in ev
+        assert "caused_by" in ev
+        assert "zone" in ev or "target" in ev
+
+    # 5. Check session state endpoint
+    state_res = get_session_state(session_id)
+    assert "layout" in state_res
+    assert "summary" in state_res
+    assert state_res["summary"]["zones"]["ward-1"]["population_remaining"] is not None
 
 
 def test_session_replay_integrity():

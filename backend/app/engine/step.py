@@ -66,7 +66,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Public flood warning broadcast to {target_zone or 'all community zones'}.",
                 caused_by=f"Action {action_name.value}",
-                details={"zone": target_zone, "new_warning_level": 2 if not target_zone else zones[target_zone].warning_level},
+                zone=target_zone,
+                target=target_zone or "all",
+                details={"zone": target_zone, "target": target_zone or "all", "new_warning_level": 2 if not target_zone else zones[target_zone].warning_level},
             )
         )
 
@@ -82,7 +84,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Mandatory evacuation ordered for {z.name}.",
                 caused_by=f"Action {action_name.value}",
-                details={"zone": target_zone},
+                zone=target_zone,
+                target=target_zone,
+                details={"zone": target_zone, "target": target_zone},
             )
         )
 
@@ -102,7 +106,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     tick=current_tick,
                     description=f"Assigned {count} motorized rescue boat(s) to {z.name}.",
                     caused_by=f"Action {action_name.value}",
-                    details={"zone": target_zone, "transport_type": "boat", "count": count},
+                    zone=target_zone,
+                    target=target_zone,
+                    details={"zone": target_zone, "target": target_zone, "transport_type": "boat", "count": count},
                 )
             )
         elif ttype == "vehicle":
@@ -115,7 +121,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     tick=current_tick,
                     description=f"Dispatched {count} transport truck(s) to {z.name}.",
                     caused_by=f"Action {action_name.value}",
-                    details={"zone": target_zone, "transport_type": "vehicle", "count": count},
+                    zone=target_zone,
+                    target=target_zone,
+                    details={"zone": target_zone, "target": target_zone, "transport_type": "vehicle", "count": count},
                 )
             )
 
@@ -129,7 +137,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Rescue priority activated for vulnerable residents in {z.name}.",
                 caused_by=f"Action {action_name.value}",
-                details={"zone": target_zone},
+                zone=target_zone,
+                target=target_zone,
+                details={"zone": target_zone, "target": target_zone},
             )
         )
 
@@ -143,7 +153,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Shelter '{s.name}' officially opened with intake capacity of {s.capacity}.",
                 caused_by=f"Action {action_name.value}",
-                details={"shelter_id": shelter_id, "capacity": s.capacity},
+                zone=None,
+                target=shelter_id,
+                details={"zone": None, "target": shelter_id, "shelter_id": shelter_id, "capacity": s.capacity},
             )
         )
 
@@ -161,7 +173,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Crews laid {bags_used} sandbags. Embankment height raised to {emb_height} cm (integrity {emb_integrity}%).",
                 caused_by=f"Action {action_name.value}",
-                details={"sandbags_used": bags_used, "new_height_cm": emb_height, "new_integrity": emb_integrity},
+                zone=None,
+                target="embankment",
+                details={"zone": None, "target": "embankment", "sandbags_used": bags_used, "new_height_cm": emb_height, "new_integrity": emb_integrity},
             )
         )
 
@@ -173,7 +187,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Consultation held with character '{npc_id}'.",
                 caused_by=f"Action {action_name.value}",
-                details={"npc_id": npc_id},
+                zone=None,
+                target=npc_id,
+                details={"zone": None, "target": npc_id, "npc_id": npc_id},
             )
         )
 
@@ -184,7 +200,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description="Status quo maintained; observation period elapsed.",
                 caused_by=f"Action {action_name.value}",
-                details={},
+                zone=None,
+                target="system",
+                details={"zone": None, "target": "system"},
             )
         )
 
@@ -198,7 +216,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
             tick=current_tick,
             description=f"River water level reached {new_water_level} cm.",
             caused_by="Hydrological Forecast Curve",
-            details={"water_level_cm": new_water_level, "tick": current_tick},
+            zone=None,
+            target="river",
+            details={"zone": None, "target": "river", "water_level_cm": new_water_level, "tick": current_tick},
         )
     )
 
@@ -213,7 +233,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Floodwaters overtopped embankment crest by {overflow_cm} cm! Integrity down to {emb_integrity}%.",
                 caused_by="River level exceeding embankment crest",
-                details={"overflow_cm": overflow_cm, "remaining_integrity": emb_integrity},
+                zone=None,
+                target="embankment",
+                details={"zone": None, "target": "embankment", "overflow_cm": overflow_cm, "remaining_integrity": emb_integrity},
             )
         )
         if emb_integrity <= 0:
@@ -224,7 +246,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     tick=current_tick,
                     description="Embankment barrier collapsed under intense hydraulic pressure! Uncontrolled inundation.",
                     caused_by="Embankment structural integrity reached 0%",
-                    details={},
+                    zone=None,
+                    target="embankment",
+                    details={"zone": None, "target": "embankment"},
                 )
             )
 
@@ -250,7 +274,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     tick=current_tick,
                     description=f"Access road to {z.name} submerged beneath {local_depth} cm of water. Wheeled transport blocked.",
                     caused_by="Flood depth exceeding road clearance threshold",
-                    details={"zone": zid, "water_depth_cm": local_depth},
+                    zone=zid,
+                    target=zid,
+                    details={"zone": zid, "target": zid, "water_depth_cm": local_depth},
                 )
             )
 
@@ -261,7 +287,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     tick=current_tick,
                     description=f"Water breached into {z.name}. Depth reached {local_depth} cm.",
                     caused_by="River overtopping local elevation",
-                    details={"zone": zid, "water_depth_cm": local_depth},
+                    zone=zid,
+                    target=zid,
+                    details={"zone": zid, "target": zid, "water_depth_cm": local_depth},
                 )
             )
 
@@ -355,7 +383,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     tick=current_tick,
                     description=f"Evacuated {evacuees} residents from {z.name} to safety.",
                     caused_by="Active evacuation transport and open shelter capacity",
-                    details={"zone": zid, "evacuated": evacuees, "vulnerable_included": v_moved},
+                    zone=zid,
+                    target=zid,
+                    details={"zone": zid, "target": zid, "evacuated": evacuees, "vulnerable_included": v_moved},
                 )
             )
 
@@ -366,7 +396,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                         tick=current_tick,
                         description=f"{v_moved} vulnerable individuals from {z.name} reached secure shelter.",
                         caused_by="Vulnerability priority protocol",
-                        details={"zone": zid, "vulnerable_count": v_moved},
+                        zone=zid,
+                        target=zid,
+                        details={"zone": zid, "target": zid, "vulnerable_count": v_moved},
                     )
                 )
 
@@ -403,7 +435,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                         tick=current_tick,
                         description=f"Severe flooding ({z.water_depth_cm} cm) stranded residents in {z.name}! {new_casualties} casualties reported.",
                         caused_by="Extreme inundation without sufficient rescue watercraft",
-                        details={"zone": zid, "casualties": new_casualties, "depth_cm": z.water_depth_cm},
+                        zone=zid,
+                        target=zid,
+                        details={"zone": zid, "target": zid, "casualties": new_casualties, "depth_cm": z.water_depth_cm},
                     )
                 )
 
@@ -456,7 +490,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                 tick=current_tick,
                 description=f"Simulation ended. Final Community Resilience Score: {final_score.total_score}/100.",
                 caused_by="Maximum duration reached or complete evacuation achieved",
-                details={"score": final_score.total_score},
+                zone=None,
+                target="system",
+                details={"zone": None, "target": "system", "score": final_score.total_score},
             )
         )
 

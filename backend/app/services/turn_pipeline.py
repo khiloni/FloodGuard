@@ -9,6 +9,13 @@ from ..guardrail.validator import GuardrailValidator
 from ..services.parser import parse_action_text
 from ..services.narration import generate_template_narration, get_facts_allowed_from_state_and_events
 from ..services.npc import generate_npc_message
+from ..llm.openai_compat import (
+    is_llm_enabled,
+    generate_llm_narration,
+    generate_llm_npc,
+    parse_llm_action_fallback,
+    get_llm_mode,
+)
 from ..rag.bm25 import BM25Retriever
 from ..store.sqlite import SessionStore
 
@@ -104,6 +111,15 @@ def process_turn(
     else:
         user_text = turn_input.get("text", "")
         status, parsed_action, clarify, reject_reason = parse_action_text(user_text, state)
+        # If ambiguous/unrecognized and LLM is enabled, attempt LLM fallback parsing
+        if status == "clarify" and is_llm_enabled():
+            llm_status, llm_act, llm_clarify, llm_reject = parse_llm_action_fallback(user_text, state)
+            if llm_status == "ok" and llm_act:
+                status, parsed_action, clarify, reject_reason = "ok", llm_act, None, None
+            elif llm_status == "rejected":
+                status, parsed_action, clarify, reject_reason = "rejected", None, None, llm_reject
+            elif llm_clarify:
+                clarify = llm_clarify
 
     # If clarify or rejected: state and time DO NOT advance!
     if status in ("clarify", "rejected"):
@@ -150,25 +166,40 @@ def process_turn(
     relevant_cards = retriever.query(query_str, top_k=1)
     cited_cards = [c["id"] for c in relevant_cards] if relevant_cards else []
 
-    # 6. Generate Narration and NPC Dialogue
-    narration_text = generate_template_narration(new_state, events)
+    # 6. Generate Narration and NPC Dialogue (LLM or Template Fallback)
     facts_allowed = get_facts_allowed_from_state_and_events(new_state, events)
-
-    # 7. Output Guardrail Validation
-    passed, violations = validator.validate_text(
-        narration_text, facts_allowed, events, cited_cards
+    narration_text, final_cited, narration_source, n_retries = generate_llm_narration(
+        state=new_state,
+        events=events,
+        rule_cards=relevant_cards,
+        validator=validator,
+        facts_allowed=facts_allowed,
+        language=session.get("language", "en"),
     )
-    guardrail_status = "passed" if passed else "fallback"
-    if not passed:
-        # Fallback to pure factual log statement
-        narration_text = f"Tick {new_state.tick}: Water level reached {new_state.water_level_cm} cm. Actions processed."
 
-    # NPC responses for consultation or passive observation
+    # NPC responses for consultation
     npc_messages: List[Dict[str, Any]] = []
+    npc_retries = 0
     if parsed_action.name == ActionName.CONSULT_NPC:
         npc_id = parsed_action.params.get("npc_id", "village_head")
-        npc_msg = generate_npc_message(npc_id, new_state)
-        npc_messages.append(npc_msg)
+        user_msg = parsed_action.params.get("user_message", "")
+        npc_text, _, npc_source, npc_retries = generate_llm_npc(
+            npc_id=npc_id,
+            state=new_state,
+            events=events,
+            user_message=user_msg,
+            validator=validator,
+            facts_allowed=facts_allowed,
+            language=session.get("language", "en"),
+        )
+        npc_messages.append({
+            "npc_id": npc_id,
+            "text": npc_text,
+            "source": npc_source,
+        })
+
+    total_retries = n_retries + npc_retries
+    guardrail_status = "passed" if (narration_source == "llm" or not is_llm_enabled()) else "fallback"
 
     # 8. Store Session Update
     actions_list = session["actions"]
@@ -187,6 +218,8 @@ def process_turn(
             description=ev.description,
             caused_by=ev.caused_by,
             details=ev.details,
+            zone=ev.zone,
+            target=ev.target,
         )
 
     return {
@@ -196,9 +229,11 @@ def process_turn(
         "reject_reason": None,
         "state": new_state.model_dump(),
         "events": [e.model_dump() for e in events],
-        "narration": {"text": narration_text, "source": "template"},
+        "narration": {"text": narration_text, "source": narration_source},
         "npc_messages": npc_messages,
-        "guardrail": {"status": guardrail_status, "retries": 0},
+        "guardrail": {"status": guardrail_status, "retries": total_retries},
+        "source": narration_source,
+        "llm_mode": get_llm_mode(),
         "disclaimer": SHORT_DISCLAIMER,
         "cited_rulecards": relevant_cards,
     }

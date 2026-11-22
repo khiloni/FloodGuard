@@ -6,6 +6,7 @@ from ..engine.rules import validate_action_preconditions
 
 def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], Optional[Dict[str, Any]], Optional[str]]:
     """Parse player free-text input into a validated engine action or clarification/rejection.
+    Supports typos, English-Hindi code-mixed phrasing, and detects conflicting ties.
     
     Returns:
         (status, parsed_action, clarify_dict, reject_reason)
@@ -24,32 +25,89 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
 
     # Detect Zone
     detected_zone = None
-    if "ward 1" in clean or "ward-1" in clean or "lowland" in clean or "hamlet" in clean:
+    if any(k in clean for k in ["ward 1", "ward-1", "ward1", "lowland", "hamlet", "first ward", "ward ek", "ward number 1"]):
         detected_zone = "ward-1"
-    elif "ward 2" in clean or "ward-2" in clean or "market" in clean:
+    elif any(k in clean for k in ["ward 2", "ward-2", "ward2", "market", "second ward", "ward do", "ward number 2"]):
         detected_zone = "ward-2"
-    elif "ward 3" in clean or "ward-3" in clean or "ridge" in clean or "highland" in clean:
+    elif any(k in clean for k in ["ward 3", "ward-3", "ward3", "ridge", "highland", "third ward", "ward teen", "ward number 3"]):
         detected_zone = "ward-3"
 
     # Extract numbers (e.g. sandbags or boats)
     numbers = [int(n) for n in re.findall(r"\b\d+\b", clean)]
 
+    # Detect candidate actions
+    has_wait = any(w in clean for w in [
+        "wait", "do nothing", "observe", "pass turn", "hold", "intezar", "roko", "thahro", "ruk jao", "stand by"
+    ])
+    has_shelter = any(w in clean for w in [
+        "shelter", "sheltar", "shlter", "school", "shool"
+    ]) and any(w in clean for w in ["open", "unlock", "prep", "activate", "kholo", "start", "tayyar"])
+
+    has_embankment = any(w in clean for w in [
+        "embankment", "embakment", "embankmnt", "sandbag", "sandbags", "bund", "dike", "baandh", "bori", "boriyan"
+    ])
+    has_vulnerable = any(w in clean for w in [
+        "vulnerable", "vulnrable", "vulnerabl", "elderly", "children", "mobility", "special needs",
+        "buzurg", "buddhe", "bachhe", "bache", "elders"
+    ])
+    has_npc = any(w in clean for w in [
+        "talk", "consult", "ask", "speak", "call", "meet", "baat", "pucho", "batao", "milna", "charcha"
+    ]) or any(w in clean for w in ["sarpanch", "sunita", "mohan"])
+
+    has_transport = any(w in clean for w in [
+        "boat", "boats", "bot", "bots", "vehicle", "vehicles", "truck", "trucks", "naav", "gaadi"
+    ])
+    has_evacuate = any(w in clean for w in [
+        "evacuate", "evacuation", "evauate", "evac", "evacuaet", "move out", "clear", "nikalo", "hatao", "khalo"
+    ])
+    has_warn = any(w in clean for w in [
+        "warn", "warning", "wrn", "waarn", "alert", "broadcast", "chetavani", "suchna", "alarm", "aagah"
+    ])
+
+    # Check for TIES (multiple distinct conflicting operations)
+    detected_candidates = []
+    if has_wait: detected_candidates.append("wait")
+    if has_shelter: detected_candidates.append("open_shelter")
+    if has_embankment: detected_candidates.append("reinforce_embankment")
+    if has_vulnerable: detected_candidates.append("prioritize_vulnerable")
+    if has_npc: detected_candidates.append("consult_npc")
+    if has_transport: detected_candidates.append("assign_transport")
+    if has_evacuate: detected_candidates.append("order_evacuation")
+    if has_warn: detected_candidates.append("issue_warning")
+
+    # If there are 2+ distinct candidate actions in one phrase (e.g. "evacuate and warn"), declare a tie!
+    if len(detected_candidates) > 1:
+        # Check if one is a modifier of another (e.g. transport with vulnerable or evacuation with boats)
+        if set(detected_candidates) == {"order_evacuation", "assign_transport"}:
+            pass  # prioritize transport if transport words are prominent
+        elif set(detected_candidates) == {"prioritize_vulnerable", "assign_transport"}:
+            pass
+        elif set(detected_candidates) == {"order_evacuation", "prioritize_vulnerable"}:
+            pass
+        else:
+            return "clarify", None, {
+                "question": f"Multiple actions detected ({', '.join(detected_candidates)}). Only one action is permitted per tick. Please choose which one to execute:",
+                "options": [
+                    {"name": c, "params": ({"zone": detected_zone} if detected_zone and c in ["order_evacuation", "issue_warning", "prioritize_vulnerable"] else {})}
+                    for c in detected_candidates[:4]
+                ],
+            }, None
+
     # 1. Action: wait / observe
-    if any(w in clean for w in ["wait", "do nothing", "observe", "pass turn", "hold"]):
+    if has_wait:
         act = Action(name=ActionName.WAIT, params={})
         return "ok", act, None, None
 
     # 2. Action: open shelter
-    if "shelter" in clean or "school" in clean:
-        if any(w in clean for w in ["open", "unlock", "prep", "activate"]):
-            act = Action(name=ActionName.OPEN_SHELTER, params={"shelter_id": "school"})
-            valid, reason = validate_action_preconditions(state, act)
-            if not valid:
-                return "rejected", None, None, reason
-            return "ok", act, None, None
+    if has_shelter:
+        act = Action(name=ActionName.OPEN_SHELTER, params={"shelter_id": "school"})
+        valid, reason = validate_action_preconditions(state, act)
+        if not valid:
+            return "rejected", None, None, reason
+        return "ok", act, None, None
 
     # 3. Action: reinforce embankment / sandbags
-    if "embankment" in clean or "sandbag" in clean or "bund" in clean or "dike" in clean:
+    if has_embankment:
         bags = 100
         for n in numbers:
             if n in [50, 100, 200, 300, 400]:
@@ -62,7 +120,7 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
         return "ok", act, None, None
 
     # 4. Action: prioritize vulnerable
-    if any(w in clean for w in ["vulnerable", "elderly", "children", "mobility", "special needs"]):
+    if has_vulnerable:
         if not detected_zone:
             return "clarify", None, {
                 "question": "Which zone's vulnerable residents would you like to prioritize?",
@@ -79,12 +137,12 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
         return "ok", act, None, None
 
     # 5. Action: consult NPC / talk / discuss
-    if any(w in clean for w in ["talk", "consult", "ask", "speak", "call", "meet"]):
-        if "sarpanch" in clean or "head" in clean or "mukhiya" in clean or "ramesh" in clean:
+    if has_npc:
+        if any(w in clean for w in ["sarpanch", "head", "mukhiya", "ramesh", "pradhan"]):
             npc_id = "village_head"
-        elif "officer" in clean or "sunita" in clean or "worker" in clean or "ndrf" in clean:
+        elif any(w in clean for w in ["officer", "sunita", "worker", "ndrf", "volunteer"]):
             npc_id = "rescue_worker"
-        elif "mohan" in clean or "family" in clean or "resident" in clean:
+        elif any(w in clean for w in ["mohan", "family", "resident", "parivar"]):
             npc_id = "family_member"
         else:
             return "clarify", None, {
@@ -99,14 +157,14 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
         return "ok", act, None, None
 
     # 6. Action: assign transport (boat / vehicle)
-    if "boat" in clean or "vehicle" in clean or "truck" in clean:
-        ttype = "boat" if "boat" in clean else "vehicle"
+    if has_transport:
+        ttype = "boat" if any(w in clean for w in ["boat", "boats", "bot", "bots", "naav"]) else "vehicle"
         count = 1
         for n in numbers:
             if 1 <= n <= 5:
                 count = n
                 break
-        if "both" in clean:
+        if "both" in clean or "dono" in clean:
             count = 2
 
         if not detected_zone:
@@ -125,7 +183,7 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
         return "ok", act, None, None
 
     # 7. Action: order evacuation
-    if "evacuate" in clean or "evacuation" in clean or "move out" in clean or "clear" in clean:
+    if has_evacuate:
         if not detected_zone:
             return "clarify", None, {
                 "question": "Which ward should receive the mandatory evacuation order?",
@@ -142,7 +200,7 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
         return "ok", act, None, None
 
     # 8. Action: issue warning
-    if "warn" in clean or "alert" in clean or "broadcast" in clean:
+    if has_warn:
         act = Action(name=ActionName.ISSUE_WARNING, params={"zone": detected_zone} if detected_zone else {})
         valid, reason = validate_action_preconditions(state, act)
         if not valid:

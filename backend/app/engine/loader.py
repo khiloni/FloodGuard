@@ -11,6 +11,14 @@ from .models import (
 )
 
 
+def load_scenario_config(scenario_path: str) -> Dict[str, Any]:
+    """Load the full scenario raw YAML dict including layout and metadata."""
+    if not os.path.exists(scenario_path):
+        raise FileNotFoundError(f"Scenario file not found: {scenario_path}")
+    with open(scenario_path, "r", encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
+
 def load_scenario(scenario_path: str) -> State:
     """Load scenario YAML file and initialize the immutable initial State."""
     if not os.path.exists(scenario_path):

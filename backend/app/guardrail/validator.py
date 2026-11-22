@@ -8,11 +8,12 @@ from ..engine.models import Event, EventType
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 TONE_FILE = os.path.join(CURR_DIR, "tone.yaml")
 
-DISALLOWED_WORDS: Set[str] = set()
-if os.path.exists(TONE_FILE):
-    with open(TONE_FILE, "r", encoding="utf-8") as f:
-        data = yaml.safe_load(f) or {}
-        DISALLOWED_WORDS = set(data.get("disallowed_words", []))
+def get_disallowed_words() -> Set[str]:
+    if os.path.exists(TONE_FILE):
+        with open(TONE_FILE, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+            return set(data.get("disallowed_words", []))
+    return set()
 
 
 def extract_numbers(text: str) -> Set[int]:
@@ -44,7 +45,8 @@ class GuardrailValidator:
         lower_text = text.lower()
 
         # 1. Tone check
-        for word in DISALLOWED_WORDS:
+        disallowed = get_disallowed_words()
+        for word in disallowed:
             if re.search(r"\b" + re.escape(word) + r"\b", lower_text):
                 violations.append(f"Disallowed graphic vocabulary detected: '{word}'")
 
@@ -57,7 +59,7 @@ class GuardrailValidator:
 
         # 3. Outcome claims verification
         casualty_events = any(e.type == EventType.CASUALTY_OCCURRED for e in events_this_turn)
-        casualty_words = ["died", "drowned", "dead", "fatalities", "perished", "casualty", "casualties"]
+        casualty_words = ["died", "drowned", "dead", "fatalities", "perished", "casualty", "casualties", "bodies", "body"]
         for cw in casualty_words:
             if re.search(r"\b" + re.escape(cw) + r"\b", lower_text) and not casualty_events:
                 violations.append(f"Casualty claim '{cw}' made without corresponding CASUALTY_OCCURRED event.")
