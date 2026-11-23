@@ -1,0 +1,454 @@
+{
+ "scenarios": [
+  {
+   "id": "village-river-01",
+   "name": "Riverbank Village Flood Response",
+   "version": "2.0.0",
+   "total_ticks": 30,
+   "description": "A rising tributary threatens three wards. Warn and evacuate before the flood crests, protect people during it, then lead the recovery: clean water, medical care, power, roads and a safe return home.",
+   "layout": {
+    "canvas": {
+     "width": 1000,
+     "height": 600
+    },
+    "levels": {
+     "normal_level_cm": 200,
+     "warning_level_cm": 300,
+     "danger_level_cm": 380,
+     "crest_level_cm": 475
+    },
+    "river": {
+     "name": "Tributary River",
+     "flow_direction": "left-to-right",
+     "center_path": [
+      [
+       0,
+       485
+      ],
+      [
+       160,
+       470
+      ],
+      [
+       320,
+       490
+      ],
+      [
+       500,
+       460
+      ],
+      [
+       680,
+       500
+      ],
+      [
+       850,
+       470
+      ],
+      [
+       1000,
+       490
+      ]
+     ],
+     "north_bank": [
+      [
+       0,
+       440
+      ],
+      [
+       160,
+       425
+      ],
+      [
+       320,
+       445
+      ],
+      [
+       500,
+       415
+      ],
+      [
+       680,
+       455
+      ],
+      [
+       850,
+       425
+      ],
+      [
+       1000,
+       445
+      ]
+     ],
+     "south_bank": [
+      [
+       0,
+       540
+      ],
+      [
+       160,
+       525
+      ],
+      [
+       320,
+       545
+      ],
+      [
+       500,
+       515
+      ],
+      [
+       680,
+       555
+      ],
+      [
+       850,
+       525
+      ],
+      [
+       1000,
+       545
+      ]
+     ]
+    },
+    "embankment": {
+     "name": "River Protection Bund",
+     "crest_height_cm": 380,
+     "segments": [
+      {
+       "id": "seg-west",
+       "start": [
+        100,
+        425
+       ],
+       "end": [
+        320,
+        445
+       ],
+       "label": "West Bund"
+      },
+      {
+       "id": "seg-central",
+       "start": [
+        320,
+        445
+       ],
+       "end": [
+        530,
+        415
+       ],
+       "label": "Central Bund"
+      },
+      {
+       "id": "seg-east",
+       "start": [
+        530,
+        415
+       ],
+       "end": [
+        760,
+        450
+       ],
+       "label": "East Bund"
+      }
+     ]
+    },
+    "zones": [
+     {
+      "id": "ward-1",
+      "name": "Ward 1 (Lowland Riverside)",
+      "x": 180,
+      "y": 320,
+      "width": 170,
+      "height": 100,
+      "elevation_cm": 220,
+      "house_points": [
+       [
+        190,
+        335
+       ],
+       [
+        225,
+        350
+       ],
+       [
+        260,
+        330
+       ],
+       [
+        210,
+        380
+       ],
+       [
+        250,
+        375
+       ],
+       [
+        285,
+        355
+       ]
+      ]
+     },
+     {
+      "id": "ward-2",
+      "name": "Ward 2 (Market Settlement)",
+      "x": 460,
+      "y": 220,
+      "width": 180,
+      "height": 110,
+      "elevation_cm": 360,
+      "house_points": [
+       [
+        475,
+        235
+       ],
+       [
+        510,
+        255
+       ],
+       [
+        555,
+        230
+       ],
+       [
+        490,
+        285
+       ],
+       [
+        535,
+        280
+       ],
+       [
+        580,
+        260
+       ]
+      ]
+     },
+     {
+      "id": "ward-3",
+      "name": "Ward 3 (Highland Ridge)",
+      "x": 740,
+      "y": 130,
+      "width": 160,
+      "height": 100,
+      "elevation_cm": 520,
+      "house_points": [
+       [
+        755,
+        145
+       ],
+       [
+        790,
+        165
+       ],
+       [
+        830,
+        140
+       ],
+       [
+        770,
+        190
+       ],
+       [
+        810,
+        195
+       ],
+       [
+        845,
+        170
+       ]
+      ]
+     }
+    ],
+    "shelters": [
+     {
+      "id": "school",
+      "name": "Government High School Shelter",
+      "x": 860,
+      "y": 60,
+      "width": 110,
+      "height": 75,
+      "elevation_cm": 500
+     }
+    ],
+    "routes": [
+     {
+      "zone_id": "ward-1",
+      "shelter_id": "school",
+      "transport_modes": [
+       "boat",
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        235,
+        345
+       ],
+       [
+        340,
+        290
+       ],
+       [
+        470,
+        230
+       ],
+       [
+        640,
+        175
+       ],
+       [
+        760,
+        135
+       ],
+       [
+        860,
+        85
+       ]
+      ]
+     },
+     {
+      "zone_id": "ward-2",
+      "shelter_id": "school",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 40,
+      "waypoints": [
+       [
+        510,
+        240
+       ],
+       [
+        630,
+        185
+       ],
+       [
+        750,
+        140
+       ],
+       [
+        860,
+        85
+       ]
+      ]
+     },
+     {
+      "zone_id": "ward-3",
+      "shelter_id": "school",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 50,
+      "waypoints": [
+       [
+        790,
+        150
+       ],
+       [
+        830,
+        115
+       ],
+       [
+        860,
+        85
+       ]
+      ]
+     }
+    ],
+    "decor": {
+     "trees": [
+      [
+       90,
+       270
+      ],
+      [
+       140,
+       240
+      ],
+      [
+       370,
+       190
+      ],
+      [
+       410,
+       160
+      ],
+      [
+       670,
+       270
+      ],
+      [
+       700,
+       90
+      ],
+      [
+       930,
+       190
+      ],
+      [
+       50,
+       100
+      ]
+     ],
+     "jetty": {
+      "x": 120,
+      "y": 435,
+      "label": "Rescue Boat Depot"
+     },
+     "bridges": [
+      {
+       "x": 335,
+       "y": 435,
+       "label": "Low Causeway"
+      }
+     ],
+     "hills": [
+      [
+       700,
+       50
+      ],
+      [
+       820,
+       30
+      ],
+      [
+       940,
+       45
+      ]
+     ]
+    },
+    "recovery_sites": {
+     "water_point": {
+      "x": 640,
+      "y": 120,
+      "label": "Water Purification Point"
+     },
+     "medical_camp": {
+      "x": 760,
+      "y": 60,
+      "label": "Medical Camp"
+     },
+     "substation": {
+      "x": 380,
+      "y": 110,
+      "label": "Power Substation"
+     },
+     "health_centre": {
+      "x": 600,
+      "y": 60,
+      "label": "Health Centre"
+     },
+     "supply_depot": {
+      "x": 960,
+      "y": 230,
+      "label": "Relief Supply Depot"
+     }
+    }
+   }
+  }
+ ]
+}

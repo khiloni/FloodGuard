@@ -1,0 +1,7 @@
+{
+ "status": "ok",
+ "llm_mode": "template",
+ "llm_status": "off",
+ "db": "connected",
+ "version": "2.0.0"
+}

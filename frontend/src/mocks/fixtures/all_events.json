@@ -1,0 +1,848 @@
+{
+ "status": "ok",
+ "parsed_action": {
+  "name": "open_shelter",
+  "params": {
+   "shelter_id": "school"
+  }
+ },
+ "clarify": null,
+ "reject_reason": null,
+ "state": {
+  "scenario_id": "village-river-01",
+  "scenario_version": "2.0.0",
+  "tick": 1,
+  "max_ticks": 30,
+  "water_level_cm": 160,
+  "forecast_cm": [
+   160,
+   180,
+   205,
+   235,
+   270,
+   305,
+   340,
+   375,
+   410,
+   440,
+   465,
+   475,
+   470,
+   455,
+   430,
+   400,
+   370,
+   340,
+   310,
+   280,
+   250,
+   225,
+   200,
+   180,
+   165,
+   150,
+   140,
+   130,
+   120,
+   110
+  ],
+  "zones": {
+   "ward-1": {
+    "id": "ward-1",
+    "name": "Ward 1 (Lowland Riverside)",
+    "elevation_cm": 220,
+    "initial_population": 120,
+    "population_remaining": 120,
+    "initial_vulnerable": 30,
+    "vulnerable_remaining": 30,
+    "safe_evacuated": 0,
+    "vulnerable_saved": 0,
+    "in_transit": 0,
+    "lost": 0,
+    "water_depth_cm": 0,
+    "evacuation_ordered": false,
+    "warning_level": 0,
+    "prioritize_vulnerable": false,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "road_flooded": false,
+    "max_depth_cm": 0,
+    "returned": 0,
+    "road_blocked": false,
+    "surveyed": false
+   },
+   "ward-2": {
+    "id": "ward-2",
+    "name": "Ward 2 (Market Settlement)",
+    "elevation_cm": 360,
+    "initial_population": 180,
+    "population_remaining": 180,
+    "initial_vulnerable": 40,
+    "vulnerable_remaining": 40,
+    "safe_evacuated": 0,
+    "vulnerable_saved": 0,
+    "in_transit": 0,
+    "lost": 0,
+    "water_depth_cm": 0,
+    "evacuation_ordered": false,
+    "warning_level": 0,
+    "prioritize_vulnerable": false,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "road_flooded": false,
+    "max_depth_cm": 0,
+    "returned": 0,
+    "road_blocked": false,
+    "surveyed": false
+   },
+   "ward-3": {
+    "id": "ward-3",
+    "name": "Ward 3 (Highland Ridge)",
+    "elevation_cm": 520,
+    "initial_population": 100,
+    "population_remaining": 100,
+    "initial_vulnerable": 15,
+    "vulnerable_remaining": 15,
+    "safe_evacuated": 0,
+    "vulnerable_saved": 0,
+    "in_transit": 0,
+    "lost": 0,
+    "water_depth_cm": 0,
+    "evacuation_ordered": false,
+    "warning_level": 0,
+    "prioritize_vulnerable": false,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "road_flooded": false,
+    "max_depth_cm": 0,
+    "returned": 0,
+    "road_blocked": false,
+    "surveyed": false
+   }
+  },
+  "shelters": {
+   "school": {
+    "id": "school",
+    "name": "Government High School Shelter",
+    "elevation_cm": 500,
+    "capacity": 320,
+    "current_occupancy": 0,
+    "is_open": true
+   }
+  },
+  "resources": {
+   "total_boats": 2,
+   "available_boats": 2,
+   "boat_capacity": 15,
+   "total_vehicles": 3,
+   "available_vehicles": 3,
+   "vehicle_capacity": 20,
+   "sandbags": 400
+  },
+  "embankment": {
+   "height_cm": 380,
+   "integrity": 100,
+   "breached": false,
+   "reinforced_count": 0
+  },
+  "first_warning_tick": null,
+  "first_evacuation_tick": null,
+  "is_finished": false,
+  "score": null,
+  "phase": "before",
+  "flood_start_tick": null,
+  "recovery_start_tick": null,
+  "recovery": {
+   "shelter_supplies": 30,
+   "supply_deliveries_left": 3,
+   "supply_shortfall_ticks": 0,
+   "supplies_low_warned": false,
+   "clean_water_kits": 1,
+   "clean_water_active": false,
+   "medical_teams": 1,
+   "medical_camp_active": false,
+   "disease_risk": 0,
+   "peak_disease_risk": 0,
+   "illness_cases": 0,
+   "illness_treated": 0,
+   "power_on": true,
+   "health_centre_open": true,
+   "community_trust": 60
+  },
+  "recovery_config": {
+   "enabled": true,
+   "flood_starts_at_cm": 300,
+   "recovery_below_cm": 380,
+   "shelter_supplies_initial": 30,
+   "people_per_supply_unit": 60,
+   "supply_deliveries": 3,
+   "units_per_delivery": 40,
+   "supplies_low_threshold": 10,
+   "clean_water_kits": 1,
+   "medical_teams": 1,
+   "return_batch_per_turn": 100,
+   "treat_per_tick": 6,
+   "disease_base": 20,
+   "disease_per_flooded_zone": 10,
+   "disease_breach_bonus": 10,
+   "disease_rise_per_tick": 5,
+   "disease_crowding_pct": 90,
+   "disease_crowding_rise": 3,
+   "disease_no_supplies_rise": 4,
+   "disease_clean_water_drop": 8,
+   "disease_medical_camp_drop": 6,
+   "disease_high_threshold": 60,
+   "trust_initial": 60,
+   "trust_early_warning_bonus": 10,
+   "trust_early_warning_by_tick": 6,
+   "trust_losses_penalty": 10,
+   "trust_breach_penalty": 10,
+   "trust_supplies_ran_out_penalty": 10,
+   "road_debris_depth_cm": 30
+  }
+ },
+ "summary": {
+  "tick": 1,
+  "max_ticks": 30,
+  "phase": "before",
+  "flood_start_tick": null,
+  "recovery_start_tick": null,
+  "displaced": 0,
+  "recovery": {
+   "shelter_supplies": 30,
+   "supply_deliveries_left": 3,
+   "clean_water_active": false,
+   "clean_water_kits": 1,
+   "medical_camp_active": false,
+   "medical_teams": 1,
+   "disease_risk": 0,
+   "peak_disease_risk": 0,
+   "illness_cases": 0,
+   "illness_untreated": 0,
+   "power_on": true,
+   "health_centre_open": true,
+   "community_trust": 60
+  },
+  "water_level_cm": 160,
+  "normal_level_cm": 200,
+  "warning_level_cm": 300,
+  "danger_level_cm": 380,
+  "crest_level_cm": 475,
+  "embankment_integrity": 100,
+  "embankment_height_cm": 380,
+  "embankment_breached": false,
+  "shelter": {
+   "occupancy": 0,
+   "capacity": 320,
+   "is_open": true
+  },
+  "transport": {
+   "boats_total": 2,
+   "boats_available": 2,
+   "boats_in_use": 0,
+   "vehicles_total": 3,
+   "vehicles_available": 3,
+   "vehicles_in_use": 0
+  },
+  "zones": {
+   "ward-1": {
+    "name": "Ward 1 (Lowland Riverside)",
+    "population_remaining": 120,
+    "safe_evacuated": 0,
+    "in_transit": 0,
+    "vulnerable_remaining": 30,
+    "vulnerable_saved": 0,
+    "water_depth_cm": 0,
+    "road_flooded": false,
+    "evacuation_ordered": false,
+    "warning_level": 0,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "max_depth_cm": 0,
+    "returned": 0,
+    "in_shelter": 0,
+    "road_blocked": false,
+    "surveyed": false
+   },
+   "ward-2": {
+    "name": "Ward 2 (Market Settlement)",
+    "population_remaining": 180,
+    "safe_evacuated": 0,
+    "in_transit": 0,
+    "vulnerable_remaining": 40,
+    "vulnerable_saved": 0,
+    "water_depth_cm": 0,
+    "road_flooded": false,
+    "evacuation_ordered": false,
+    "warning_level": 0,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "max_depth_cm": 0,
+    "returned": 0,
+    "in_shelter": 0,
+    "road_blocked": false,
+    "surveyed": false
+   },
+   "ward-3": {
+    "name": "Ward 3 (Highland Ridge)",
+    "population_remaining": 100,
+    "safe_evacuated": 0,
+    "in_transit": 0,
+    "vulnerable_remaining": 15,
+    "vulnerable_saved": 0,
+    "water_depth_cm": 0,
+    "road_flooded": false,
+    "evacuation_ordered": false,
+    "warning_level": 0,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "max_depth_cm": 0,
+    "returned": 0,
+    "in_shelter": 0,
+    "road_blocked": false,
+    "surveyed": false
+   }
+  }
+ },
+ "events": [
+  {
+   "type": "warning_issued",
+   "tick": 2,
+   "zone": null,
+   "target": "all",
+   "caused_by": "Action issue_warning",
+   "description": "Public flood warning broadcast to all community zones.",
+   "details": {
+    "zone": null,
+    "target": "all",
+    "new_warning_level": 2,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "transport_assigned",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action assign_transport",
+   "description": "Assigned 2 motorized rescue boat(s) to Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "transport_type": "boat",
+    "count": 2,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "vulnerable_prioritized",
+   "tick": 4,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action prioritize_vulnerable",
+   "description": "Rescue priority activated for vulnerable residents in Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "shelter_opened",
+   "tick": 1,
+   "zone": null,
+   "target": "school",
+   "caused_by": "Action open_shelter",
+   "description": "Shelter 'Government High School Shelter' officially opened with intake capacity of 320.",
+   "details": {
+    "zone": null,
+    "target": "school",
+    "shelter_id": "school",
+    "capacity": 320,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "embankment_reinforced",
+   "tick": 7,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "Action reinforce_embankment",
+   "description": "Crews laid 200 sandbags. Embankment height raised to 440 cm (integrity 100%).",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "sandbags_used": 200,
+    "new_height_cm": 440,
+    "new_integrity": 100,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "npc_consulted",
+   "tick": 10,
+   "zone": null,
+   "target": "rescue_worker",
+   "caused_by": "Action consult_npc",
+   "description": "Consultation held with character 'rescue_worker'.",
+   "details": {
+    "zone": null,
+    "target": "rescue_worker",
+    "npc_id": "rescue_worker",
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 1,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 160 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 160,
+    "tick": 1,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "road_inundated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Flood depth exceeding road clearance threshold",
+   "description": "Access road to Ward 1 (Lowland Riverside) submerged beneath 50 cm of water. Wheeled transport blocked.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 50,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "zone_flooded",
+   "tick": 4,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "River overtopping local elevation",
+   "description": "Water breached into Ward 1 (Lowland Riverside). Depth reached 15 cm.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 15,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "embankment_overflow",
+   "tick": 12,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "River level exceeding embankment crest",
+   "description": "Floodwaters overtopped embankment crest by 5 cm! Integrity down to 85%.",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "overflow_cm": 5,
+    "remaining_integrity": 85,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "embankment_breached",
+   "tick": 10,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "Embankment structural integrity reached 0%",
+   "description": "Embankment barrier collapsed under intense hydraulic pressure! Uncontrolled inundation.",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 12,
+    "vulnerable_included": 3,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "3 vulnerable individuals from Ward 1 (Lowland Riverside) reached secure shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "vulnerable_count": 3,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "casualty_occurred",
+   "tick": 8,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Extreme inundation without sufficient rescue watercraft",
+   "description": "Severe flooding (155 cm) stranded residents in Ward 1 (Lowland Riverside)! 12 casualties reported.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "casualties": 12,
+    "depth_cm": 155,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "session_completed",
+   "tick": 30,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Maximum duration reached or complete evacuation achieved",
+   "description": "Simulation ended. Final Community Resilience Score: 97/100.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "score": 97,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "wait_tick",
+   "tick": 13,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "phase_changed",
+   "tick": 4,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Floodwater entered Ward 1 (Lowland Riverside)",
+   "description": "The river reached 235 cm and water is entering homes. The flood phase has begun.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "from_phase": "before",
+    "to_phase": "flood",
+    "water_level_cm": 235,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "water_receded",
+   "tick": 13,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "River level fell below the ward's ground level",
+   "description": "Floodwater has drained from Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 0,
+    "max_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "search_and_rescue_completed",
+   "tick": 18,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action search_and_rescue",
+   "description": "Search teams rescued 30 stranded residents from Ward 1 (Lowland Riverside) and brought them to the shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "rescued": 30,
+    "vulnerable_included": 0,
+    "still_stranded": 11,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "supplies_distributed",
+   "tick": 12,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "Action distribute_supplies",
+   "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "units": 40,
+    "shelter_supplies": 41,
+    "deliveries_left": 2,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "shelter_supplies_low",
+   "tick": 10,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "300 people sheltered use 5 supply units per tick",
+   "description": "Shelter supplies are running low: 7 units left.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 300,
+    "shelter_supplies": 7,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "shelter_supplies_exhausted",
+   "tick": 27,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "100 people sheltered use 2 supply units per tick and no delivery arrived",
+   "description": "The shelter ran out of food and essentials for its 100 residents.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 100,
+    "shelter_supplies": 0,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "clean_water_provided",
+   "tick": 18,
+   "zone": null,
+   "target": "water_point",
+   "caused_by": "Action provide_clean_water",
+   "description": "A water purification point started supplying safe drinking water to the shelter and wards.",
+   "details": {
+    "zone": null,
+    "target": "water_point",
+    "disease_risk": 40,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "medical_camp_opened",
+   "tick": 19,
+   "zone": null,
+   "target": "medical_camp",
+   "caused_by": "Action run_medical_camp",
+   "description": "A medical camp opened beside the shelter to check residents and treat illness.",
+   "details": {
+    "zone": null,
+    "target": "medical_camp",
+    "untreated": 0,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "disease_risk_high",
+   "tick": 19,
+   "zone": null,
+   "target": "health",
+   "caused_by": "Caused by no clean water since recovery began",
+   "description": "Waterborne disease risk rose to 60 out of 100.",
+   "details": {
+    "zone": null,
+    "target": "health",
+    "disease_risk": 60,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "illness_reported",
+   "tick": 19,
+   "zone": null,
+   "target": "health",
+   "caused_by": "Disease risk 60 with no medical camp running",
+   "description": "1 residents reported stomach illness linked to unsafe water.",
+   "details": {
+    "zone": null,
+    "target": "health",
+    "new_cases": 1,
+    "illness_cases": 1,
+    "disease_risk": 60,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "illness_treated",
+   "tick": 23,
+   "zone": null,
+   "target": "medical_camp",
+   "caused_by": "Medical camp running",
+   "description": "The medical camp treated 6 residents.",
+   "details": {
+    "zone": null,
+    "target": "medical_camp",
+    "treated": 6,
+    "illness_treated": 6,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "power_restored",
+   "tick": 22,
+   "zone": null,
+   "target": "substation",
+   "caused_by": "Action restore_power",
+   "description": "Repair crews restored electricity from the substation.",
+   "details": {
+    "zone": null,
+    "target": "substation",
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "health_centre_reopened",
+   "tick": 22,
+   "zone": null,
+   "target": "health_centre",
+   "caused_by": "Power restored",
+   "description": "With power back, the village health centre reopened.",
+   "details": {
+    "zone": null,
+    "target": "health_centre",
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "road_cleared",
+   "tick": 21,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action clear_roads",
+   "description": "Crews cleared debris from the road to Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "damage_surveyed",
+   "tick": 20,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action damage_survey",
+   "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "max_depth_cm": 115,
+    "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "residents_returned",
+   "tick": 23,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action return_residents",
+   "description": "100 residents of Ward 2 (Market Settlement) returned home from the shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "returned": 100,
+    "still_in_shelter": 80,
+    "phase": "recovery"
+   },
+   "event_type": null
+  }
+ ],
+ "narration": {
+  "text": "Animation test: one event of every type.",
+  "source": "template"
+ },
+ "npc_messages": [],
+ "guardrail": {
+  "status": "passed",
+  "retries": 0,
+  "fallback_reason": null
+ },
+ "source": "template",
+ "llm_mode": "template",
+ "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+ "cited_rulecards": [
+  {
+   "id": "RC-05",
+   "title": "Safe Shelter Operations",
+   "category": "Shelter",
+   "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+   "keywords": [
+    "shelter",
+    "school",
+    "intake",
+    "capacity",
+    "elevated",
+    "open"
+   ],
+   "source_reference": "Emergency Shelter Management Protocols"
+  }
+ ]
+}

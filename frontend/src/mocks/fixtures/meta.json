@@ -1,0 +1,54 @@
+{
+ "version": "2.0.0",
+ "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions about evacuation, safety or health.",
+ "emergency_helpline": "112",
+ "disaster_helpline": "1078",
+ "supported_languages": [
+  "en"
+ ],
+ "llm_mode": "template",
+ "llm_status": "off",
+ "example_commands": [
+  "evacuate ward 1",
+  "send 2 boats to ward 2",
+  "reinforce embankment with 200 sandbags",
+  "warn all wards",
+  "open the school shelter",
+  "prioritize vulnerable in ward 1",
+  "talk to the village head",
+  "wait",
+  "send relief supplies to the shelter",
+  "provide clean drinking water",
+  "set up a medical camp",
+  "search and rescue in ward 1",
+  "clear the road to ward 1",
+  "survey damage in ward 1",
+  "restore power",
+  "send ward 2 residents back home"
+ ],
+ "example_commands_by_phase": {
+  "before": [
+   "warn all wards",
+   "open the school shelter",
+   "evacuate ward 1",
+   "prioritize vulnerable in ward 1"
+  ],
+  "flood": [
+   "send 2 boats to ward 1",
+   "reinforce embankment with 200 sandbags",
+   "evacuate ward 2",
+   "send relief supplies to the shelter",
+   "talk to the rescue worker"
+  ],
+  "recovery": [
+   "provide clean drinking water",
+   "set up a medical camp",
+   "search and rescue in ward 1",
+   "clear the road to ward 1",
+   "survey damage in ward 1",
+   "restore power",
+   "send ward 2 residents back home",
+   "send relief supplies to the shelter"
+  ]
+ }
+}

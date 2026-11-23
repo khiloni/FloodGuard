@@ -1,0 +1,5142 @@
+{
+ "session_id": "f3fa570c-3dee-4a35-bfd9-350b4e60e9ae",
+ "scenario_id": "village-river-01",
+ "seed": 2026,
+ "actions": [
+  {
+   "name": "open_shelter",
+   "params": {
+    "shelter_id": "school"
+   }
+  },
+  {
+   "name": "issue_warning",
+   "params": {}
+  },
+  {
+   "name": "order_evacuation",
+   "params": {
+    "zone": "ward-1"
+   }
+  },
+  {
+   "name": "prioritize_vulnerable",
+   "params": {
+    "zone": "ward-1"
+   }
+  },
+  {
+   "name": "assign_transport",
+   "params": {
+    "zone": "ward-1",
+    "transport_type": "boat",
+    "count": 2
+   }
+  },
+  {
+   "name": "assign_transport",
+   "params": {
+    "zone": "ward-2",
+    "transport_type": "vehicle",
+    "count": 2
+   }
+  },
+  {
+   "name": "reinforce_embankment",
+   "params": {
+    "sandbags": 200
+   }
+  },
+  {
+   "name": "reinforce_embankment",
+   "params": {
+    "sandbags": 200
+   }
+  },
+  {
+   "name": "order_evacuation",
+   "params": {
+    "zone": "ward-2"
+   }
+  },
+  {
+   "name": "consult_npc",
+   "params": {
+    "npc_id": "rescue_worker",
+    "user_message": "How are the boats doing?"
+   }
+  },
+  {
+   "name": "order_evacuation",
+   "params": {
+    "zone": "ward-3"
+   }
+  },
+  {
+   "name": "distribute_supplies",
+   "params": {}
+  },
+  {
+   "name": "wait",
+   "params": {}
+  },
+  {
+   "name": "wait",
+   "params": {}
+  },
+  {
+   "name": "distribute_supplies",
+   "params": {}
+  },
+  {
+   "name": "wait",
+   "params": {}
+  },
+  {
+   "name": "wait",
+   "params": {}
+  },
+  {
+   "name": "provide_clean_water",
+   "params": {}
+  },
+  {
+   "name": "run_medical_camp",
+   "params": {}
+  },
+  {
+   "name": "damage_survey",
+   "params": {
+    "zone": "ward-2"
+   }
+  },
+  {
+   "name": "clear_roads",
+   "params": {
+    "zone": "ward-2"
+   }
+  },
+  {
+   "name": "restore_power",
+   "params": {}
+  },
+  {
+   "name": "return_residents",
+   "params": {
+    "zone": "ward-2"
+   }
+  },
+  {
+   "name": "clear_roads",
+   "params": {
+    "zone": "ward-1"
+   }
+  },
+  {
+   "name": "damage_survey",
+   "params": {
+    "zone": "ward-1"
+   }
+  },
+  {
+   "name": "return_residents",
+   "params": {
+    "zone": "ward-1"
+   }
+  },
+  {
+   "name": "return_residents",
+   "params": {
+    "zone": "ward-1"
+   }
+  },
+  {
+   "name": "return_residents",
+   "params": {
+    "zone": "ward-3"
+   }
+  },
+  {
+   "name": "return_residents",
+   "params": {
+    "zone": "ward-2"
+   }
+  },
+  {
+   "name": "wait",
+   "params": {}
+  }
+ ],
+ "events": [
+  {
+   "type": "shelter_opened",
+   "tick": 1,
+   "zone": null,
+   "target": "school",
+   "caused_by": "Action open_shelter",
+   "description": "Shelter 'Government High School Shelter' officially opened with intake capacity of 320.",
+   "details": {
+    "zone": null,
+    "target": "school",
+    "shelter_id": "school",
+    "capacity": 320,
+    "phase": "before"
+   },
+   "event_type": "shelter_opened"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 1,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 160 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 160,
+    "tick": 1,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "warning_issued",
+   "tick": 2,
+   "zone": null,
+   "target": "all",
+   "caused_by": "Action issue_warning",
+   "description": "Public flood warning broadcast to all community zones.",
+   "details": {
+    "zone": null,
+    "target": "all",
+    "new_warning_level": 2,
+    "phase": "before"
+   },
+   "event_type": "warning_issued"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 2,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 180 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 180,
+    "tick": 2,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "before"
+   },
+   "event_type": "evacuation_ordered"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 3,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 205 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 205,
+    "tick": 3,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 12,
+    "vulnerable_included": 3,
+    "phase": "before"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "3 vulnerable individuals from Ward 1 (Lowland Riverside) reached secure shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "vulnerable_count": 3,
+    "phase": "before"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "vulnerable_prioritized",
+   "tick": 4,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action prioritize_vulnerable",
+   "description": "Rescue priority activated for vulnerable residents in Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "before"
+   },
+   "event_type": "vulnerable_prioritized"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 4,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 235 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 235,
+    "tick": 4,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "phase_changed",
+   "tick": 4,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Floodwater entered Ward 1 (Lowland Riverside)",
+   "description": "The river reached 235 cm and water is entering homes. The flood phase has begun.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "from_phase": "before",
+    "to_phase": "flood",
+    "water_level_cm": 235,
+    "phase": "flood"
+   },
+   "event_type": "phase_changed"
+  },
+  {
+   "type": "zone_flooded",
+   "tick": 4,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "River overtopping local elevation",
+   "description": "Water breached into Ward 1 (Lowland Riverside). Depth reached 15 cm.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 15,
+    "phase": "flood"
+   },
+   "event_type": "zone_flooded"
+  },
+  {
+   "type": "transport_assigned",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action assign_transport",
+   "description": "Assigned 2 motorized rescue boat(s) to Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "transport_type": "boat",
+    "count": 2,
+    "phase": "flood"
+   },
+   "event_type": "transport_assigned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 5,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 270 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 270,
+    "tick": 5,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "road_inundated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Flood depth exceeding road clearance threshold",
+   "description": "Access road to Ward 1 (Lowland Riverside) submerged beneath 50 cm of water. Wheeled transport blocked.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 50,
+    "phase": "flood"
+   },
+   "event_type": "road_inundated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 30,
+    "vulnerable_included": 27,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "27 vulnerable individuals from Ward 1 (Lowland Riverside) reached secure shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "vulnerable_count": 27,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "transport_assigned",
+   "tick": 6,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action assign_transport",
+   "description": "Dispatched 2 transport truck(s) to Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "transport_type": "vehicle",
+    "count": 2,
+    "phase": "flood"
+   },
+   "event_type": "transport_assigned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 6,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 305 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 305,
+    "tick": 6,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 6,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 30,
+    "vulnerable_included": 0,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 6,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 40,
+    "vulnerable_included": 9,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 6,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "9 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 9,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "embankment_reinforced",
+   "tick": 7,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "Action reinforce_embankment",
+   "description": "Crews laid 200 sandbags. Embankment height raised to 440 cm (integrity 100%).",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "sandbags_used": 200,
+    "new_height_cm": 440,
+    "new_integrity": 100,
+    "phase": "flood"
+   },
+   "event_type": "embankment_reinforced"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 7,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 340 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 340,
+    "tick": 7,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 7,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 30,
+    "vulnerable_included": 0,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 7,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 40,
+    "vulnerable_included": 9,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 7,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "9 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 9,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "embankment_reinforced",
+   "tick": 8,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "Action reinforce_embankment",
+   "description": "Crews laid 200 sandbags. Embankment height raised to 470 cm (integrity 100%).",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "sandbags_used": 200,
+    "new_height_cm": 470,
+    "new_integrity": 100,
+    "phase": "flood"
+   },
+   "event_type": "embankment_reinforced"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 8,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 375 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 375,
+    "tick": 8,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 8,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 18 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 18,
+    "vulnerable_included": 0,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 8,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 40,
+    "vulnerable_included": 9,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 8,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "9 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 9,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 9,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "phase": "flood"
+   },
+   "event_type": "evacuation_ordered"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 9,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 410 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 410,
+    "tick": 9,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 9,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 52 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 52,
+    "vulnerable_included": 11,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 9,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "11 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 11,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "npc_consulted",
+   "tick": 10,
+   "zone": null,
+   "target": "rescue_worker",
+   "caused_by": "Action consult_npc",
+   "description": "Consultation held with character 'rescue_worker'.",
+   "details": {
+    "zone": null,
+    "target": "rescue_worker",
+    "npc_id": "rescue_worker",
+    "phase": "flood"
+   },
+   "event_type": "npc_consulted"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 10,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 440 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 440,
+    "tick": 10,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 10,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 8 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 8,
+    "vulnerable_included": 2,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 10,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "2 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 2,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "shelter_supplies_low",
+   "tick": 10,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "300 people sheltered use 5 supply units per tick",
+   "description": "Shelter supplies are running low: 7 units left.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 300,
+    "shelter_supplies": 7,
+    "phase": "flood"
+   },
+   "event_type": "shelter_supplies_low"
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 11,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 3 (Highland Ridge).",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "phase": "flood"
+   },
+   "event_type": "evacuation_ordered"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 11,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 465 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 465,
+    "tick": 11,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 11,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 12 residents from Ward 3 (Highland Ridge) to safety.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "evacuated": 12,
+    "vulnerable_included": 2,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 11,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "2 vulnerable individuals from Ward 3 (Highland Ridge) reached secure shelter.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "vulnerable_count": 2,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "supplies_distributed",
+   "tick": 12,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "Action distribute_supplies",
+   "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "units": 40,
+    "shelter_supplies": 41,
+    "deliveries_left": 2,
+    "phase": "flood"
+   },
+   "event_type": "supplies_distributed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 12,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 475 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 475,
+    "tick": 12,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "embankment_overflow",
+   "tick": 12,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "River level exceeding embankment crest",
+   "description": "Floodwaters overtopped embankment crest by 5 cm! Integrity down to 85%.",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "overflow_cm": 5,
+    "remaining_integrity": 85,
+    "phase": "flood"
+   },
+   "event_type": "embankment_overflow"
+  },
+  {
+   "type": "road_inundated",
+   "tick": 12,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Flood depth exceeding road clearance threshold",
+   "description": "Access road to Ward 2 (Market Settlement) submerged beneath 115 cm of water. Wheeled transport blocked.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": "road_inundated"
+  },
+  {
+   "type": "zone_flooded",
+   "tick": 12,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "River overtopping local elevation",
+   "description": "Water breached into Ward 2 (Market Settlement). Depth reached 115 cm.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": "zone_flooded"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 12,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 8 residents from Ward 3 (Highland Ridge) to safety.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "evacuated": 8,
+    "vulnerable_included": 1,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 12,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "1 vulnerable individuals from Ward 3 (Highland Ridge) reached secure shelter.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "vulnerable_count": 1,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 13,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 13,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 470 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 470,
+    "tick": 13,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "water_receded",
+   "tick": 13,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "River level fell below the ward's ground level",
+   "description": "Floodwater has drained from Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 0,
+    "max_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": "water_receded"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 14,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 14,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 455 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 455,
+    "tick": 14,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "supplies_distributed",
+   "tick": 15,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "Action distribute_supplies",
+   "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 63 units.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "units": 40,
+    "shelter_supplies": 63,
+    "deliveries_left": 1,
+    "phase": "flood"
+   },
+   "event_type": "supplies_distributed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 15,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 430 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 430,
+    "tick": 15,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 16,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 16,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 400 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 400,
+    "tick": 16,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 17,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 17,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 370 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 370,
+    "tick": 17,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "phase_changed",
+   "tick": 17,
+   "zone": null,
+   "target": "system",
+   "caused_by": "River level dropped below the danger level of 380 cm after the peak",
+   "description": "The river fell to 370 cm after the peak. The recovery phase has begun; power is out and roads are blocked by debris.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "from_phase": "flood",
+    "to_phase": "recovery",
+    "water_level_cm": 370,
+    "disease_risk": 40,
+    "community_trust": 70,
+    "power_on": false,
+    "flooded_zones": 2,
+    "roads_blocked": 2,
+    "power_out_cause": "deep water in 2 ward(s)",
+    "transport_released": true,
+    "phase": "recovery"
+   },
+   "event_type": "phase_changed"
+  },
+  {
+   "type": "clean_water_provided",
+   "tick": 18,
+   "zone": null,
+   "target": "water_point",
+   "caused_by": "Action provide_clean_water",
+   "description": "A water purification point started supplying safe drinking water to the shelter and wards.",
+   "details": {
+    "zone": null,
+    "target": "water_point",
+    "disease_risk": 40,
+    "phase": "recovery"
+   },
+   "event_type": "clean_water_provided"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 18,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 340 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 340,
+    "tick": 18,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "medical_camp_opened",
+   "tick": 19,
+   "zone": null,
+   "target": "medical_camp",
+   "caused_by": "Action run_medical_camp",
+   "description": "A medical camp opened beside the shelter to check residents and treat illness.",
+   "details": {
+    "zone": null,
+    "target": "medical_camp",
+    "untreated": 0,
+    "phase": "recovery"
+   },
+   "event_type": "medical_camp_opened"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 19,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 310 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 310,
+    "tick": 19,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "damage_surveyed",
+   "tick": 20,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action damage_survey",
+   "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "max_depth_cm": 115,
+    "phase": "recovery"
+   },
+   "event_type": "damage_surveyed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 20,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 280 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 280,
+    "tick": 20,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "road_cleared",
+   "tick": 21,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action clear_roads",
+   "description": "Crews cleared debris from the road to Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "phase": "recovery"
+   },
+   "event_type": "road_cleared"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 21,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 250 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 250,
+    "tick": 21,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "power_restored",
+   "tick": 22,
+   "zone": null,
+   "target": "substation",
+   "caused_by": "Action restore_power",
+   "description": "Repair crews restored electricity from the substation.",
+   "details": {
+    "zone": null,
+    "target": "substation",
+    "phase": "recovery"
+   },
+   "event_type": "power_restored"
+  },
+  {
+   "type": "health_centre_reopened",
+   "tick": 22,
+   "zone": null,
+   "target": "health_centre",
+   "caused_by": "Power restored",
+   "description": "With power back, the village health centre reopened.",
+   "details": {
+    "zone": null,
+    "target": "health_centre",
+    "phase": "recovery"
+   },
+   "event_type": "health_centre_reopened"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 22,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 225 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 225,
+    "tick": 22,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 23,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action return_residents",
+   "description": "100 residents of Ward 2 (Market Settlement) returned home from the shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "returned": 100,
+    "still_in_shelter": 80,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 23,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 200 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 200,
+    "tick": 23,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "water_receded",
+   "tick": 23,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "River level fell below the ward's ground level",
+   "description": "Floodwater has drained from Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 0,
+    "max_depth_cm": 255,
+    "phase": "recovery"
+   },
+   "event_type": "water_receded"
+  },
+  {
+   "type": "road_cleared",
+   "tick": 24,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action clear_roads",
+   "description": "Crews cleared debris from the road to Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "recovery"
+   },
+   "event_type": "road_cleared"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 24,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 180 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 180,
+    "tick": 24,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "shelter_supplies_low",
+   "tick": 24,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "220 people sheltered use 4 supply units per tick",
+   "description": "Shelter supplies are running low: 7 units left.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 220,
+    "shelter_supplies": 7,
+    "phase": "recovery"
+   },
+   "event_type": "shelter_supplies_low"
+  },
+  {
+   "type": "damage_surveyed",
+   "tick": 25,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action damage_survey",
+   "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "max_depth_cm": 255,
+    "phase": "recovery"
+   },
+   "event_type": "damage_surveyed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 25,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 165 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 165,
+    "tick": 25,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 26,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action return_residents",
+   "description": "100 residents of Ward 1 (Lowland Riverside) returned home from the shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "returned": 100,
+    "still_in_shelter": 20,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 26,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 150 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 150,
+    "tick": 26,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 27,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action return_residents",
+   "description": "20 residents of Ward 1 (Lowland Riverside) returned home from the shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "returned": 20,
+    "still_in_shelter": 0,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 27,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 140 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 140,
+    "tick": 27,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "shelter_supplies_exhausted",
+   "tick": 27,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "100 people sheltered use 2 supply units per tick and no delivery arrived",
+   "description": "The shelter ran out of food and essentials for its 100 residents.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 100,
+    "shelter_supplies": 0,
+    "phase": "recovery"
+   },
+   "event_type": "shelter_supplies_exhausted"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 28,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Action return_residents",
+   "description": "20 residents of Ward 3 (Highland Ridge) returned home from the shelter.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "returned": 20,
+    "still_in_shelter": 0,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 28,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 130 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 130,
+    "tick": 28,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 29,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action return_residents",
+   "description": "80 residents of Ward 2 (Market Settlement) returned home from the shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "returned": 80,
+    "still_in_shelter": 0,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 29,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 120 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 120,
+    "tick": 29,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 30,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "recovery"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 30,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 110 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 110,
+    "tick": 30,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "session_completed",
+   "tick": 30,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Maximum duration reached or complete evacuation achieved",
+   "description": "Simulation ended. Final Community Resilience Score: 97/100.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "score": 97,
+    "phase": "recovery"
+   },
+   "event_type": "session_completed"
+  }
+ ],
+ "frames": [
+  {
+   "tick": 0,
+   "phase": "before",
+   "action": null,
+   "summary": {
+    "tick": 0,
+    "max_ticks": 30,
+    "phase": "before",
+    "flood_start_tick": null,
+    "recovery_start_tick": null,
+    "displaced": 0,
+    "recovery": {
+     "shelter_supplies": 30,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 160,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 0,
+     "capacity": 320,
+     "is_open": false
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 120,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 30,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 0,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 180,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 40,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 0,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 0,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 1,
+   "phase": "before",
+   "action": {
+    "name": "open_shelter",
+    "params": {
+     "shelter_id": "school"
+    }
+   },
+   "summary": {
+    "tick": 1,
+    "max_ticks": 30,
+    "phase": "before",
+    "flood_start_tick": null,
+    "recovery_start_tick": null,
+    "displaced": 0,
+    "recovery": {
+     "shelter_supplies": 30,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 160,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 0,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 120,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 30,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 0,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 180,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 40,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 0,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 0,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 2,
+   "phase": "before",
+   "action": {
+    "name": "issue_warning",
+    "params": {}
+   },
+   "summary": {
+    "tick": 2,
+    "max_ticks": 30,
+    "phase": "before",
+    "flood_start_tick": null,
+    "recovery_start_tick": null,
+    "displaced": 0,
+    "recovery": {
+     "shelter_supplies": 30,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 180,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 0,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 120,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 30,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 180,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 40,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 3,
+   "phase": "before",
+   "action": {
+    "name": "order_evacuation",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "summary": {
+    "tick": 3,
+    "max_ticks": 30,
+    "phase": "before",
+    "flood_start_tick": null,
+    "recovery_start_tick": null,
+    "displaced": 12,
+    "recovery": {
+     "shelter_supplies": 29,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 205,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 12,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 108,
+      "safe_evacuated": 12,
+      "in_transit": 0,
+      "vulnerable_remaining": 27,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 12,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 180,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 40,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 4,
+   "phase": "flood",
+   "action": {
+    "name": "prioritize_vulnerable",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "summary": {
+    "tick": 4,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 12,
+    "recovery": {
+     "shelter_supplies": 28,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 235,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 12,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 108,
+      "safe_evacuated": 12,
+      "in_transit": 0,
+      "vulnerable_remaining": 27,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 15,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 15,
+      "returned": 0,
+      "in_shelter": 12,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 180,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 40,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 5,
+   "phase": "flood",
+   "action": {
+    "name": "assign_transport",
+    "params": {
+     "zone": "ward-1",
+     "transport_type": "boat",
+     "count": 2
+    }
+   },
+   "summary": {
+    "tick": 5,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 42,
+    "recovery": {
+     "shelter_supplies": 27,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 270,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 42,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 78,
+      "safe_evacuated": 42,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 50,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 50,
+      "returned": 0,
+      "in_shelter": 42,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 180,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 40,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 6,
+   "phase": "flood",
+   "action": {
+    "name": "assign_transport",
+    "params": {
+     "zone": "ward-2",
+     "transport_type": "vehicle",
+     "count": 2
+    }
+   },
+   "summary": {
+    "tick": 6,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 112,
+    "recovery": {
+     "shelter_supplies": 25,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 305,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 380,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 112,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 48,
+      "safe_evacuated": 72,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 85,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 85,
+      "returned": 0,
+      "in_shelter": 72,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 140,
+      "safe_evacuated": 40,
+      "in_transit": 0,
+      "vulnerable_remaining": 31,
+      "vulnerable_saved": 9,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 40,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 7,
+   "phase": "flood",
+   "action": {
+    "name": "reinforce_embankment",
+    "params": {
+     "sandbags": 200
+    }
+   },
+   "summary": {
+    "tick": 7,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 182,
+    "recovery": {
+     "shelter_supplies": 21,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 340,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 440,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 182,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 18,
+      "safe_evacuated": 102,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 120,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 120,
+      "returned": 0,
+      "in_shelter": 102,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 100,
+      "safe_evacuated": 80,
+      "in_transit": 0,
+      "vulnerable_remaining": 22,
+      "vulnerable_saved": 18,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 8,
+   "phase": "flood",
+   "action": {
+    "name": "reinforce_embankment",
+    "params": {
+     "sandbags": 200
+    }
+   },
+   "summary": {
+    "tick": 8,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 240,
+    "recovery": {
+     "shelter_supplies": 17,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 375,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 240,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 155,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 155,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 60,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 13,
+      "vulnerable_saved": 27,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 9,
+   "phase": "flood",
+   "action": {
+    "name": "order_evacuation",
+    "params": {
+     "zone": "ward-2"
+    }
+   },
+   "summary": {
+    "tick": 9,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 292,
+    "recovery": {
+     "shelter_supplies": 12,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 410,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 292,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 190,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 190,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 8,
+      "safe_evacuated": 172,
+      "in_transit": 0,
+      "vulnerable_remaining": 2,
+      "vulnerable_saved": 38,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 172,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 10,
+   "phase": "flood",
+   "action": {
+    "name": "consult_npc",
+    "params": {
+     "npc_id": "rescue_worker",
+     "user_message": "How are the boats doing?"
+    }
+   },
+   "summary": {
+    "tick": 10,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 300,
+    "recovery": {
+     "shelter_supplies": 7,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 440,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 300,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 220,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 220,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 100,
+      "safe_evacuated": 0,
+      "in_transit": 0,
+      "vulnerable_remaining": 15,
+      "vulnerable_saved": 0,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": false,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 11,
+   "phase": "flood",
+   "action": {
+    "name": "order_evacuation",
+    "params": {
+     "zone": "ward-3"
+    }
+   },
+   "summary": {
+    "tick": 11,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 312,
+    "recovery": {
+     "shelter_supplies": 1,
+     "supply_deliveries_left": 3,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 465,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 100,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 312,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 245,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 245,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 88,
+      "safe_evacuated": 12,
+      "in_transit": 0,
+      "vulnerable_remaining": 13,
+      "vulnerable_saved": 2,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 12,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 12,
+   "phase": "flood",
+   "action": {
+    "name": "distribute_supplies",
+    "params": {}
+   },
+   "summary": {
+    "tick": 12,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 35,
+     "supply_deliveries_left": 2,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 475,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 255,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 115,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 13,
+   "phase": "flood",
+   "action": {
+    "name": "wait",
+    "params": {}
+   },
+   "summary": {
+    "tick": 13,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 29,
+     "supply_deliveries_left": 2,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 470,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 250,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 14,
+   "phase": "flood",
+   "action": {
+    "name": "wait",
+    "params": {}
+   },
+   "summary": {
+    "tick": 14,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 23,
+     "supply_deliveries_left": 2,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 455,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 235,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 15,
+   "phase": "flood",
+   "action": {
+    "name": "distribute_supplies",
+    "params": {}
+   },
+   "summary": {
+    "tick": 15,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 57,
+     "supply_deliveries_left": 1,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 430,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 210,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 16,
+   "phase": "flood",
+   "action": {
+    "name": "wait",
+    "params": {}
+   },
+   "summary": {
+    "tick": 16,
+    "max_ticks": 30,
+    "phase": "flood",
+    "flood_start_tick": 4,
+    "recovery_start_tick": null,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 51,
+     "supply_deliveries_left": 1,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 0,
+     "peak_disease_risk": 0,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 60
+    },
+    "water_level_cm": 400,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 0,
+     "boats_in_use": 2,
+     "vehicles_total": 3,
+     "vehicles_available": 1,
+     "vehicles_in_use": 2
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 180,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 2,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 2,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 17,
+   "phase": "recovery",
+   "action": {
+    "name": "wait",
+    "params": {}
+   },
+   "summary": {
+    "tick": 17,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 45,
+     "supply_deliveries_left": 1,
+     "clean_water_active": false,
+     "clean_water_kits": 1,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 40,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": false,
+     "health_centre_open": false,
+     "community_trust": 70
+    },
+    "water_level_cm": 370,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 150,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 18,
+   "phase": "recovery",
+   "action": {
+    "name": "provide_clean_water",
+    "params": {}
+   },
+   "summary": {
+    "tick": 18,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 39,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": false,
+     "medical_teams": 1,
+     "disease_risk": 40,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": false,
+     "health_centre_open": false,
+     "community_trust": 71
+    },
+    "water_level_cm": 340,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 120,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 19,
+   "phase": "recovery",
+   "action": {
+    "name": "run_medical_camp",
+    "params": {}
+   },
+   "summary": {
+    "tick": 19,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 33,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 34,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": false,
+     "health_centre_open": false,
+     "community_trust": 73
+    },
+    "water_level_cm": 310,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 90,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 20,
+   "phase": "recovery",
+   "action": {
+    "name": "damage_survey",
+    "params": {
+     "zone": "ward-2"
+    }
+   },
+   "summary": {
+    "tick": 20,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 27,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 28,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": false,
+     "health_centre_open": false,
+     "community_trust": 75
+    },
+    "water_level_cm": 280,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 60,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": true,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 21,
+   "phase": "recovery",
+   "action": {
+    "name": "clear_roads",
+    "params": {
+     "zone": "ward-2"
+    }
+   },
+   "summary": {
+    "tick": 21,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 21,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 22,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": false,
+     "health_centre_open": false,
+     "community_trust": 77
+    },
+    "water_level_cm": 250,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 30,
+      "road_flooded": true,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 22,
+   "phase": "recovery",
+   "action": {
+    "name": "restore_power",
+    "params": {}
+   },
+   "summary": {
+    "tick": 22,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 320,
+    "recovery": {
+     "shelter_supplies": 15,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 16,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 83
+    },
+    "water_level_cm": 225,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 320,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 5,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 0,
+      "in_shelter": 180,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 23,
+   "phase": "recovery",
+   "action": {
+    "name": "return_residents",
+    "params": {
+     "zone": "ward-2"
+    }
+   },
+   "summary": {
+    "tick": 23,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 220,
+    "recovery": {
+     "shelter_supplies": 11,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 7,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 89
+    },
+    "water_level_cm": 200,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 220,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": true,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 100,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 24,
+   "phase": "recovery",
+   "action": {
+    "name": "clear_roads",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "summary": {
+    "tick": 24,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 220,
+    "recovery": {
+     "shelter_supplies": 7,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 92
+    },
+    "water_level_cm": 180,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 220,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": false
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 100,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 25,
+   "phase": "recovery",
+   "action": {
+    "name": "damage_survey",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "summary": {
+    "tick": 25,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 220,
+    "recovery": {
+     "shelter_supplies": 3,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 95
+    },
+    "water_level_cm": 165,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 220,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 0,
+      "in_shelter": 120,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 100,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 26,
+   "phase": "recovery",
+   "action": {
+    "name": "return_residents",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "summary": {
+    "tick": 26,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 120,
+    "recovery": {
+     "shelter_supplies": 1,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 100
+    },
+    "water_level_cm": 150,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 120,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 100,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 100,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 27,
+   "phase": "recovery",
+   "action": {
+    "name": "return_residents",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "summary": {
+    "tick": 27,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 100,
+    "recovery": {
+     "shelter_supplies": 0,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 100
+    },
+    "water_level_cm": 140,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 100,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 120,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 100,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 0,
+      "in_shelter": 20,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 28,
+   "phase": "recovery",
+   "action": {
+    "name": "return_residents",
+    "params": {
+     "zone": "ward-3"
+    }
+   },
+   "summary": {
+    "tick": 28,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 80,
+    "recovery": {
+     "shelter_supplies": 0,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 100
+    },
+    "water_level_cm": 130,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 80,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 120,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 100,
+      "in_shelter": 80,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 20,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 29,
+   "phase": "recovery",
+   "action": {
+    "name": "return_residents",
+    "params": {
+     "zone": "ward-2"
+    }
+   },
+   "summary": {
+    "tick": 29,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 0,
+    "recovery": {
+     "shelter_supplies": 0,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 100
+    },
+    "water_level_cm": 120,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 0,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 120,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 180,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 20,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  },
+  {
+   "tick": 30,
+   "phase": "recovery",
+   "action": {
+    "name": "wait",
+    "params": {}
+   },
+   "summary": {
+    "tick": 30,
+    "max_ticks": 30,
+    "phase": "recovery",
+    "flood_start_tick": 4,
+    "recovery_start_tick": 17,
+    "displaced": 0,
+    "recovery": {
+     "shelter_supplies": 0,
+     "supply_deliveries_left": 1,
+     "clean_water_active": true,
+     "clean_water_kits": 0,
+     "medical_camp_active": true,
+     "medical_teams": 0,
+     "disease_risk": 0,
+     "peak_disease_risk": 40,
+     "illness_cases": 0,
+     "illness_untreated": 0,
+     "power_on": true,
+     "health_centre_open": true,
+     "community_trust": 100
+    },
+    "water_level_cm": 110,
+    "normal_level_cm": 200,
+    "warning_level_cm": 300,
+    "danger_level_cm": 380,
+    "crest_level_cm": 475,
+    "embankment_integrity": 85,
+    "embankment_height_cm": 470,
+    "embankment_breached": false,
+    "shelter": {
+     "occupancy": 0,
+     "capacity": 320,
+     "is_open": true
+    },
+    "transport": {
+     "boats_total": 2,
+     "boats_available": 2,
+     "boats_in_use": 0,
+     "vehicles_total": 3,
+     "vehicles_available": 3,
+     "vehicles_in_use": 0
+    },
+    "zones": {
+     "ward-1": {
+      "name": "Ward 1 (Lowland Riverside)",
+      "population_remaining": 0,
+      "safe_evacuated": 120,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 30,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 255,
+      "returned": 120,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-2": {
+      "name": "Ward 2 (Market Settlement)",
+      "population_remaining": 0,
+      "safe_evacuated": 180,
+      "in_transit": 0,
+      "vulnerable_remaining": 0,
+      "vulnerable_saved": 40,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 115,
+      "returned": 180,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": true
+     },
+     "ward-3": {
+      "name": "Ward 3 (Highland Ridge)",
+      "population_remaining": 80,
+      "safe_evacuated": 20,
+      "in_transit": 0,
+      "vulnerable_remaining": 12,
+      "vulnerable_saved": 3,
+      "water_depth_cm": 0,
+      "road_flooded": false,
+      "evacuation_ordered": true,
+      "warning_level": 1,
+      "boats_assigned": 0,
+      "vehicles_assigned": 0,
+      "max_depth_cm": 0,
+      "returned": 20,
+      "in_shelter": 0,
+      "road_blocked": false,
+      "surveyed": false
+     }
+    }
+   }
+  }
+ ]
+}

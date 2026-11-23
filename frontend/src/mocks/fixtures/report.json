@@ -1,0 +1,2255 @@
+{
+ "session_id": "f3fa570c-3dee-4a35-bfd9-350b4e60e9ae",
+ "score": {
+  "total_score": 97,
+  "residents_safe_score": 30,
+  "vulnerable_protected_score": 20,
+  "response_time_score": 10,
+  "resource_efficiency_score": 7,
+  "infrastructure_preserved_score": 8,
+  "public_health_score": 5,
+  "essential_services_score": 6,
+  "safe_return_score": 6,
+  "community_trust_score": 5,
+  "details": {
+   "weights": {
+    "residents_safe": 30,
+    "vulnerable_protected": 20,
+    "response_time": 10,
+    "resource_efficiency": 7,
+    "infrastructure_preserved": 8,
+    "public_health": 8,
+    "essential_services": 6,
+    "safe_return": 6,
+    "community_trust": 5
+   },
+   "total_population": 400,
+   "threatened_population": 300,
+   "total_safe": 320,
+   "total_lost": 0,
+   "total_vulnerable": 85,
+   "threatened_vulnerable": 70,
+   "vulnerable_saved": 73,
+   "first_warning_tick": 2,
+   "first_evacuation_tick": 3,
+   "embankment_integrity": 85,
+   "embankment_breached": false,
+   "phase_reached": "recovery",
+   "peak_disease_risk": 40,
+   "illness_cases": 0,
+   "illness_untreated": 0,
+   "clean_water": true,
+   "power_on": true,
+   "roads_blocked": 2,
+   "roads_cleared": 2,
+   "residents_returned": 320,
+   "community_trust": 100,
+   "supply_shortfall_ticks": 2
+  }
+ },
+ "final_state": {
+  "scenario_id": "village-river-01",
+  "scenario_version": "2.0.0",
+  "tick": 30,
+  "max_ticks": 30,
+  "water_level_cm": 110,
+  "forecast_cm": [
+   160,
+   180,
+   205,
+   235,
+   270,
+   305,
+   340,
+   375,
+   410,
+   440,
+   465,
+   475,
+   470,
+   455,
+   430,
+   400,
+   370,
+   340,
+   310,
+   280,
+   250,
+   225,
+   200,
+   180,
+   165,
+   150,
+   140,
+   130,
+   120,
+   110
+  ],
+  "zones": {
+   "ward-1": {
+    "id": "ward-1",
+    "name": "Ward 1 (Lowland Riverside)",
+    "elevation_cm": 220,
+    "initial_population": 120,
+    "population_remaining": 0,
+    "initial_vulnerable": 30,
+    "vulnerable_remaining": 0,
+    "safe_evacuated": 120,
+    "vulnerable_saved": 30,
+    "in_transit": 0,
+    "lost": 0,
+    "water_depth_cm": 0,
+    "evacuation_ordered": true,
+    "warning_level": 1,
+    "prioritize_vulnerable": true,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "road_flooded": false,
+    "max_depth_cm": 255,
+    "returned": 120,
+    "road_blocked": false,
+    "surveyed": true
+   },
+   "ward-2": {
+    "id": "ward-2",
+    "name": "Ward 2 (Market Settlement)",
+    "elevation_cm": 360,
+    "initial_population": 180,
+    "population_remaining": 0,
+    "initial_vulnerable": 40,
+    "vulnerable_remaining": 0,
+    "safe_evacuated": 180,
+    "vulnerable_saved": 40,
+    "in_transit": 0,
+    "lost": 0,
+    "water_depth_cm": 0,
+    "evacuation_ordered": true,
+    "warning_level": 1,
+    "prioritize_vulnerable": false,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "road_flooded": false,
+    "max_depth_cm": 115,
+    "returned": 180,
+    "road_blocked": false,
+    "surveyed": true
+   },
+   "ward-3": {
+    "id": "ward-3",
+    "name": "Ward 3 (Highland Ridge)",
+    "elevation_cm": 520,
+    "initial_population": 100,
+    "population_remaining": 80,
+    "initial_vulnerable": 15,
+    "vulnerable_remaining": 12,
+    "safe_evacuated": 20,
+    "vulnerable_saved": 3,
+    "in_transit": 0,
+    "lost": 0,
+    "water_depth_cm": 0,
+    "evacuation_ordered": true,
+    "warning_level": 1,
+    "prioritize_vulnerable": false,
+    "boats_assigned": 0,
+    "vehicles_assigned": 0,
+    "road_flooded": false,
+    "max_depth_cm": 0,
+    "returned": 20,
+    "road_blocked": false,
+    "surveyed": false
+   }
+  },
+  "shelters": {
+   "school": {
+    "id": "school",
+    "name": "Government High School Shelter",
+    "elevation_cm": 500,
+    "capacity": 320,
+    "current_occupancy": 0,
+    "is_open": true
+   }
+  },
+  "resources": {
+   "total_boats": 2,
+   "available_boats": 2,
+   "boat_capacity": 15,
+   "total_vehicles": 3,
+   "available_vehicles": 3,
+   "vehicle_capacity": 20,
+   "sandbags": 0
+  },
+  "embankment": {
+   "height_cm": 470,
+   "integrity": 85,
+   "breached": false,
+   "reinforced_count": 2
+  },
+  "first_warning_tick": 2,
+  "first_evacuation_tick": 3,
+  "is_finished": true,
+  "score": {
+   "total_score": 97,
+   "residents_safe_score": 30,
+   "vulnerable_protected_score": 20,
+   "response_time_score": 10,
+   "resource_efficiency_score": 7,
+   "infrastructure_preserved_score": 8,
+   "public_health_score": 5,
+   "essential_services_score": 6,
+   "safe_return_score": 6,
+   "community_trust_score": 5,
+   "details": {
+    "weights": {
+     "residents_safe": 30,
+     "vulnerable_protected": 20,
+     "response_time": 10,
+     "resource_efficiency": 7,
+     "infrastructure_preserved": 8,
+     "public_health": 8,
+     "essential_services": 6,
+     "safe_return": 6,
+     "community_trust": 5
+    },
+    "total_population": 400,
+    "threatened_population": 300,
+    "total_safe": 320,
+    "total_lost": 0,
+    "total_vulnerable": 85,
+    "threatened_vulnerable": 70,
+    "vulnerable_saved": 73,
+    "first_warning_tick": 2,
+    "first_evacuation_tick": 3,
+    "embankment_integrity": 85,
+    "embankment_breached": false,
+    "phase_reached": "recovery",
+    "peak_disease_risk": 40,
+    "illness_cases": 0,
+    "illness_untreated": 0,
+    "clean_water": true,
+    "power_on": true,
+    "roads_blocked": 2,
+    "roads_cleared": 2,
+    "residents_returned": 320,
+    "community_trust": 100,
+    "supply_shortfall_ticks": 2
+   }
+  },
+  "phase": "recovery",
+  "flood_start_tick": 4,
+  "recovery_start_tick": 17,
+  "recovery": {
+   "shelter_supplies": 0,
+   "supply_deliveries_left": 1,
+   "supply_shortfall_ticks": 2,
+   "supplies_low_warned": true,
+   "clean_water_kits": 0,
+   "clean_water_active": true,
+   "medical_teams": 0,
+   "medical_camp_active": true,
+   "disease_risk": 0,
+   "peak_disease_risk": 40,
+   "illness_cases": 0,
+   "illness_treated": 0,
+   "power_on": true,
+   "health_centre_open": true,
+   "community_trust": 100
+  },
+  "recovery_config": {
+   "enabled": true,
+   "flood_starts_at_cm": 300,
+   "recovery_below_cm": 380,
+   "shelter_supplies_initial": 30,
+   "people_per_supply_unit": 60,
+   "supply_deliveries": 3,
+   "units_per_delivery": 40,
+   "supplies_low_threshold": 10,
+   "clean_water_kits": 1,
+   "medical_teams": 1,
+   "return_batch_per_turn": 100,
+   "treat_per_tick": 6,
+   "disease_base": 20,
+   "disease_per_flooded_zone": 10,
+   "disease_breach_bonus": 10,
+   "disease_rise_per_tick": 5,
+   "disease_crowding_pct": 90,
+   "disease_crowding_rise": 3,
+   "disease_no_supplies_rise": 4,
+   "disease_clean_water_drop": 8,
+   "disease_medical_camp_drop": 6,
+   "disease_high_threshold": 60,
+   "trust_initial": 60,
+   "trust_early_warning_bonus": 10,
+   "trust_early_warning_by_tick": 6,
+   "trust_losses_penalty": 10,
+   "trust_breach_penalty": 10,
+   "trust_supplies_ran_out_penalty": 10,
+   "road_debris_depth_cm": 30
+  }
+ },
+ "events": [
+  {
+   "type": "shelter_opened",
+   "tick": 1,
+   "zone": null,
+   "target": "school",
+   "caused_by": "Action open_shelter",
+   "description": "Shelter 'Government High School Shelter' officially opened with intake capacity of 320.",
+   "details": {
+    "zone": null,
+    "target": "school",
+    "shelter_id": "school",
+    "capacity": 320,
+    "phase": "before"
+   },
+   "event_type": "shelter_opened"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 1,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 160 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 160,
+    "tick": 1,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "warning_issued",
+   "tick": 2,
+   "zone": null,
+   "target": "all",
+   "caused_by": "Action issue_warning",
+   "description": "Public flood warning broadcast to all community zones.",
+   "details": {
+    "zone": null,
+    "target": "all",
+    "new_warning_level": 2,
+    "phase": "before"
+   },
+   "event_type": "warning_issued"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 2,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 180 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 180,
+    "tick": 2,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "before"
+   },
+   "event_type": "evacuation_ordered"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 3,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 205 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 205,
+    "tick": 3,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 12,
+    "vulnerable_included": 3,
+    "phase": "before"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 3,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "3 vulnerable individuals from Ward 1 (Lowland Riverside) reached secure shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "vulnerable_count": 3,
+    "phase": "before"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "vulnerable_prioritized",
+   "tick": 4,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action prioritize_vulnerable",
+   "description": "Rescue priority activated for vulnerable residents in Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "before"
+   },
+   "event_type": "vulnerable_prioritized"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 4,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 235 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 235,
+    "tick": 4,
+    "phase": "before"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "phase_changed",
+   "tick": 4,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Floodwater entered Ward 1 (Lowland Riverside)",
+   "description": "The river reached 235 cm and water is entering homes. The flood phase has begun.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "from_phase": "before",
+    "to_phase": "flood",
+    "water_level_cm": 235,
+    "phase": "flood"
+   },
+   "event_type": "phase_changed"
+  },
+  {
+   "type": "zone_flooded",
+   "tick": 4,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "River overtopping local elevation",
+   "description": "Water breached into Ward 1 (Lowland Riverside). Depth reached 15 cm.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 15,
+    "phase": "flood"
+   },
+   "event_type": "zone_flooded"
+  },
+  {
+   "type": "transport_assigned",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action assign_transport",
+   "description": "Assigned 2 motorized rescue boat(s) to Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "transport_type": "boat",
+    "count": 2,
+    "phase": "flood"
+   },
+   "event_type": "transport_assigned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 5,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 270 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 270,
+    "tick": 5,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "road_inundated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Flood depth exceeding road clearance threshold",
+   "description": "Access road to Ward 1 (Lowland Riverside) submerged beneath 50 cm of water. Wheeled transport blocked.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 50,
+    "phase": "flood"
+   },
+   "event_type": "road_inundated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 30,
+    "vulnerable_included": 27,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 5,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "27 vulnerable individuals from Ward 1 (Lowland Riverside) reached secure shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "vulnerable_count": 27,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "transport_assigned",
+   "tick": 6,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action assign_transport",
+   "description": "Dispatched 2 transport truck(s) to Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "transport_type": "vehicle",
+    "count": 2,
+    "phase": "flood"
+   },
+   "event_type": "transport_assigned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 6,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 305 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 305,
+    "tick": 6,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 6,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 30,
+    "vulnerable_included": 0,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 6,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 40,
+    "vulnerable_included": 9,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 6,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "9 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 9,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "embankment_reinforced",
+   "tick": 7,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "Action reinforce_embankment",
+   "description": "Crews laid 200 sandbags. Embankment height raised to 440 cm (integrity 100%).",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "sandbags_used": 200,
+    "new_height_cm": 440,
+    "new_integrity": 100,
+    "phase": "flood"
+   },
+   "event_type": "embankment_reinforced"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 7,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 340 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 340,
+    "tick": 7,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 7,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 30,
+    "vulnerable_included": 0,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 7,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 40,
+    "vulnerable_included": 9,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 7,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "9 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 9,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "embankment_reinforced",
+   "tick": 8,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "Action reinforce_embankment",
+   "description": "Crews laid 200 sandbags. Embankment height raised to 470 cm (integrity 100%).",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "sandbags_used": 200,
+    "new_height_cm": 470,
+    "new_integrity": 100,
+    "phase": "flood"
+   },
+   "event_type": "embankment_reinforced"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 8,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 375 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 375,
+    "tick": 8,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 8,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 18 residents from Ward 1 (Lowland Riverside) to safety.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "evacuated": 18,
+    "vulnerable_included": 0,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 8,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 40,
+    "vulnerable_included": 9,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 8,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "9 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 9,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 9,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "phase": "flood"
+   },
+   "event_type": "evacuation_ordered"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 9,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 410 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 410,
+    "tick": 9,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 9,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 52 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 52,
+    "vulnerable_included": 11,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 9,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "11 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 11,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "npc_consulted",
+   "tick": 10,
+   "zone": null,
+   "target": "rescue_worker",
+   "caused_by": "Action consult_npc",
+   "description": "Consultation held with character 'rescue_worker'.",
+   "details": {
+    "zone": null,
+    "target": "rescue_worker",
+    "npc_id": "rescue_worker",
+    "phase": "flood"
+   },
+   "event_type": "npc_consulted"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 10,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 440 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 440,
+    "tick": 10,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 10,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 8 residents from Ward 2 (Market Settlement) to safety.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "evacuated": 8,
+    "vulnerable_included": 2,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 10,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "2 vulnerable individuals from Ward 2 (Market Settlement) reached secure shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "vulnerable_count": 2,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "shelter_supplies_low",
+   "tick": 10,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "300 people sheltered use 5 supply units per tick",
+   "description": "Shelter supplies are running low: 7 units left.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 300,
+    "shelter_supplies": 7,
+    "phase": "flood"
+   },
+   "event_type": "shelter_supplies_low"
+  },
+  {
+   "type": "evacuation_ordered",
+   "tick": 11,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Action order_evacuation",
+   "description": "Mandatory evacuation ordered for Ward 3 (Highland Ridge).",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "phase": "flood"
+   },
+   "event_type": "evacuation_ordered"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 11,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 465 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 465,
+    "tick": 11,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 11,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 12 residents from Ward 3 (Highland Ridge) to safety.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "evacuated": 12,
+    "vulnerable_included": 2,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 11,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "2 vulnerable individuals from Ward 3 (Highland Ridge) reached secure shelter.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "vulnerable_count": 2,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "supplies_distributed",
+   "tick": 12,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "Action distribute_supplies",
+   "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "units": 40,
+    "shelter_supplies": 41,
+    "deliveries_left": 2,
+    "phase": "flood"
+   },
+   "event_type": "supplies_distributed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 12,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 475 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 475,
+    "tick": 12,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "embankment_overflow",
+   "tick": 12,
+   "zone": null,
+   "target": "embankment",
+   "caused_by": "River level exceeding embankment crest",
+   "description": "Floodwaters overtopped embankment crest by 5 cm! Integrity down to 85%.",
+   "details": {
+    "zone": null,
+    "target": "embankment",
+    "overflow_cm": 5,
+    "remaining_integrity": 85,
+    "phase": "flood"
+   },
+   "event_type": "embankment_overflow"
+  },
+  {
+   "type": "road_inundated",
+   "tick": 12,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Flood depth exceeding road clearance threshold",
+   "description": "Access road to Ward 2 (Market Settlement) submerged beneath 115 cm of water. Wheeled transport blocked.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": "road_inundated"
+  },
+  {
+   "type": "zone_flooded",
+   "tick": 12,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "River overtopping local elevation",
+   "description": "Water breached into Ward 2 (Market Settlement). Depth reached 115 cm.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": "zone_flooded"
+  },
+  {
+   "type": "residents_evacuated",
+   "tick": 12,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Active evacuation transport and open shelter capacity",
+   "description": "Evacuated 8 residents from Ward 3 (Highland Ridge) to safety.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "evacuated": 8,
+    "vulnerable_included": 1,
+    "phase": "flood"
+   },
+   "event_type": "residents_evacuated"
+  },
+  {
+   "type": "vulnerable_evacuated",
+   "tick": 12,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Vulnerability priority protocol",
+   "description": "1 vulnerable individuals from Ward 3 (Highland Ridge) reached secure shelter.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "vulnerable_count": 1,
+    "phase": "flood"
+   },
+   "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 13,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 13,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 470 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 470,
+    "tick": 13,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "water_receded",
+   "tick": 13,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "River level fell below the ward's ground level",
+   "description": "Floodwater has drained from Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "water_depth_cm": 0,
+    "max_depth_cm": 115,
+    "phase": "flood"
+   },
+   "event_type": "water_receded"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 14,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 14,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 455 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 455,
+    "tick": 14,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "supplies_distributed",
+   "tick": 15,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "Action distribute_supplies",
+   "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 63 units.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "units": 40,
+    "shelter_supplies": 63,
+    "deliveries_left": 1,
+    "phase": "flood"
+   },
+   "event_type": "supplies_distributed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 15,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 430 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 430,
+    "tick": 15,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 16,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 16,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 400 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 400,
+    "tick": 16,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 17,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "flood"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 17,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 370 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 370,
+    "tick": 17,
+    "phase": "flood"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "phase_changed",
+   "tick": 17,
+   "zone": null,
+   "target": "system",
+   "caused_by": "River level dropped below the danger level of 380 cm after the peak",
+   "description": "The river fell to 370 cm after the peak. The recovery phase has begun; power is out and roads are blocked by debris.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "from_phase": "flood",
+    "to_phase": "recovery",
+    "water_level_cm": 370,
+    "disease_risk": 40,
+    "community_trust": 70,
+    "power_on": false,
+    "flooded_zones": 2,
+    "roads_blocked": 2,
+    "power_out_cause": "deep water in 2 ward(s)",
+    "transport_released": true,
+    "phase": "recovery"
+   },
+   "event_type": "phase_changed"
+  },
+  {
+   "type": "clean_water_provided",
+   "tick": 18,
+   "zone": null,
+   "target": "water_point",
+   "caused_by": "Action provide_clean_water",
+   "description": "A water purification point started supplying safe drinking water to the shelter and wards.",
+   "details": {
+    "zone": null,
+    "target": "water_point",
+    "disease_risk": 40,
+    "phase": "recovery"
+   },
+   "event_type": "clean_water_provided"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 18,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 340 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 340,
+    "tick": 18,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "medical_camp_opened",
+   "tick": 19,
+   "zone": null,
+   "target": "medical_camp",
+   "caused_by": "Action run_medical_camp",
+   "description": "A medical camp opened beside the shelter to check residents and treat illness.",
+   "details": {
+    "zone": null,
+    "target": "medical_camp",
+    "untreated": 0,
+    "phase": "recovery"
+   },
+   "event_type": "medical_camp_opened"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 19,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 310 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 310,
+    "tick": 19,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "damage_surveyed",
+   "tick": 20,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action damage_survey",
+   "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "max_depth_cm": 115,
+    "phase": "recovery"
+   },
+   "event_type": "damage_surveyed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 20,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 280 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 280,
+    "tick": 20,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "road_cleared",
+   "tick": 21,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action clear_roads",
+   "description": "Crews cleared debris from the road to Ward 2 (Market Settlement).",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "phase": "recovery"
+   },
+   "event_type": "road_cleared"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 21,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 250 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 250,
+    "tick": 21,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "power_restored",
+   "tick": 22,
+   "zone": null,
+   "target": "substation",
+   "caused_by": "Action restore_power",
+   "description": "Repair crews restored electricity from the substation.",
+   "details": {
+    "zone": null,
+    "target": "substation",
+    "phase": "recovery"
+   },
+   "event_type": "power_restored"
+  },
+  {
+   "type": "health_centre_reopened",
+   "tick": 22,
+   "zone": null,
+   "target": "health_centre",
+   "caused_by": "Power restored",
+   "description": "With power back, the village health centre reopened.",
+   "details": {
+    "zone": null,
+    "target": "health_centre",
+    "phase": "recovery"
+   },
+   "event_type": "health_centre_reopened"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 22,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 225 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 225,
+    "tick": 22,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 23,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action return_residents",
+   "description": "100 residents of Ward 2 (Market Settlement) returned home from the shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "returned": 100,
+    "still_in_shelter": 80,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 23,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 200 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 200,
+    "tick": 23,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "water_receded",
+   "tick": 23,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "River level fell below the ward's ground level",
+   "description": "Floodwater has drained from Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "water_depth_cm": 0,
+    "max_depth_cm": 255,
+    "phase": "recovery"
+   },
+   "event_type": "water_receded"
+  },
+  {
+   "type": "road_cleared",
+   "tick": 24,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action clear_roads",
+   "description": "Crews cleared debris from the road to Ward 1 (Lowland Riverside).",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "phase": "recovery"
+   },
+   "event_type": "road_cleared"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 24,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 180 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 180,
+    "tick": 24,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "shelter_supplies_low",
+   "tick": 24,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "220 people sheltered use 4 supply units per tick",
+   "description": "Shelter supplies are running low: 7 units left.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 220,
+    "shelter_supplies": 7,
+    "phase": "recovery"
+   },
+   "event_type": "shelter_supplies_low"
+  },
+  {
+   "type": "damage_surveyed",
+   "tick": 25,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action damage_survey",
+   "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "max_depth_cm": 255,
+    "phase": "recovery"
+   },
+   "event_type": "damage_surveyed"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 25,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 165 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 165,
+    "tick": 25,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 26,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action return_residents",
+   "description": "100 residents of Ward 1 (Lowland Riverside) returned home from the shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "returned": 100,
+    "still_in_shelter": 20,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 26,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 150 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 150,
+    "tick": 26,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 27,
+   "zone": "ward-1",
+   "target": "ward-1",
+   "caused_by": "Action return_residents",
+   "description": "20 residents of Ward 1 (Lowland Riverside) returned home from the shelter.",
+   "details": {
+    "zone": "ward-1",
+    "target": "ward-1",
+    "returned": 20,
+    "still_in_shelter": 0,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 27,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 140 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 140,
+    "tick": 27,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "shelter_supplies_exhausted",
+   "tick": 27,
+   "zone": null,
+   "target": "shelter",
+   "caused_by": "100 people sheltered use 2 supply units per tick and no delivery arrived",
+   "description": "The shelter ran out of food and essentials for its 100 residents.",
+   "details": {
+    "zone": null,
+    "target": "shelter",
+    "occupancy": 100,
+    "shelter_supplies": 0,
+    "phase": "recovery"
+   },
+   "event_type": "shelter_supplies_exhausted"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 28,
+   "zone": "ward-3",
+   "target": "ward-3",
+   "caused_by": "Action return_residents",
+   "description": "20 residents of Ward 3 (Highland Ridge) returned home from the shelter.",
+   "details": {
+    "zone": "ward-3",
+    "target": "ward-3",
+    "returned": 20,
+    "still_in_shelter": 0,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 28,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 130 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 130,
+    "tick": 28,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "residents_returned",
+   "tick": 29,
+   "zone": "ward-2",
+   "target": "ward-2",
+   "caused_by": "Action return_residents",
+   "description": "80 residents of Ward 2 (Market Settlement) returned home from the shelter.",
+   "details": {
+    "zone": "ward-2",
+    "target": "ward-2",
+    "returned": 80,
+    "still_in_shelter": 0,
+    "phase": "recovery"
+   },
+   "event_type": "residents_returned"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 29,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 120 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 120,
+    "tick": 29,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "wait_tick",
+   "tick": 30,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Action wait",
+   "description": "Status quo maintained; observation period elapsed.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "phase": "recovery"
+   },
+   "event_type": "wait_tick"
+  },
+  {
+   "type": "water_level_advanced",
+   "tick": 30,
+   "zone": null,
+   "target": "river",
+   "caused_by": "Hydrological Forecast Curve",
+   "description": "River water level reached 110 cm.",
+   "details": {
+    "zone": null,
+    "target": "river",
+    "water_level_cm": 110,
+    "tick": 30,
+    "phase": "recovery"
+   },
+   "event_type": "water_level_advanced"
+  },
+  {
+   "type": "session_completed",
+   "tick": 30,
+   "zone": null,
+   "target": "system",
+   "caused_by": "Maximum duration reached or complete evacuation achieved",
+   "description": "Simulation ended. Final Community Resilience Score: 97/100.",
+   "details": {
+    "zone": null,
+    "target": "system",
+    "score": 97,
+    "phase": "recovery"
+   },
+   "event_type": "session_completed"
+  }
+ ],
+ "phases": [
+  {
+   "phase": "before",
+   "label": "Before the flood",
+   "reached": true,
+   "start_tick": 0,
+   "end_tick": 3,
+   "key_events": [
+    {
+     "tick": 1,
+     "type": "shelter_opened",
+     "zone": null,
+     "description": "Shelter 'Government High School Shelter' officially opened with intake capacity of 320."
+    },
+    {
+     "tick": 2,
+     "type": "warning_issued",
+     "zone": null,
+     "description": "Public flood warning broadcast to all community zones."
+    },
+    {
+     "tick": 3,
+     "type": "evacuation_ordered",
+     "zone": "ward-1",
+     "description": "Mandatory evacuation ordered for Ward 1 (Lowland Riverside)."
+    },
+    {
+     "tick": 4,
+     "type": "vulnerable_prioritized",
+     "zone": "ward-1",
+     "description": "Rescue priority activated for vulnerable residents in Ward 1 (Lowland Riverside)."
+    }
+   ],
+   "score_components": {
+    "response_time_score": 10
+   },
+   "score_points": 10,
+   "score_max": 10
+  },
+  {
+   "phase": "flood",
+   "label": "During the flood",
+   "reached": true,
+   "start_tick": 4,
+   "end_tick": 16,
+   "key_events": [
+    {
+     "tick": 4,
+     "type": "phase_changed",
+     "zone": null,
+     "description": "The river reached 235 cm and water is entering homes. The flood phase has begun."
+    },
+    {
+     "tick": 4,
+     "type": "zone_flooded",
+     "zone": "ward-1",
+     "description": "Water breached into Ward 1 (Lowland Riverside). Depth reached 15 cm."
+    },
+    {
+     "tick": 5,
+     "type": "transport_assigned",
+     "zone": "ward-1",
+     "description": "Assigned 2 motorized rescue boat(s) to Ward 1 (Lowland Riverside)."
+    },
+    {
+     "tick": 5,
+     "type": "road_inundated",
+     "zone": "ward-1",
+     "description": "Access road to Ward 1 (Lowland Riverside) submerged beneath 50 cm of water. Wheeled transport blocked."
+    },
+    {
+     "tick": 6,
+     "type": "transport_assigned",
+     "zone": "ward-2",
+     "description": "Dispatched 2 transport truck(s) to Ward 2 (Market Settlement)."
+    },
+    {
+     "tick": 7,
+     "type": "embankment_reinforced",
+     "zone": null,
+     "description": "Crews laid 200 sandbags. Embankment height raised to 440 cm (integrity 100%)."
+    },
+    {
+     "tick": 8,
+     "type": "embankment_reinforced",
+     "zone": null,
+     "description": "Crews laid 200 sandbags. Embankment height raised to 470 cm (integrity 100%)."
+    },
+    {
+     "tick": 9,
+     "type": "evacuation_ordered",
+     "zone": "ward-2",
+     "description": "Mandatory evacuation ordered for Ward 2 (Market Settlement)."
+    },
+    {
+     "tick": 10,
+     "type": "shelter_supplies_low",
+     "zone": null,
+     "description": "Shelter supplies are running low: 7 units left."
+    },
+    {
+     "tick": 11,
+     "type": "evacuation_ordered",
+     "zone": "ward-3",
+     "description": "Mandatory evacuation ordered for Ward 3 (Highland Ridge)."
+    },
+    {
+     "tick": 12,
+     "type": "supplies_distributed",
+     "zone": null,
+     "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units."
+    },
+    {
+     "tick": 12,
+     "type": "embankment_overflow",
+     "zone": null,
+     "description": "Floodwaters overtopped embankment crest by 5 cm! Integrity down to 85%."
+    }
+   ],
+   "score_components": {
+    "residents_safe_score": 30,
+    "vulnerable_protected_score": 20,
+    "resource_efficiency_score": 7,
+    "infrastructure_preserved_score": 8
+   },
+   "score_points": 65,
+   "score_max": 65
+  },
+  {
+   "phase": "recovery",
+   "label": "After the flood",
+   "reached": true,
+   "start_tick": 17,
+   "end_tick": 30,
+   "key_events": [
+    {
+     "tick": 17,
+     "type": "phase_changed",
+     "zone": null,
+     "description": "The river fell to 370 cm after the peak. The recovery phase has begun; power is out and roads are blocked by debris."
+    },
+    {
+     "tick": 18,
+     "type": "clean_water_provided",
+     "zone": null,
+     "description": "A water purification point started supplying safe drinking water to the shelter and wards."
+    },
+    {
+     "tick": 19,
+     "type": "medical_camp_opened",
+     "zone": null,
+     "description": "A medical camp opened beside the shelter to check residents and treat illness."
+    },
+    {
+     "tick": 20,
+     "type": "damage_surveyed",
+     "zone": "ward-2",
+     "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm."
+    },
+    {
+     "tick": 21,
+     "type": "road_cleared",
+     "zone": "ward-2",
+     "description": "Crews cleared debris from the road to Ward 2 (Market Settlement)."
+    },
+    {
+     "tick": 22,
+     "type": "power_restored",
+     "zone": null,
+     "description": "Repair crews restored electricity from the substation."
+    },
+    {
+     "tick": 22,
+     "type": "health_centre_reopened",
+     "zone": null,
+     "description": "With power back, the village health centre reopened."
+    },
+    {
+     "tick": 23,
+     "type": "residents_returned",
+     "zone": "ward-2",
+     "description": "100 residents of Ward 2 (Market Settlement) returned home from the shelter."
+    },
+    {
+     "tick": 23,
+     "type": "water_receded",
+     "zone": "ward-1",
+     "description": "Floodwater has drained from Ward 1 (Lowland Riverside)."
+    },
+    {
+     "tick": 24,
+     "type": "road_cleared",
+     "zone": "ward-1",
+     "description": "Crews cleared debris from the road to Ward 1 (Lowland Riverside)."
+    },
+    {
+     "tick": 24,
+     "type": "shelter_supplies_low",
+     "zone": null,
+     "description": "Shelter supplies are running low: 7 units left."
+    },
+    {
+     "tick": 25,
+     "type": "damage_surveyed",
+     "zone": "ward-1",
+     "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm."
+    }
+   ],
+   "score_components": {
+    "public_health_score": 5,
+    "essential_services_score": 6,
+    "safe_return_score": 6,
+    "community_trust_score": 5
+   },
+   "score_points": 22,
+   "score_max": 25
+  }
+ ],
+ "causal_chain": [
+  {
+   "phase": "before",
+   "cause": {
+    "tick": 1,
+    "type": "shelter_opened",
+    "zone": null,
+    "description": "Shelter 'Government High School Shelter' officially opened with intake capacity of 320."
+   },
+   "effect": {
+    "tick": 3,
+    "type": "residents_evacuated",
+    "zone": "ward-1",
+    "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety."
+   },
+   "explanation": "With the shelter open, evacuees had a safe place to go."
+  },
+  {
+   "phase": "before",
+   "cause": {
+    "tick": 2,
+    "type": "warning_issued",
+    "zone": null,
+    "description": "Public flood warning broadcast to all community zones."
+   },
+   "effect": {
+    "tick": 3,
+    "type": "residents_evacuated",
+    "zone": "ward-1",
+    "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety."
+   },
+   "explanation": "The early warning made residents more willing to leave when transport arrived."
+  },
+  {
+   "phase": "flood",
+   "cause": {
+    "tick": 5,
+    "type": "transport_assigned",
+    "zone": "ward-1",
+    "description": "Assigned 2 motorized rescue boat(s) to Ward 1 (Lowland Riverside)."
+   },
+   "effect": {
+    "tick": 5,
+    "type": "residents_evacuated",
+    "zone": "ward-1",
+    "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety."
+   },
+   "explanation": "Assigned boats and trucks moved people out of this ward."
+  },
+  {
+   "phase": "flood",
+   "cause": {
+    "tick": 5,
+    "type": "road_inundated",
+    "zone": "ward-1",
+    "description": "Access road to Ward 1 (Lowland Riverside) submerged beneath 50 cm of water. Wheeled transport blocked."
+   },
+   "effect": {
+    "tick": 5,
+    "type": "outcome",
+    "zone": null,
+    "description": "Wheeled vehicles could no longer reach ward-1; only boats could."
+   },
+   "explanation": "Flood depth above the road cut-off blocks trucks."
+  },
+  {
+   "phase": "flood",
+   "cause": {
+    "tick": 6,
+    "type": "transport_assigned",
+    "zone": "ward-2",
+    "description": "Dispatched 2 transport truck(s) to Ward 2 (Market Settlement)."
+   },
+   "effect": {
+    "tick": 6,
+    "type": "residents_evacuated",
+    "zone": "ward-2",
+    "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety."
+   },
+   "explanation": "Assigned boats and trucks moved people out of this ward."
+  },
+  {
+   "phase": "flood",
+   "cause": {
+    "tick": 7,
+    "type": "embankment_reinforced",
+    "zone": null,
+    "description": "Crews laid 200 sandbags. Embankment height raised to 440 cm (integrity 100%)."
+   },
+   "effect": {
+    "tick": null,
+    "type": "outcome",
+    "zone": null,
+    "description": "The embankment held (integrity 85%)."
+   },
+   "explanation": "Sandbags laid before the peak raised the bund and kept it from collapsing."
+  },
+  {
+   "phase": "flood",
+   "cause": {
+    "tick": 10,
+    "type": "shelter_supplies_low",
+    "zone": null,
+    "description": "Shelter supplies are running low: 7 units left."
+   },
+   "effect": {
+    "tick": 12,
+    "type": "supplies_distributed",
+    "zone": null,
+    "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units."
+   },
+   "explanation": "A delivery after the low-stock warning kept the shelter supplied."
+  },
+  {
+   "phase": "flood",
+   "cause": {
+    "tick": 12,
+    "type": "road_inundated",
+    "zone": "ward-2",
+    "description": "Access road to Ward 2 (Market Settlement) submerged beneath 115 cm of water. Wheeled transport blocked."
+   },
+   "effect": {
+    "tick": 12,
+    "type": "outcome",
+    "zone": null,
+    "description": "Wheeled vehicles could no longer reach ward-2; only boats could."
+   },
+   "explanation": "Flood depth above the road cut-off blocks trucks."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 17,
+    "type": "outcome",
+    "zone": null,
+    "description": "2 ward(s) had been flooded."
+   },
+   "effect": {
+    "tick": 17,
+    "type": "phase_changed",
+    "zone": null,
+    "description": "The river fell to 370 cm after the peak. The recovery phase has begun; power is out and roads are blocked by debris."
+   },
+   "explanation": "Standing floodwater set the starting disease risk to 40 out of 100."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 18,
+    "type": "clean_water_provided",
+    "zone": null,
+    "description": "A water purification point started supplying safe drinking water to the shelter and wards."
+   },
+   "effect": {
+    "tick": null,
+    "type": "outcome",
+    "zone": null,
+    "description": "Disease risk stayed below the high mark (peak 40)."
+   },
+   "explanation": "Providing clean water early kept illness from spreading."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 19,
+    "type": "medical_camp_opened",
+    "zone": null,
+    "description": "A medical camp opened beside the shelter to check residents and treat illness."
+   },
+   "effect": {
+    "tick": null,
+    "type": "outcome",
+    "zone": null,
+    "description": "No new illness was reported while the camp was running."
+   },
+   "explanation": "Health checks at the camp stopped illness from taking hold."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 20,
+    "type": "damage_surveyed",
+    "zone": "ward-2",
+    "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm."
+   },
+   "effect": {
+    "tick": 23,
+    "type": "residents_returned",
+    "zone": "ward-2",
+    "description": "100 residents of Ward 2 (Market Settlement) returned home from the shelter."
+   },
+   "explanation": "Houses were checked before families moved back."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 21,
+    "type": "road_cleared",
+    "zone": "ward-2",
+    "description": "Crews cleared debris from the road to Ward 2 (Market Settlement)."
+   },
+   "effect": {
+    "tick": 22,
+    "type": "power_restored",
+    "zone": null,
+    "description": "Repair crews restored electricity from the substation."
+   },
+   "explanation": "A cleared road let repair crews reach the substation."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 22,
+    "type": "power_restored",
+    "zone": null,
+    "description": "Repair crews restored electricity from the substation."
+   },
+   "effect": {
+    "tick": 22,
+    "type": "health_centre_reopened",
+    "zone": null,
+    "description": "With power back, the village health centre reopened."
+   },
+   "explanation": "Electricity let the health centre reopen."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 25,
+    "type": "damage_surveyed",
+    "zone": "ward-1",
+    "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm."
+   },
+   "effect": {
+    "tick": 26,
+    "type": "residents_returned",
+    "zone": "ward-1",
+    "description": "100 residents of Ward 1 (Lowland Riverside) returned home from the shelter."
+   },
+   "explanation": "Houses were checked before families moved back."
+  },
+  {
+   "phase": "recovery",
+   "cause": {
+    "tick": 27,
+    "type": "shelter_supplies_exhausted",
+    "zone": null,
+    "description": "The shelter ran out of food and essentials for its 100 residents."
+   },
+   "effect": {
+    "tick": 27,
+    "type": "outcome",
+    "zone": null,
+    "description": "Community trust fell and disease risk rose while the shelter had no supplies."
+   },
+   "explanation": "Empty shelter stocks harm health and trust."
+  }
+ ],
+ "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions about evacuation, safety or health."
+}

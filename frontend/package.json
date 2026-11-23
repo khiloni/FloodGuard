@@ -1,23 +1,34 @@
 {
   "name": "floodguard-frontend",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "vite",
-    "dev:mock": "VITE_MOCK=true vite",
+    "dev:mock": "vite --mode mock",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "size": "node scripts/check-size.mjs",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
+    "lucide-react": "^1.78.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.65.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
+    "msw": "^2.15.0",
     "typescript": "^5.4.5",
     "vite": "^5.2.11"
+  },
+  "msw": {
+    "workerDirectory": [
+      "mock-public"
+    ]
   }
 }

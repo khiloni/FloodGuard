@@ -1,166 +1,90 @@
-import React from 'react';
-import { ScoreBreakdown, TurnEvent, State, RuleCard } from '../types/api';
+import React, { useEffect, useRef } from 'react';
+import type { Report } from '../api/types';
+import { Siren, RotateCcw, Play } from './icons';
 
-interface Props {
-  score: ScoreBreakdown;
-  state: State;
-  events: TurnEvent[];
-  citedCards: RuleCard[];
-  onPlayAgain: () => void;
-}
+const COMPONENT_LABELS: Record<string, string> = {
+  response_time_score: 'Early warning and evacuation timing',
+  residents_safe_score: 'Residents brought to safety',
+  vulnerable_protected_score: 'Vulnerable residents protected',
+  resource_efficiency_score: 'Use of shelter, transport and sandbags',
+  infrastructure_preserved_score: 'Embankment preserved',
+  public_health_score: 'Public health (disease and illness)',
+  essential_services_score: 'Clean water, power and roads',
+  safe_return_score: 'Residents safely home',
+  community_trust_score: 'Community trust',
+};
 
-export const ReportScreen: React.FC<Props> = ({
-  score,
-  state,
-  events,
-  citedCards,
-  onPlayAgain,
-}) => {
-  const getScoreRating = (s: number) => {
-    if (s >= 80) return { label: 'EXCELLENT RESILIENCE', color: 'rating-high' };
-    if (s >= 50) return { label: 'MODERATE PREPAREDNESS', color: 'rating-med' };
-    return { label: 'CRITICAL VULNERABILITY', color: 'rating-low' };
-  };
+const EVENT_LABELS: Record<string, string> = {
+  outcome: 'Outcome',
+};
+const label = (t: string) => EVENT_LABELS[t] || t.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 
-  const rating = getScoreRating(score.total_score);
-
+export const ReportScreen: React.FC<{ report: Report; onReplay: () => void; onRestart: () => void }> = ({ report, onReplay, onRestart }) => {
+  const ref = useRef<HTMLHeadingElement>(null);
+  useEffect(() => { ref.current?.focus(); }, []);
+  const d = report.score.details || {};
   return (
-    <div className="report-container">
-      <div className="report-header">
-        <h1>Incident After-Action Assessment Report</h1>
-        <p className="report-subtitle">
-          Comprehensive evaluation of community flood protection decisions, evacuation velocity, and
-          logistical resource deployment.
-        </p>
+    <main className="report" data-testid="report">
+      <h1 tabIndex={-1} ref={ref}>The end of the story</h1>
+      <p className="lede">Here is what happened in the village, and why. Scores measure choices inside this simulation only.</p>
+
+      <div className="report-hero">
+        <div className="score-ring" aria-label={`Final score ${report.score.total_score} out of 100`} data-testid="report-score">
+          <span className="score-num">{report.score.total_score}</span><span className="score-max">/ 100</span>
+        </div>
+        <ul className="report-facts">
+          <li><strong>{d.total_safe ?? '-'}</strong> people brought to the shelter</li>
+          <li><strong>{d.vulnerable_saved ?? '-'}</strong> vulnerable residents moved first</li>
+          <li><strong>{d.total_lost ?? 0}</strong> people lost</li>
+          <li><strong>{d.residents_returned ?? 0}</strong> residents back home</li>
+          <li>Peak disease risk <strong>{d.peak_disease_risk ?? 0}</strong>/100</li>
+          <li>Community trust <strong>{d.community_trust ?? 0}</strong>/100</li>
+        </ul>
       </div>
 
-      {/* Hero Score Gauge */}
-      <div className="score-hero-card">
-        <div className="score-circle">
-          <span className="score-number">{score.total_score}</span>
-          <span className="score-out-of">/ 100</span>
+      <section aria-labelledby="phases-h">
+        <h2 id="phases-h">Three phases</h2>
+        <div className="phase-cards">
+          {report.phases.map((p) => (
+            <article key={p.phase} className={`phase-card phase-${p.phase}`} data-testid={`report-phase-${p.phase}`}>
+              <h3>{p.label}</h3>
+              <p className="muted">{p.reached ? `Ticks ${p.start_tick}-${p.end_tick}` : 'Not reached'}</p>
+              <p className="phase-points"><strong>{p.score_points}</strong> / {p.score_max} points</p>
+              <ul>
+                {Object.entries(p.score_components).map(([k, v]) => (
+                  <li key={k}>{COMPONENT_LABELS[k] || k}: <strong>{v}</strong></li>
+                ))}
+              </ul>
+            </article>
+          ))}
         </div>
-        <div className="score-meta">
-          <span className={`rating-pill ${rating.color}`}>{rating.label}</span>
-          <p className="score-description">
-            Simulation concluded at tick {state.tick}. {score.details.total_safe} residents safely evacuated
-            to shelters with {score.details.total_lost} casualties recorded.
-          </p>
-        </div>
+      </section>
+
+      <section aria-labelledby="chain-h">
+        <h2 id="chain-h">Cause and effect</h2>
+        <ol className="chain" data-testid="causal-chain">
+          {report.causal_chain.map((l, i) => (
+            <li key={i} className={`chain-item phase-${l.phase}`}>
+              <div className="chain-cause"><span className="chain-tick">{l.cause.tick !== null ? `Tick ${l.cause.tick}` : ''}</span> {l.cause.description || label(l.cause.type)}</div>
+              <div className="chain-arrow" aria-hidden="true">→</div>
+              <div className="chain-effect"><span className="chain-tick">{l.effect.tick !== null ? `Tick ${l.effect.tick}` : ''}</span> {l.effect.description || label(l.effect.type)}</div>
+              <p className="chain-why">{l.explanation}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <p className="callout danger" role="note" data-testid="report-disclaimer">
+        <Siren aria-hidden="true" />
+        <span><strong>Remember:</strong> this score measures play in an educational simulation. It is not an assessment of
+          real-world readiness or a flood forecast. In a real flood emergency call <strong>112</strong> (or the disaster
+          helpline <strong>1078</strong>) and follow your local authorities.</span>
+      </p>
+
+      <div className="report-actions">
+        <button className="btn" onClick={onReplay} data-testid="report-replay"><Play aria-hidden="true" /> Watch the replay</button>
+        <button className="btn primary" onClick={onRestart} data-testid="report-restart"><RotateCcw aria-hidden="true" /> Play again</button>
       </div>
-
-      {/* Component Breakdown Cards */}
-      <div className="score-breakdown-grid">
-        <div className="breakdown-card">
-          <div className="breakdown-title-row">
-            <span>Residents Safe</span>
-            <strong>{score.residents_safe_score} / 40</strong>
-          </div>
-          <div className="mini-progress-track">
-            <div
-              className="mini-progress-bar"
-              style={{ width: `${(score.residents_safe_score / 40) * 100}%` }}
-            />
-          </div>
-          <small>Proportion of threatened villagers evacuated before severe inundation.</small>
-        </div>
-
-        <div className="breakdown-card">
-          <div className="breakdown-title-row">
-            <span>Vulnerable Protected</span>
-            <strong>{score.vulnerable_protected_score} / 25</strong>
-          </div>
-          <div className="mini-progress-track">
-            <div
-              className="mini-progress-bar"
-              style={{ width: `${(score.vulnerable_protected_score / 25) * 100}%` }}
-            />
-          </div>
-          <small>Elderly, infants, and persons with mobility constraints prioritized.</small>
-        </div>
-
-        <div className="breakdown-card">
-          <div className="breakdown-title-row">
-            <span>Response Time</span>
-            <strong>{score.response_time_score} / 15</strong>
-          </div>
-          <div className="mini-progress-track">
-            <div
-              className="mini-progress-bar"
-              style={{ width: `${(score.response_time_score / 15) * 100}%` }}
-            />
-          </div>
-          <small>Timely issuance of early warnings and evacuation alerts.</small>
-        </div>
-
-        <div className="breakdown-card">
-          <div className="breakdown-title-row">
-            <span>Resource Efficiency</span>
-            <strong>{score.resource_efficiency_score} / 10</strong>
-          </div>
-          <div className="mini-progress-track">
-            <div
-              className="mini-progress-bar"
-              style={{ width: `${(score.resource_efficiency_score / 10) * 100}%` }}
-            />
-          </div>
-          <small>Effective utilization of rescue boats, trucks, and high school shelter.</small>
-        </div>
-
-        <div className="breakdown-card">
-          <div className="breakdown-title-row">
-            <span>Infrastructure Preserved</span>
-            <strong>{score.infrastructure_preserved_score} / 10</strong>
-          </div>
-          <div className="mini-progress-track">
-            <div
-              className="mini-progress-bar"
-              style={{ width: `${(score.infrastructure_preserved_score / 10) * 100}%` }}
-            />
-          </div>
-          <small>Embankment bund reinforcement and integrity maintenance.</small>
-        </div>
-      </div>
-
-      {/* Educational Rule Cards Section */}
-      <div className="rulecards-review-section">
-        <h2>Key Preparedness Principles Applied</h2>
-        <div className="rulecards-grid">
-          {citedCards && citedCards.length > 0 ? (
-            citedCards.map((rc) => (
-              <div key={rc.id} className="rulecard-item">
-                <span className="rc-category">{rc.category}</span>
-                <h3>{rc.title}</h3>
-                <p>{rc.guidance}</p>
-                <small className="rc-source">Source: {rc.source_reference}</small>
-              </div>
-            ))
-          ) : (
-            <div className="rulecard-item">
-              <span className="rc-category">General</span>
-              <h3>Early Multi-Stakeholder Action</h3>
-              <p>
-                Evacuate lowlands before road routes become submerged. Wheeled vehicles stall in water
-                depths above 30 cm, making early motorized boat deployment critical.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* Emergency Reminder Box */}
-      <div className="disclaimer-reminder-box">
-        <strong>Important Emergency Disclaimer:</strong> This score measures simulation gameplay actions
-        and is not an assessment of real-world readiness or hydrological forecast. In a real flood emergency,
-        always call <strong>112</strong> and heed instructions from National & State Disaster Authorities.
-      </div>
-
-      {/* Restart Simulation Action */}
-      <div className="report-action-bar">
-        <button className="btn btn-primary btn-large" onClick={onPlayAgain}>
-          Run Another Incident Scenario
-        </button>
-      </div>
-    </div>
+    </main>
   );
 };

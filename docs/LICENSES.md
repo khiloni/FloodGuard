@@ -45,14 +45,23 @@ All dependencies, models, and assets in FloodGuard strictly conform to OSI-appro
 | certifi | MPL-2.0 | Weak, file-level copyleft; we ship the CA bundle unmodified. Pulled in by httpx. | Pending project-owner approval |
 
 ### Frontend (Node / TypeScript)
+Runtime (shipped in the 75 KB gzip bundle):
 | Package | License | Usage |
 | --- | --- | --- |
-| React | MIT | UI component library |
-| ReactDOM | MIT | DOM rendering engine |
-| Vite, @vitejs/plugin-react | MIT | Build and dev server |
-| TypeScript | Apache-2.0 | Static type checking |
+| react, react-dom, scheduler, loose-envify, js-tokens | MIT | UI |
+| lucide-react | ISC | Icons (tree-shaken, inline SVG) |
 
-Part 3 will add its icon set (Lucide, ISC, or Tabler, MIT), MSW (MIT, dev only) and Playwright (Apache-2.0, dev only) here when they are installed.
+Development only (never in `dist/`):
+| Package | License | Usage |
+| --- | --- | --- |
+| vite, @vitejs/plugin-react, esbuild, rollup, babel | MIT | Build and dev server |
+| typescript | Apache-2.0 | Type checking |
+| msw | MIT | Mock API for `npm run dev:mock` and Playwright |
+| @playwright/test | Apache-2.0 | End-to-end tests |
+| Other transitive build tools | MIT / ISC / Apache-2.0 / BSD-3-Clause; type-fest is MIT OR CC0-1.0 | |
+
+Documented dev-only exception: `caniuse-lite` (CC-BY-4.0), browser-support data read by the build
+tool at build time; it is not shipped. Fonts: system fonts only. Art: hand-drawn inline SVG; no stock art, no CDN.
 
 ### Local Open-Source LLM Model (Ollama / llama.cpp / vLLM)
 | Model Identifier | Base License | Serving Engine | Verified (Gate A) |
