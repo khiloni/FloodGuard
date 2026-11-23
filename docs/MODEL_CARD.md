@@ -44,4 +44,14 @@ This document records the evaluation, provenance, and license details for the op
 
 ---
 **Verified by**: Automated M1 `pytest` suite (`32 passed`, fake-HTTP + adversarial guardrail checks) and live Ollama `qwen2.5:1.5b` end-to-end verification (`source: "llm"` online / `source: "template"` unreachable fallback).  
-**Date**: 2026-11-22  
+**Date**: 2026-11-22
+
+## 6. Human verification (Part 1 gate) - fill in by hand
+| Check | Result | Date / initials |
+| --- | --- | --- |
+| Read the model card on Hugging Face and confirmed the license is Apache-2.0 | | |
+| `ollama pull` + backend with `LLM_MODE=openai_compat`: `/api/v1/health` shows `llm_mode: openai_compat`, `llm_status: online` | | |
+| One button turn returns `narration.source: "llm"` and `guardrail.status: "passed"` | | |
+| Ollama stopped: next turn returns `source: "template"`, `guardrail.status: "fallback"`, game continues | | |
+| Model name and digest used (`ollama show --modelfile <model>`) | | |
+

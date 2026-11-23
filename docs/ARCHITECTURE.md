@@ -59,6 +59,7 @@ backend/app/store/sqlite.py (SQLite audit log & bit-exact session replay)
   - **Job 1 (Voice & Narration)**: Turn narration and NPC dialogue -> JSON `{text, cited_cards}`.
   - **Job 2 (Fallback Parser)**: Used only when the rule-based parser cannot resolve player intent. Temperature 0. Validated against the `ActionName` enum, schema, and engine preconditions. Anything invalid becomes `status: clarify` and simulation time does not advance.
 - **Resilient Fallback**: All LLM outputs pass through `GuardrailValidator`. On validation failure, retries up to 2 times with feedback. If it still fails, times out, or the endpoint is unreachable, it silently falls back to deterministic templates. The simulation never crashes or stalls.
+- **Tested against a real fake server**: `backend/tests/test_fake_llm_server.py` starts a local OpenAI-compatible HTTP server and drives full API turns through it (bad outputs, malformed JSON, real timeouts, refused port); `test_llm_layer.py` covers the same paths with `httpx.MockTransport` plus adversarial validator cases.
 
 ---
 

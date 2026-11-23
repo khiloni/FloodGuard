@@ -1,39 +1,36 @@
-# FloodGuard Development Progress
+# FloodGuard Progress
 
-## Phase A - Backend
-- [x] Task 1: Visual Layout Data & Event Contract
-  - Add `layout` block to `scenarios/village-river-01.yaml` (1000x600 canvas: river path, embankment segments, zone positions, school shelter, transport routes, decor, warning/danger levels).
-  - Expose layout in `GET /scenarios` and `GET /sessions/{id}/state`.
-  - Expose per-zone status, shelter occupancy/capacity, embankment integrity, water levels, transport available vs in use.
-  - Ensure every event in turn responses and `/log` carries `type`, `tick`, `zone`/`target`, `caused_by`.
-  - Add `example_commands` to `GET /meta`.
-- [x] Task 2: LLM Layer (`backend/app/llm/openai_compat.py`)
-  - OpenAI-compatible client supporting Ollama, llama.cpp, vLLM.
-  - Job 1: NPC dialogue & turn narration -> JSON `{text, cited_cards}`.
-  - Job 2: Fallback action parser with schema & state precondition validation.
-  - Guardrail validator with retry (up to 2x) and silent template fallback.
-  - Add `source: llm|template` to narration and NPC messages, `guardrail: {status, retries}` to turn responses, `llm_mode` to `/health` and `/meta`.
-- [x] Task 3: Comprehensive Test Suite
-  - Fake LLM server tests (invented numbers, "everyone survived", injected instructions, malformed JSON, markdown/URLs, wrong language, timeout, endpoint down).
-  - 100+ labelled parser test phrases (typos, ties, code-mixed Hindi-English), >=90% correct, ambiguous -> clarify with time unchanged.
-  - 40+ red-team inputs & 20+ bad model outputs (100% blocked).
-  - 100-run determinism check, invariant checks, API contract tests.
-- [x] Task 4: Hardening & Release Hygiene
-  - Rate limiting (RATE_LIMIT_PER_MIN=30), input length cap (MAX_INPUT_CHARS=400), CORS from env.
-  - Regenerate and freeze `docs/openapi.json`.
-  - License allowlist check (`pip-licenses`, GitHub Actions CI workflow).
-  - Updated `docs/LICENSES.md`, `docs/ARCHITECTURE.md`, `docs/MODEL_CARD.md`, and `README.md`.
-  - Local commit on `main` preserving tag `backend-v2` at `2c024cc`.
+Base: commit `8b67f9b` (Phase 0, F1-F3, LLM layer, layout data). An earlier
+uncommitted frontend attempt is saved in `git stash` as `old-frontend-attempt`
+(reference only; Part 3 rebuilds the frontend from scratch).
 
-## Gate A Status
-- **Automated Backend & Contract Verification**: `pytest -v -p no:opik -p no:langsmith` passed (32 tests: determinism, invariants, golden/metamorphic, replay, 110 parser phrases, 40 red-team inputs, 25+ adversarial outputs, hardened guardrail checks for number formats/survival/markdown/URLs/delimiter sanitization/wrong-language Latin, `1078`/`112` emergency halts across `/turns` and `/npc/{id}/messages`, null-input handling, `httpx.MockTransport` fake-HTTP & circuit-breaker checks, frozen `docs/openapi.json` contract).
-- **Live Ollama Daemon Check**: Verified with `qwen2.5:1.5b` (`Apache-2.0`) on `http://127.0.0.1:11434/v1` — `/api/v1/health` returned `llm_status: "online"`, live turn & NPC consultation returned `source: "llm"` (`guardrail.status: "passed"`), and unreachable-endpoint fallback returned `source: "template"` (`guardrail.status: "fallback"`, `fallback_reason: "endpoint_unavailable:ConnectError"`).
+## Part 1 - LLM layer (backend) - DONE, awaiting human gate
+- [x] `backend/app/llm/openai_compat.py`: OpenAI-compatible client (Ollama, llama.cpp, vLLM).
+      Env: `LLM_MODE` (template|openai_compat, default template), `LLM_BASE_URL`, `LLM_MODEL`,
+      `LLM_TIMEOUT`, `LLM_CONNECT_TIMEOUT`, `LLM_TURN_BUDGET`, `LLM_COOLDOWN`, `LLM_MAX_TOKENS`, `LLM_JSON_MODE`.
+- [x] Job 1: narration and NPC dialogue -> JSON `{text, cited_cards}`; prompt gets persona,
+      facts_allowed, events, rule cards, language, constraints; player text delimited as data.
+      (Gap fixed: NPC prompts now also receive the retrieved rule cards.)
+- [x] Job 2: fallback parser only when the rule parser returns clarify; temperature 0;
+      validated against action enum, params and engine preconditions, else clarify (time does not advance).
+- [x] Validator on every output; 2 retries with the violation as feedback; then template.
+      Endpoint down / slow / HTTP error -> silent template fallback; circuit breaker after connect failure.
+- [x] `source: llm|template` on narration and every NPC message; `guardrail: {status, retries, fallback_reason}`
+      on turn responses; `llm_mode` on `/health` and `/meta`; `docs/openapi.json` frozen.
+- [x] Tests: `test_llm_layer.py` (MockTransport + adversarial validator) and
+      `test_fake_llm_server.py` (real local HTTP server, 16 end-to-end cases). Total 49 passing.
+      (Gap fixed: real fake-server tests added; OpenAPI contract test made pydantic-version independent.)
+- [x] Docs: `MODEL_CARD.md` (with human-gate checklist), `ARCHITECTURE.md`, `LICENSES.md`.
+- [x] CI: stdlib license check `backend/scripts/check_licenses.py` + pytest.
+      (Gap fixed: old pip-licenses step failed on SPDX names and silently allowed MPL-2.0.)
+- [x] Layout block (1000x600 canvas, river, embankment, zones, shelter, routes) in
+      `scenarios/village-river-01.yaml`, exposed via `/scenarios` and session state.
+- [ ] HUMAN GATE: Ollama + Apache-2.0 model -> `source: llm`; stop Ollama -> fallback.
 
-## Phase B - Frontend (Awaiting Gate A)
-- Not started.
+## Part 2 - Post-flood phase - NOT STARTED
+- [ ] `docs/POST_FLOOD_DESIGN.md`, then stop for approval before any engine change.
 
-## Phase C - Integration (Awaiting Gate B)
-- Not started.
+## Part 3 - Immersive visual frontend - NOT STARTED
 
-## Open Questions
-- None.
+## Open questions
+- certifi (MPL-2.0, pulled in by httpx) is listed as a documented exception pending approval.
