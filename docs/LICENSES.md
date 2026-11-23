@@ -1,6 +1,6 @@
 # Open-Source Licenses Audit
 
-All dependencies, models, and assets in FloodGuard strictly conform to OSI-approved open-source or public domain licenses. No proprietary runtime APIs, external CDNs, external fonts, or stock art are used.
+All dependencies, models and assets in FloodGuard use OSI-approved open-source or public-domain licenses, with the dev-only data exception noted below. No proprietary runtime APIs, external CDNs, external fonts, or stock art are used.
 
 ## Source Code & Content Licenses
 - **Source Code**: Apache License 2.0 (`SPDX-License-Identifier: Apache-2.0`)
@@ -12,9 +12,14 @@ All dependencies, models, and assets in FloodGuard strictly conform to OSI-appro
 - BSD-2-Clause
 - BSD-3-Clause
 - ISC
-- MPL-2.0
+- MPL-2.0 - approved by the project owner (23 Nov 2026) for dependencies used **unmodified**:
+  `certifi` (CA bundle, pulled in by `httpx`, which we keep) and `Hypothesis` (if property-based tests are
+  added). MPL-2.0 is file-level copyleft: modified MPL files would have to stay MPL; we modify none.
 - Python Software Foundation (PSF)
 - Public Domain / CC0
+
+`backend/scripts/check_licenses.py` enforces this list in CI (MIT, Apache, BSD, ISC, public domain, MPL-2.0)
+and fails on anything else unless it is a documented exception.
 
 ## Runtime Dependencies
 
@@ -42,7 +47,7 @@ All dependencies, models, and assets in FloodGuard strictly conform to OSI-appro
 | Package | License | Reason | Status |
 | --- | --- | --- | --- |
 | typing-extensions | PSF-2.0 | Same permissive license as Python itself; required by pydantic and FastAPI. | Unavoidable |
-| certifi | MPL-2.0 | Weak, file-level copyleft; we ship the CA bundle unmodified. Pulled in by httpx. | Pending project-owner approval |
+| certifi | MPL-2.0 | CA certificate bundle, used unmodified; pulled in by httpx. | Allowed (MPL-2.0 approved) |
 
 ### Frontend (Node / TypeScript)
 Runtime (shipped in the 75 KB gzip bundle):
@@ -60,8 +65,14 @@ Development only (never in `dist/`):
 | @playwright/test | Apache-2.0 | End-to-end tests |
 | Other transitive build tools | MIT / ISC / Apache-2.0 / BSD-3-Clause; type-fest is MIT OR CC0-1.0 | |
 
-Documented dev-only exception: `caniuse-lite` (CC-BY-4.0), browser-support data read by the build
-tool at build time; it is not shipped. Fonts: system fonts only. Art: hand-drawn inline SVG; no stock art, no CDN.
+Documented dev-only exception (approved 23 Nov 2026): **caniuse-lite**, licensed
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Attribution: browser-support data from
+[Can I use](https://caniuse.com) by Alexis Deveria, packaged as `caniuse-lite` by the Browserslist project
+(https://github.com/browserslist/caniuse-lite). It is read by the build tools (Browserslist, via Vite/Babel)
+at build time only and is **not** shipped: the production bundle in `frontend/dist` contains no caniuse data
+(verified with a search of the built files).
+
+Fonts: system fonts only. Art: hand-drawn inline SVG; no stock art, no CDN.
 
 ### Local Open-Source LLM Model (Ollama / llama.cpp / vLLM)
 | Model Identifier | Base License | Serving Engine | Verified (Gate A) |
