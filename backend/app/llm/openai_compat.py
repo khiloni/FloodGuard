@@ -22,6 +22,7 @@ from ..engine.rules import validate_action_preconditions
 from ..services.narration import generate_template_narration
 from ..services.npc import generate_npc_message
 from ..guardrail.validator import GuardrailValidator
+from . import providers
 
 logger = logging.getLogger("floodguard.llm")
 
@@ -45,11 +46,15 @@ def is_llm_enabled() -> bool:
 
 
 def get_base_url() -> str:
-    return os.environ.get("LLM_BASE_URL", "http://127.0.0.1:11434/v1").strip().rstrip("/")
+    return providers.base_url()
 
 
 def get_model() -> str:
-    return os.environ.get("LLM_MODEL", DEFAULT_MODEL).strip()
+    return providers.model()
+
+
+def get_provider() -> str:
+    return providers.provider_name()
 
 
 def _env_float(name: str, default: float) -> float:
@@ -88,11 +93,12 @@ def get_cooldown() -> float:
 
 
 def get_max_tokens() -> int:
-    return _env_int("LLM_MAX_TOKENS", 300)
+    return _env_int("LLM_MAX_TOKENS", providers.preset().max_tokens)
 
 
 def use_json_mode() -> bool:
-    return os.environ.get("LLM_JSON_MODE", "1").strip() not in ("0", "false", "no")
+    default = "1" if providers.preset().json_mode else "0"
+    return os.environ.get("LLM_JSON_MODE", default).strip() not in ("0", "false", "no")
 
 
 # =========================================================================
@@ -144,12 +150,16 @@ def _http_timeout(read: Optional[float] = None) -> httpx.Timeout:
 
 
 def check_llm_health() -> bool:
-    """Quick ping to check if the OpenAI-compatible endpoint is reachable."""
-    if not is_llm_enabled():
+    """Quick ping to check if the OpenAI-compatible endpoint is reachable.
+    Hosted providers are not pinged (it would spend quota): a configured key counts as online
+    until a call fails, which opens the circuit breaker."""
+    if not is_llm_enabled() or providers.key_missing():
         return False
+    if not providers.preset().ping_models and not os.environ.get("LLM_BASE_URL"):
+        return True
     try:
         with httpx.Client(timeout=_http_timeout(read=2.0)) as client:
-            resp = client.get(f"{get_base_url()}/models")
+            resp = client.get(f"{get_base_url()}/models", headers=providers.auth_headers())
             return resp.status_code == 200
     except Exception:
         return False
@@ -159,6 +169,8 @@ def get_llm_status() -> str:
     """'off' (template mode), 'online', or 'unreachable'. Cached for 15 s."""
     if not is_llm_enabled():
         return "off"
+    if providers.key_missing():
+        return "missing_key"
     key = (get_base_url(), get_model())
     now = time.monotonic()
     if _health_cache["key"] == key and _health_cache["status"] and now - _health_cache["at"] < 15.0:
@@ -176,6 +188,9 @@ def _call_chat_completion(
     """POST /chat/completions. Returns content, or None on any transport failure
     (reason available via _consume_last_error)."""
     _set_last_error(None)
+    if providers.key_missing():
+        _set_last_error(f"missing_key:{providers.preset().key_env}")
+        return None
     if _breaker_open():
         _set_last_error("endpoint_unavailable:circuit_open")
         return None
@@ -192,7 +207,8 @@ def _call_chat_completion(
 
     try:
         with httpx.Client(timeout=_http_timeout()) as client:
-            resp = client.post(f"{get_base_url()}/chat/completions", json=payload)
+            resp = client.post(f"{get_base_url()}/chat/completions", json=payload,
+                               headers=providers.auth_headers())
     except (httpx.ConnectError, httpx.ConnectTimeout) as exc:
         _trip_breaker()
         _set_last_error(f"endpoint_unavailable:{type(exc).__name__}")
@@ -213,6 +229,8 @@ def _call_chat_completion(
     except Exception:
         _set_last_error("bad_response_body")
         return None
+    # Reasoning models may inline their thinking; only the answer is used.
+    content = re.sub(r"<think>.*?</think>", "", content or "", flags=re.DOTALL | re.IGNORECASE).strip()
     if not content:
         _set_last_error("empty_completion")
         return None

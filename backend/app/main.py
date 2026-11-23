@@ -15,6 +15,7 @@ from .engine.models import State, Action, ActionName, ScoreBreakdown
 from .engine.scoring import calculate_score
 from .guardrail.validator import GuardrailValidator
 from .llm.openai_compat import get_llm_mode, get_llm_status
+from .llm import providers as llm_providers
 from .services.turn_pipeline import process_turn
 from .services.report import build_report_sections
 from .store.sqlite import SessionStore
@@ -232,6 +233,7 @@ class HealthResponse(BaseModel):
     status: str
     llm_mode: str
     llm_status: str
+    llm_provider: str = "ollama"
     db: str
     version: str
 
@@ -244,6 +246,9 @@ class MetaResponse(BaseModel):
     supported_languages: List[str]
     llm_mode: str
     llm_status: str
+    llm_provider: str = "ollama"
+    llm_model: str = ""
+    llm_model_license: str = ""
     example_commands: List[str]
     example_commands_by_phase: Dict[str, List[str]] = Field(default_factory=dict)
 
@@ -578,6 +583,7 @@ def get_health():
         "status": "ok",
         "llm_mode": get_llm_mode(),
         "llm_status": get_llm_status(),
+        "llm_provider": llm_providers.provider_name(),
         "db": "connected",
         "version": API_VERSION,
     }
@@ -593,6 +599,9 @@ def get_meta():
         "supported_languages": ["en"],
         "llm_mode": get_llm_mode(),
         "llm_status": get_llm_status(),
+        "llm_provider": llm_providers.provider_name(),
+        "llm_model": llm_providers.model(),
+        "llm_model_license": llm_providers.model_license(),
         "example_commands": EXAMPLE_COMMANDS,
         "example_commands_by_phase": EXAMPLE_COMMANDS_BY_PHASE,
     }

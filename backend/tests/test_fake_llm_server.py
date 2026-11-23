@@ -287,3 +287,62 @@ def test_fallback_parser_uses_temperature_zero_and_valid_action(fake_llm, client
         assert res["state"]["tick"] == 1
     else:  # preconditions may legitimately refuse; must still be a safe status
         assert res["status"] in ("clarify", "rejected")
+
+
+# ------------------------------------------------ provider presets
+
+def test_sarvam_preset_sends_subscription_key_and_strips_thinking(fake_llm, client, monkeypatch):
+    monkeypatch.setenv("LLM_PROVIDER", "sarvam")
+    monkeypatch.setenv("SARVAM_API_KEY", "sk_test_123")
+    monkeypatch.delenv("LLM_MODEL", raising=False)
+    fake_llm.replies = ["<think>The player reinforced the bund, keep it short.</think>"
+                        + json.dumps({"text": SAFE_TEXT, "cited_cards": []})]
+    seen = {}
+    orig = fake_llm.server.RequestHandlerClass.do_POST
+
+    def spy(handler):
+        seen.update({k.lower(): v for k, v in handler.headers.items()})
+        return orig(handler)
+
+    monkeypatch.setattr(fake_llm.server.RequestHandlerClass, "do_POST", spy)
+    sid = _new_session(client)
+    res = _turn(client, sid)
+    assert res["narration"]["source"] == "llm"
+    assert res["narration"]["text"] == SAFE_TEXT
+    assert seen.get("api-subscription-key") == "sk_test_123"
+    req = fake_llm.requests[0]
+    assert req["model"] == "sarvam-105b"
+    assert "response_format" not in req  # JSON mode off for hosted reasoning models
+    meta = client.get("/api/v1/meta").json()
+    assert meta["llm_provider"] == "sarvam" and meta["llm_model_license"] == "Apache-2.0"
+    assert "sk_test_123" not in json.dumps(meta)
+
+
+def test_missing_key_falls_back_without_calling_the_network(fake_llm, client, monkeypatch):
+    monkeypatch.setenv("LLM_PROVIDER", "huggingface")
+    monkeypatch.delenv("HF_TOKEN", raising=False)
+    monkeypatch.delenv("LLM_API_KEY", raising=False)
+    sid = _new_session(client)
+    res = _turn(client, sid)
+    _assert_template_fallback(res, expect_retries=0)
+    assert res["guardrail"]["fallback_reason"].startswith("missing_key")
+    assert fake_llm.requests == []
+    assert client.get("/api/v1/health").json()["llm_status"] == "missing_key"
+
+
+def test_provider_presets_headers_and_urls(monkeypatch):
+    from backend.app.llm import providers
+    monkeypatch.delenv("LLM_BASE_URL", raising=False)
+    monkeypatch.delenv("LLM_MODEL", raising=False)
+    monkeypatch.setenv("LLM_PROVIDER", "cloudflare")
+    monkeypatch.setenv("CF_API_TOKEN", "cf_tok")
+    monkeypatch.setenv("CF_ACCOUNT_ID", "acc123")
+    assert providers.base_url() == "https://api.cloudflare.com/client/v4/accounts/acc123/ai/v1"
+    assert providers.auth_headers() == {"Authorization": "Bearer cf_tok"}
+    assert providers.model_license() == "Apache-2.0"
+    monkeypatch.setenv("LLM_PROVIDER", "huggingface")
+    monkeypatch.setenv("HF_TOKEN", "hf_tok")
+    assert providers.base_url() == "https://router.huggingface.co/v1"
+    assert providers.model() == "openai/gpt-oss-20b"
+    monkeypatch.setenv("LLM_PROVIDER", "nonsense")
+    assert providers.provider_name() == "ollama" and providers.auth_headers() == {}

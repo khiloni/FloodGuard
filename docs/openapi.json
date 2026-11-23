@@ -876,6 +876,11 @@
             "type": "string",
             "title": "Llm Status"
           },
+          "llm_provider": {
+            "type": "string",
+            "title": "Llm Provider",
+            "default": "ollama"
+          },
           "db": {
             "type": "string",
             "title": "Db"
@@ -1039,6 +1044,21 @@
           "llm_status": {
             "type": "string",
             "title": "Llm Status"
+          },
+          "llm_provider": {
+            "type": "string",
+            "title": "Llm Provider",
+            "default": "ollama"
+          },
+          "llm_model": {
+            "type": "string",
+            "title": "Llm Model",
+            "default": ""
+          },
+          "llm_model_license": {
+            "type": "string",
+            "title": "Llm Model License",
+            "default": ""
           },
           "example_commands": {
             "items": {

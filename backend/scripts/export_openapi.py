@@ -1,6 +1,10 @@
 """Regenerate the frozen API contract: python -m backend.scripts.export_openapi"""
 import json
 import os
+import tempfile
+
+# Schema export needs no real database (and must not lock the dev DB).
+os.environ.setdefault("FLOODGUARD_DB_PATH", os.path.join(tempfile.mkdtemp(), "export.db"))
 
 from backend.app.main import app
 
