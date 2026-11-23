@@ -251,7 +251,7 @@ def process_turn(
     new_state, events = step(state, parsed_action, rng)
 
     # 5. Retrieve Educational Rule Card (RAG)
-    query_str = f"{parsed_action.name.value} {' '.join(str(v) for v in parsed_action.params.values())}"
+    query_str = f"{parsed_action.name.value.replace('_', ' ')} {' '.join(str(v) for v in parsed_action.params.values())}"
     relevant_cards = retriever.query(query_str, top_k=1)
 
     # 6. Generate Narration and NPC Dialogue (LLM or Template Fallback)

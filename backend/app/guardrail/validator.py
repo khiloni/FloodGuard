@@ -207,7 +207,7 @@ class GuardrailValidator:
                 violations.append("Ungrounded universal survival or all-safe claim is disallowed.")
                 break
 
-        rescue_events = any(e.type in (EventType.RESIDENTS_EVACUATED, EventType.VULNERABLE_EVACUATED) for e in events_this_turn)
+        rescue_events = any(e.type in (EventType.RESIDENTS_EVACUATED, EventType.VULNERABLE_EVACUATED, EventType.SEARCH_AND_RESCUE_COMPLETED) for e in events_this_turn)
         rescue_words = ["evacuated", "rescued", "transported to safety"]
         for rw in rescue_words:
             if re.search(r"\b" + re.escape(rw) + r"\b", lower_text) and not rescue_events:

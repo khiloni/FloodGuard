@@ -13,14 +13,11 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
         status in ("ok", "clarify", "rejected")
     """
     clean = text.strip().lower()
+    in_recovery = state.phase == "recovery"
     if not clean:
         return "clarify", None, {
             "question": "Please select or type an action to take this turn.",
-            "options": [
-                {"name": "issue_warning", "params": {}},
-                {"name": "open_shelter", "params": {"shelter_id": "school"}},
-                {"name": "wait", "params": {}},
-            ],
+            "options": _default_options(state)[:3],
         }, None
 
     # Detect Zone
@@ -57,9 +54,28 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
     has_transport = any(w in clean for w in [
         "boat", "boats", "bot", "bots", "vehicle", "vehicles", "truck", "trucks", "naav", "gaadi"
     ])
-    has_evacuate = any(w in clean for w in [
-        "evacuate", "evacuation", "evauate", "evac", "evacuaet", "move out", "clear", "nikalo", "hatao", "khalo"
+    # Recovery-phase actions (Part 2)
+    has_clear_roads = (
+        any(w in clean for w in ["debris", "malba", "road clearing", "clear road", "clear the road", "clear roads",
+                                 "clear the roads", "sadak saaf", "unblock road", "unblock the road"])
+    )
+    has_search = any(w in clean for w in ["search and rescue", "search", "stranded", "khoj", "dhundo", "trapped residents"])
+    has_supplies = any(w in clean for w in ["supplies", "supply", "relief kit", "ration", "rashan", "food", "khana"])
+    has_clean_water = any(w in clean for w in [
+        "clean water", "drinking water", "safe water", "purif", "chlorin", "saaf paani", "peene ka paani", "water point"
     ])
+    has_medical = any(w in clean for w in ["medical", "doctor", "health camp", "clinic", "medicine", "dawai", "dawa"])
+    has_power = any(w in clean for w in ["power", "electricity", "bijli", "substation"])
+    has_survey = any(w in clean for w in ["survey", "assess damage", "damage assessment", "inspect", "jaanch", "check damage"])
+    has_return = any(w in clean for w in [
+        "return", "go home", "send home", "back home", "send them home", "ghar wapas", "wapas bhejo", "move back"
+    ])
+
+    has_evacuate = any(w in clean for w in [
+        "evacuate", "evacuation", "evauate", "evac", "evacuaet", "move out", "nikalo", "hatao", "khalo"
+    ] + ([] if has_clear_roads else ["clear"]))
+    if has_search:
+        has_transport = False  # boats are part of a search-and-rescue order
     has_warn = any(w in clean for w in [
         "warn", "warning", "wrn", "waarn", "alert", "broadcast", "chetavani", "suchna", "alarm", "aagah"
     ])
@@ -74,6 +90,14 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
     if has_transport: detected_candidates.append("assign_transport")
     if has_evacuate: detected_candidates.append("order_evacuation")
     if has_warn: detected_candidates.append("issue_warning")
+    if has_search: detected_candidates.append("search_and_rescue")
+    if has_supplies: detected_candidates.append("distribute_supplies")
+    if has_clean_water: detected_candidates.append("provide_clean_water")
+    if has_medical: detected_candidates.append("run_medical_camp")
+    if has_power: detected_candidates.append("restore_power")
+    if has_clear_roads: detected_candidates.append("clear_roads")
+    if has_survey: detected_candidates.append("damage_survey")
+    if has_return: detected_candidates.append("return_residents")
 
     # If there are 2+ distinct candidate actions in one phrase (e.g. "evacuate and warn"), declare a tie!
     if len(detected_candidates) > 1:
@@ -84,11 +108,15 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
             pass
         elif set(detected_candidates) == {"order_evacuation", "prioritize_vulnerable"}:
             pass
+        elif set(detected_candidates) == {"search_and_rescue", "prioritize_vulnerable"}:
+            has_vulnerable = False  # rescue teams already take vulnerable residents first
+        elif set(detected_candidates) == {"search_and_rescue", "order_evacuation"}:
+            has_evacuate = False
         else:
             return "clarify", None, {
                 "question": f"Multiple actions detected ({', '.join(detected_candidates)}). Only one action is permitted per tick. Please choose which one to execute:",
                 "options": [
-                    {"name": c, "params": ({"zone": detected_zone} if detected_zone and c in ["order_evacuation", "issue_warning", "prioritize_vulnerable"] else {})}
+                    {"name": c, "params": ({"zone": detected_zone} if detected_zone and c in ZONE_ACTIONS else {})}
                     for c in detected_candidates[:4]
                 ],
             }, None
@@ -96,6 +124,32 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
     # 1. Action: wait / observe
     if has_wait:
         act = Action(name=ActionName.WAIT, params={})
+        return "ok", act, None, None
+
+    # 1b. Recovery actions (Part 2)
+    recovery_route = [
+        (has_search, "search_and_rescue", True),
+        (has_clear_roads, "clear_roads", True),
+        (has_survey, "damage_survey", True),
+        (has_return, "return_residents", True),
+        (has_clean_water, "provide_clean_water", False),
+        (has_medical, "run_medical_camp", False),
+        (has_power, "restore_power", False),
+        (has_supplies, "distribute_supplies", False),
+    ]
+    for flag, name, needs_zone in recovery_route:
+        if not flag:
+            continue
+        if needs_zone and not detected_zone:
+            return "clarify", None, {
+                "question": RECOVERY_ZONE_QUESTIONS[name],
+                "options": [{"name": name, "params": {"zone": z}} for z in sorted(state.zones.keys())],
+            }, None
+        params = {"zone": detected_zone} if needs_zone else {}
+        act = Action(name=ActionName(name), params=params)
+        valid, reason = validate_action_preconditions(state, act)
+        if not valid:
+            return "rejected", None, None, reason
         return "ok", act, None, None
 
     # 2. Action: open shelter
@@ -210,11 +264,36 @@ def parse_action_text(text: str, state: State) -> Tuple[str, Optional[Action], O
     # Unrecognized command -> clarify options
     return "clarify", None, {
         "question": f"Could not determine action from '{text}'. Please choose one of the available operations:",
-        "options": [
-            {"name": "issue_warning", "params": {}},
-            {"name": "order_evacuation", "params": {"zone": "ward-1"}},
-            {"name": "open_shelter", "params": {"shelter_id": "school"}},
-            {"name": "reinforce_embankment", "params": {"sandbags": 100}},
-            {"name": "wait", "params": {}},
-        ],
+        "options": _default_options(state),
     }, None
+
+
+ZONE_ACTIONS = {
+    "order_evacuation", "issue_warning", "prioritize_vulnerable",
+    "search_and_rescue", "clear_roads", "damage_survey", "return_residents",
+}
+
+RECOVERY_ZONE_QUESTIONS = {
+    "search_and_rescue": "Which ward should the search and rescue teams go to?",
+    "clear_roads": "Which ward's road should be cleared?",
+    "damage_survey": "Which ward should engineers survey?",
+    "return_residents": "Which ward's residents should return home?",
+}
+
+
+def _default_options(state: State) -> List[Dict[str, Any]]:
+    if state.phase == "recovery":
+        return [
+            {"name": "provide_clean_water", "params": {}},
+            {"name": "run_medical_camp", "params": {}},
+            {"name": "search_and_rescue", "params": {"zone": "ward-1"}},
+            {"name": "distribute_supplies", "params": {}},
+            {"name": "wait", "params": {}},
+        ]
+    return [
+        {"name": "issue_warning", "params": {}},
+        {"name": "order_evacuation", "params": {"zone": "ward-1"}},
+        {"name": "open_shelter", "params": {"shelter_id": "school"}},
+        {"name": "reinforce_embankment", "params": {"sandbags": 100}},
+        {"name": "wait", "params": {}},
+    ]

@@ -32,3 +32,38 @@
   guidance: "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security."
   keywords: ["shelter", "school", "intake", "capacity", "elevated", "open"]
   source_reference: "Emergency Shelter Management Protocols"
+
+- id: "RC-06"
+  title: "Safe Drinking Water After Floods"
+  category: "Recovery"
+  guidance: "Floodwater contaminates wells and pipes. Setting up a supervised water purification point early in the recovery lowers the risk of waterborne illness for sheltered and returning families."
+  keywords: ["clean water", "drinking water", "purification", "disease", "waterborne", "well"]
+  source_reference: "General Community Disaster Preparedness Practice"
+
+- id: "RC-07"
+  title: "Health Monitoring and Medical Camps"
+  category: "Recovery"
+  guidance: "Crowded shelters and standing water raise the chance of stomach and skin illness. A medical camp near the shelter helps detect and treat cases early, before they spread."
+  keywords: ["medical", "camp", "illness", "health", "doctor", "disease"]
+  source_reference: "Community Health in Emergencies Practice"
+
+- id: "RC-08"
+  title: "Return Home Only After Inspection"
+  category: "Recovery"
+  guidance: "Residents should return only when their area is dry, the access road is open and houses have been checked for structural and electrical damage by the authorities."
+  keywords: ["return", "home", "survey", "inspection", "damage", "residents"]
+  source_reference: "Post-Disaster Damage Assessment Practice"
+
+- id: "RC-09"
+  title: "Keeping Shelters Supplied"
+  category: "Recovery"
+  guidance: "Plan relief deliveries before shelter stocks run out. Shortages of food and essentials harm health and erode community trust in the response."
+  keywords: ["supplies", "relief", "food", "ration", "shelter", "distribute"]
+  source_reference: "Emergency Shelter Management Protocols"
+
+- id: "RC-10"
+  title: "Clearing Access and Restoring Services"
+  category: "Recovery"
+  guidance: "Clear debris from access roads first so repair crews can reach substations and health facilities. Restoring power lets clinics and water pumps run again."
+  keywords: ["roads", "debris", "power", "electricity", "substation", "clear", "rescue", "search", "stranded"]
+  source_reference: "Infrastructure Recovery Practice"

@@ -41,7 +41,8 @@ def test_api_meta_and_health():
     assert "112" in m["disclaimer"]
     assert "educational simulation" in m["disclaimer"].lower()
     assert "example_commands" in m
-    assert len(m["example_commands"]) == 8
+    assert len(m["example_commands"]) >= 8
+    assert "provide clean drinking water" in m["example_commands"]
 
     sc = list_scenarios()
     assert len(sc["scenarios"]) >= 1

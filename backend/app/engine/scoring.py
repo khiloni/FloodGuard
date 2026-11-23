@@ -1,110 +1,130 @@
 from typing import Dict, Any
 from .models import State, ScoreBreakdown
 
+# Weights sum to 100 (see docs/POST_FLOOD_DESIGN.md section 8).
+WEIGHTS = {
+    "residents_safe": 30,
+    "vulnerable_protected": 20,
+    "response_time": 10,
+    "resource_efficiency": 7,
+    "infrastructure_preserved": 8,
+    "public_health": 8,
+    "essential_services": 6,
+    "safe_return": 6,
+    "community_trust": 5,
+}
+assert sum(WEIGHTS.values()) == 100
+
+
+def _ratio_points(num: int, den: int, weight: int) -> int:
+    """weight * num / den, rounded half up, using integers only. Capped at weight."""
+    if den <= 0:
+        return 0
+    num = max(0, min(num, den))
+    return (2 * num * weight + den) // (2 * den)
+
 
 def calculate_score(state: State) -> ScoreBreakdown:
-    """Calculate the final simulation evaluation score based on objective outcomes.
-    
-    Weights (Sum to 100):
-    - Residents safe: 40 points
-    - Vulnerable protected: 25 points
-    - Response time: 15 points
-    - Resource efficiency: 10 points
-    - Infrastructure preserved: 10 points
-    """
-    total_safe = sum(z.safe_evacuated for z in state.zones.values())
-    total_lost = sum(z.lost for z in state.zones.values())
-    vuln_saved = sum(z.vulnerable_saved for z in state.zones.values())
+    """Score the session from objective engine state. Integer-only arithmetic."""
+    zones = list(state.zones.values())
+    total_safe = sum(z.safe_evacuated for z in zones)
+    total_lost = sum(z.lost for z in zones)
+    vuln_saved = sum(z.vulnerable_saved for z in zones)
 
     peak_forecast = max(state.forecast_cm) if state.forecast_cm else 500
-    threatened_zones = [z for z in state.zones.values() if z.elevation_cm < peak_forecast]
-    threatened_pop = sum(z.initial_population for z in threatened_zones)
-    threatened_vuln = sum(z.initial_vulnerable for z in threatened_zones)
+    threatened = [z for z in zones if z.elevation_cm < peak_forecast]
+    threatened_pop = sum(z.initial_population for z in threatened)
+    threatened_vuln = sum(z.initial_vulnerable for z in threatened)
 
-    # 1. Residents safe score (0-40)
-    # Scaled by proportion of threatened residents evacuated to safety minus casualty penalty
-    safe_ratio = min(1.0, total_safe / max(1, threatened_pop))
-    residents_safe_score = int(round(safe_ratio * 40))
+    # --- Before / during the flood (75) ---
+    w = WEIGHTS["residents_safe"]
+    residents_safe = _ratio_points(total_safe, max(1, threatened_pop), w)
     if total_lost > 0:
-        lost_penalty = int(round((total_lost / max(1, threatened_pop)) * 40))
-        residents_safe_score = max(0, residents_safe_score - lost_penalty)
+        residents_safe = max(0, residents_safe - _ratio_points(total_lost, max(1, threatened_pop), w))
 
-    # 2. Vulnerable protected score (0-25)
-    vuln_ratio = min(1.0, vuln_saved / max(1, threatened_vuln))
-    vulnerable_protected_score = int(round(vuln_ratio * 25))
+    vulnerable_protected = _ratio_points(vuln_saved, max(1, threatened_vuln), WEIGHTS["vulnerable_protected"])
 
-    # 3. Response time score (0-15)
-    response_time_score = 0
-    if state.first_warning_tick is not None:
-        if state.first_warning_tick <= 3:
-            response_time_score += 8
-        elif state.first_warning_tick <= 6:
-            response_time_score += 5
-        elif state.first_warning_tick <= 10:
-            response_time_score += 2
-            
-    if state.first_evacuation_tick is not None:
-        if state.first_evacuation_tick <= 5:
-            response_time_score += 7
-        elif state.first_evacuation_tick <= 8:
-            response_time_score += 4
-        elif state.first_evacuation_tick <= 12:
-            response_time_score += 2
-    response_time_score = min(15, response_time_score)
+    response_time = 0
+    fw, fe = state.first_warning_tick, state.first_evacuation_tick
+    if fw is not None:
+        response_time += 5 if fw <= 3 else 3 if fw <= 6 else 1 if fw <= 10 else 0
+    if fe is not None:
+        response_time += 5 if fe <= 5 else 3 if fe <= 8 else 1 if fe <= 12 else 0
+    response_time = min(WEIGHTS["response_time"], response_time)
 
-    # 4. Resource efficiency score (0-10)
-    efficiency_score = 0
-    shelter_open = any(s.is_open for s in state.shelters.values())
-    if shelter_open:
-        efficiency_score += 4
+    efficiency = 0
+    if any(s.is_open for s in state.shelters.values()):
+        efficiency += 3
     if state.resources.total_boats > state.resources.available_boats or total_safe > 0:
-        efficiency_score += 3
+        efficiency += 2
     if state.embankment.reinforced_count > 0:
-        efficiency_score += 3
-    resource_efficiency_score = min(10, efficiency_score)
+        efficiency += 2
+    efficiency = min(WEIGHTS["resource_efficiency"], efficiency)
 
-    # 5. Infrastructure preserved score (0-10)
-    if not state.embankment.breached and state.embankment.integrity >= 80:
-        infrastructure_preserved_score = 10
-    elif not state.embankment.breached and state.embankment.integrity >= 50:
-        infrastructure_preserved_score = 7
-    elif not state.embankment.breached:
-        infrastructure_preserved_score = 4
+    emb = state.embankment
+    if emb.breached:
+        infrastructure = 0
+    elif emb.integrity >= 80:
+        infrastructure = 8
+    elif emb.integrity >= 50:
+        infrastructure = 6
     else:
-        infrastructure_preserved_score = 0
+        infrastructure = 3
 
-    total_score = (
-        residents_safe_score
-        + vulnerable_protected_score
-        + response_time_score
-        + resource_efficiency_score
-        + infrastructure_preserved_score
-    )
-    total_score = max(0, min(100, total_score))
+    # --- After the flood (25) ---
+    rec = state.recovery
+    public_health = essential_services = safe_return = community_trust = 0
+    untreated = rec.illness_cases - rec.illness_treated
+    roads_blocked_ever = [z for z in zones if z.max_depth_cm >= state.recovery_config.road_debris_depth_cm]
+    roads_cleared = [z for z in roads_blocked_ever if not z.road_blocked]
+    total_returned = sum(z.returned for z in zones)
+    if state.recovery_config.enabled and state.recovery_start_tick is not None:
+        public_health = max(0, _ratio_points(100 - rec.peak_disease_risk, 100, WEIGHTS["public_health"]) - untreated // 5)
+        essential_services = (2 if rec.clean_water_active else 0) + (2 if rec.power_on else 0)
+        essential_services += _ratio_points(len(roads_cleared), len(roads_blocked_ever), 2) if roads_blocked_ever else 2
+        safe_return = _ratio_points(total_returned, total_safe, WEIGHTS["safe_return"]) if total_safe else 0
+        community_trust = _ratio_points(rec.community_trust, 100, WEIGHTS["community_trust"])
 
-    total_pop = sum(z.initial_population for z in state.zones.values())
-    total_vuln = sum(z.initial_vulnerable for z in state.zones.values())
+    total = (residents_safe + vulnerable_protected + response_time + efficiency + infrastructure
+             + public_health + essential_services + safe_return + community_trust)
+    total = max(0, min(100, total))
 
     details: Dict[str, Any] = {
-        "total_population": total_pop,
+        "weights": dict(WEIGHTS),
+        "total_population": sum(z.initial_population for z in zones),
         "threatened_population": threatened_pop,
         "total_safe": total_safe,
         "total_lost": total_lost,
-        "total_vulnerable": total_vuln,
+        "total_vulnerable": sum(z.initial_vulnerable for z in zones),
         "threatened_vulnerable": threatened_vuln,
         "vulnerable_saved": vuln_saved,
-        "first_warning_tick": state.first_warning_tick,
-        "first_evacuation_tick": state.first_evacuation_tick,
-        "embankment_integrity": state.embankment.integrity,
-        "embankment_breached": state.embankment.breached,
+        "first_warning_tick": fw,
+        "first_evacuation_tick": fe,
+        "embankment_integrity": emb.integrity,
+        "embankment_breached": emb.breached,
+        "phase_reached": state.phase,
+        "peak_disease_risk": rec.peak_disease_risk,
+        "illness_cases": rec.illness_cases,
+        "illness_untreated": untreated,
+        "clean_water": rec.clean_water_active,
+        "power_on": rec.power_on,
+        "roads_blocked": len(roads_blocked_ever),
+        "roads_cleared": len(roads_cleared),
+        "residents_returned": total_returned,
+        "community_trust": rec.community_trust,
+        "supply_shortfall_ticks": rec.supply_shortfall_ticks,
     }
 
     return ScoreBreakdown(
-        total_score=total_score,
-        residents_safe_score=residents_safe_score,
-        vulnerable_protected_score=vulnerable_protected_score,
-        response_time_score=response_time_score,
-        resource_efficiency_score=resource_efficiency_score,
-        infrastructure_preserved_score=infrastructure_preserved_score,
+        total_score=total,
+        residents_safe_score=residents_safe,
+        vulnerable_protected_score=vulnerable_protected,
+        response_time_score=response_time,
+        resource_efficiency_score=efficiency,
+        infrastructure_preserved_score=infrastructure,
+        public_health_score=public_health,
+        essential_services_score=essential_services,
+        safe_return_score=safe_return,
+        community_trust_score=community_trust,
         details=details,
     )

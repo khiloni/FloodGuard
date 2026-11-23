@@ -1,8 +1,8 @@
 id: "village-river-01"
 name: "Riverbank Village Flood Response"
-version: "1.0.0"
-description: "A rising tributary threatens three wards. Coordinate evacuations, deploy boats, and reinforce embankments before the flood crests."
-total_ticks: 24
+version: "2.0.0"
+description: "A rising tributary threatens three wards. Warn and evacuate before the flood crests, protect people during it, then lead the recovery: clean water, medical care, power, roads and a safe return home."
+total_ticks: 30
 tick_duration_minutes: 30
 
 resources:
@@ -44,6 +44,47 @@ water_forecast_cm:
   - 225
   - 200
   - 180
+  - 165
+  - 150
+  - 140
+  - 130
+  - 120
+  - 110
+
+# Part 2: phases and recovery. All values are integers used by the engine.
+phases:
+  flood_starts_at_cm: 300   # warning level: before -> flood
+  recovery_below_cm: 380    # danger level, after the peak: flood -> recovery
+
+recovery:
+  shelter_supplies_initial: 30
+  people_per_supply_unit: 60      # 1 unit per started 60 sheltered people per tick
+  supply_deliveries: 3
+  units_per_delivery: 40
+  supplies_low_threshold: 10
+  clean_water_kits: 1
+  medical_teams: 1
+  return_batch_per_turn: 100
+  treat_per_tick: 6
+  road_debris_depth_cm: 30
+  disease:
+    base: 20
+    per_flooded_zone: 10
+    breach_bonus: 10
+    rise_per_tick: 5
+    crowding_pct: 90
+    crowding_rise: 3
+    no_supplies_rise: 4
+    clean_water_drop: 8
+    medical_camp_drop: 6
+    high_threshold: 60
+  trust:
+    initial: 60
+    early_warning_bonus: 10
+    early_warning_by_tick: 6
+    losses_penalty: 10
+    breach_penalty: 10
+    supplies_ran_out_penalty: 10
 
 zones:
   - id: "ward-1"
@@ -247,4 +288,25 @@ layout:
       - [700, 50]
       - [820, 30]
       - [940, 45]
-
+  # Part 2/3: places used by recovery actions and their animations
+  recovery_sites:
+    water_point:
+      x: 640
+      y: 120
+      label: "Water Purification Point"
+    medical_camp:
+      x: 760
+      y: 60
+      label: "Medical Camp"
+    substation:
+      x: 380
+      y: 110
+      label: "Power Substation"
+    health_centre:
+      x: 600
+      y: 60
+      label: "Health Centre"
+    supply_depot:
+      x: 960
+      y: 230
+      label: "Relief Supply Depot"

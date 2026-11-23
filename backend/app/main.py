@@ -17,6 +17,7 @@ from .guardrail.validator import GuardrailValidator
 from .llm.openai_compat import get_llm_mode, get_llm_status
 from .services.turn_pipeline import process_turn
 from .services.npc import generate_npc_message
+from .services.report import build_report_sections
 from .store.sqlite import SessionStore
 
 # Root directory configuration
@@ -67,7 +68,17 @@ EXAMPLE_COMMANDS = [
     "prioritize vulnerable in ward 1",
     "talk to the village head",
     "wait",
+    "send relief supplies to the shelter",
+    "provide clean drinking water",
+    "set up a medical camp",
+    "search and rescue in ward 1",
+    "clear the road to ward 1",
+    "survey damage in ward 1",
+    "restore power",
+    "send ward 2 residents back home",
 ]
+
+API_VERSION = "2.0.0"
 
 
 def get_scenario_layout(scenario_id: str) -> Dict[str, Any]:
@@ -111,9 +122,36 @@ def build_state_summary(state_dict: Dict[str, Any], layout: Optional[Dict[str, A
             "warning_level": z.get("warning_level"),
             "boats_assigned": z.get("boats_assigned"),
             "vehicles_assigned": z.get("vehicles_assigned"),
+            "max_depth_cm": z.get("max_depth_cm", 0),
+            "returned": z.get("returned", 0),
+            "in_shelter": z.get("safe_evacuated", 0) - z.get("returned", 0),
+            "road_blocked": z.get("road_blocked", False),
+            "surveyed": z.get("surveyed", False),
         }
 
+    rec = state_dict.get("recovery") or {}
     return {
+        "tick": state_dict.get("tick", 0),
+        "max_ticks": state_dict.get("max_ticks", 0),
+        "phase": state_dict.get("phase", "before"),
+        "flood_start_tick": state_dict.get("flood_start_tick"),
+        "recovery_start_tick": state_dict.get("recovery_start_tick"),
+        "displaced": shelter_occupancy,
+        "recovery": {
+            "shelter_supplies": rec.get("shelter_supplies", 0),
+            "supply_deliveries_left": rec.get("supply_deliveries_left", 0),
+            "clean_water_active": rec.get("clean_water_active", False),
+            "clean_water_kits": rec.get("clean_water_kits", 0),
+            "medical_camp_active": rec.get("medical_camp_active", False),
+            "medical_teams": rec.get("medical_teams", 0),
+            "disease_risk": rec.get("disease_risk", 0),
+            "peak_disease_risk": rec.get("peak_disease_risk", 0),
+            "illness_cases": rec.get("illness_cases", 0),
+            "illness_untreated": rec.get("illness_cases", 0) - rec.get("illness_treated", 0),
+            "power_on": rec.get("power_on", True),
+            "health_centre_open": rec.get("health_centre_open", True),
+            "community_trust": rec.get("community_trust", 0),
+        },
         "water_level_cm": state_dict.get("water_level_cm"),
         "normal_level_cm": levels.get("normal_level_cm", 200),
         "warning_level_cm": levels.get("warning_level_cm", 300),
@@ -140,7 +178,7 @@ def build_state_summary(state_dict: Dict[str, Any], layout: Optional[Dict[str, A
 
 app = FastAPI(
     title="FloodGuard API",
-    version="1.0.0",
+    version=API_VERSION,
     description="Educational Flood-Response Simulation Engine API",
 )
 
@@ -271,6 +309,13 @@ class RouteLayoutModel(BaseModel):
     waypoints: List[List[int]] = Field(default_factory=list)
 
 
+class RecoverySiteModel(BaseModel):
+    model_config = ConfigDict(extra="allow")
+    x: int
+    y: int
+    label: Optional[str] = None
+
+
 class DecorModel(BaseModel):
     model_config = ConfigDict(extra="allow")
     trees: List[List[int]] = Field(default_factory=list)
@@ -289,6 +334,7 @@ class LayoutModel(BaseModel):
     shelters: List[ShelterLayoutModel] = Field(default_factory=list)
     routes: List[RouteLayoutModel] = Field(default_factory=list)
     decor: Optional[DecorModel] = None
+    recovery_sites: Dict[str, RecoverySiteModel] = Field(default_factory=dict)
 
 
 class ScenarioSummary(BaseModel):
@@ -332,9 +378,37 @@ class ZoneSummary(BaseModel):
     warning_level: int
     boats_assigned: int
     vehicles_assigned: int
+    max_depth_cm: int = 0
+    returned: int = 0
+    in_shelter: int = 0
+    road_blocked: bool = False
+    surveyed: bool = False
+
+
+class RecoverySummary(BaseModel):
+    shelter_supplies: int
+    supply_deliveries_left: int
+    clean_water_active: bool
+    clean_water_kits: int
+    medical_camp_active: bool
+    medical_teams: int
+    disease_risk: int
+    peak_disease_risk: int
+    illness_cases: int
+    illness_untreated: int
+    power_on: bool
+    health_centre_open: bool
+    community_trust: int
 
 
 class StateSummary(BaseModel):
+    tick: int = 0
+    max_ticks: int = 0
+    phase: str = "before"
+    flood_start_tick: Optional[int] = None
+    recovery_start_tick: Optional[int] = None
+    displaced: int = 0
+    recovery: Optional[RecoverySummary] = None
     water_level_cm: int
     normal_level_cm: int
     warning_level_cm: int
@@ -439,11 +513,39 @@ class SessionLogResponse(BaseModel):
     events: List[EventOut]
 
 
+class CauseEffectOut(BaseModel):
+    tick: Optional[int] = None
+    type: str
+    zone: Optional[str] = None
+    description: Optional[str] = None
+
+
+class CausalLinkOut(BaseModel):
+    phase: str
+    cause: CauseEffectOut
+    effect: CauseEffectOut
+    explanation: str
+
+
+class ReportPhaseOut(BaseModel):
+    phase: str
+    label: str
+    reached: bool
+    start_tick: Optional[int] = None
+    end_tick: Optional[int] = None
+    key_events: List[CauseEffectOut] = Field(default_factory=list)
+    score_components: Dict[str, int] = Field(default_factory=dict)
+    score_points: int
+    score_max: int
+
+
 class SessionReportResponse(BaseModel):
     session_id: str
     score: ScoreBreakdown
     final_state: State
     events: List[EventOut]
+    phases: List[ReportPhaseOut] = Field(default_factory=list)
+    causal_chain: List[CausalLinkOut] = Field(default_factory=list)
     disclaimer: str
 
 
@@ -460,14 +562,14 @@ def get_health():
         "llm_mode": get_llm_mode(),
         "llm_status": get_llm_status(),
         "db": "connected",
-        "version": "1.0.0",
+        "version": API_VERSION,
     }
 
 
 @app.get("/api/v1/meta", response_model=MetaResponse)
 def get_meta():
     return {
-        "version": "1.0.0",
+        "version": API_VERSION,
         "disclaimer": DISCLAIMER_FULL_TEXT,
         "emergency_helpline": "112",
         "disaster_helpline": "1078",
@@ -700,11 +802,14 @@ def get_session_report(session_id: str):
         score = calculate_score(state)
 
     events = store.get_events(session_id)
+    sections = build_report_sections(state, events, score)
     return {
         "session_id": session_id,
         "score": score.model_dump(),
         "final_state": state.model_dump(),
         "events": events,
+        "phases": sections["phases"],
+        "causal_chain": sections["causal_chain"],
         "disclaimer": DISCLAIMER_FULL_TEXT,
     }
 

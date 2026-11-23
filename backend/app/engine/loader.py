@@ -8,7 +8,44 @@ from .models import (
     ShelterState,
     ResourceState,
     EmbankmentState,
+    RecoveryConfig,
+    RecoveryState,
 )
+
+
+def build_recovery_config(data: Dict[str, Any]) -> RecoveryConfig:
+    """Flatten the optional `phases` and `recovery` YAML blocks into a frozen config.
+    Nested `disease:` and `trust:` keys map to `disease_*` / `trust_*` fields."""
+    rec = data.get("recovery")
+    if not rec:
+        return RecoveryConfig(enabled=False)
+    flat: Dict[str, Any] = {"enabled": True}
+    phases = data.get("phases", {}) or {}
+    for key in ("flood_starts_at_cm", "recovery_below_cm"):
+        if key in phases:
+            flat[key] = int(phases[key])
+    for key, val in rec.items():
+        if key in ("disease", "trust") and isinstance(val, dict):
+            for sub, sval in val.items():
+                flat[f"{key}_{sub}"] = int(sval)
+        else:
+            flat[key] = int(val)
+    unknown = set(flat) - set(RecoveryConfig.model_fields)
+    if unknown:
+        raise ValueError(f"Unknown recovery config keys: {sorted(unknown)}")
+    return RecoveryConfig(**flat)
+
+
+def initial_recovery_state(cfg: RecoveryConfig) -> RecoveryState:
+    if not cfg.enabled:
+        return RecoveryState()
+    return RecoveryState(
+        shelter_supplies=cfg.shelter_supplies_initial,
+        supply_deliveries_left=cfg.supply_deliveries,
+        clean_water_kits=cfg.clean_water_kits,
+        medical_teams=cfg.medical_teams,
+        community_trust=cfg.trust_initial,
+    )
 
 
 def load_scenario_config(scenario_path: str) -> Dict[str, Any]:
@@ -96,6 +133,7 @@ def load_scenario(scenario_path: str) -> State:
         )
 
     initial_water = forecast[0] if forecast else 150
+    recovery_config = build_recovery_config(data)
 
     return State(
         scenario_id=scenario_id,
@@ -112,4 +150,7 @@ def load_scenario(scenario_path: str) -> State:
         first_evacuation_tick=None,
         is_finished=False,
         score=None,
+        phase="before",
+        recovery=initial_recovery_state(recovery_config),
+        recovery_config=recovery_config,
     )

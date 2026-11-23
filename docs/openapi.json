@@ -3,7 +3,7 @@
   "info": {
     "title": "FloodGuard API",
     "description": "Educational Flood-Response Simulation Engine API",
-    "version": "1.0.0"
+    "version": "2.0.0"
   },
   "paths": {
     "/api/v1/health": {
@@ -370,7 +370,6 @@
             "$ref": "#/components/schemas/ActionName"
           },
           "params": {
-            "additionalProperties": true,
             "type": "object",
             "title": "Params"
           }
@@ -391,7 +390,15 @@
           "open_shelter",
           "reinforce_embankment",
           "consult_npc",
-          "wait"
+          "wait",
+          "search_and_rescue",
+          "distribute_supplies",
+          "provide_clean_water",
+          "run_medical_camp",
+          "restore_power",
+          "clear_roads",
+          "damage_survey",
+          "return_residents"
         ],
         "title": "ActionName"
       },
@@ -411,6 +418,78 @@
         "additionalProperties": true,
         "type": "object",
         "title": "CanvasModel"
+      },
+      "CausalLinkOut": {
+        "properties": {
+          "phase": {
+            "type": "string",
+            "title": "Phase"
+          },
+          "cause": {
+            "$ref": "#/components/schemas/CauseEffectOut"
+          },
+          "effect": {
+            "$ref": "#/components/schemas/CauseEffectOut"
+          },
+          "explanation": {
+            "type": "string",
+            "title": "Explanation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "phase",
+          "cause",
+          "effect",
+          "explanation"
+        ],
+        "title": "CausalLinkOut"
+      },
+      "CauseEffectOut": {
+        "properties": {
+          "tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tick"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          },
+          "zone": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Zone"
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "CauseEffectOut"
       },
       "ClarifyOut": {
         "properties": {
@@ -515,7 +594,6 @@
           "jetty": {
             "anyOf": [
               {
-                "additionalProperties": true,
                 "type": "object"
               },
               {
@@ -526,7 +604,6 @@
           },
           "bridges": {
             "items": {
-              "additionalProperties": true,
               "type": "object"
             },
             "type": "array",
@@ -708,7 +785,6 @@
             "title": "Description"
           },
           "details": {
-            "additionalProperties": true,
             "type": "object",
             "title": "Details"
           },
@@ -881,6 +957,13 @@
                 "type": "null"
               }
             ]
+          },
+          "recovery_sites": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/RecoverySiteModel"
+            },
+            "type": "object",
+            "title": "Recovery Sites"
           }
         },
         "additionalProperties": true,
@@ -1137,6 +1220,411 @@
           "source"
         ],
         "title": "NarrationOut"
+      },
+      "RecoveryConfig": {
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "title": "Enabled",
+            "default": false
+          },
+          "flood_starts_at_cm": {
+            "type": "integer",
+            "title": "Flood Starts At Cm",
+            "default": 300
+          },
+          "recovery_below_cm": {
+            "type": "integer",
+            "title": "Recovery Below Cm",
+            "default": 380
+          },
+          "shelter_supplies_initial": {
+            "type": "integer",
+            "title": "Shelter Supplies Initial",
+            "default": 30
+          },
+          "people_per_supply_unit": {
+            "type": "integer",
+            "title": "People Per Supply Unit",
+            "default": 60
+          },
+          "supply_deliveries": {
+            "type": "integer",
+            "title": "Supply Deliveries",
+            "default": 3
+          },
+          "units_per_delivery": {
+            "type": "integer",
+            "title": "Units Per Delivery",
+            "default": 40
+          },
+          "supplies_low_threshold": {
+            "type": "integer",
+            "title": "Supplies Low Threshold",
+            "default": 10
+          },
+          "clean_water_kits": {
+            "type": "integer",
+            "title": "Clean Water Kits",
+            "default": 1
+          },
+          "medical_teams": {
+            "type": "integer",
+            "title": "Medical Teams",
+            "default": 1
+          },
+          "return_batch_per_turn": {
+            "type": "integer",
+            "title": "Return Batch Per Turn",
+            "default": 100
+          },
+          "treat_per_tick": {
+            "type": "integer",
+            "title": "Treat Per Tick",
+            "default": 6
+          },
+          "disease_base": {
+            "type": "integer",
+            "title": "Disease Base",
+            "default": 20
+          },
+          "disease_per_flooded_zone": {
+            "type": "integer",
+            "title": "Disease Per Flooded Zone",
+            "default": 10
+          },
+          "disease_breach_bonus": {
+            "type": "integer",
+            "title": "Disease Breach Bonus",
+            "default": 10
+          },
+          "disease_rise_per_tick": {
+            "type": "integer",
+            "title": "Disease Rise Per Tick",
+            "default": 5
+          },
+          "disease_crowding_pct": {
+            "type": "integer",
+            "title": "Disease Crowding Pct",
+            "default": 90
+          },
+          "disease_crowding_rise": {
+            "type": "integer",
+            "title": "Disease Crowding Rise",
+            "default": 3
+          },
+          "disease_no_supplies_rise": {
+            "type": "integer",
+            "title": "Disease No Supplies Rise",
+            "default": 4
+          },
+          "disease_clean_water_drop": {
+            "type": "integer",
+            "title": "Disease Clean Water Drop",
+            "default": 8
+          },
+          "disease_medical_camp_drop": {
+            "type": "integer",
+            "title": "Disease Medical Camp Drop",
+            "default": 6
+          },
+          "disease_high_threshold": {
+            "type": "integer",
+            "title": "Disease High Threshold",
+            "default": 60
+          },
+          "trust_initial": {
+            "type": "integer",
+            "title": "Trust Initial",
+            "default": 60
+          },
+          "trust_early_warning_bonus": {
+            "type": "integer",
+            "title": "Trust Early Warning Bonus",
+            "default": 10
+          },
+          "trust_early_warning_by_tick": {
+            "type": "integer",
+            "title": "Trust Early Warning By Tick",
+            "default": 6
+          },
+          "trust_losses_penalty": {
+            "type": "integer",
+            "title": "Trust Losses Penalty",
+            "default": 10
+          },
+          "trust_breach_penalty": {
+            "type": "integer",
+            "title": "Trust Breach Penalty",
+            "default": 10
+          },
+          "trust_supplies_ran_out_penalty": {
+            "type": "integer",
+            "title": "Trust Supplies Ran Out Penalty",
+            "default": 10
+          },
+          "road_debris_depth_cm": {
+            "type": "integer",
+            "title": "Road Debris Depth Cm",
+            "default": 30
+          }
+        },
+        "type": "object",
+        "title": "RecoveryConfig",
+        "description": "Scenario constants for phases and recovery (all integers). enabled=False keeps the\noriginal flood-only behaviour for scenarios without a `recovery` block."
+      },
+      "RecoverySiteModel": {
+        "properties": {
+          "x": {
+            "type": "integer",
+            "title": "X"
+          },
+          "y": {
+            "type": "integer",
+            "title": "Y"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "required": [
+          "x",
+          "y"
+        ],
+        "title": "RecoverySiteModel"
+      },
+      "RecoveryState": {
+        "properties": {
+          "shelter_supplies": {
+            "type": "integer",
+            "title": "Shelter Supplies",
+            "default": 0
+          },
+          "supply_deliveries_left": {
+            "type": "integer",
+            "title": "Supply Deliveries Left",
+            "default": 0
+          },
+          "supply_shortfall_ticks": {
+            "type": "integer",
+            "title": "Supply Shortfall Ticks",
+            "default": 0
+          },
+          "supplies_low_warned": {
+            "type": "boolean",
+            "title": "Supplies Low Warned",
+            "default": false
+          },
+          "clean_water_kits": {
+            "type": "integer",
+            "title": "Clean Water Kits",
+            "default": 0
+          },
+          "clean_water_active": {
+            "type": "boolean",
+            "title": "Clean Water Active",
+            "default": false
+          },
+          "medical_teams": {
+            "type": "integer",
+            "title": "Medical Teams",
+            "default": 0
+          },
+          "medical_camp_active": {
+            "type": "boolean",
+            "title": "Medical Camp Active",
+            "default": false
+          },
+          "disease_risk": {
+            "type": "integer",
+            "title": "Disease Risk",
+            "default": 0
+          },
+          "peak_disease_risk": {
+            "type": "integer",
+            "title": "Peak Disease Risk",
+            "default": 0
+          },
+          "illness_cases": {
+            "type": "integer",
+            "title": "Illness Cases",
+            "default": 0
+          },
+          "illness_treated": {
+            "type": "integer",
+            "title": "Illness Treated",
+            "default": 0
+          },
+          "power_on": {
+            "type": "boolean",
+            "title": "Power On",
+            "default": true
+          },
+          "health_centre_open": {
+            "type": "boolean",
+            "title": "Health Centre Open",
+            "default": true
+          },
+          "community_trust": {
+            "type": "integer",
+            "title": "Community Trust",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "RecoveryState"
+      },
+      "RecoverySummary": {
+        "properties": {
+          "shelter_supplies": {
+            "type": "integer",
+            "title": "Shelter Supplies"
+          },
+          "supply_deliveries_left": {
+            "type": "integer",
+            "title": "Supply Deliveries Left"
+          },
+          "clean_water_active": {
+            "type": "boolean",
+            "title": "Clean Water Active"
+          },
+          "clean_water_kits": {
+            "type": "integer",
+            "title": "Clean Water Kits"
+          },
+          "medical_camp_active": {
+            "type": "boolean",
+            "title": "Medical Camp Active"
+          },
+          "medical_teams": {
+            "type": "integer",
+            "title": "Medical Teams"
+          },
+          "disease_risk": {
+            "type": "integer",
+            "title": "Disease Risk"
+          },
+          "peak_disease_risk": {
+            "type": "integer",
+            "title": "Peak Disease Risk"
+          },
+          "illness_cases": {
+            "type": "integer",
+            "title": "Illness Cases"
+          },
+          "illness_untreated": {
+            "type": "integer",
+            "title": "Illness Untreated"
+          },
+          "power_on": {
+            "type": "boolean",
+            "title": "Power On"
+          },
+          "health_centre_open": {
+            "type": "boolean",
+            "title": "Health Centre Open"
+          },
+          "community_trust": {
+            "type": "integer",
+            "title": "Community Trust"
+          }
+        },
+        "type": "object",
+        "required": [
+          "shelter_supplies",
+          "supply_deliveries_left",
+          "clean_water_active",
+          "clean_water_kits",
+          "medical_camp_active",
+          "medical_teams",
+          "disease_risk",
+          "peak_disease_risk",
+          "illness_cases",
+          "illness_untreated",
+          "power_on",
+          "health_centre_open",
+          "community_trust"
+        ],
+        "title": "RecoverySummary"
+      },
+      "ReportPhaseOut": {
+        "properties": {
+          "phase": {
+            "type": "string",
+            "title": "Phase"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "reached": {
+            "type": "boolean",
+            "title": "Reached"
+          },
+          "start_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Start Tick"
+          },
+          "end_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Tick"
+          },
+          "key_events": {
+            "items": {
+              "$ref": "#/components/schemas/CauseEffectOut"
+            },
+            "type": "array",
+            "title": "Key Events"
+          },
+          "score_components": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Score Components"
+          },
+          "score_points": {
+            "type": "integer",
+            "title": "Score Points"
+          },
+          "score_max": {
+            "type": "integer",
+            "title": "Score Max"
+          }
+        },
+        "type": "object",
+        "required": [
+          "phase",
+          "label",
+          "reached",
+          "score_points",
+          "score_max"
+        ],
+        "title": "ReportPhaseOut"
       },
       "ResourceState": {
         "properties": {
@@ -1407,8 +1895,27 @@
             "type": "integer",
             "title": "Infrastructure Preserved Score"
           },
+          "public_health_score": {
+            "type": "integer",
+            "title": "Public Health Score",
+            "default": 0
+          },
+          "essential_services_score": {
+            "type": "integer",
+            "title": "Essential Services Score",
+            "default": 0
+          },
+          "safe_return_score": {
+            "type": "integer",
+            "title": "Safe Return Score",
+            "default": 0
+          },
+          "community_trust_score": {
+            "type": "integer",
+            "title": "Community Trust Score",
+            "default": 0
+          },
           "details": {
-            "additionalProperties": true,
             "type": "object",
             "title": "Details"
           }
@@ -1481,6 +1988,20 @@
             },
             "type": "array",
             "title": "Events"
+          },
+          "phases": {
+            "items": {
+              "$ref": "#/components/schemas/ReportPhaseOut"
+            },
+            "type": "array",
+            "title": "Phases"
+          },
+          "causal_chain": {
+            "items": {
+              "$ref": "#/components/schemas/CausalLinkOut"
+            },
+            "type": "array",
+            "title": "Causal Chain"
           },
           "disclaimer": {
             "type": "string",
@@ -1717,6 +2238,39 @@
                 "type": "null"
               }
             ]
+          },
+          "phase": {
+            "type": "string",
+            "title": "Phase",
+            "default": "before"
+          },
+          "flood_start_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Flood Start Tick"
+          },
+          "recovery_start_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recovery Start Tick"
+          },
+          "recovery": {
+            "$ref": "#/components/schemas/RecoveryState"
+          },
+          "recovery_config": {
+            "$ref": "#/components/schemas/RecoveryConfig"
           }
         },
         "type": "object",
@@ -1736,6 +2290,58 @@
       },
       "StateSummary": {
         "properties": {
+          "tick": {
+            "type": "integer",
+            "title": "Tick",
+            "default": 0
+          },
+          "max_ticks": {
+            "type": "integer",
+            "title": "Max Ticks",
+            "default": 0
+          },
+          "phase": {
+            "type": "string",
+            "title": "Phase",
+            "default": "before"
+          },
+          "flood_start_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Flood Start Tick"
+          },
+          "recovery_start_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recovery Start Tick"
+          },
+          "displaced": {
+            "type": "integer",
+            "title": "Displaced",
+            "default": 0
+          },
+          "recovery": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RecoverySummary"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "water_level_cm": {
             "type": "integer",
             "title": "Water Level Cm"
@@ -1839,7 +2445,6 @@
       "TurnRequest": {
         "properties": {
           "input": {
-            "additionalProperties": true,
             "type": "object",
             "title": "Input"
           }
@@ -2128,6 +2733,26 @@
           "road_flooded": {
             "type": "boolean",
             "title": "Road Flooded"
+          },
+          "max_depth_cm": {
+            "type": "integer",
+            "title": "Max Depth Cm",
+            "default": 0
+          },
+          "returned": {
+            "type": "integer",
+            "title": "Returned",
+            "default": 0
+          },
+          "road_blocked": {
+            "type": "boolean",
+            "title": "Road Blocked",
+            "default": false
+          },
+          "surveyed": {
+            "type": "boolean",
+            "title": "Surveyed",
+            "default": false
           }
         },
         "type": "object",
@@ -2209,6 +2834,31 @@
           "vehicles_assigned": {
             "type": "integer",
             "title": "Vehicles Assigned"
+          },
+          "max_depth_cm": {
+            "type": "integer",
+            "title": "Max Depth Cm",
+            "default": 0
+          },
+          "returned": {
+            "type": "integer",
+            "title": "Returned",
+            "default": 0
+          },
+          "in_shelter": {
+            "type": "integer",
+            "title": "In Shelter",
+            "default": 0
+          },
+          "road_blocked": {
+            "type": "boolean",
+            "title": "Road Blocked",
+            "default": false
+          },
+          "surveyed": {
+            "type": "boolean",
+            "title": "Surveyed",
+            "default": false
           }
         },
         "type": "object",

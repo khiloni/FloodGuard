@@ -22,7 +22,7 @@ def generate_template_narration(state: State, events: List[Event]) -> str:
         elif event.type == EventType.EMBANKMENT_REINFORCED:
             narrative_lines.append(f"Defensive engineering: {event.description}")
         elif event.type == EventType.WATER_LEVEL_ADVANCED:
-            narrative_lines.append(f"Hydrology monitor: Water level rose to {event.details.get('water_level_cm', state.water_level_cm)} cm.")
+            narrative_lines.append(f"Hydrology monitor: the river is at {event.details.get('water_level_cm', state.water_level_cm)} cm.")
         elif event.type == EventType.ROAD_INUNDATED:
             narrative_lines.append(f"URGENT: {event.description}")
         elif event.type == EventType.ZONE_FLOODED:
@@ -39,11 +39,33 @@ def generate_template_narration(state: State, events: List[Event]) -> str:
             narrative_lines.append(f"CASUALTIES REPORTED: {event.description}")
         elif event.type == EventType.SESSION_COMPLETED:
             narrative_lines.append(f"Final Outcome: {event.description}")
+        elif event.type in RECOVERY_PREFIXES:
+            narrative_lines.append(f"{RECOVERY_PREFIXES[event.type]}{event.description}")
 
     if not narrative_lines:
         return f"Tick {state.tick}: River height recorded at {state.water_level_cm} cm."
 
     return " ".join(narrative_lines)
+
+
+RECOVERY_PREFIXES = {
+    EventType.PHASE_CHANGED: "New phase: ",
+    EventType.WATER_RECEDED: "Recovery: ",
+    EventType.SEARCH_AND_RESCUE_COMPLETED: "Search and rescue: ",
+    EventType.SUPPLIES_DISTRIBUTED: "Relief logistics: ",
+    EventType.SHELTER_SUPPLIES_LOW: "Shelter notice: ",
+    EventType.SHELTER_SUPPLIES_EXHAUSTED: "Shelter notice: ",
+    EventType.CLEAN_WATER_PROVIDED: "Public health: ",
+    EventType.MEDICAL_CAMP_OPENED: "Public health: ",
+    EventType.DISEASE_RISK_HIGH: "Health alert: ",
+    EventType.ILLNESS_REPORTED: "Health alert: ",
+    EventType.ILLNESS_TREATED: "Medical camp: ",
+    EventType.POWER_RESTORED: "Repairs: ",
+    EventType.HEALTH_CENTRE_REOPENED: "Repairs: ",
+    EventType.ROAD_CLEARED: "Repairs: ",
+    EventType.DAMAGE_SURVEYED: "Damage survey: ",
+    EventType.RESIDENTS_RETURNED: "Returning home: ",
+}
 
 
 def get_facts_allowed_from_state_and_events(state: State, events: List[Event]) -> Set[int]:
@@ -88,6 +110,17 @@ def get_facts_allowed_from_state_and_events(state: State, events: List[Event]) -
         for val in e.details.values():
             if isinstance(val, int):
                 facts.add(val)
+
+    rec = state.recovery
+    facts.update({
+        rec.shelter_supplies, rec.supply_deliveries_left, rec.clean_water_kits, rec.medical_teams,
+        rec.disease_risk, rec.peak_disease_risk, rec.illness_cases, rec.illness_treated,
+        rec.illness_cases - rec.illness_treated, rec.community_trust,
+    })
+    for z in state.zones.values():
+        facts.update({z.max_depth_cm, z.returned, z.safe_evacuated - z.returned})
+    facts.add(sum(s.current_occupancy for s in state.shelters.values()))
+    facts.update({30, 60})
 
     if state.score:
         facts.add(state.score.total_score)
