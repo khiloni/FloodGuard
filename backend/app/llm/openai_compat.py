@@ -641,3 +641,59 @@ def parse_llm_action_fallback(
     if not ok:
         return "rejected", None, None, reject
     return "ok", action, None, None
+
+
+# =========================================================================
+# Job 3: Phrase the advisor's suggestions (never chooses them)
+# =========================================================================
+
+ADVICE_SEP = "|||"
+
+
+def phrase_advice(
+    options: List[Dict[str, Any]],
+    state: State,
+    validator: GuardrailValidator,
+    facts_allowed: Set[int],
+    rule_cards: List[Dict[str, Any]],
+    language: str = "en",
+) -> LLMResult:
+    """Rephrase the deterministic trade-off lines. The options and their order are fixed by the
+    engine-side advisor; the LLM only rewords each line. Falls back to the template lines."""
+    template = ADVICE_SEP.join(o["tradeoff"] for o in options)
+    card_ids = [c["id"] for c in rule_cards]
+    if not is_llm_enabled() or not options:
+        return LLMResult(text=template, cited_cards=card_ids, status="disabled")
+
+    listing = [{"n": i + 1, "action": o["action"]["name"], "params": o["action"]["params"], "fact_line": o["tradeoff"]}
+               for i, o in enumerate(options)]
+    system_prompt = (
+        "You advise the player of FloodGuard, an educational flood simulation. You get numbered options "
+        "already chosen by the simulation engine. For EACH option write one short, plain sentence that explains "
+        "its trade-off, using only the facts in its fact_line. Do not add, remove or reorder options and do "
+        "not recommend anything else.\n" + _COMMON_RULES + "\n"
+        f"8. Reply with JSON: {{\"text\": \"sentence 1 {ADVICE_SEP} sentence 2 {ADVICE_SEP} ...\", \"cited_cards\": [...]}} "
+        f"with exactly {len(options)} sentences separated by {ADVICE_SEP}."
+    )
+    user_prompt = (
+        f"LANGUAGE: {language}\n"
+        f"ALLOWED_NUMBERS: {sorted(facts_allowed)}\n"
+        f"OPTIONS: {json.dumps(listing)}\n"
+        f"RULE_CARDS: {json.dumps([{'id': c.get('id'), 'title': c.get('title')} for c in rule_cards])}"
+    )
+
+    def _validate(text: str, cited: List[str]) -> Tuple[bool, List[str]]:
+        lines = [ln.strip() for ln in text.split(ADVICE_SEP)]
+        if len(lines) != len(options) or any(not ln for ln in lines):
+            return False, [f"Expected exactly {len(options)} sentences separated by {ADVICE_SEP}."]
+        problems: List[str] = []
+        for ln in lines:
+            ok, v = validator.validate_text(ln, facts_allowed, [], cited, language=language)
+            problems.extend(v)
+        return (not problems), problems
+
+    return _generate_validated(
+        [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
+        temperature=0.3, validate=_validate, allowed_cards=card_ids,
+        fallback_text=template, fallback_cards=card_ids, job="advice",
+    )

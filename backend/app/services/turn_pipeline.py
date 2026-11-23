@@ -20,6 +20,7 @@ from ..llm.openai_compat import (
 from ..rag.bm25 import BM25Retriever
 from ..engine.loader import load_scenario_config
 from .npc import allowed_facts_for_npc
+from .advisor import npc_suggestion
 from ..store.sqlite import SessionStore
 
 # Initialize Rulecard Retriever
@@ -304,10 +305,13 @@ def process_turn(
             persona=profile.get("persona"),
             location=profile.get("location"),
         )
+        suggestion = npc_suggestion(new_state, npc_id)
         npc_messages.append({
             "npc_id": npc_id,
             "text": npc_res.text,
             "source": npc_res.source,
+            # A suggestion the player may adopt; it never executes by itself.
+            "suggestion": suggestion,
         })
 
     total_retries = nar_res.retries + (npc_res.retries if npc_res else 0)

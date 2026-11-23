@@ -67,3 +67,31 @@
   guidance: "Clear debris from access roads first so repair crews can reach substations and health facilities. Restoring power lets clinics and water pumps run again."
   keywords: ["roads", "debris", "power", "electricity", "substation", "clear", "rescue", "search", "stranded"]
   source_reference: "Infrastructure Recovery Practice"
+
+- id: "RC-11"
+  title: "Keep Urban Drains Clear"
+  category: "Urban flooding"
+  guidance: "Blocked storm drains turn heavy rain into street flooding within minutes. Clearing choke points before and during a cloudburst, and keeping people out of underpasses, reduces the danger."
+  keywords: ["drain", "drains", "underpass", "urban", "street", "clear", "cloudburst"]
+  source_reference: "Urban Flood Management Practice"
+
+- id: "RC-12"
+  title: "Dam Release Communication"
+  category: "Alerts"
+  guidance: "Downstream villages need advance notice before a dam release. Coordinate with the dam authority early; a slower, staggered release with clear warnings gives people time to move."
+  keywords: ["dam", "release", "staggered", "notice", "downstream", "authority", "warning"]
+  source_reference: "Dam Safety and Downstream Warning Practice"
+
+- id: "RC-13"
+  title: "Cyclone Readiness for Fishing Communities"
+  category: "Cyclone"
+  guidance: "Recall fishing boats as soon as a cyclone warning is issued, well before landfall. Move coastal families to cyclone shelters early because roads and power fail when the wind rises."
+  keywords: ["cyclone", "fishing", "boats", "recall", "landfall", "coast", "surge", "fishermen"]
+  source_reference: "Coastal Cyclone Preparedness Practice"
+
+- id: "RC-14"
+  title: "Requesting Outside Support Early"
+  category: "Coordination"
+  guidance: "District and state teams need time to reach a village. Request outside support as soon as local resources look insufficient, rather than when they have run out."
+  keywords: ["support", "district", "convoy", "reinforcements", "request", "outside", "resources"]
+  source_reference: "Incident Response Coordination Practice"

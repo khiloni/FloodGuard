@@ -332,6 +332,46 @@
         }
       }
     },
+    "/api/v1/sessions/{session_id}/help": {
+      "post": {
+        "summary": "Get Help",
+        "description": "2-3 valid options ranked by fixed engine heuristics, phrased by the LLM when available.\nNothing is executed: the player picks one and confirms it as a normal turn.",
+        "operationId": "get_help_api_v1_sessions__session_id__help_post",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HelpResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/sessions/{session_id}/end": {
       "post": {
         "summary": "End Session",
@@ -448,6 +488,13 @@
           "explanation": {
             "type": "string",
             "title": "Explanation"
+          },
+          "rule_card_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Rule Card Ids"
           }
         },
         "type": "object",
@@ -904,6 +951,73 @@
         ],
         "title": "HealthResponse"
       },
+      "HelpOption": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/Action"
+          },
+          "tradeoff": {
+            "type": "string",
+            "title": "Tradeoff"
+          },
+          "priority": {
+            "type": "integer",
+            "title": "Priority"
+          },
+          "rule_card": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RuleCardOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "action",
+          "tradeoff",
+          "priority"
+        ],
+        "title": "HelpOption"
+      },
+      "HelpResponse": {
+        "properties": {
+          "options": {
+            "items": {
+              "$ref": "#/components/schemas/HelpOption"
+            },
+            "type": "array",
+            "title": "Options"
+          },
+          "source": {
+            "type": "string",
+            "title": "Source"
+          },
+          "guardrail": {
+            "$ref": "#/components/schemas/GuardrailOut"
+          },
+          "llm_mode": {
+            "type": "string",
+            "title": "Llm Mode"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "type": "object",
+        "required": [
+          "options",
+          "source",
+          "guardrail",
+          "llm_mode",
+          "note"
+        ],
+        "title": "HelpResponse"
+      },
       "LayoutModel": {
         "properties": {
           "canvas": {
@@ -1127,6 +1241,16 @@
           "source": {
             "type": "string",
             "title": "Source"
+          },
+          "suggestion": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NpcSuggestionOut"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "type": "object",
@@ -1328,6 +1452,39 @@
           "role"
         ],
         "title": "NpcInfo"
+      },
+      "NpcSuggestionOut": {
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/Action"
+          },
+          "tradeoff": {
+            "type": "string",
+            "title": "Tradeoff"
+          },
+          "priority": {
+            "type": "integer",
+            "title": "Priority"
+          },
+          "rule_card_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rule Card Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "action",
+          "tradeoff",
+          "priority"
+        ],
+        "title": "NpcSuggestionOut"
       },
       "RecoveryConfig": {
         "properties": {
@@ -2238,6 +2395,33 @@
             },
             "type": "array",
             "title": "Causal Chain"
+          },
+          "rule_cards": {
+            "items": {
+              "$ref": "#/components/schemas/RuleCardOut"
+            },
+            "type": "array",
+            "title": "Rule Cards"
+          },
+          "scenario_id": {
+            "type": "string",
+            "title": "Scenario Id",
+            "default": "village-river-01"
+          },
+          "seed": {
+            "type": "integer",
+            "title": "Seed",
+            "default": 0
+          },
+          "difficulty": {
+            "type": "string",
+            "title": "Difficulty",
+            "default": "standard"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "default": "en"
           },
           "disclaimer": {
             "type": "string",

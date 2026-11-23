@@ -14,6 +14,22 @@ PHASE_COMPONENTS = {
                  "safe_return_score", "community_trust_score"],
 }
 
+# Rule card that explains each event type (rulecards/en/rulecards.yaml)
+EVENT_CARDS = {
+    "warning_issued": "RC-01", "evacuation_ordered": "RC-01", "residents_evacuated": "RC-01",
+    "vulnerable_prioritized": "RC-02", "vulnerable_evacuated": "RC-02", "transport_assigned": "RC-03",
+    "road_inundated": "RC-03", "embankment_reinforced": "RC-04", "embankment_overflow": "RC-04",
+    "embankment_breached": "RC-04", "shelter_opened": "RC-05", "clean_water_provided": "RC-06",
+    "disease_risk_high": "RC-06", "illness_reported": "RC-06", "medical_camp_opened": "RC-07",
+    "illness_treated": "RC-07", "damage_surveyed": "RC-08", "residents_returned": "RC-08",
+    "supplies_distributed": "RC-09", "shelter_supplies_low": "RC-09", "shelter_supplies_exhausted": "RC-09",
+    "road_cleared": "RC-10", "power_restored": "RC-10", "health_centre_reopened": "RC-10",
+    "search_and_rescue_completed": "RC-10", "drains_cleared": "RC-11", "drain_overflow": "RC-11",
+    "dam_release_notice": "RC-12", "dam_release_started": "RC-12", "release_staggered": "RC-12",
+    "fishing_boats_recalled": "RC-13", "fishing_boats_returned": "RC-13", "fishers_stranded": "RC-13",
+    "cyclone_landfall": "RC-13", "support_requested": "RC-14", "support_arrived": "RC-14",
+}
+
 KEY_EVENTS = {
     "warning_issued", "evacuation_ordered", "shelter_opened", "transport_assigned",
     "vulnerable_prioritized", "embankment_reinforced", "zone_flooded", "road_inundated",
@@ -22,6 +38,9 @@ KEY_EVENTS = {
     "shelter_supplies_exhausted", "clean_water_provided", "medical_camp_opened",
     "disease_risk_high", "power_restored", "health_centre_reopened", "road_cleared",
     "damage_surveyed", "residents_returned", "water_receded",
+    "support_requested", "support_arrived", "resource_depleted", "drains_cleared", "drain_overflow",
+    "dam_release_notice", "dam_release_started", "release_staggered", "fishing_boats_recalled",
+    "fishing_boats_returned", "cyclone_landfall", "fishers_stranded",
 }
 
 
@@ -124,6 +143,33 @@ def build_causal_chain(state: State, events: List[Dict[str, Any]]) -> List[Dict[
         link(_outcome(cas["tick"], f"No boats were assigned to {z} while water there was 150 cm or deeper."),
              cas, "Residents left in deep water without boats were at risk.")
 
+    # --- Scenario mechanics and outside support ---
+    req = _first(events, "support_requested")
+    if req:
+        link(req, _first(events, "support_arrived", after=req["tick"])
+             or _outcome(None, "The convoy had not arrived when the story ended."),
+             "Outside help takes time; asking early means it arrives while it is still useful.")
+    for dc in [e for e in events if e.get("type") == "drains_cleared"]:
+        link(dc, _outcome(dc["tick"], f"Less street water collected in {dc.get('zone')}."),
+             "Clear drains let rainwater run off instead of filling the streets.")
+    stag = _first(events, "release_staggered")
+    rel = _first(events, "dam_release_started")
+    if stag and rel:
+        link(stag, rel, "A slower release added less water at a time, so the river stayed lower.")
+    elif rel:
+        notice = _first(events, "dam_release_notice")
+        link(notice or _outcome(None, "No request to slow the release was made."), rel,
+             "The full release arrived at once on top of a river that was already high.")
+    recall = _first(events, "fishing_boats_recalled")
+    if recall:
+        link(recall, _first(events, "fishing_boats_returned", after=recall["tick"])
+             or _outcome(None, "Some boats were still out at landfall."),
+             "Boats need time to reach the harbour; recalling them early keeps crews safe.")
+    stranded = _first(events, "fishers_stranded")
+    if stranded:
+        link(_outcome(stranded["tick"], "The fishing boats were not recalled before landfall."), stranded,
+             "Crews still at sea when the cyclone hits cannot be reached.")
+
     # --- Into recovery ---
     rec_start = next((e for e in events if e.get("type") == "phase_changed"
                       and (e.get("details") or {}).get("to_phase") == "recovery"), None)
@@ -187,6 +233,10 @@ def build_causal_chain(state: State, events: List[Dict[str, Any]]) -> List[Dict[
             continue
         link(ex, _outcome(ex["tick"], "Community trust fell and disease risk rose while the shelter had no supplies."),
              "Empty shelter stocks harm health and trust.")
+
+    for l in links:
+        types = {(l["cause"] or {}).get("type"), (l["effect"] or {}).get("type")}
+        l["rule_card_ids"] = sorted({EVENT_CARDS[t] for t in types if t in EVENT_CARDS})
 
     links.sort(key=lambda l: ((l["cause"] or {}).get("tick") if (l["cause"] or {}).get("tick") is not None
                               else (l["effect"] or {}).get("tick") or 0))

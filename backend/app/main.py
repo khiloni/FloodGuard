@@ -1,5 +1,6 @@
 import logging
 import os
+import re
 import uuid
 import random
 import time
@@ -19,6 +20,10 @@ from .llm.openai_compat import get_llm_mode, get_llm_status
 from .llm import providers as llm_providers
 from .services.turn_pipeline import process_turn
 from .services.report import build_report_sections
+from .services.advisor import suggest
+from .services.narration import get_facts_allowed_from_state_and_events
+from .services.turn_pipeline import retriever as rulecard_retriever
+from .llm.openai_compat import phrase_advice, ADVICE_SEP
 from .store.sqlite import SessionStore
 
 logger = logging.getLogger("floodguard.api")
@@ -500,10 +505,18 @@ class NarrationOut(BaseModel):
     source: str
 
 
+class NpcSuggestionOut(BaseModel):
+    action: Action
+    tradeoff: str
+    priority: int
+    rule_card_id: Optional[str] = None
+
+
 class NPCMessageOut(BaseModel):
     npc_id: str
     text: str
     source: str
+    suggestion: Optional[NpcSuggestionOut] = None
 
 
 class ClarifyOut(BaseModel):
@@ -577,6 +590,7 @@ class CausalLinkOut(BaseModel):
     cause: CauseEffectOut
     effect: CauseEffectOut
     explanation: str
+    rule_card_ids: List[str] = Field(default_factory=list)
 
 
 class ReportPhaseOut(BaseModel):
@@ -598,7 +612,27 @@ class SessionReportResponse(BaseModel):
     events: List[EventOut]
     phases: List[ReportPhaseOut] = Field(default_factory=list)
     causal_chain: List[CausalLinkOut] = Field(default_factory=list)
+    rule_cards: List[RuleCardOut] = Field(default_factory=list)
+    scenario_id: str = "village-river-01"
+    seed: int = 0
+    difficulty: str = "standard"
+    language: str = "en"
     disclaimer: str
+
+
+class HelpOption(BaseModel):
+    action: Action
+    tradeoff: str
+    priority: int
+    rule_card: Optional[RuleCardOut] = None
+
+
+class HelpResponse(BaseModel):
+    options: List[HelpOption]
+    source: str
+    guardrail: GuardrailOut
+    llm_mode: str
+    note: str
 
 
 class EndSessionResponse(BaseModel):
@@ -906,7 +940,18 @@ def get_session_report(session_id: str):
 
     events = store.get_events(session_id)
     sections = build_report_sections(state, events, score)
+    cards_by_id = {c["id"]: c for c in rulecard_retriever.cards}
+    used = []
+    for link in sections["causal_chain"]:
+        for cid in link.get("rule_card_ids", []):
+            if cid in cards_by_id and cid not in used:
+                used.append(cid)
     return {
+        "rule_cards": [cards_by_id[c] for c in used],
+        "scenario_id": sess["scenario_id"],
+        "seed": sess["seed"],
+        "difficulty": sess.get("difficulty", "standard"),
+        "language": sess.get("language", "en"),
         "session_id": session_id,
         "score": score.model_dump(),
         "final_state": state.model_dump(),
@@ -914,6 +959,41 @@ def get_session_report(session_id: str):
         "phases": sections["phases"],
         "causal_chain": sections["causal_chain"],
         "disclaimer": DISCLAIMER_FULL_TEXT,
+    }
+
+
+@app.post("/api/v1/sessions/{session_id}/help", response_model=HelpResponse)
+def get_help(session_id: str):
+    """2-3 valid options ranked by fixed engine heuristics, phrased by the LLM when available.
+    Nothing is executed: the player picks one and confirms it as a normal turn."""
+    sess = store.get_session(session_id)
+    if not sess:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={"code": "SESSION_NOT_FOUND", "message": f"Session '{session_id}' not found."},
+        )
+    enforce_rate_limit(session_id)
+    state = State.model_validate(sess["state"])
+    options = suggest(state)
+    cards_by_id = {c["id"]: c for c in rulecard_retriever.cards}
+    cards = [cards_by_id[o["rule_card_id"]] for o in options if o.get("rule_card_id") in cards_by_id]
+    facts = get_facts_allowed_from_state_and_events(state, [])
+    for o in options:
+        facts |= {int(n) for n in re.findall(r"\d+", o["tradeoff"])}
+    phrased = phrase_advice(options, state, validator, facts, cards, sess.get("language", "en"))
+    lines = [ln.strip() for ln in phrased.text.split(ADVICE_SEP)]
+    if len(lines) != len(options):
+        lines = [o["tradeoff"] for o in options]
+    return {
+        "options": [
+            {"action": o["action"], "tradeoff": line, "priority": o["priority"],
+             "rule_card": cards_by_id.get(o.get("rule_card_id"))}
+            for o, line in zip(options, lines)
+        ],
+        "source": phrased.source,
+        "guardrail": phrased.guardrail(),
+        "llm_mode": get_llm_mode(),
+        "note": "Suggestions only. Nothing happens until you choose an order and confirm it.",
     }
 
 
