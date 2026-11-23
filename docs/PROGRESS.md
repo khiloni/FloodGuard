@@ -27,8 +27,17 @@ uncommitted frontend attempt is saved in `git stash` as `old-frontend-attempt`
       `scenarios/village-river-01.yaml`, exposed via `/scenarios` and session state.
 - [ ] HUMAN GATE: Ollama + Apache-2.0 model -> `source: llm`; stop Ollama -> fallback.
 
-## Part 2 - Post-flood phase - NOT STARTED
-- [ ] `docs/POST_FLOOD_DESIGN.md`, then stop for approval before any engine change.
+## Part 2 - Post-flood phase - DONE
+- [x] `docs/POST_FLOOD_DESIGN.md` (owner asked to run all parts without the approval stop).
+- [x] Engine: `phase` before -> flood -> recovery; 8 recovery actions with phase gating; recovery state
+      (supplies, disease risk, illness, power/health centre, roads, surveys, returns, trust); 16 typed events,
+      every event tagged `details.phase`; new arithmetic integer-only; `scenario_version` 2.0.0, 30 ticks.
+- [x] Scoring rebalanced to 100: flood 75 (30/20/10/7/8) + recovery 25 (8/6/6/5).
+- [x] Parser, LLM fallback parser, narration, NPC templates, rule cards RC-06..RC-10, validator.
+- [x] API: summary has `phase`, `recovery`, per-zone recovery fields; report has `phases` + `causal_chain`;
+      `layout.recovery_sites`; `docs/openapi.json` regenerated (API version 2.0.0).
+- [x] Tests: 71 passing (invariants over 3 phases, golden playbooks, metamorphic, determinism, API replay).
+- Note: sessions saved in an old SQLite file with scenario 1.0.0 replay with the 2.0.0 rules.
 
 ## Part 3 - Immersive visual frontend - NOT STARTED
 

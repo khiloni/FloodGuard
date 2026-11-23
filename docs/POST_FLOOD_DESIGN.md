@@ -1,7 +1,9 @@
 # Post-Flood Phase Design (Part 2)
 
-Status: implemented as designed (owner asked for all three parts in one run; this doc
-was written before the code and is the contract for it).
+Status: implemented (owner asked for all three parts in one run; this doc was written before
+the code and is the contract for it). One refinement during implementation: the flood phase
+also starts when water first enters a ward (section 2), because Ward 1 floods before the river
+reaches the warning level.
 
 ## 1. Goals and constraints
 - One session now covers **before**, **during** and **after** the flood.
@@ -16,11 +18,12 @@ was written before the code and is the contract for it).
 ## 2. Phases
 | Phase value | Timeline label | Starts when | Ends when |
 | --- | --- | --- | --- |
-| `before` | Before | tick 0 | river level reaches `phases.flood_starts_at_cm` (warning level, 300 cm) |
+| `before` | Before | tick 0 | river level reaches `phases.flood_starts_at_cm` (warning level, 300 cm) **or** water enters any ward, whichever is first |
 | `flood` | During | first such tick | the forecast peak has passed **and** level drops below `phases.recovery_below_cm` (danger level, 380 cm) |
 | `recovery` | After | first such tick | session end (`total_ticks`) |
 
-For `village-river-01`: before = ticks 0-5, flood = ticks 6-16 (peak 475 cm at tick 12),
+For `village-river-01`: before = ticks 0-3, flood = ticks 4-16 (Ward 1 starts flooding at
+235 cm on tick 4; peak 475 cm at tick 12),
 recovery = ticks 17-30. Ward 2 dries out at tick 18 and Ward 1 at tick 23, so the recovery is
 staggered by design.
 
@@ -80,7 +83,8 @@ At recovery start every boat and vehicle is released back to the depot (assignme
 1. Validate and apply the action.
 2. Advance water along the forecast (unchanged).
 3. Embankment overflow and breach (unchanged).
-4. Zone depth and roads (unchanged) + update `max_depth_cm`; emit `water_receded` when a zone dries.
+4. Zone depth and roads (unchanged) + update `max_depth_cm`; emit `water_receded` when a zone dries;
+   before -> flood check (the `phase_changed` event is placed right after the water-level event).
 5. Automatic evacuation movement: **only before recovery** (in recovery, stranded people need `search_and_rescue`).
 6. Casualties (unchanged rule; cannot trigger after recovery because water is shallow).
 7. Phase transition check; on entering recovery, initialise recovery state (section 6).
@@ -104,6 +108,9 @@ if disease_risk >= high_threshold and not medical_camp_active: illness_cases += 
 if medical_camp_active: illness_treated += min(illness_cases - illness_treated, treat_per_tick)
 trust += -3*(supplies==0 and occupancy>0) - 2*(any stranded) - 2*(disease_risk>=high) + clean_water + medical_camp + power_on
 ```
+Stranded residents are those left in a ward that flooded (`max_depth_cm > 0`); people at home in
+a ward that stayed dry are not stranded and cannot be "rescued".
+
 Each update is monotonic in the previous risk and in the "active" flags, which is what the
 metamorphic tests rely on.
 
