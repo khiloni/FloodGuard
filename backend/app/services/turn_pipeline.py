@@ -279,6 +279,7 @@ def process_turn(
             validator=validator,
             facts_allowed=facts_allowed,
             language=session.get("language", "en"),
+            rule_cards=relevant_cards,
         )
         npc_messages.append({
             "npc_id": npc_id,

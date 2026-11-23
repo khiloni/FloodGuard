@@ -409,8 +409,10 @@ def npc_reply(
     validator: GuardrailValidator,
     facts_allowed: Set[int],
     language: str = "en",
+    rule_cards: Optional[List[Dict[str, Any]]] = None,
 ) -> LLMResult:
     template_text = generate_npc_message(npc_id, state, user_message)["text"]
+    card_ids = [c["id"] for c in rule_cards] if rule_cards else []
     if not is_llm_enabled():
         return LLMResult(text=template_text, status="disabled")
 
@@ -426,6 +428,7 @@ def npc_reply(
         f"LANGUAGE: {language}\n"
         f"ALLOWED_NUMBERS: {sorted(facts_allowed)}\n"
         f"EVENTS: {json.dumps(_events_payload(events))}\n"
+        f"RULE_CARDS: {json.dumps([{'id': c.get('id'), 'title': c.get('title')} for c in (rule_cards or [])])}\n"
         f"PLAYER_MESSAGE:\n<<<PLAYER_INPUT>>>\n{clean_msg}\n<<<END_INPUT>>>"
     )
 
@@ -434,8 +437,8 @@ def npc_reply(
 
     return _generate_validated(
         [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
-        temperature=0.5, validate=_validate, allowed_cards=[],
-        fallback_text=template_text, fallback_cards=[], job=f"npc:{npc_id}",
+        temperature=0.5, validate=_validate, allowed_cards=card_ids,
+        fallback_text=template_text, fallback_cards=card_ids, job=f"npc:{npc_id}",
     )
 
 
