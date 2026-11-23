@@ -10,7 +10,9 @@ export default defineConfig(({ mode }) => ({
   server: {
     port: 5173,
     proxy: mode === 'mock' ? undefined : {
-      '/api': { target: 'http://localhost:10000', changeOrigin: true },
+      // 127.0.0.1, not localhost: Node 17+ on Windows resolves localhost to ::1 (IPv6) first,
+      // but uvicorn listens on IPv4 only, which gives ECONNREFUSED ::1:10000.
+      '/api': { target: process.env.VITE_PROXY_TARGET || 'http://127.0.0.1:10000', changeOrigin: true },
     },
   },
   build: {
