@@ -6,7 +6,7 @@
 FloodGuard strictly enforces clear layer boundaries to ensure educational safety, numerical determinism, and mathematical integrity.
 
 ```
-frontend/ (React + TypeScript + Animated SVG Village Map)
+frontend/ (React + TypeScript; animated SVG scene drawn from layout + summary; replay frames from /log?frames=true)
     │  HTTP /api/v1 (JSON, frozen OpenAPI 3.1 contract: docs/openapi.json)
     ▼
 backend/app/main.py (routing, CORS, rate limiting, input length caps)
@@ -77,3 +77,11 @@ backend/app/store/sqlite.py (SQLite audit log & bit-exact session replay)
    - Every narration and NPC message carries `source: "llm" | "template"`.
    - Turn responses include `guardrail: {"status": "passed"|"fallback", "retries": n}`.
    - Frontend displays clear AI disclosure badges on all generated text.
+
+## Phases and the frontend (Parts 2 and 3)
+- The engine carries `phase` (before -> flood -> recovery) and a recovery state; every event has `details.phase`.
+- `GET /report` adds `phases` and a deterministic `causal_chain`; `GET /log?frames=true` replays the stored
+  actions on the server so the replay scrubber never computes outcomes in the browser.
+- The frontend only renders API data. Its MSW mocks (dev:mock, Playwright) replay real responses recorded by
+  `backend/scripts/record_fixtures.py` and are excluded from the production bundle.
+

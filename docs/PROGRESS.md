@@ -39,7 +39,25 @@ uncommitted frontend attempt is saved in `git stash` as `old-frontend-attempt`
 - [x] Tests: 71 passing (invariants over 3 phases, golden playbooks, metamorphic, determinism, API replay).
 - Note: sessions saved in an old SQLite file with scenario 1.0.0 replay with the 2.0.0 rules.
 
-## Part 3 - Immersive visual frontend - NOT STARTED
+## Part 3 - Immersive visual frontend - DONE
+- [x] Rebuilt from scratch (old attempt kept only in `git stash` "old-frontend-attempt").
+- [x] Scene from API layout only: river, embankment (cracks, breach), zones, houses, residents and
+      vulnerable icons, routes, moving boats/trucks, shelter occupancy, recovery sites; rain and
+      dusk/night toward the peak, clearing in recovery. No outcomes computed in the browser.
+- [x] One animation per event type (33), intro, timeline with phases/peak/markers, replay scrubber from
+      `GET /log?frames=true` (frames computed by the server), end-of-story report with causal chain.
+- [x] Controls: 16 icon buttons with tooltips and parameter pickers, free text with phase example chips,
+      clarify buttons, source badges, LLM badge, "AI-generated, may be wrong" label, NPC portraits.
+- [x] Kept: disclaimer gate, persistent 112/1078 footer, real-emergency screen, waking-up state, aria-live,
+      reduced motion, 360px mobile, keyboard access, colour-blind-safe palette with text/pattern backups.
+- [x] 75 KB gzip (budget 300 KB); MSW only in `--mode mock`, verified absent from `dist/`.
+- [x] Playwright: 18 tests passing (Chrome). CI job added.
+
+## Final verification (local, this run)
+- `pytest`: 72 passed. License check: pass (2 documented exceptions).
+- Frontend: `tsc` clean, build OK, size check OK, Playwright 18/18 (run twice).
+- Not verified here: `docker build` (no Docker in this environment) and the Render deploy.
 
 ## Open questions
 - certifi (MPL-2.0, pulled in by httpx) is listed as a documented exception pending approval.
+- caniuse-lite (CC-BY-4.0) is a dev-only build tool data file, documented as an exception.
