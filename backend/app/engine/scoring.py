@@ -1,5 +1,6 @@
 from typing import Dict, Any
 from .models import State, ScoreBreakdown
+from . import mechanics
 
 # Weights sum to 100 (see docs/POST_FLOOD_DESIGN.md section 8).
 WEIGHTS = {
@@ -28,10 +29,15 @@ def calculate_score(state: State) -> ScoreBreakdown:
     """Score the session from objective engine state. Integer-only arithmetic."""
     zones = list(state.zones.values())
     total_safe = sum(z.safe_evacuated for z in zones)
-    total_lost = sum(z.lost for z in zones)
+    # Fishers stranded at sea (cyclone mechanic) count as lost too.
+    total_lost = sum(z.lost for z in zones) + state.mechanic_state.get("fishers_stranded", 0)
     vuln_saved = sum(z.vulnerable_saved for z in zones)
 
-    peak_forecast = max(state.forecast_cm) if state.forecast_cm else 500
+    # Worst-case water level the scenario can bring (forecast plus an unstaggered dam release).
+    if state.forecast_cm:
+        peak_forecast = max(mechanics.water_level_at(state, t, {}) for t in range(1, len(state.forecast_cm) + 1))
+    else:
+        peak_forecast = 500
     threatened = [z for z in zones if z.elevation_cm < peak_forecast]
     threatened_pop = sum(z.initial_population for z in threatened)
     threatened_vuln = sum(z.initial_vulnerable for z in threatened)

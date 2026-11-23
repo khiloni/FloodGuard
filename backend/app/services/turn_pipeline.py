@@ -1,3 +1,4 @@
+from functools import lru_cache
 import os
 import random
 from typing import Dict, Any, Tuple, Optional, List
@@ -17,12 +18,31 @@ from ..llm.openai_compat import (
     get_llm_mode,
 )
 from ..rag.bm25 import BM25Retriever
+from ..engine.loader import load_scenario_config
+from .npc import allowed_facts_for_npc
 from ..store.sqlite import SessionStore
 
 # Initialize Rulecard Retriever
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 RULECARDS_FILE = os.path.join(BASE_DIR, "rulecards", "en", "rulecards.yaml")
 retriever = BM25Retriever(RULECARDS_FILE)
+
+@lru_cache(maxsize=32)
+def _scenario_npcs(scenario_id: str) -> Dict[str, Dict[str, Any]]:
+    path = os.path.join(BASE_DIR, "scenarios", f"{scenario_id}.yaml")
+    try:
+        cfg = load_scenario_config(path)
+    except FileNotFoundError:
+        return {}
+    return {n["id"]: n for n in cfg.get("npcs", []) if "id" in n}
+
+
+def npc_profile(scenario_id: str, npc_id: str) -> Dict[str, Any]:
+    """Name, role and home location of an NPC from the scenario pack (persona for the LLM)."""
+    n = _scenario_npcs(scenario_id).get(npc_id) or {}
+    persona = f"{n['name']}, {n.get('role', 'a local responder')}" if n.get("name") else None
+    return {"persona": persona, "location": n.get("location"), "name": n.get("name"), "role": n.get("role")}
+
 
 SHORT_DISCLAIMER = "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112."
 
@@ -271,15 +291,18 @@ def process_turn(
     if parsed_action.name == ActionName.CONSULT_NPC:
         npc_id = parsed_action.params.get("npc_id", "village_head")
         user_msg = parsed_action.params.get("user_message", "")
+        profile = npc_profile(session["scenario_id"], npc_id)
         npc_res = npc_reply(
             npc_id=npc_id,
             state=new_state,
             events=events,
             user_message=user_msg,
             validator=validator,
-            facts_allowed=facts_allowed,
+            facts_allowed=allowed_facts_for_npc(npc_id, new_state, events, facts_allowed, profile.get("location")),
             language=session.get("language", "en"),
             rule_cards=relevant_cards,
+            persona=profile.get("persona"),
+            location=profile.get("location"),
         )
         npc_messages.append({
             "npc_id": npc_id,

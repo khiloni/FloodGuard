@@ -35,7 +35,7 @@ def _advance_to(phase, plan=None):
 
 def test_scenario_version_bumped_and_recovery_enabled():
     s = load_scenario(SCENARIO)
-    assert s.scenario_version == "2.0.0"
+    assert s.scenario_version == "2.1.0"
     assert s.max_ticks == 30 and len(s.forecast_cm) == 30
     assert s.recovery_config.enabled and s.phase == "before"
 

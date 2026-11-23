@@ -1,8 +1,34 @@
 id: "village-river-01"
 name: "Riverbank Village Flood Response"
-version: "2.0.0"
+version: "2.1.0"
 description: "A rising tributary threatens three wards. Warn and evacuate before the flood crests, protect people during it, then lead the recovery: clean water, medical care, power, roads and a safe return home."
 total_ticks: 30
+
+# Scenario-select card
+hazard_type: "river_flood"
+hazard_label: "River flood"
+difficulty_label: "Moderate"
+illustration: "river"
+hook: "A monsoon tributary is rising beside three wards. Warn, evacuate and protect the bund, then lead the recovery."
+languages: ["en", "hi"]
+
+difficulty:
+  easy:
+    resources_pct: 130
+    forecast_offset_cm: -20
+    support_delay_delta: -1
+  hard:
+    resources_pct: 75
+    forecast_offset_cm: 15
+    support_delay_delta: 2
+
+external_support:
+  uses: 1
+  delay_ticks: 4
+  boats: 1
+  vehicles: 2
+  sandbags: 200
+  supply_units: 40
 tick_duration_minutes: 30
 
 resources:
@@ -133,6 +159,18 @@ npcs:
     role: "Resident caring for elderly parents"
     location: "ward-1"
     initial_dialogue: "My parents have mobility constraints. Please prioritize evacuation transport for our elders before the causeway goes underwater."
+
+  - id: "health_worker"
+    name: "Nurse Kavita"
+    role: "Primary health centre nurse"
+    location: "ward-2"
+    initial_dialogue: "If people stay in the shelter for long, we must think about drinking water and medicines."
+
+  - id: "district_official"
+    name: "Ms. Desai"
+    role: "District disaster management officer"
+    location: "school"
+    initial_dialogue: "The district can send a convoy with boats, trucks and relief, but it takes time to arrive."
 
 layout:
   canvas:

@@ -1,0 +1,222 @@
+id: "dam-release-01"
+name: "Below Kalindi Dam"
+version: "1.0.0"
+description: "Heavy rain upstream forces a scheduled release from Kalindi Dam. The river below is already high. Timing and getting the message to every village decide the outcome."
+total_ticks: 30
+tick_duration_minutes: 30
+
+# Scenario-select card
+hazard_type: "dam_release"
+hazard_label: "Dam release downstream"
+difficulty_label: "Moderate"
+illustration: "dam"
+hook: "The dam must release water in a few hours. Can you warn every village in time, and get the release slowed down?"
+languages: ["en", "hi"]
+
+difficulty:
+  easy:
+    resources_pct: 130
+    forecast_offset_cm: -20
+    support_delay_delta: -1
+    mechanic_params:
+      notice_ticks: 4
+  hard:
+    resources_pct: 75
+    forecast_offset_cm: 15
+    support_delay_delta: 2
+    mechanic_params:
+      notice_ticks: 2
+      release_cm: 180
+
+resources:
+  boats: 3
+  boat_capacity: 12
+  vehicles: 2
+  vehicle_capacity: 20
+  sandbags: 400
+
+embankment:
+  initial_height_cm: 400
+  initial_integrity: 100
+  max_reinforced_height_cm: 470
+
+contained_safe_elevation_cm: 400
+
+# River level from rain only (cm); the dam release is added on top by the engine.
+water_forecast_cm: [180, 190, 200, 215, 230, 245, 260, 275, 285, 295, 300, 295, 285, 270, 255, 240, 225, 210, 200, 190, 185, 180, 175, 170, 165, 160, 158, 156, 154, 152]
+
+mechanic:
+  type: "dam_release"
+  params:
+    release_tick: 9
+    release_ticks: 4
+    release_cm: 160
+    notice_ticks: 3
+    staggered_pct: 55
+
+external_support:
+  uses: 1
+  delay_ticks: 5
+  boats: 2
+  vehicles: 1
+  sandbags: 300
+  supply_units: 40
+
+phases:
+  flood_starts_at_cm: 280
+  recovery_below_cm: 360
+
+recovery:
+  shelter_supplies_initial: 30
+  people_per_supply_unit: 60
+  supply_deliveries: 3
+  units_per_delivery: 40
+  supplies_low_threshold: 10
+  clean_water_kits: 1
+  medical_teams: 1
+  return_batch_per_turn: 100
+  treat_per_tick: 6
+  road_debris_depth_cm: 30
+  disease:
+    base: 20
+    per_flooded_zone: 10
+    breach_bonus: 10
+    rise_per_tick: 5
+    crowding_pct: 90
+    crowding_rise: 3
+    no_supplies_rise: 4
+    clean_water_drop: 8
+    medical_camp_drop: 6
+    high_threshold: 60
+  trust:
+    initial: 60
+    early_warning_bonus: 10
+    early_warning_by_tick: 6
+    losses_penalty: 10
+    breach_penalty: 10
+    supplies_ran_out_penalty: 10
+
+zones:
+  - id: "ghat-village"
+    name: "Ghat Village"
+    elevation_cm: 260
+    population: 150
+    vulnerable: 35
+  - id: "temple-hamlet"
+    name: "Temple Hamlet"
+    elevation_cm: 340
+    population: 130
+    vulnerable: 25
+  - id: "upper-farms"
+    name: "Upper Farms"
+    elevation_cm: 440
+    population: 90
+    vulnerable: 15
+
+shelters:
+  - id: "hilltop-school"
+    name: "Hilltop School"
+    elevation_cm: 520
+    capacity: 320
+    is_open: false
+
+npcs:
+  - id: "village_head"
+    name: "Sarpanch Lakshmi"
+    role: "Village head of Ghat Village"
+    location: "ghat-village"
+    initial_dialogue: "Many families here farm on the riverbank. If the dam opens without notice, they will be caught in the fields."
+  - id: "rescue_worker"
+    name: "Constable Imran"
+    role: "Police and rescue volunteer"
+    location: "ghat-village"
+    initial_dialogue: "We have three boats at the ghat and two jeeps. The low bridge to Temple Hamlet floods quickly."
+  - id: "family_member"
+    name: "Gopal"
+    role: "Ghat Village farmer"
+    location: "ghat-village"
+    initial_dialogue: "My mother cannot walk far. Will someone tell us before the water comes?"
+  - id: "health_worker"
+    name: "ASHA worker Meena"
+    role: "Community health worker"
+    location: "temple-hamlet"
+    initial_dialogue: "I know which houses have elderly people and pregnant women. They need to move first."
+  - id: "district_official"
+    name: "Mr. Kulkarni"
+    role: "Dam control room liaison"
+    location: "hilltop-school"
+    initial_dialogue: "The dam engineers must release water to keep the dam safe. They may agree to release it more slowly if we ask early."
+
+layout:
+  canvas: { width: 1000, height: 600 }
+  levels: { normal_level_cm: 180, warning_level_cm: 280, danger_level_cm: 360, crest_level_cm: 460 }
+  water_body: "river"
+  river:
+    name: "Kalindi River"
+    flow_direction: "left-to-right"
+    center_path: [[0, 470], [170, 480], [340, 465], [520, 490], [700, 470], [860, 488], [1000, 476]]
+    north_bank: [[0, 430], [170, 440], [340, 425], [520, 450], [700, 430], [860, 448], [1000, 436]]
+    south_bank: [[0, 520], [170, 530], [340, 515], [520, 540], [700, 520], [860, 538], [1000, 526]]
+  embankment:
+    name: "River bund"
+    crest_height_cm: 400
+    segments:
+      - { id: "bund-west", start: [110, 437], end: [340, 425], label: "West bund" }
+      - { id: "bund-central", start: [340, 425], end: [560, 445], label: "Central bund" }
+      - { id: "bund-east", start: [560, 445], end: [800, 438], label: "East bund" }
+  zones:
+    - id: "ghat-village"
+      name: "Ghat Village"
+      x: 140
+      y: 300
+      width: 190
+      height: 105
+      elevation_cm: 260
+      house_points: [[155, 320], [195, 335], [240, 315], [285, 330], [175, 375], [245, 372]]
+    - id: "temple-hamlet"
+      name: "Temple Hamlet"
+      x: 440
+      y: 220
+      width: 180
+      height: 105
+      elevation_cm: 340
+      house_points: [[455, 238], [495, 255], [540, 235], [585, 250], [480, 290], [560, 288]]
+    - id: "upper-farms"
+      name: "Upper Farms"
+      x: 730
+      y: 130
+      width: 170
+      height: 100
+      elevation_cm: 440
+      house_points: [[745, 148], [785, 165], [830, 142], [870, 160], [770, 200], [850, 198]]
+  shelters:
+    - { id: "hilltop-school", name: "Hilltop School", x: 860, y: 40, width: 115, height: 75, elevation_cm: 520 }
+  routes:
+    - zone_id: "ghat-village"
+      shelter_id: "hilltop-school"
+      transport_modes: ["boat", "vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[235, 330], [340, 270], [450, 220], [620, 170], [760, 120], [870, 75]]
+    - zone_id: "temple-hamlet"
+      shelter_id: "hilltop-school"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[530, 240], [640, 180], [760, 125], [870, 75]]
+    - zone_id: "upper-farms"
+      shelter_id: "hilltop-school"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 40
+      waypoints: [[815, 145], [845, 105], [870, 75]]
+  decor:
+    trees: [[80, 250], [130, 200], [380, 170], [420, 140], [680, 260], [690, 80], [940, 200], [40, 120]]
+    hills: [[700, 40], [820, 20], [950, 30], [60, 40]]
+    dam: { x: 40, y: 470, label: "Kalindi Dam" }
+    jetty: { x: 120, y: 450, label: "Ghat boats" }
+    bridges:
+      - { x: 360, y: 430, label: "Low bridge" }
+  recovery_sites:
+    water_point: { x: 640, y: 100, label: "Water purification point" }
+    medical_camp: { x: 760, y: 50, label: "Medical camp" }
+    substation: { x: 360, y: 100, label: "Power substation" }
+    health_centre: { x: 580, y: 60, label: "Primary health centre" }
+    supply_depot: { x: 960, y: 260, label: "Relief depot" }

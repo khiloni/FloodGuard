@@ -1,5 +1,6 @@
 from typing import Tuple, Optional
-from .models import State, Action, ActionName, FLOOD_ONLY_ACTIONS, RECOVERY_ONLY_ACTIONS
+from .models import State, Action, ActionName, FLOOD_ONLY_ACTIONS, RECOVERY_ONLY_ACTIONS, MECHANIC_ACTIONS
+from . import mechanics
 
 
 def validate_action_preconditions(state: State, action: Action) -> Tuple[bool, Optional[str]]:
@@ -25,6 +26,16 @@ def validate_action_preconditions(state: State, action: Action) -> Tuple[bool, O
 
     if name in RECOVERY_ONLY_ACTIONS or name == ActionName.DISTRIBUTE_SUPPLIES:
         return _validate_recovery_action(state, action)
+
+    if name == ActionName.REQUEST_EXTERNAL_SUPPORT:
+        reason = mechanics.validate_support_request(state)
+        return (reason is None), reason
+
+    if name in MECHANIC_ACTIONS:
+        if state.mechanic.type != MECHANIC_ACTIONS[name]:
+            return False, "That order does not apply in this scenario."
+        reason = mechanics.validate_mechanic_action(state, action)
+        return (reason is None), reason
 
     if name == ActionName.WAIT:
         return True, None
@@ -103,7 +114,7 @@ def validate_action_preconditions(state: State, action: Action) -> Tuple[bool, O
 
     elif name == ActionName.CONSULT_NPC:
         npc_id = params.get("npc_id")
-        valid_npcs = ["village_head", "rescue_worker", "family_member"]
+        valid_npcs = list(state.npc_ids)
         if not npc_id or npc_id not in valid_npcs:
             return False, f"Unknown character '{npc_id}'. Valid NPCs: {valid_npcs}."
         return True, None

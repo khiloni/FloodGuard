@@ -1,0 +1,226 @@
+id: "cyclone-surge-01"
+name: "Cyclone at Machhiwada"
+version: "1.0.0"
+description: "A severe cyclone is heading for a fishing village. The storm surge will push the sea over the sea wall. Evacuate before landfall, call the fishing boats home, and manage a crowded cyclone shelter."
+total_ticks: 30
+tick_duration_minutes: 30
+
+# Scenario-select card
+hazard_type: "cyclone_storm_surge"
+hazard_label: "Cyclone storm surge"
+difficulty_label: "Hard"
+illustration: "coast"
+hook: "Landfall is hours away, fishing boats are still at sea and the cyclone shelter cannot hold everyone."
+languages: ["en", "hi"]
+
+difficulty:
+  easy:
+    resources_pct: 130
+    forecast_offset_cm: -20
+    support_delay_delta: -1
+    mechanic_params:
+      landfall_tick: 14
+  hard:
+    resources_pct: 75
+    forecast_offset_cm: 15
+    support_delay_delta: 2
+    mechanic_params:
+      fishing_boats: 10
+      landfall_tick: 12
+
+resources:
+  boats: 2
+  boat_capacity: 12
+  vehicles: 3
+  vehicle_capacity: 25
+  sandbags: 300
+
+embankment:
+  initial_height_cm: 300
+  initial_integrity: 100
+  max_reinforced_height_cm: 360
+
+contained_safe_elevation_cm: 300
+
+# Sea level above normal tide (cm); the surge peaks at landfall (tick 13).
+water_forecast_cm: [100, 105, 110, 120, 135, 150, 170, 195, 225, 260, 300, 340, 370, 380, 360, 320, 280, 240, 210, 185, 165, 150, 140, 130, 125, 120, 115, 112, 110, 108]
+
+mechanic:
+  type: "cyclone"
+  params:
+    landfall_tick: 13
+    fishing_boats: 8
+    crew_per_boat: 4
+    return_ticks: 3
+
+external_support:
+  uses: 1
+  delay_ticks: 4
+  boats: 2
+  vehicles: 2
+  sandbags: 200
+  supply_units: 50
+
+phases:
+  flood_starts_at_cm: 200
+  recovery_below_cm: 280
+
+recovery:
+  shelter_supplies_initial: 30
+  people_per_supply_unit: 60
+  supply_deliveries: 3
+  units_per_delivery: 40
+  supplies_low_threshold: 10
+  clean_water_kits: 1
+  medical_teams: 1
+  return_batch_per_turn: 100
+  treat_per_tick: 6
+  road_debris_depth_cm: 30
+  disease:
+    base: 20
+    per_flooded_zone: 10
+    breach_bonus: 10
+    rise_per_tick: 5
+    crowding_pct: 90
+    crowding_rise: 3
+    no_supplies_rise: 4
+    clean_water_drop: 8
+    medical_camp_drop: 6
+    high_threshold: 60
+  trust:
+    initial: 60
+    early_warning_bonus: 10
+    early_warning_by_tick: 6
+    losses_penalty: 10
+    breach_penalty: 10
+    supplies_ran_out_penalty: 10
+
+zones:
+  - id: "fishing-hamlet"
+    name: "Fishing Hamlet"
+    elevation_cm: 160
+    population: 150
+    vulnerable: 30
+  - id: "salt-pans"
+    name: "Salt Pan Settlement"
+    elevation_cm: 230
+    population: 110
+    vulnerable: 25
+  - id: "hill-road"
+    name: "Hill Road Colony"
+    elevation_cm: 320
+    population: 140
+    vulnerable: 30
+
+shelters:
+  - id: "cyclone-shelter"
+    name: "Multi-purpose Cyclone Shelter"
+    elevation_cm: 500
+    capacity: 260
+    is_open: false
+  - id: "hill-school"
+    name: "Hill School"
+    elevation_cm: 560
+    capacity: 120
+    is_open: false
+
+npcs:
+  - id: "village_head"
+    name: "Sarpanch Ganesh"
+    role: "Village head"
+    location: "fishing-hamlet"
+    initial_dialogue: "Eight of our boats went out before the warning. Their families are on the beach asking what to do."
+  - id: "rescue_worker"
+    name: "Coast Guard Petty Officer Joseph"
+    role: "Coast guard liaison"
+    location: "fishing-hamlet"
+    initial_dialogue: "We can radio the fishing fleet, but they need about one and a half hours to get back to harbour."
+  - id: "family_member"
+    name: "Savita"
+    role: "Fisher's wife, Fishing Hamlet"
+    location: "fishing-hamlet"
+    initial_dialogue: "My husband is still at sea and my father-in-law is bedridden. I cannot leave both."
+  - id: "health_worker"
+    name: "Nurse Thomas"
+    role: "Primary health centre nurse"
+    location: "hill-road"
+    initial_dialogue: "The cyclone shelter gets very crowded. We should plan for clean water and a medical camp."
+  - id: "district_official"
+    name: "Ms. Iyer"
+    role: "District collector's emergency officer"
+    location: "cyclone-shelter"
+    initial_dialogue: "The state can send boats and relief, but roads will be cut once the wind rises."
+
+layout:
+  canvas: { width: 1000, height: 600 }
+  levels: { normal_level_cm: 100, warning_level_cm: 200, danger_level_cm: 280, crest_level_cm: 380 }
+  water_body: "sea"
+  river:
+    name: "Bay of Bengal"
+    flow_direction: "onshore"
+    center_path: [[0, 520], [250, 515], [500, 525], [750, 512], [1000, 522]]
+    north_bank: [[0, 445], [160, 455], [320, 440], [500, 458], [680, 440], [850, 455], [1000, 445]]
+    south_bank: [[0, 600], [250, 600], [500, 600], [750, 600], [1000, 600]]
+  embankment:
+    name: "Sea wall"
+    crest_height_cm: 300
+    segments:
+      - { id: "wall-west", start: [40, 448], end: [320, 440], label: "West sea wall" }
+      - { id: "wall-central", start: [320, 440], end: [600, 450], label: "Central sea wall" }
+      - { id: "wall-east", start: [600, 450], end: [900, 448], label: "East sea wall" }
+  zones:
+    - id: "fishing-hamlet"
+      name: "Fishing Hamlet"
+      x: 90
+      y: 310
+      width: 200
+      height: 105
+      elevation_cm: 160
+      house_points: [[105, 330], [145, 345], [190, 328], [235, 342], [275, 330], [130, 385], [210, 383]]
+    - id: "salt-pans"
+      name: "Salt Pan Settlement"
+      x: 410
+      y: 290
+      width: 190
+      height: 100
+      elevation_cm: 230
+      house_points: [[425, 308], [465, 322], [510, 305], [555, 320], [450, 360], [530, 358]]
+    - id: "hill-road"
+      name: "Hill Road Colony"
+      x: 720
+      y: 170
+      width: 180
+      height: 110
+      elevation_cm: 320
+      house_points: [[735, 190], [775, 205], [820, 185], [865, 200], [760, 250], [840, 248]]
+  shelters:
+    - { id: "cyclone-shelter", name: "Cyclone Shelter", x: 480, y: 70, width: 130, height: 80, elevation_cm: 500 }
+    - { id: "hill-school", name: "Hill School", x: 850, y: 40, width: 115, height: 70, elevation_cm: 560 }
+  routes:
+    - zone_id: "fishing-hamlet"
+      shelter_id: "cyclone-shelter"
+      transport_modes: ["boat", "vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[190, 330], [270, 260], [380, 190], [480, 140], [545, 110]]
+    - zone_id: "salt-pans"
+      shelter_id: "cyclone-shelter"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[505, 305], [520, 230], [540, 160], [545, 110]]
+    - zone_id: "hill-road"
+      shelter_id: "hill-school"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 40
+      waypoints: [[810, 190], [850, 140], [905, 80]]
+  decor:
+    trees: [[60, 260], [330, 330], [660, 300], [700, 120], [960, 230], [40, 150], [330, 140]]
+    hills: [[820, 20], [940, 40], [700, 30]]
+    jetty: { x: 160, y: 455, label: "Fishing harbour" }
+    sea_boats: { x: 640, y: 560, label: "Fishing boats at sea" }
+    bridges: []
+  recovery_sites:
+    water_point: { x: 660, y: 200, label: "Water purification point" }
+    medical_camp: { x: 680, y: 90, label: "Medical camp" }
+    substation: { x: 330, y: 230, label: "Power substation" }
+    health_centre: { x: 380, y: 80, label: "Primary health centre" }
+    supply_depot: { x: 960, y: 320, label: "Relief depot" }

@@ -21,6 +21,12 @@ class ActionName(str, Enum):
     CLEAR_ROADS = "clear_roads"
     DAMAGE_SURVEY = "damage_survey"
     RETURN_RESIDENTS = "return_residents"
+    # Any phase: ask the district for outside help (arrives after a delay)
+    REQUEST_EXTERNAL_SUPPORT = "request_external_support"
+    # Scenario-specific mechanics (only valid in scenarios that define them)
+    CLEAR_DRAINS = "clear_drains"                      # urban flash flood
+    REQUEST_STAGGERED_RELEASE = "request_staggered_release"  # dam release
+    RECALL_FISHING_BOATS = "recall_fishing_boats"      # cyclone storm surge
 
 
 FLOOD_ONLY_ACTIONS = frozenset({
@@ -29,7 +35,18 @@ FLOOD_ONLY_ACTIONS = frozenset({
     ActionName.ASSIGN_TRANSPORT,
     ActionName.PRIORITIZE_VULNERABLE,
     ActionName.REINFORCE_EMBANKMENT,
+    ActionName.CLEAR_DRAINS,
+    ActionName.REQUEST_STAGGERED_RELEASE,
+    ActionName.RECALL_FISHING_BOATS,
 })
+
+MECHANIC_ACTIONS = {
+    ActionName.CLEAR_DRAINS: "drains",
+    ActionName.REQUEST_STAGGERED_RELEASE: "dam_release",
+    ActionName.RECALL_FISHING_BOATS: "cyclone",
+}
+
+DEFAULT_NPC_IDS = ["village_head", "rescue_worker", "family_member"]
 
 RECOVERY_ONLY_ACTIONS = frozenset({
     ActionName.SEARCH_AND_RESCUE,
@@ -85,6 +102,20 @@ class EventType(str, Enum):
     ROAD_CLEARED = "road_cleared"
     DAMAGE_SURVEYED = "damage_surveyed"
     RESIDENTS_RETURNED = "residents_returned"
+    # External support and resources
+    SUPPORT_REQUESTED = "support_requested"
+    SUPPORT_ARRIVED = "support_arrived"
+    RESOURCE_DEPLETED = "resource_depleted"
+    # Scenario mechanics
+    DRAINS_CLEARED = "drains_cleared"
+    DRAIN_OVERFLOW = "drain_overflow"
+    DAM_RELEASE_NOTICE = "dam_release_notice"
+    DAM_RELEASE_STARTED = "dam_release_started"
+    RELEASE_STAGGERED = "release_staggered"
+    FISHING_BOATS_RECALLED = "fishing_boats_recalled"
+    FISHING_BOATS_RETURNED = "fishing_boats_returned"
+    CYCLONE_LANDFALL = "cyclone_landfall"
+    FISHERS_STRANDED = "fishers_stranded"
 
 
 class Event(BaseModel):
@@ -123,6 +154,11 @@ class ZoneState(BaseModel):
     returned: int = 0
     road_blocked: bool = False
     surveyed: bool = False
+    # Scenario packs
+    households: int = 0
+    damaged_houses: int = 0
+    drain_blocked: bool = False
+    underpass: bool = False
 
 
 class ShelterState(BaseModel):
@@ -205,6 +241,24 @@ class RecoveryConfig(BaseModel):
     road_debris_depth_cm: int = 30
 
 
+class SupportConfig(BaseModel):
+    """Outside help the player can request once (or `uses` times); arrives after a delay."""
+    model_config = ConfigDict(frozen=True)
+    uses: int = 0
+    delay_ticks: int = 4
+    boats: int = 0
+    vehicles: int = 0
+    sandbags: int = 0
+    supply_units: int = 0
+
+
+class MechanicConfig(BaseModel):
+    """One scenario-specific mechanic: type in {none, drains, dam_release, cyclone}; integer params."""
+    model_config = ConfigDict(frozen=True)
+    type: str = "none"
+    params: Dict[str, int] = Field(default_factory=dict)
+
+
 class RecoveryState(BaseModel):
     model_config = ConfigDict(frozen=True)
     shelter_supplies: int = 0
@@ -222,6 +276,7 @@ class RecoveryState(BaseModel):
     power_on: bool = True
     health_centre_open: bool = True
     community_trust: int = 0
+    water_contamination: int = 0
 
 
 class State(BaseModel):
@@ -246,3 +301,14 @@ class State(BaseModel):
     recovery_start_tick: Optional[int] = None
     recovery: RecoveryState = Field(default_factory=RecoveryState)
     recovery_config: RecoveryConfig = Field(default_factory=RecoveryConfig)
+    # Scenario packs
+    difficulty: str = "standard"
+    npc_ids: List[str] = Field(default_factory=lambda: list(DEFAULT_NPC_IDS))
+    contained_safe_elevation_cm: int = 350
+    embankment_max_cm: int = 470
+    foot_evacuation_per_tick: int = 12
+    support: SupportConfig = Field(default_factory=SupportConfig)
+    support_requests_left: int = 0
+    support_eta_tick: Optional[int] = None
+    mechanic: MechanicConfig = Field(default_factory=MechanicConfig)
+    mechanic_state: Dict[str, int] = Field(default_factory=dict)

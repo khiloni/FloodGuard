@@ -428,13 +428,15 @@ def npc_reply(
     facts_allowed: Set[int],
     language: str = "en",
     rule_cards: Optional[List[Dict[str, Any]]] = None,
+    persona: Optional[str] = None,
+    location: Optional[str] = None,
 ) -> LLMResult:
-    template_text = generate_npc_message(npc_id, state, user_message)["text"]
+    template_text = generate_npc_message(npc_id, state, user_message, location)["text"]
     card_ids = [c["id"] for c in rule_cards] if rule_cards else []
     if not is_llm_enabled():
         return LLMResult(text=template_text, status="disabled")
 
-    persona = NPC_PERSONAS.get(npc_id, "A local flood-response official.")
+    persona = persona or NPC_PERSONAS.get(npc_id, "A local flood-response official.")
     system_prompt = (
         f"You are roleplaying {persona} in FloodGuard, an educational flood simulation. "
         "Answer in character in 1-3 short sentences.\n" + _COMMON_RULES + "\n"
@@ -560,10 +562,18 @@ def _validate_llm_action(
         params = {"shelter_id": sid} if sid in shelters else {}
     elif act in (ActionName.PROVIDE_CLEAN_WATER, ActionName.RUN_MEDICAL_CAMP, ActionName.RESTORE_POWER):
         params = {}
+    elif act == ActionName.CLEAR_DRAINS:
+        if raw.get("zone") not in zones:
+            return zone_clarify(act.value, "Which area's drains should be cleared?")
+        params = {"zone": raw["zone"]}
+    elif act in (ActionName.REQUEST_EXTERNAL_SUPPORT, ActionName.REQUEST_STAGGERED_RELEASE,
+                 ActionName.RECALL_FISHING_BOATS):
+        params = {}
     elif act == ActionName.CONSULT_NPC:
-        if raw.get("npc_id") not in VALID_NPCS:
+        npcs = list(state.npc_ids)
+        if raw.get("npc_id") not in npcs:
             return None, {"question": "Who would you like to consult?", "options": [
-                {"name": act.value, "params": {"npc_id": n}} for n in VALID_NPCS]}
+                {"name": act.value, "params": {"npc_id": n}} for n in npcs]}
         params = {"npc_id": raw["npc_id"]}
     else:  # WAIT
         params = {}
@@ -587,9 +597,14 @@ def parse_llm_action_fallback(
         f"- order_evacuation: {{\"zone\": one of {zones}}}\n"
         f"- assign_transport: {{\"zone\": one of {zones}, \"transport_type\": \"boat\"|\"vehicle\", \"count\": integer}}\n"
         f"- prioritize_vulnerable: {{\"zone\": one of {zones}}}\n"
-        "- open_shelter: {\"shelter_id\": \"school\"}\n"
+        f"- open_shelter: {{\"shelter_id\": one of {sorted(state.shelters)}}}\n"
         "- reinforce_embankment: {\"sandbags\": 100|200|300|400}\n"
-        "- consult_npc: {\"npc_id\": \"village_head\"|\"rescue_worker\"|\"family_member\"}\n"
+        f"- consult_npc: {{\"npc_id\": one of {list(state.npc_ids)}}}\n"
+        "- request_external_support: {}\n"
+        + (f"- clear_drains: {{\"zone\": one of {zones}}}\n" if state.mechanic.type == "drains" else "")
+        + ("- request_staggered_release: {}\n" if state.mechanic.type == "dam_release" else "")
+        + ("- recall_fishing_boats: {}\n" if state.mechanic.type == "cyclone" else "")
+        +
         "- wait: {}\n"
         "Recovery actions (after the flood):\n"
         f"- search_and_rescue / clear_roads / damage_survey / return_residents: {{\"zone\": one of {zones}}}\n"

@@ -3,7 +3,7 @@
   "info": {
     "title": "FloodGuard API",
     "description": "Educational Flood-Response Simulation Engine API",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "paths": {
     "/api/v1/health": {
@@ -408,7 +408,11 @@
           "restore_power",
           "clear_roads",
           "damage_survey",
-          "return_residents"
+          "return_residents",
+          "request_external_support",
+          "clear_drains",
+          "request_staggered_release",
+          "recall_fishing_boats"
         ],
         "title": "ActionName"
       },
@@ -1012,6 +1016,25 @@
         "type": "object",
         "title": "LevelsModel"
       },
+      "MechanicConfig": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "default": "none"
+          },
+          "params": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Params"
+          }
+        },
+        "type": "object",
+        "title": "MechanicConfig",
+        "description": "One scenario-specific mechanic: type in {none, drains, dam_release, cyclone}; integer params."
+      },
       "MetaResponse": {
         "properties": {
           "version": {
@@ -1260,6 +1283,51 @@
           "source"
         ],
         "title": "NarrationOut"
+      },
+      "NpcInfo": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Location"
+          },
+          "initial_dialogue": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Initial Dialogue"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "role"
+        ],
+        "title": "NpcInfo"
       },
       "RecoveryConfig": {
         "properties": {
@@ -1518,6 +1586,11 @@
           "community_trust": {
             "type": "integer",
             "title": "Community Trust",
+            "default": 0
+          },
+          "water_contamination": {
+            "type": "integer",
+            "title": "Water Contamination",
             "default": 0
           }
         },
@@ -1912,6 +1985,83 @@
           },
           "layout": {
             "$ref": "#/components/schemas/LayoutModel"
+          },
+          "hazard_type": {
+            "type": "string",
+            "title": "Hazard Type",
+            "default": "river_flood"
+          },
+          "hazard_label": {
+            "type": "string",
+            "title": "Hazard Label",
+            "default": "River flood"
+          },
+          "difficulty_label": {
+            "type": "string",
+            "title": "Difficulty Label",
+            "default": "Moderate"
+          },
+          "hook": {
+            "type": "string",
+            "title": "Hook",
+            "default": ""
+          },
+          "illustration": {
+            "type": "string",
+            "title": "Illustration",
+            "default": "river"
+          },
+          "tick_duration_minutes": {
+            "type": "integer",
+            "title": "Tick Duration Minutes",
+            "default": 30
+          },
+          "languages": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Languages"
+          },
+          "difficulties": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Difficulties"
+          },
+          "mechanic_type": {
+            "type": "string",
+            "title": "Mechanic Type",
+            "default": "none"
+          },
+          "external_support": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "integer"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "External Support"
+          },
+          "npcs": {
+            "items": {
+              "$ref": "#/components/schemas/NpcInfo"
+            },
+            "type": "array",
+            "title": "Npcs"
+          },
+          "shelters": {
+            "items": {
+              "$ref": "#/components/schemas/ShelterInfo"
+            },
+            "type": "array",
+            "title": "Shelters"
           }
         },
         "type": "object",
@@ -2133,6 +2283,29 @@
           "is_ended"
         ],
         "title": "SessionStateResponse"
+      },
+      "ShelterInfo": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "capacity": {
+            "type": "integer",
+            "title": "Capacity"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "capacity"
+        ],
+        "title": "ShelterInfo"
       },
       "ShelterLayoutModel": {
         "properties": {
@@ -2357,6 +2530,62 @@
           },
           "recovery_config": {
             "$ref": "#/components/schemas/RecoveryConfig"
+          },
+          "difficulty": {
+            "type": "string",
+            "title": "Difficulty",
+            "default": "standard"
+          },
+          "npc_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Npc Ids"
+          },
+          "contained_safe_elevation_cm": {
+            "type": "integer",
+            "title": "Contained Safe Elevation Cm",
+            "default": 350
+          },
+          "embankment_max_cm": {
+            "type": "integer",
+            "title": "Embankment Max Cm",
+            "default": 470
+          },
+          "foot_evacuation_per_tick": {
+            "type": "integer",
+            "title": "Foot Evacuation Per Tick",
+            "default": 12
+          },
+          "support": {
+            "$ref": "#/components/schemas/SupportConfig"
+          },
+          "support_requests_left": {
+            "type": "integer",
+            "title": "Support Requests Left",
+            "default": 0
+          },
+          "support_eta_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Support Eta Tick"
+          },
+          "mechanic": {
+            "$ref": "#/components/schemas/MechanicConfig"
+          },
+          "mechanic_state": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Mechanic State"
           }
         },
         "type": "object",
@@ -2489,6 +2718,43 @@
           "zones"
         ],
         "title": "StateSummary"
+      },
+      "SupportConfig": {
+        "properties": {
+          "uses": {
+            "type": "integer",
+            "title": "Uses",
+            "default": 0
+          },
+          "delay_ticks": {
+            "type": "integer",
+            "title": "Delay Ticks",
+            "default": 4
+          },
+          "boats": {
+            "type": "integer",
+            "title": "Boats",
+            "default": 0
+          },
+          "vehicles": {
+            "type": "integer",
+            "title": "Vehicles",
+            "default": 0
+          },
+          "sandbags": {
+            "type": "integer",
+            "title": "Sandbags",
+            "default": 0
+          },
+          "supply_units": {
+            "type": "integer",
+            "title": "Supply Units",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "SupportConfig",
+        "description": "Outside help the player can request once (or `uses` times); arrives after a delay."
       },
       "TransportSummary": {
         "properties": {
@@ -2838,6 +3104,26 @@
           "surveyed": {
             "type": "boolean",
             "title": "Surveyed",
+            "default": false
+          },
+          "households": {
+            "type": "integer",
+            "title": "Households",
+            "default": 0
+          },
+          "damaged_houses": {
+            "type": "integer",
+            "title": "Damaged Houses",
+            "default": 0
+          },
+          "drain_blocked": {
+            "type": "boolean",
+            "title": "Drain Blocked",
+            "default": false
+          },
+          "underpass": {
+            "type": "boolean",
+            "title": "Underpass",
             "default": false
           }
         },

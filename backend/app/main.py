@@ -1,3 +1,4 @@
+import logging
 import os
 import uuid
 import random
@@ -19,6 +20,8 @@ from .llm import providers as llm_providers
 from .services.turn_pipeline import process_turn
 from .services.report import build_report_sections
 from .store.sqlite import SessionStore
+
+logger = logging.getLogger("floodguard.api")
 
 # Root directory configuration
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -87,7 +90,8 @@ EXAMPLE_COMMANDS_BY_PHASE = {
                  "send ward 2 residents back home", "send relief supplies to the shelter"],
 }
 
-API_VERSION = "2.0.0"
+API_VERSION = "2.1.0"
+SUPPORTED_LANGUAGES = ["en", "hi"]
 
 
 def get_scenario_layout(scenario_id: str) -> Dict[str, Any]:
@@ -351,6 +355,20 @@ class LayoutModel(BaseModel):
     recovery_sites: Dict[str, RecoverySiteModel] = Field(default_factory=dict)
 
 
+class NpcInfo(BaseModel):
+    id: str
+    name: str
+    role: str
+    location: Optional[str] = None
+    initial_dialogue: Optional[str] = None
+
+
+class ShelterInfo(BaseModel):
+    id: str
+    name: str
+    capacity: int
+
+
 class ScenarioSummary(BaseModel):
     id: str
     name: str
@@ -358,6 +376,18 @@ class ScenarioSummary(BaseModel):
     total_ticks: int
     description: str
     layout: LayoutModel
+    hazard_type: str = "river_flood"
+    hazard_label: str = "River flood"
+    difficulty_label: str = "Moderate"
+    hook: str = ""
+    illustration: str = "river"
+    tick_duration_minutes: int = 30
+    languages: List[str] = Field(default_factory=lambda: ["en"])
+    difficulties: List[str] = Field(default_factory=lambda: ["easy", "standard", "hard"])
+    mechanic_type: str = "none"
+    external_support: Optional[Dict[str, int]] = None
+    npcs: List[NpcInfo] = Field(default_factory=list)
+    shelters: List[ShelterInfo] = Field(default_factory=list)
 
 
 class ScenariosListResponse(BaseModel):
@@ -596,7 +626,7 @@ def get_meta():
         "disclaimer": DISCLAIMER_FULL_TEXT,
         "emergency_helpline": "112",
         "disaster_helpline": "1078",
-        "supported_languages": ["en"],
+        "supported_languages": SUPPORTED_LANGUAGES,
         "llm_mode": get_llm_mode(),
         "llm_status": get_llm_status(),
         "llm_provider": llm_providers.provider_name(),
@@ -611,22 +641,40 @@ def get_meta():
 def list_scenarios():
     scenarios = []
     if os.path.exists(SCENARIOS_DIR):
-        for fname in os.listdir(SCENARIOS_DIR):
-            if fname.endswith(".yaml") or fname.endswith(".yml"):
-                fpath = os.path.join(SCENARIOS_DIR, fname)
-                try:
-                    s = load_scenario(fpath)
-                    cfg = load_scenario_config(fpath)
-                    scenarios.append({
-                        "id": s.scenario_id,
-                        "name": cfg.get("name", fname.replace(".yaml", "").replace("-", " ").title()),
-                        "version": s.scenario_version,
-                        "total_ticks": s.max_ticks,
-                        "description": cfg.get("description", "Riverside village simulation with 3 wards, 1 shelter, and flood forecast curve."),
-                        "layout": cfg.get("layout", {}),
-                    })
-                except Exception:
-                    pass
+        files = sorted(f for f in os.listdir(SCENARIOS_DIR) if f.endswith((".yaml", ".yml")))
+        # The original river village first, then the other packs alphabetically.
+        files.sort(key=lambda f: (not f.startswith("village-river"), f))
+        for fname in files:
+            fpath = os.path.join(SCENARIOS_DIR, fname)
+            try:
+                s = load_scenario(fpath)
+                cfg = load_scenario_config(fpath)
+            except Exception as exc:  # a broken pack must not take the whole list down
+                logger.warning("scenario %s failed to load: %s", fname, exc)
+                continue
+            sup = cfg.get("external_support") or None
+            scenarios.append({
+                "id": s.scenario_id,
+                "name": cfg.get("name", fname.replace(".yaml", "").replace("-", " ").title()),
+                "version": s.scenario_version,
+                "total_ticks": s.max_ticks,
+                "description": cfg.get("description", ""),
+                "layout": cfg.get("layout", {}),
+                "hazard_type": cfg.get("hazard_type", "river_flood"),
+                "hazard_label": cfg.get("hazard_label", "River flood"),
+                "difficulty_label": cfg.get("difficulty_label", "Moderate"),
+                "hook": cfg.get("hook", cfg.get("description", "")),
+                "illustration": cfg.get("illustration", "river"),
+                "tick_duration_minutes": int(cfg.get("tick_duration_minutes", 30)),
+                "languages": cfg.get("languages", ["en"]),
+                "difficulties": ["easy", "standard", "hard"],
+                "mechanic_type": s.mechanic.type,
+                "external_support": {k: int(v) for k, v in sup.items()} if sup else None,
+                "npcs": [{k: n.get(k) for k in ("id", "name", "role", "location", "initial_dialogue")}
+                         for n in cfg.get("npcs", [])],
+                "shelters": [{"id": sh["id"], "name": sh.get("name", sh["id"]), "capacity": int(sh.get("capacity", 0))}
+                             for sh in cfg.get("shelters", [])],
+            })
     return {"scenarios": scenarios}
 
 
@@ -639,8 +687,18 @@ def create_session(req: CreateSessionRequest):
             detail={"code": "SCENARIO_NOT_FOUND", "message": f"Scenario '{req.scenario_id}' not found."},
         )
 
+    if req.difficulty not in ("easy", "standard", "hard"):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail={"code": "BAD_DIFFICULTY", "message": "difficulty must be easy, standard or hard."},
+        )
+    if req.language not in SUPPORTED_LANGUAGES:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail={"code": "BAD_LANGUAGE", "message": f"language must be one of {SUPPORTED_LANGUAGES}."},
+        )
     seed = req.seed if req.seed is not None else random.randint(1000, 999999)
-    initial_state = load_scenario(scenario_file)
+    initial_state = load_scenario(scenario_file, req.difficulty)
     session_id = str(uuid.uuid4())
     layout = get_scenario_layout(req.scenario_id)
     state_dict = initial_state.model_dump()
@@ -796,11 +854,11 @@ def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
     return result
 
 
-def build_replay_frames(scenario_id: str, actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def build_replay_frames(scenario_id: str, actions: List[Dict[str, Any]], difficulty: str = "standard") -> List[Dict[str, Any]]:
     """Server-side deterministic replay: one summary per tick, so the browser never computes outcomes."""
     from .engine.step import step as engine_step
     fpath = os.path.join(SCENARIOS_DIR, f"{scenario_id}.yaml")
-    state = load_scenario(fpath)
+    state = load_scenario(fpath, difficulty)
     layout = get_scenario_layout(scenario_id)
     rng = random.Random(0)  # the engine does not draw from the RNG; kept for the step() signature
     frames = [{"tick": 0, "phase": state.phase, "action": None,
@@ -828,7 +886,7 @@ def get_session_log(session_id: str, frames: bool = False):
         "seed": sess["seed"],
         "actions": sess["actions"],
         "events": events,
-        "frames": build_replay_frames(sess["scenario_id"], sess["actions"]) if frames else None,
+        "frames": build_replay_frames(sess["scenario_id"], sess["actions"], sess.get("difficulty", "standard")) if frames else None,
     }
 
 

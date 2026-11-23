@@ -1,0 +1,233 @@
+id: "urban-flash-flood-01"
+name: "Ward 14 Flash Flood"
+version: "1.0.0"
+description: "A cloudburst over a city ward. Blocked drains and a railway underpass turn streets into channels within minutes. Act fast, then restore power, roads and safe water."
+total_ticks: 24
+tick_duration_minutes: 15
+
+# Scenario-select card
+hazard_type: "urban_flash_flood"
+hazard_label: "Urban flash flood"
+difficulty_label: "Hard"
+illustration: "city"
+hook: "A cloudburst hits a dense city ward. Drains are blocked, the underpass fills first, and you have minutes, not hours."
+languages: ["en", "hi"]
+
+difficulty:
+  easy:
+    resources_pct: 130
+    forecast_offset_cm: -15
+    support_delay_delta: -1
+  hard:
+    resources_pct: 75
+    forecast_offset_cm: 15
+    support_delay_delta: 1
+    mechanic_params:
+      blocked_drain_extra_cm: 45
+
+resources:
+  boats: 2
+  boat_capacity: 10
+  vehicles: 4
+  vehicle_capacity: 25
+  sandbags: 300
+
+embankment:
+  initial_height_cm: 290
+  initial_integrity: 100
+  max_reinforced_height_cm: 350
+
+# Above this ground level a ward stays dry while the canal wall holds.
+contained_safe_elevation_cm: 260
+
+# Dense streets: guided groups on foot move more people per tick than in a village.
+foot_evacuation_per_tick: 35
+
+# Street and canal water level (cm). Very short warning window: the peak comes at tick 8.
+water_forecast_cm: [150, 160, 175, 205, 245, 285, 315, 330, 318, 296, 270, 245, 222, 205, 192, 182, 174, 168, 162, 158, 155, 152, 150, 148]
+
+mechanic:
+  type: "drains"
+  params:
+    blocked_drain_extra_cm: 30
+    underpass_cutoff_cm: 15
+    drain_crews: 2
+
+external_support:
+  uses: 1
+  delay_ticks: 3
+  boats: 2
+  vehicles: 1
+  sandbags: 200
+  supply_units: 40
+
+phases:
+  flood_starts_at_cm: 220
+  recovery_below_cm: 280
+
+recovery:
+  shelter_supplies_initial: 25
+  people_per_supply_unit: 60
+  supply_deliveries: 3
+  units_per_delivery: 40
+  supplies_low_threshold: 10
+  clean_water_kits: 1
+  medical_teams: 1
+  return_batch_per_turn: 120
+  treat_per_tick: 6
+  road_debris_depth_cm: 30
+  disease:
+    base: 25
+    per_flooded_zone: 10
+    breach_bonus: 10
+    rise_per_tick: 5
+    crowding_pct: 90
+    crowding_rise: 3
+    no_supplies_rise: 4
+    clean_water_drop: 8
+    medical_camp_drop: 6
+    high_threshold: 60
+  trust:
+    initial: 55
+    early_warning_bonus: 10
+    early_warning_by_tick: 3
+    losses_penalty: 10
+    breach_penalty: 10
+    supplies_ran_out_penalty: 10
+
+zones:
+  - id: "underpass-colony"
+    name: "Underpass Colony"
+    elevation_cm: 190
+    population: 160
+    vulnerable: 35
+    drain_blocked: true
+    underpass: true
+  - id: "station-market"
+    name: "Station Market"
+    elevation_cm: 235
+    population: 200
+    vulnerable: 40
+    drain_blocked: true
+  - id: "lakeview"
+    name: "Lake View Apartments"
+    elevation_cm: 340
+    population: 240
+    vulnerable: 45
+
+shelters:
+  - id: "community-hall"
+    name: "Community Hall"
+    elevation_cm: 380
+    capacity: 220
+    is_open: false
+  - id: "municipal-school"
+    name: "Municipal School"
+    elevation_cm: 400
+    capacity: 360
+    is_open: false
+
+npcs:
+  - id: "village_head"
+    name: "Councillor Fatima"
+    role: "Ward councillor"
+    location: "station-market"
+    initial_dialogue: "The drains behind the market are choked with plastic again. If the rain keeps up, the underpass will fill first."
+  - id: "rescue_worker"
+    name: "Fire Officer Raju"
+    role: "Fire and emergency services"
+    location: "underpass-colony"
+    initial_dialogue: "We have two rescue dinghies and four trucks. Trucks cannot go through the underpass once water is above the kerb."
+  - id: "family_member"
+    name: "Anita"
+    role: "Underpass Colony resident"
+    location: "underpass-colony"
+    initial_dialogue: "Our lane is already ankle-deep and my neighbour uses a wheelchair."
+  - id: "health_worker"
+    name: "Dr. Mehta"
+    role: "Urban health centre doctor"
+    location: "lakeview"
+    initial_dialogue: "Floodwater mixed with sewage is a serious risk. We will need clean water quickly afterwards."
+  - id: "district_official"
+    name: "Mr. Rao"
+    role: "Municipal disaster cell officer"
+    location: "municipal-school"
+    initial_dialogue: "The state response force can send boats, but they need a few hours to reach this ward."
+
+layout:
+  canvas: { width: 1000, height: 600 }
+  levels: { normal_level_cm: 150, warning_level_cm: 220, danger_level_cm: 280, crest_level_cm: 330 }
+  water_body: "canal"
+  river:
+    name: "Storm-water canal"
+    flow_direction: "left-to-right"
+    center_path: [[0, 505], [200, 495], [420, 510], [640, 492], [820, 505], [1000, 498]]
+    north_bank: [[0, 470], [200, 462], [420, 475], [640, 458], [820, 470], [1000, 463]]
+    south_bank: [[0, 545], [200, 535], [420, 548], [640, 530], [820, 543], [1000, 536]]
+  embankment:
+    name: "Canal retaining wall"
+    crest_height_cm: 290
+    segments:
+      - { id: "wall-west", start: [80, 466], end: [420, 475], label: "West wall" }
+      - { id: "wall-central", start: [420, 475], end: [640, 458], label: "Central wall" }
+      - { id: "wall-east", start: [640, 458], end: [900, 468], label: "East wall" }
+  zones:
+    - id: "underpass-colony"
+      name: "Underpass Colony"
+      x: 110
+      y: 320
+      width: 200
+      height: 110
+      elevation_cm: 190
+      house_points: [[125, 340], [165, 355], [205, 335], [245, 352], [150, 395], [230, 392], [280, 370]]
+    - id: "station-market"
+      name: "Station Market"
+      x: 400
+      y: 250
+      width: 200
+      height: 110
+      elevation_cm: 235
+      house_points: [[415, 268], [455, 285], [500, 262], [545, 282], [440, 325], [520, 322], [575, 300]]
+    - id: "lakeview"
+      name: "Lake View Apartments"
+      x: 690
+      y: 260
+      width: 190
+      height: 120
+      elevation_cm: 340
+      house_points: [[710, 280], [760, 280], [810, 280], [860, 280], [735, 335], [785, 335], [835, 335]]
+  shelters:
+    - { id: "community-hall", name: "Community Hall", x: 330, y: 70, width: 120, height: 70, elevation_cm: 380 }
+    - { id: "municipal-school", name: "Municipal School", x: 820, y: 60, width: 130, height: 80, elevation_cm: 400 }
+  routes:
+    - zone_id: "underpass-colony"
+      shelter_id: "community-hall"
+      transport_modes: ["boat", "vehicle", "foot"]
+      road_cutoff_depth_cm: 15
+      waypoints: [[210, 340], [260, 270], [330, 200], [390, 120]]
+    - zone_id: "station-market"
+      shelter_id: "community-hall"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[500, 262], [470, 200], [420, 150], [390, 120]]
+    - zone_id: "lakeview"
+      shelter_id: "municipal-school"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[785, 280], [820, 210], [870, 160], [885, 110]]
+  decor:
+    trees: [[60, 200], [640, 180], [960, 260], [40, 380], [620, 400]]
+    hills: []
+    buildings: [[60, 120], [140, 90], [220, 150], [560, 120], [640, 90], [700, 160], [960, 180]]
+    underpasses:
+      - { x: 300, y: 300, label: "Railway underpass" }
+    railway: [[0, 300], [1000, 230]]
+    jetty: { x: 90, y: 455, label: "Fire station" }
+    bridges:
+      - { x: 520, y: 470, label: "Canal bridge" }
+  recovery_sites:
+    water_point: { x: 620, y: 200, label: "Water tanker point" }
+    medical_camp: { x: 700, y: 90, label: "Medical camp" }
+    substation: { x: 160, y: 220, label: "Electricity substation" }
+    health_centre: { x: 520, y: 70, label: "Urban health centre" }
+    supply_depot: { x: 960, y: 330, label: "Relief depot" }

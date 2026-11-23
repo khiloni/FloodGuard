@@ -12,6 +12,8 @@ from .models import (
     EmbankmentState,
     RecoveryState,
 )
+from .models import MECHANIC_ACTIONS
+from . import mechanics
 from .scoring import calculate_score
 from .rules import validate_action_preconditions
 
@@ -54,6 +56,15 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
     flood_start_tick = state.flood_start_tick
     recovery_start_tick = state.recovery_start_tick
     phase_marks: List[Tuple[int, str]] = []  # (event index, phase) where a new phase begins
+    ms: Dict[str, int] = dict(state.mechanic_state)
+    support_left = state.support_requests_left
+    support_eta = state.support_eta_tick
+    before_resources = {
+        "boats": state.resources.available_boats,
+        "vehicles": state.resources.available_vehicles,
+        "sandbags": state.resources.sandbags,
+        "supply deliveries": state.recovery.supply_deliveries_left,
+    }
 
     # 2. Process Action
     action_name = action.name
@@ -173,7 +184,7 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
         emb_reinforced += 1
         # Each 100 sandbags raises effective bund height by 30 cm and boosts integrity
         height_gain = (bags_used // 100) * 30
-        emb_height = min(470, emb_height + height_gain)
+        emb_height = min(state.embankment_max_cm, emb_height + height_gain)
         emb_integrity = min(100, emb_integrity + 10)
         events.append(
             Event(
@@ -214,15 +225,42 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
             )
         )
 
+    elif action_name == ActionName.REQUEST_EXTERNAL_SUPPORT:
+        support_eta = mechanics.request_support(state, events, current_tick)
+        support_left -= 1
+
+    elif action_name in MECHANIC_ACTIONS:
+        mechanics.apply_mechanic_action(state, action, zones, ms, events, current_tick)
+
     elif action_name in RECOVERY_HANDLED:
         avail_boats, avail_vehs = _apply_recovery_action(
             action, state, zones, shelters, rec, events, current_tick,
             total_boats, boat_cap, total_vehs, veh_cap, avail_boats, avail_vehs,
         )
 
-    # 3. Advance Water Level along forecast
-    forecast_idx = min(current_tick - 1, len(state.forecast_cm) - 1)
-    new_water_level = state.forecast_cm[forecast_idx]
+    # 2b. Outside support arrives (requested earlier)
+    if support_eta is not None and current_tick >= support_eta:
+        sup = state.support
+        total_boats += sup.boats
+        avail_boats += sup.boats
+        total_vehs += sup.vehicles
+        avail_vehs += sup.vehicles
+        sandbags += sup.sandbags
+        if cfg.enabled and sup.supply_units:
+            rec["shelter_supplies"] += sup.supply_units
+            rec["supplies_low_warned"] = False
+        support_eta = None
+        events.append(Event(
+            type=EventType.SUPPORT_ARRIVED, tick=current_tick,
+            description=(f"A district convoy arrived with {sup.boats} boats, {sup.vehicles} trucks, "
+                         f"{sup.sandbags} sandbags and {sup.supply_units} supply units."),
+            caused_by="Outside support requested earlier", zone=None, target="district",
+            details={"zone": None, "target": "district", "boats": sup.boats, "vehicles": sup.vehicles,
+                     "sandbags": sup.sandbags, "supply_units": sup.supply_units},
+        ))
+
+    # 3. Advance Water Level along forecast (plus any scenario mechanic such as a dam release)
+    new_water_level = mechanics.water_level_at(state, current_tick, ms)
 
     events.append(
         Event(
@@ -276,12 +314,27 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
         if not emb_breached and new_water_level <= emb_height:
             # Containment reduces localized spill into higher ground
             local_depth = max(0, new_water_level - z.elevation_cm)
-            if z.elevation_cm >= 350:
+            if z.elevation_cm >= state.contained_safe_elevation_cm:
                 local_depth = 0
         else:
             local_depth = max(0, effective_water - z.elevation_cm)
 
-        road_submerged = local_depth >= 30  # 30 cm cutoff for road traffic
+        # Blocked drains add street water while it rains (urban mechanic)
+        extra = mechanics.extra_depth(state, z, mechanics.is_raining(state, current_tick))
+        if extra:
+            with_drains = max(0, new_water_level + extra - z.elevation_cm)
+            if with_drains > local_depth:
+                if local_depth == 0 and not ms.get(f"overflow_{zid}"):
+                    ms[f"overflow_{zid}"] = 1
+                    events.append(Event(
+                        type=EventType.DRAIN_OVERFLOW, tick=current_tick,
+                        description=f"Blocked drains overflowed in {z.name}; streets are filling with water.",
+                        caused_by="Drains blocked by debris during heavy rain", zone=zid, target=zid,
+                        details={"zone": zid, "target": zid, "extra_cm": extra},
+                    ))
+                local_depth = with_drains
+
+        road_submerged = local_depth >= mechanics.road_cutoff_cm(state, z)  # 30 cm default cutoff
 
         if road_submerged and not z.road_flooded:
             events.append(
@@ -388,7 +441,7 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
             transport_capacity += z.vehicles_assigned * veh_cap
         # Foot evacuation if water is shallow (under 15 cm) and shelter is open
         if z.water_depth_cm < 15 and z.evacuation_ordered and total_shelter_capacity_left > 0:
-            transport_capacity += 12  # On-foot guided group
+            transport_capacity += state.foot_evacuation_per_tick  # On-foot guided group
 
         # Cap movement by willingness, transport, and remaining shelter space
         evacuees = min(willing_pop, transport_capacity, total_shelter_capacity_left)
@@ -496,6 +549,9 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
                     )
                 )
 
+    # 7a. Scheduled scenario events (dam notice/release, cyclone landfall, boats returning)
+    mechanics.tick_mechanics(state, ms, events, current_tick, new_water_level)
+
     # 7b. Phases and recovery (Part 2)
     if cfg.enabled:
         recovery_ticked_before = phase == "recovery"
@@ -504,7 +560,7 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
             phase = "recovery"
             recovery_start_tick = current_tick
             avail_boats, avail_vehs = total_boats, total_vehs
-            _enter_recovery(state, zones, rec, events, current_tick, emb_breached, new_first_warning, new_water_level)
+            _enter_recovery(state, zones, rec, events, current_tick, emb_breached, new_first_warning, new_water_level, ms)
 
         _consume_supplies(cfg, shelters, rec, events, current_tick)
 
@@ -519,6 +575,22 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
             current_tick >= state.max_ticks
             or sum(z.population_remaining for z in zones.values()) == 0
         )
+
+    # Resources that ran out this tick
+    after_resources = {
+        "boats": avail_boats,
+        "vehicles": avail_vehs,
+        "sandbags": sandbags,
+        "supply deliveries": rec.get("supply_deliveries_left", 0),
+    }
+    for res_name, before in before_resources.items():
+        if before > 0 and after_resources[res_name] == 0:
+            events.append(Event(
+                type=EventType.RESOURCE_DEPLETED, tick=current_tick,
+                description=f"No {res_name} are left in reserve.",
+                caused_by="All units committed or used", zone=None, target=res_name,
+                details={"zone": None, "target": res_name, "resource": res_name},
+            ))
 
     new_res_state = ResourceState(
         total_boats=total_boats,
@@ -557,6 +629,16 @@ def step(state: State, action: Action, rng: random.Random) -> Tuple[State, List[
         recovery_start_tick=recovery_start_tick,
         recovery=RecoveryState(**rec),
         recovery_config=cfg,
+        difficulty=state.difficulty,
+        npc_ids=state.npc_ids,
+        contained_safe_elevation_cm=state.contained_safe_elevation_cm,
+        embankment_max_cm=state.embankment_max_cm,
+        foot_evacuation_per_tick=state.foot_evacuation_per_tick,
+        support=state.support,
+        support_requests_left=support_left,
+        support_eta_tick=support_eta,
+        mechanic=state.mechanic,
+        mechanic_state=ms,
     )
 
     if is_finished:
@@ -730,8 +812,9 @@ def _apply_recovery_action(action, state, zones, shelters, rec, events, tick,
             zones[zid] = z.model_copy(update={"surveyed": True})
             events.append(_ev(
                 EventType.DAMAGE_SURVEYED, tick,
-                f"Engineers surveyed houses in {z.name}, where the water had reached {z.max_depth_cm} cm.",
-                by, zone=zid, max_depth_cm=z.max_depth_cm))
+                f"Engineers surveyed {z.name}: {z.damaged_houses} of {z.households} houses damaged; the water had reached {z.max_depth_cm} cm.",
+                by, zone=zid, max_depth_cm=z.max_depth_cm, damaged_houses=z.damaged_houses,
+                households=z.households))
 
         elif name == ActionName.RETURN_RESIDENTS:
             waiting = z.safe_evacuated - z.returned
@@ -746,19 +829,23 @@ def _apply_recovery_action(action, state, zones, shelters, rec, events, tick,
     return avail_boats, avail_vehs
 
 
-def _enter_recovery(state, zones, rec, events, tick, breached, first_warning, water_level):
+def _enter_recovery(state, zones, rec, events, tick, breached, first_warning, water_level, ms=None):
     cfg = state.recovery_config
     flooded = [zid for zid in sorted(zones) if zones[zid].max_depth_cm > 0]
     debris = [zid for zid in sorted(zones) if zones[zid].max_depth_cm >= cfg.road_debris_depth_cm]
     for zid in sorted(zones):
         z = zones[zid]
+        households = z.households or z.initial_population // 5
+        damage_pct = _clamp((z.max_depth_cm - 30) * 100 // 220) if z.max_depth_cm > 30 else 0
         zones[zid] = z.model_copy(update={
             "road_blocked": zid in debris,
             "boats_assigned": 0,
             "vehicles_assigned": 0,
+            "households": households,
+            "damaged_houses": households * damage_pct // 100,
         })
 
-    power_on = (not breached) and not debris
+    power_on = (not breached) and not debris and not (ms or {}).get("power_down", 0)
     disease = _clamp(cfg.disease_base + cfg.disease_per_flooded_zone * len(flooded)
                      + (cfg.disease_breach_bonus if breached else 0))
     lost = sum(z.lost for z in zones.values())
@@ -774,6 +861,7 @@ def _enter_recovery(state, zones, rec, events, tick, breached, first_warning, wa
     trust = _clamp(trust)
 
     rec.update({
+        "water_contamination": _clamp(20 + 20 * len(flooded) + (20 if breached else 0)),
         "power_on": power_on,
         "health_centre_open": power_on,
         "disease_risk": disease,
@@ -878,6 +966,8 @@ def _recovery_tick(cfg, zones, shelters, rec, events, tick):
     trust_delta = ((-3 if no_supplies else 0) + (-2 if stranded else 0) + (-2 if risk >= high else 0)
                    + (1 if cw else 0) + (1 if mc else 0) + (1 if rec["power_on"] else 0))
     rec["community_trust"] = _clamp(rec["community_trust"] + trust_delta)
+    # Contamination of wells and pipes falls slowly by itself, quickly with treatment.
+    rec["water_contamination"] = _clamp(rec["water_contamination"] - (12 if cw else 2))
 
 
 def _tag_phases(events: List[Event], start_phase: str, marks: List[Tuple[int, str]]) -> List[Event]:
