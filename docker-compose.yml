@@ -1,0 +1,66 @@
+# FloodGuard on one small server (made for Oracle Cloud Always Free, works on any Docker host).
+#
+#   cp .env.example .env      # then edit SITE_ADDRESS and the LLM settings
+#   docker compose up -d --build
+#
+# Caddy serves one HTTPS URL and gets a Let's Encrypt certificate automatically.
+# The app is never exposed directly; only ports 80 and 443 are published.
+# Optional local model (no API key): docker compose --profile local-llm up -d --build
+
+services:
+  app:
+    build: .
+    image: floodguard:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: "10000"
+      FLOODGUARD_DB_PATH: /data/floodguard.db
+    volumes:
+      - app_data:/data
+    expose:
+      - "10000"
+    mem_limit: 1g
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:10000/api/v1/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:?Set SITE_ADDRESS in .env, e.g. floodguard.203-0-113-10.sslip.io}
+      ACME_EMAIL: ${ACME_EMAIL:-}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  # Optional: a small open model on the same server (Ollama, MIT; qwen2.5:1.5b, Apache-2.0).
+  # Enable with --profile local-llm and set LLM_MODE=openai_compat, LLM_PROVIDER=ollama,
+  # LLM_BASE_URL=http://ollama:11434/v1 in .env. Then pull the model once:
+  #   docker compose exec ollama ollama pull qwen2.5:1.5b
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["local-llm"]
+    restart: unless-stopped
+    expose:
+      - "11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    mem_limit: 6g
+
+volumes:
+  app_data:
+  caddy_data:
+  caddy_config:
+  ollama_data:

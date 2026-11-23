@@ -1,0 +1,26 @@
+# One HTTPS site in front of the FloodGuard app. SITE_ADDRESS comes from .env.
+{
+	email {$ACME_EMAIL}
+}
+
+{$SITE_ADDRESS} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		X-Frame-Options "DENY"
+		-Server
+	}
+
+	reverse_proxy app:10000 {
+		health_uri /api/v1/health
+		health_interval 30s
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}

@@ -16,3 +16,7 @@ backend/*.db
 *.db
 *.md
 docs
+.env
+.env.*
+!.env.example
+deploy

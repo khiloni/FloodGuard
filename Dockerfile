@@ -23,7 +23,8 @@ COPY scenarios/ ./scenarios/
 COPY rulecards/ ./rulecards/
 COPY --from=web /web/dist ./backend/static
 
-RUN useradd -m appuser && chown -R appuser /app
+# /data holds the SQLite file when a volume is mounted there (docker-compose.yml).
+RUN useradd -m appuser && mkdir -p /data && chown -R appuser /app /data
 USER appuser
 
 EXPOSE 10000
