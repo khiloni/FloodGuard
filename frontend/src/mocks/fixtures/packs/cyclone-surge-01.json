@@ -1,0 +1,4850 @@
+{
+ "session": {
+  "session_id": "5ce3b15d-0c5b-44f4-90e6-47769c5d0650",
+  "seed": 5,
+  "state": {
+   "scenario_id": "cyclone-surge-01",
+   "scenario_version": "1.0.0",
+   "tick": 0,
+   "max_ticks": 30,
+   "water_level_cm": 100,
+   "forecast_cm": [
+    100,
+    105,
+    110,
+    120,
+    135,
+    150,
+    170,
+    195,
+    225,
+    260,
+    300,
+    340,
+    370,
+    380,
+    360,
+    320,
+    280,
+    240,
+    210,
+    185,
+    165,
+    150,
+    140,
+    130,
+    125,
+    120,
+    115,
+    112,
+    110,
+    108
+   ],
+   "zones": {
+    "fishing-hamlet": {
+     "id": "fishing-hamlet",
+     "name": "Fishing Hamlet",
+     "elevation_cm": 160,
+     "initial_population": 150,
+     "population_remaining": 150,
+     "initial_vulnerable": 30,
+     "vulnerable_remaining": 30,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "salt-pans": {
+     "id": "salt-pans",
+     "name": "Salt Pan Settlement",
+     "elevation_cm": 230,
+     "initial_population": 110,
+     "population_remaining": 110,
+     "initial_vulnerable": 25,
+     "vulnerable_remaining": 25,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 22,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "hill-road": {
+     "id": "hill-road",
+     "name": "Hill Road Colony",
+     "elevation_cm": 320,
+     "initial_population": 140,
+     "population_remaining": 140,
+     "initial_vulnerable": 30,
+     "vulnerable_remaining": 30,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 28,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    }
+   },
+   "shelters": {
+    "cyclone-shelter": {
+     "id": "cyclone-shelter",
+     "name": "Multi-purpose Cyclone Shelter",
+     "elevation_cm": 500,
+     "capacity": 260,
+     "current_occupancy": 0,
+     "is_open": false
+    },
+    "hill-school": {
+     "id": "hill-school",
+     "name": "Hill School",
+     "elevation_cm": 560,
+     "capacity": 120,
+     "current_occupancy": 0,
+     "is_open": false
+    }
+   },
+   "resources": {
+    "total_boats": 2,
+    "available_boats": 2,
+    "boat_capacity": 12,
+    "total_vehicles": 3,
+    "available_vehicles": 3,
+    "vehicle_capacity": 25,
+    "sandbags": 300
+   },
+   "embankment": {
+    "height_cm": 300,
+    "integrity": 100,
+    "breached": false,
+    "reinforced_count": 0
+   },
+   "first_warning_tick": null,
+   "first_evacuation_tick": null,
+   "is_finished": false,
+   "score": null,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "recovery": {
+    "shelter_supplies": 30,
+    "supply_deliveries_left": 3,
+    "supply_shortfall_ticks": 0,
+    "supplies_low_warned": false,
+    "clean_water_kits": 1,
+    "clean_water_active": false,
+    "medical_teams": 1,
+    "medical_camp_active": false,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_treated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 60,
+    "water_contamination": 0
+   },
+   "recovery_config": {
+    "enabled": true,
+    "flood_starts_at_cm": 200,
+    "recovery_below_cm": 280,
+    "shelter_supplies_initial": 30,
+    "people_per_supply_unit": 60,
+    "supply_deliveries": 3,
+    "units_per_delivery": 40,
+    "supplies_low_threshold": 10,
+    "clean_water_kits": 1,
+    "medical_teams": 1,
+    "return_batch_per_turn": 100,
+    "treat_per_tick": 6,
+    "disease_base": 20,
+    "disease_per_flooded_zone": 10,
+    "disease_breach_bonus": 10,
+    "disease_rise_per_tick": 5,
+    "disease_crowding_pct": 90,
+    "disease_crowding_rise": 3,
+    "disease_no_supplies_rise": 4,
+    "disease_clean_water_drop": 8,
+    "disease_medical_camp_drop": 6,
+    "disease_high_threshold": 60,
+    "trust_initial": 60,
+    "trust_early_warning_bonus": 10,
+    "trust_early_warning_by_tick": 6,
+    "trust_losses_penalty": 10,
+    "trust_breach_penalty": 10,
+    "trust_supplies_ran_out_penalty": 10,
+    "road_debris_depth_cm": 30
+   },
+   "difficulty": "standard",
+   "npc_ids": [
+    "village_head",
+    "rescue_worker",
+    "family_member",
+    "health_worker",
+    "district_official"
+   ],
+   "contained_safe_elevation_cm": 300,
+   "embankment_max_cm": 360,
+   "foot_evacuation_per_tick": 12,
+   "support": {
+    "uses": 1,
+    "delay_ticks": 4,
+    "boats": 2,
+    "vehicles": 2,
+    "sandbags": 200,
+    "supply_units": 50
+   },
+   "support_requests_left": 1,
+   "support_eta_tick": null,
+   "mechanic": {
+    "type": "cyclone",
+    "params": {
+     "landfall_tick": 13,
+     "fishing_boats": 8,
+     "crew_per_boat": 4,
+     "return_ticks": 3
+    }
+   },
+   "mechanic_state": {
+    "boats_at_sea": 8
+   }
+  },
+  "layout": {
+   "canvas": {
+    "width": 1000,
+    "height": 600
+   },
+   "levels": {
+    "normal_level_cm": 100,
+    "warning_level_cm": 200,
+    "danger_level_cm": 280,
+    "crest_level_cm": 380
+   },
+   "river": {
+    "name": "Bay of Bengal",
+    "flow_direction": "onshore",
+    "center_path": [
+     [
+      0,
+      520
+     ],
+     [
+      250,
+      515
+     ],
+     [
+      500,
+      525
+     ],
+     [
+      750,
+      512
+     ],
+     [
+      1000,
+      522
+     ]
+    ],
+    "north_bank": [
+     [
+      0,
+      445
+     ],
+     [
+      160,
+      455
+     ],
+     [
+      320,
+      440
+     ],
+     [
+      500,
+      458
+     ],
+     [
+      680,
+      440
+     ],
+     [
+      850,
+      455
+     ],
+     [
+      1000,
+      445
+     ]
+    ],
+    "south_bank": [
+     [
+      0,
+      600
+     ],
+     [
+      250,
+      600
+     ],
+     [
+      500,
+      600
+     ],
+     [
+      750,
+      600
+     ],
+     [
+      1000,
+      600
+     ]
+    ]
+   },
+   "embankment": {
+    "name": "Sea wall",
+    "crest_height_cm": 300,
+    "segments": [
+     {
+      "id": "wall-west",
+      "start": [
+       40,
+       448
+      ],
+      "end": [
+       320,
+       440
+      ],
+      "label": "West sea wall"
+     },
+     {
+      "id": "wall-central",
+      "start": [
+       320,
+       440
+      ],
+      "end": [
+       600,
+       450
+      ],
+      "label": "Central sea wall"
+     },
+     {
+      "id": "wall-east",
+      "start": [
+       600,
+       450
+      ],
+      "end": [
+       900,
+       448
+      ],
+      "label": "East sea wall"
+     }
+    ]
+   },
+   "zones": [
+    {
+     "id": "fishing-hamlet",
+     "name": "Fishing Hamlet",
+     "x": 90,
+     "y": 310,
+     "width": 200,
+     "height": 105,
+     "elevation_cm": 160,
+     "house_points": [
+      [
+       105,
+       330
+      ],
+      [
+       145,
+       345
+      ],
+      [
+       190,
+       328
+      ],
+      [
+       235,
+       342
+      ],
+      [
+       275,
+       330
+      ],
+      [
+       130,
+       385
+      ],
+      [
+       210,
+       383
+      ]
+     ]
+    },
+    {
+     "id": "salt-pans",
+     "name": "Salt Pan Settlement",
+     "x": 410,
+     "y": 290,
+     "width": 190,
+     "height": 100,
+     "elevation_cm": 230,
+     "house_points": [
+      [
+       425,
+       308
+      ],
+      [
+       465,
+       322
+      ],
+      [
+       510,
+       305
+      ],
+      [
+       555,
+       320
+      ],
+      [
+       450,
+       360
+      ],
+      [
+       530,
+       358
+      ]
+     ]
+    },
+    {
+     "id": "hill-road",
+     "name": "Hill Road Colony",
+     "x": 720,
+     "y": 170,
+     "width": 180,
+     "height": 110,
+     "elevation_cm": 320,
+     "house_points": [
+      [
+       735,
+       190
+      ],
+      [
+       775,
+       205
+      ],
+      [
+       820,
+       185
+      ],
+      [
+       865,
+       200
+      ],
+      [
+       760,
+       250
+      ],
+      [
+       840,
+       248
+      ]
+     ]
+    }
+   ],
+   "shelters": [
+    {
+     "id": "cyclone-shelter",
+     "name": "Cyclone Shelter",
+     "x": 480,
+     "y": 70,
+     "width": 130,
+     "height": 80,
+     "elevation_cm": 500
+    },
+    {
+     "id": "hill-school",
+     "name": "Hill School",
+     "x": 850,
+     "y": 40,
+     "width": 115,
+     "height": 70,
+     "elevation_cm": 560
+    }
+   ],
+   "routes": [
+    {
+     "zone_id": "fishing-hamlet",
+     "shelter_id": "cyclone-shelter",
+     "transport_modes": [
+      "boat",
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       190,
+       330
+      ],
+      [
+       270,
+       260
+      ],
+      [
+       380,
+       190
+      ],
+      [
+       480,
+       140
+      ],
+      [
+       545,
+       110
+      ]
+     ]
+    },
+    {
+     "zone_id": "salt-pans",
+     "shelter_id": "cyclone-shelter",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       505,
+       305
+      ],
+      [
+       520,
+       230
+      ],
+      [
+       540,
+       160
+      ],
+      [
+       545,
+       110
+      ]
+     ]
+    },
+    {
+     "zone_id": "hill-road",
+     "shelter_id": "hill-school",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 40,
+     "waypoints": [
+      [
+       810,
+       190
+      ],
+      [
+       850,
+       140
+      ],
+      [
+       905,
+       80
+      ]
+     ]
+    }
+   ],
+   "decor": {
+    "trees": [
+     [
+      60,
+      260
+     ],
+     [
+      330,
+      330
+     ],
+     [
+      660,
+      300
+     ],
+     [
+      700,
+      120
+     ],
+     [
+      960,
+      230
+     ],
+     [
+      40,
+      150
+     ],
+     [
+      330,
+      140
+     ]
+    ],
+    "jetty": {
+     "x": 160,
+     "y": 455,
+     "label": "Fishing harbour"
+    },
+    "bridges": [],
+    "hills": [
+     [
+      820,
+      20
+     ],
+     [
+      940,
+      40
+     ],
+     [
+      700,
+      30
+     ]
+    ],
+    "sea_boats": {
+     "x": 640,
+     "y": 560,
+     "label": "Fishing boats at sea"
+    }
+   },
+   "recovery_sites": {
+    "water_point": {
+     "x": 660,
+     "y": 200,
+     "label": "Water purification point"
+    },
+    "medical_camp": {
+     "x": 680,
+     "y": 90,
+     "label": "Medical camp"
+    },
+    "substation": {
+     "x": 330,
+     "y": 230,
+     "label": "Power substation"
+    },
+    "health_centre": {
+     "x": 380,
+     "y": 80,
+     "label": "Primary health centre"
+    },
+    "supply_depot": {
+     "x": 960,
+     "y": 320,
+     "label": "Relief depot"
+    }
+   },
+   "water_body": "sea"
+  },
+  "summary": {
+   "tick": 0,
+   "max_ticks": 30,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "displaced": 0,
+   "score_so_far": 8,
+   "residents_at_risk": 400,
+   "lost_total": 0,
+   "warnings_delivered": 0,
+   "difficulty": "standard",
+   "mechanic": {
+    "type": "cyclone",
+    "boats_at_sea": 8,
+    "fishers_stranded": 0,
+    "recalled": false,
+    "landfall_tick": 13,
+    "release_tick": null,
+    "staggered": false,
+    "drain_crews": 0,
+    "power_down": false
+   },
+   "support": {
+    "available": true,
+    "uses_left": 1,
+    "eta_tick": null,
+    "delay_ticks": 4,
+    "boats": 2,
+    "vehicles": 2,
+    "sandbags": 200,
+    "supply_units": 50
+   },
+   "sandbags": 300,
+   "recovery": {
+    "shelter_supplies": 30,
+    "supply_deliveries_left": 3,
+    "clean_water_active": false,
+    "clean_water_kits": 1,
+    "medical_camp_active": false,
+    "medical_teams": 1,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_untreated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 60,
+    "water_contamination": 0
+   },
+   "water_level_cm": 100,
+   "normal_level_cm": 100,
+   "warning_level_cm": 200,
+   "danger_level_cm": 280,
+   "crest_level_cm": 380,
+   "embankment_integrity": 100,
+   "embankment_height_cm": 300,
+   "embankment_breached": false,
+   "shelter": {
+    "occupancy": 0,
+    "capacity": 380,
+    "is_open": false
+   },
+   "transport": {
+    "boats_total": 2,
+    "boats_available": 2,
+    "boats_in_use": 0,
+    "vehicles_total": 3,
+    "vehicles_available": 3,
+    "vehicles_in_use": 0
+   },
+   "zones": {
+    "fishing-hamlet": {
+     "name": "Fishing Hamlet",
+     "population_remaining": 150,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 30,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 160
+    },
+    "salt-pans": {
+     "name": "Salt Pan Settlement",
+     "population_remaining": 110,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 25,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 22,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 230
+    },
+    "hill-road": {
+     "name": "Hill Road Colony",
+     "population_remaining": 140,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 30,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 28,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 320
+    }
+   }
+  },
+  "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions about evacuation, safety or health."
+ },
+ "script": [
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 1,
+     "max_ticks": 30,
+     "water_level_cm": 100,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 1,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 8,
+     "residents_at_risk": 400,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 100,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 380,
+      "is_open": false
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 1,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 1,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 100 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 100,
+       "tick": 1,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 100 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "cyclone-shelter"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "cyclone-shelter"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 2,
+     "max_ticks": 30,
+     "water_level_cm": 105,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 2,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 11,
+     "residents_at_risk": 400,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 105,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "shelter_opened",
+      "tick": 2,
+      "zone": null,
+      "target": "cyclone-shelter",
+      "caused_by": "Action open_shelter",
+      "description": "Shelter 'Multi-purpose Cyclone Shelter' officially opened with intake capacity of 260.",
+      "details": {
+       "zone": null,
+       "target": "cyclone-shelter",
+       "shelter_id": "cyclone-shelter",
+       "capacity": 260,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 2,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 105 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 105,
+       "tick": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Relief infrastructure online: Shelter 'Multi-purpose Cyclone Shelter' officially opened with intake capacity of 260. Hydrology monitor: the river is at 105 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-05",
+      "title": "Safe Shelter Operations",
+      "category": "Shelter",
+      "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+      "keywords": [
+       "shelter",
+       "school",
+       "intake",
+       "capacity",
+       "elevated",
+       "open"
+      ],
+      "source_reference": "Emergency Shelter Management Protocols"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "fishing-hamlet"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "fishing-hamlet"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 3,
+     "max_ticks": 30,
+     "water_level_cm": 110,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 138,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 28,
+       "safe_evacuated": 12,
+       "vulnerable_saved": 2,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 12,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 29,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 3,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 12,
+     "score_so_far": 19,
+     "residents_at_risk": 388,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 29,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 110,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 12,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 138,
+       "safe_evacuated": 12,
+       "in_transit": 0,
+       "vulnerable_remaining": 28,
+       "vulnerable_saved": 2,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 12,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "evacuation_ordered",
+      "tick": 3,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Action order_evacuation",
+      "description": "Mandatory evacuation ordered for Fishing Hamlet.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 3,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 110 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 110,
+       "tick": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 3,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Fishing Hamlet to safety.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "evacuated": 12,
+       "vulnerable_included": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 3,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "vulnerable_count": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Civil authorities activated evacuation protocols: Mandatory evacuation ordered for Fishing Hamlet. Hydrology monitor: the river is at 110 cm. Evacuation progress: Evacuated 12 residents from Fishing Hamlet to safety. Priority evacuation: 2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 4,
+     "max_ticks": 30,
+     "water_level_cm": 120,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 126,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 26,
+       "safe_evacuated": 24,
+       "vulnerable_saved": 4,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 24,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 28,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 4,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 24,
+     "score_so_far": 21,
+     "residents_at_risk": 376,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 28,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 120,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 24,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 126,
+       "safe_evacuated": 24,
+       "in_transit": 0,
+       "vulnerable_remaining": 26,
+       "vulnerable_saved": 4,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 24,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 4,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 4,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 120 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 120,
+       "tick": 4,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 4,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Fishing Hamlet to safety.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "evacuated": 12,
+       "vulnerable_included": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 4,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "vulnerable_count": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 120 cm. Evacuation progress: Evacuated 12 residents from Fishing Hamlet to safety. Priority evacuation: 2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 5,
+     "max_ticks": 30,
+     "water_level_cm": 135,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 114,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 24,
+       "safe_evacuated": 36,
+       "vulnerable_saved": 6,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 36,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 27,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 5,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 36,
+     "score_so_far": 22,
+     "residents_at_risk": 364,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 27,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 135,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 36,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 114,
+       "safe_evacuated": 36,
+       "in_transit": 0,
+       "vulnerable_remaining": 24,
+       "vulnerable_saved": 6,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 36,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 5,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 5,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 135 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 135,
+       "tick": 5,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 5,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Fishing Hamlet to safety.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "evacuated": 12,
+       "vulnerable_included": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 5,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "vulnerable_count": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 135 cm. Evacuation progress: Evacuated 12 residents from Fishing Hamlet to safety. Priority evacuation: 2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 6,
+     "max_ticks": 30,
+     "water_level_cm": 150,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 102,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 21,
+       "safe_evacuated": 48,
+       "vulnerable_saved": 9,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 48,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 26,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 6,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 48,
+     "score_so_far": 24,
+     "residents_at_risk": 352,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 26,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 150,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 48,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 102,
+       "safe_evacuated": 48,
+       "in_transit": 0,
+       "vulnerable_remaining": 21,
+       "vulnerable_saved": 9,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 48,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 6,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 6,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 150 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 150,
+       "tick": 6,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 6,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Fishing Hamlet to safety.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "evacuated": 12,
+       "vulnerable_included": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 6,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "3 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "vulnerable_count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 150 cm. Evacuation progress: Evacuated 12 residents from Fishing Hamlet to safety. Priority evacuation: 3 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 7,
+     "max_ticks": 30,
+     "water_level_cm": 170,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 90,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 19,
+       "safe_evacuated": 60,
+       "vulnerable_saved": 11,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 10,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 10,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 60,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 7,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 7,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 7,
+     "recovery_start_tick": null,
+     "displaced": 60,
+     "score_so_far": 26,
+     "residents_at_risk": 340,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 170,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 60,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 90,
+       "safe_evacuated": 60,
+       "in_transit": 0,
+       "vulnerable_remaining": 19,
+       "vulnerable_saved": 11,
+       "water_depth_cm": 10,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 10,
+       "returned": 0,
+       "in_shelter": 60,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 7,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 7,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 170 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 170,
+       "tick": 7,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "phase_changed",
+      "tick": 7,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Floodwater entered Fishing Hamlet",
+      "description": "The river reached 170 cm and water is entering homes. The flood phase has begun.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "from_phase": "before",
+       "to_phase": "flood",
+       "water_level_cm": 170,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 7,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into Fishing Hamlet. Depth reached 10 cm.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "water_depth_cm": 10,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 7,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Fishing Hamlet to safety.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "evacuated": 12,
+       "vulnerable_included": 2,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 7,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "vulnerable_count": 2,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 170 cm. New phase: The river reached 170 cm and water is entering homes. The flood phase has begun. FLOOD WARNING: Water breached into Fishing Hamlet. Depth reached 10 cm. Evacuation progress: Evacuated 12 residents from Fishing Hamlet to safety. Priority evacuation: 2 vulnerable individuals from Fishing Hamlet reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "cyclone-surge-01",
+     "scenario_version": "1.0.0",
+     "tick": 8,
+     "max_ticks": 30,
+     "water_level_cm": 195,
+     "forecast_cm": [
+      100,
+      105,
+      110,
+      120,
+      135,
+      150,
+      170,
+      195,
+      225,
+      260,
+      300,
+      340,
+      370,
+      380,
+      360,
+      320,
+      280,
+      240,
+      210,
+      185,
+      165,
+      150,
+      140,
+      130,
+      125,
+      120,
+      115,
+      112,
+      110,
+      108
+     ],
+     "zones": {
+      "fishing-hamlet": {
+       "id": "fishing-hamlet",
+       "name": "Fishing Hamlet",
+       "elevation_cm": 160,
+       "initial_population": 150,
+       "population_remaining": 90,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 19,
+       "safe_evacuated": 60,
+       "vulnerable_saved": 11,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 35,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 35,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "salt-pans": {
+       "id": "salt-pans",
+       "name": "Salt Pan Settlement",
+       "elevation_cm": 230,
+       "initial_population": 110,
+       "population_remaining": 110,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hill-road": {
+       "id": "hill-road",
+       "name": "Hill Road Colony",
+       "elevation_cm": 320,
+       "initial_population": 140,
+       "population_remaining": 140,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "cyclone-shelter": {
+       "id": "cyclone-shelter",
+       "name": "Multi-purpose Cyclone Shelter",
+       "elevation_cm": 500,
+       "capacity": 260,
+       "current_occupancy": 60,
+       "is_open": true
+      },
+      "hill-school": {
+       "id": "hill-school",
+       "name": "Hill School",
+       "elevation_cm": 560,
+       "capacity": 120,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 12,
+      "total_vehicles": 3,
+      "available_vehicles": 3,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 300,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 7,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 200,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 360,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "cyclone",
+      "params": {
+       "landfall_tick": 13,
+       "fishing_boats": 8,
+       "crew_per_boat": 4,
+       "return_ticks": 3
+      }
+     },
+     "mechanic_state": {
+      "boats_at_sea": 8
+     }
+    },
+    "summary": {
+     "tick": 8,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 7,
+     "recovery_start_tick": null,
+     "displaced": 60,
+     "score_so_far": 26,
+     "residents_at_risk": 340,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "cyclone",
+      "boats_at_sea": 8,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": 13,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 2,
+      "sandbags": 200,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 195,
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 300,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 60,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 3,
+      "vehicles_available": 3,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "fishing-hamlet": {
+       "name": "Fishing Hamlet",
+       "population_remaining": 90,
+       "safe_evacuated": 60,
+       "in_transit": 0,
+       "vulnerable_remaining": 19,
+       "vulnerable_saved": 11,
+       "water_depth_cm": 35,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 35,
+       "returned": 0,
+       "in_shelter": 60,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 160
+      },
+      "salt-pans": {
+       "name": "Salt Pan Settlement",
+       "population_remaining": 110,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 22,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "hill-road": {
+       "name": "Hill Road Colony",
+       "population_remaining": 140,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 28,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 320
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 8,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 195 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 195,
+       "tick": 8,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "road_inundated",
+      "tick": 8,
+      "zone": "fishing-hamlet",
+      "target": "fishing-hamlet",
+      "caused_by": "Flood depth exceeding road clearance threshold",
+      "description": "Access road to Fishing Hamlet submerged beneath 35 cm of water. Wheeled transport blocked.",
+      "details": {
+       "zone": "fishing-hamlet",
+       "target": "fishing-hamlet",
+       "water_depth_cm": 35,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 195 cm. URGENT: Access road to Fishing Hamlet submerged beneath 35 cm of water. Wheeled transport blocked.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  }
+ ]
+}

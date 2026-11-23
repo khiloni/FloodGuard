@@ -3,7 +3,7 @@
   {
    "id": "village-river-01",
    "name": "Riverbank Village Flood Response",
-   "version": "2.0.0",
+   "version": "2.1.0",
    "total_ticks": 30,
    "description": "A rising tributary threatens three wards. Warn and evacuate before the flood crests, protect people during it, then lead the recovery: clean water, medical care, power, roads and a safe return home.",
    "layout": {
@@ -448,7 +448,1666 @@
       "label": "Relief Supply Depot"
      }
     }
-   }
+   },
+   "hazard_type": "river_flood",
+   "hazard_label": "River flood",
+   "difficulty_label": "Moderate",
+   "hook": "A monsoon tributary is rising beside three wards. Warn, evacuate and protect the bund, then lead the recovery.",
+   "illustration": "river",
+   "tick_duration_minutes": 30,
+   "languages": [
+    "en",
+    "hi"
+   ],
+   "difficulties": [
+    "easy",
+    "standard",
+    "hard"
+   ],
+   "mechanic_type": "none",
+   "external_support": {
+    "uses": 1,
+    "delay_ticks": 4,
+    "boats": 1,
+    "vehicles": 2,
+    "sandbags": 200,
+    "supply_units": 40
+   },
+   "npcs": [
+    {
+     "id": "village_head",
+     "name": "Sarpanch Ramesh",
+     "role": "Elected Village Representative",
+     "location": "ward-2",
+     "initial_dialogue": "Water is swelling rapidly near Ward 1. The villagers look to us for clear instructions. Should we issue a formal alert?"
+    },
+    {
+     "id": "rescue_worker",
+     "name": "Officer Sunita",
+     "role": "Civil Defence Volunteer",
+     "location": "ward-1",
+     "initial_dialogue": "We have two motorized rescue boats and three transport trucks primed at the depot. Sandbagging supplies are ready."
+    },
+    {
+     "id": "family_member",
+     "name": "Mohan",
+     "role": "Resident caring for elderly parents",
+     "location": "ward-1",
+     "initial_dialogue": "My parents have mobility constraints. Please prioritize evacuation transport for our elders before the causeway goes underwater."
+    },
+    {
+     "id": "health_worker",
+     "name": "Nurse Kavita",
+     "role": "Primary health centre nurse",
+     "location": "ward-2",
+     "initial_dialogue": "If people stay in the shelter for long, we must think about drinking water and medicines."
+    },
+    {
+     "id": "district_official",
+     "name": "Ms. Desai",
+     "role": "District disaster management officer",
+     "location": "school",
+     "initial_dialogue": "The district can send a convoy with boats, trucks and relief, but it takes time to arrive."
+    }
+   ],
+   "shelters": [
+    {
+     "id": "school",
+     "name": "Government High School Shelter",
+     "capacity": 320
+    }
+   ]
+  },
+  {
+   "id": "cyclone-surge-01",
+   "name": "Cyclone at Machhiwada",
+   "version": "1.0.0",
+   "total_ticks": 30,
+   "description": "A severe cyclone is heading for a fishing village. The storm surge will push the sea over the sea wall. Evacuate before landfall, call the fishing boats home, and manage a crowded cyclone shelter.",
+   "layout": {
+    "canvas": {
+     "width": 1000,
+     "height": 600
+    },
+    "levels": {
+     "normal_level_cm": 100,
+     "warning_level_cm": 200,
+     "danger_level_cm": 280,
+     "crest_level_cm": 380
+    },
+    "river": {
+     "name": "Bay of Bengal",
+     "flow_direction": "onshore",
+     "center_path": [
+      [
+       0,
+       520
+      ],
+      [
+       250,
+       515
+      ],
+      [
+       500,
+       525
+      ],
+      [
+       750,
+       512
+      ],
+      [
+       1000,
+       522
+      ]
+     ],
+     "north_bank": [
+      [
+       0,
+       445
+      ],
+      [
+       160,
+       455
+      ],
+      [
+       320,
+       440
+      ],
+      [
+       500,
+       458
+      ],
+      [
+       680,
+       440
+      ],
+      [
+       850,
+       455
+      ],
+      [
+       1000,
+       445
+      ]
+     ],
+     "south_bank": [
+      [
+       0,
+       600
+      ],
+      [
+       250,
+       600
+      ],
+      [
+       500,
+       600
+      ],
+      [
+       750,
+       600
+      ],
+      [
+       1000,
+       600
+      ]
+     ]
+    },
+    "embankment": {
+     "name": "Sea wall",
+     "crest_height_cm": 300,
+     "segments": [
+      {
+       "id": "wall-west",
+       "start": [
+        40,
+        448
+       ],
+       "end": [
+        320,
+        440
+       ],
+       "label": "West sea wall"
+      },
+      {
+       "id": "wall-central",
+       "start": [
+        320,
+        440
+       ],
+       "end": [
+        600,
+        450
+       ],
+       "label": "Central sea wall"
+      },
+      {
+       "id": "wall-east",
+       "start": [
+        600,
+        450
+       ],
+       "end": [
+        900,
+        448
+       ],
+       "label": "East sea wall"
+      }
+     ]
+    },
+    "zones": [
+     {
+      "id": "fishing-hamlet",
+      "name": "Fishing Hamlet",
+      "x": 90,
+      "y": 310,
+      "width": 200,
+      "height": 105,
+      "elevation_cm": 160,
+      "house_points": [
+       [
+        105,
+        330
+       ],
+       [
+        145,
+        345
+       ],
+       [
+        190,
+        328
+       ],
+       [
+        235,
+        342
+       ],
+       [
+        275,
+        330
+       ],
+       [
+        130,
+        385
+       ],
+       [
+        210,
+        383
+       ]
+      ]
+     },
+     {
+      "id": "salt-pans",
+      "name": "Salt Pan Settlement",
+      "x": 410,
+      "y": 290,
+      "width": 190,
+      "height": 100,
+      "elevation_cm": 230,
+      "house_points": [
+       [
+        425,
+        308
+       ],
+       [
+        465,
+        322
+       ],
+       [
+        510,
+        305
+       ],
+       [
+        555,
+        320
+       ],
+       [
+        450,
+        360
+       ],
+       [
+        530,
+        358
+       ]
+      ]
+     },
+     {
+      "id": "hill-road",
+      "name": "Hill Road Colony",
+      "x": 720,
+      "y": 170,
+      "width": 180,
+      "height": 110,
+      "elevation_cm": 320,
+      "house_points": [
+       [
+        735,
+        190
+       ],
+       [
+        775,
+        205
+       ],
+       [
+        820,
+        185
+       ],
+       [
+        865,
+        200
+       ],
+       [
+        760,
+        250
+       ],
+       [
+        840,
+        248
+       ]
+      ]
+     }
+    ],
+    "shelters": [
+     {
+      "id": "cyclone-shelter",
+      "name": "Cyclone Shelter",
+      "x": 480,
+      "y": 70,
+      "width": 130,
+      "height": 80,
+      "elevation_cm": 500
+     },
+     {
+      "id": "hill-school",
+      "name": "Hill School",
+      "x": 850,
+      "y": 40,
+      "width": 115,
+      "height": 70,
+      "elevation_cm": 560
+     }
+    ],
+    "routes": [
+     {
+      "zone_id": "fishing-hamlet",
+      "shelter_id": "cyclone-shelter",
+      "transport_modes": [
+       "boat",
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        190,
+        330
+       ],
+       [
+        270,
+        260
+       ],
+       [
+        380,
+        190
+       ],
+       [
+        480,
+        140
+       ],
+       [
+        545,
+        110
+       ]
+      ]
+     },
+     {
+      "zone_id": "salt-pans",
+      "shelter_id": "cyclone-shelter",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        505,
+        305
+       ],
+       [
+        520,
+        230
+       ],
+       [
+        540,
+        160
+       ],
+       [
+        545,
+        110
+       ]
+      ]
+     },
+     {
+      "zone_id": "hill-road",
+      "shelter_id": "hill-school",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 40,
+      "waypoints": [
+       [
+        810,
+        190
+       ],
+       [
+        850,
+        140
+       ],
+       [
+        905,
+        80
+       ]
+      ]
+     }
+    ],
+    "decor": {
+     "trees": [
+      [
+       60,
+       260
+      ],
+      [
+       330,
+       330
+      ],
+      [
+       660,
+       300
+      ],
+      [
+       700,
+       120
+      ],
+      [
+       960,
+       230
+      ],
+      [
+       40,
+       150
+      ],
+      [
+       330,
+       140
+      ]
+     ],
+     "jetty": {
+      "x": 160,
+      "y": 455,
+      "label": "Fishing harbour"
+     },
+     "bridges": [],
+     "hills": [
+      [
+       820,
+       20
+      ],
+      [
+       940,
+       40
+      ],
+      [
+       700,
+       30
+      ]
+     ],
+     "sea_boats": {
+      "x": 640,
+      "y": 560,
+      "label": "Fishing boats at sea"
+     }
+    },
+    "recovery_sites": {
+     "water_point": {
+      "x": 660,
+      "y": 200,
+      "label": "Water purification point"
+     },
+     "medical_camp": {
+      "x": 680,
+      "y": 90,
+      "label": "Medical camp"
+     },
+     "substation": {
+      "x": 330,
+      "y": 230,
+      "label": "Power substation"
+     },
+     "health_centre": {
+      "x": 380,
+      "y": 80,
+      "label": "Primary health centre"
+     },
+     "supply_depot": {
+      "x": 960,
+      "y": 320,
+      "label": "Relief depot"
+     }
+    },
+    "water_body": "sea"
+   },
+   "hazard_type": "cyclone_storm_surge",
+   "hazard_label": "Cyclone storm surge",
+   "difficulty_label": "Hard",
+   "hook": "Landfall is hours away, fishing boats are still at sea and the cyclone shelter cannot hold everyone.",
+   "illustration": "coast",
+   "tick_duration_minutes": 30,
+   "languages": [
+    "en",
+    "hi"
+   ],
+   "difficulties": [
+    "easy",
+    "standard",
+    "hard"
+   ],
+   "mechanic_type": "cyclone",
+   "external_support": {
+    "uses": 1,
+    "delay_ticks": 4,
+    "boats": 2,
+    "vehicles": 2,
+    "sandbags": 200,
+    "supply_units": 50
+   },
+   "npcs": [
+    {
+     "id": "village_head",
+     "name": "Sarpanch Ganesh",
+     "role": "Village head",
+     "location": "fishing-hamlet",
+     "initial_dialogue": "Eight of our boats went out before the warning. Their families are on the beach asking what to do."
+    },
+    {
+     "id": "rescue_worker",
+     "name": "Coast Guard Petty Officer Joseph",
+     "role": "Coast guard liaison",
+     "location": "fishing-hamlet",
+     "initial_dialogue": "We can radio the fishing fleet, but they need about one and a half hours to get back to harbour."
+    },
+    {
+     "id": "family_member",
+     "name": "Savita",
+     "role": "Fisher's wife, Fishing Hamlet",
+     "location": "fishing-hamlet",
+     "initial_dialogue": "My husband is still at sea and my father-in-law is bedridden. I cannot leave both."
+    },
+    {
+     "id": "health_worker",
+     "name": "Nurse Thomas",
+     "role": "Primary health centre nurse",
+     "location": "hill-road",
+     "initial_dialogue": "The cyclone shelter gets very crowded. We should plan for clean water and a medical camp."
+    },
+    {
+     "id": "district_official",
+     "name": "Ms. Iyer",
+     "role": "District collector's emergency officer",
+     "location": "cyclone-shelter",
+     "initial_dialogue": "The state can send boats and relief, but roads will be cut once the wind rises."
+    }
+   ],
+   "shelters": [
+    {
+     "id": "cyclone-shelter",
+     "name": "Multi-purpose Cyclone Shelter",
+     "capacity": 260
+    },
+    {
+     "id": "hill-school",
+     "name": "Hill School",
+     "capacity": 120
+    }
+   ]
+  },
+  {
+   "id": "dam-release-01",
+   "name": "Below Kalindi Dam",
+   "version": "1.0.0",
+   "total_ticks": 30,
+   "description": "Heavy rain upstream forces a scheduled release from Kalindi Dam. The river below is already high. Timing and getting the message to every village decide the outcome.",
+   "layout": {
+    "canvas": {
+     "width": 1000,
+     "height": 600
+    },
+    "levels": {
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460
+    },
+    "river": {
+     "name": "Kalindi River",
+     "flow_direction": "left-to-right",
+     "center_path": [
+      [
+       0,
+       470
+      ],
+      [
+       170,
+       480
+      ],
+      [
+       340,
+       465
+      ],
+      [
+       520,
+       490
+      ],
+      [
+       700,
+       470
+      ],
+      [
+       860,
+       488
+      ],
+      [
+       1000,
+       476
+      ]
+     ],
+     "north_bank": [
+      [
+       0,
+       430
+      ],
+      [
+       170,
+       440
+      ],
+      [
+       340,
+       425
+      ],
+      [
+       520,
+       450
+      ],
+      [
+       700,
+       430
+      ],
+      [
+       860,
+       448
+      ],
+      [
+       1000,
+       436
+      ]
+     ],
+     "south_bank": [
+      [
+       0,
+       520
+      ],
+      [
+       170,
+       530
+      ],
+      [
+       340,
+       515
+      ],
+      [
+       520,
+       540
+      ],
+      [
+       700,
+       520
+      ],
+      [
+       860,
+       538
+      ],
+      [
+       1000,
+       526
+      ]
+     ]
+    },
+    "embankment": {
+     "name": "River bund",
+     "crest_height_cm": 400,
+     "segments": [
+      {
+       "id": "bund-west",
+       "start": [
+        110,
+        437
+       ],
+       "end": [
+        340,
+        425
+       ],
+       "label": "West bund"
+      },
+      {
+       "id": "bund-central",
+       "start": [
+        340,
+        425
+       ],
+       "end": [
+        560,
+        445
+       ],
+       "label": "Central bund"
+      },
+      {
+       "id": "bund-east",
+       "start": [
+        560,
+        445
+       ],
+       "end": [
+        800,
+        438
+       ],
+       "label": "East bund"
+      }
+     ]
+    },
+    "zones": [
+     {
+      "id": "ghat-village",
+      "name": "Ghat Village",
+      "x": 140,
+      "y": 300,
+      "width": 190,
+      "height": 105,
+      "elevation_cm": 260,
+      "house_points": [
+       [
+        155,
+        320
+       ],
+       [
+        195,
+        335
+       ],
+       [
+        240,
+        315
+       ],
+       [
+        285,
+        330
+       ],
+       [
+        175,
+        375
+       ],
+       [
+        245,
+        372
+       ]
+      ]
+     },
+     {
+      "id": "temple-hamlet",
+      "name": "Temple Hamlet",
+      "x": 440,
+      "y": 220,
+      "width": 180,
+      "height": 105,
+      "elevation_cm": 340,
+      "house_points": [
+       [
+        455,
+        238
+       ],
+       [
+        495,
+        255
+       ],
+       [
+        540,
+        235
+       ],
+       [
+        585,
+        250
+       ],
+       [
+        480,
+        290
+       ],
+       [
+        560,
+        288
+       ]
+      ]
+     },
+     {
+      "id": "upper-farms",
+      "name": "Upper Farms",
+      "x": 730,
+      "y": 130,
+      "width": 170,
+      "height": 100,
+      "elevation_cm": 440,
+      "house_points": [
+       [
+        745,
+        148
+       ],
+       [
+        785,
+        165
+       ],
+       [
+        830,
+        142
+       ],
+       [
+        870,
+        160
+       ],
+       [
+        770,
+        200
+       ],
+       [
+        850,
+        198
+       ]
+      ]
+     }
+    ],
+    "shelters": [
+     {
+      "id": "hilltop-school",
+      "name": "Hilltop School",
+      "x": 860,
+      "y": 40,
+      "width": 115,
+      "height": 75,
+      "elevation_cm": 520
+     }
+    ],
+    "routes": [
+     {
+      "zone_id": "ghat-village",
+      "shelter_id": "hilltop-school",
+      "transport_modes": [
+       "boat",
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        235,
+        330
+       ],
+       [
+        340,
+        270
+       ],
+       [
+        450,
+        220
+       ],
+       [
+        620,
+        170
+       ],
+       [
+        760,
+        120
+       ],
+       [
+        870,
+        75
+       ]
+      ]
+     },
+     {
+      "zone_id": "temple-hamlet",
+      "shelter_id": "hilltop-school",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        530,
+        240
+       ],
+       [
+        640,
+        180
+       ],
+       [
+        760,
+        125
+       ],
+       [
+        870,
+        75
+       ]
+      ]
+     },
+     {
+      "zone_id": "upper-farms",
+      "shelter_id": "hilltop-school",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 40,
+      "waypoints": [
+       [
+        815,
+        145
+       ],
+       [
+        845,
+        105
+       ],
+       [
+        870,
+        75
+       ]
+      ]
+     }
+    ],
+    "decor": {
+     "trees": [
+      [
+       80,
+       250
+      ],
+      [
+       130,
+       200
+      ],
+      [
+       380,
+       170
+      ],
+      [
+       420,
+       140
+      ],
+      [
+       680,
+       260
+      ],
+      [
+       690,
+       80
+      ],
+      [
+       940,
+       200
+      ],
+      [
+       40,
+       120
+      ]
+     ],
+     "jetty": {
+      "x": 120,
+      "y": 450,
+      "label": "Ghat boats"
+     },
+     "bridges": [
+      {
+       "x": 360,
+       "y": 430,
+       "label": "Low bridge"
+      }
+     ],
+     "hills": [
+      [
+       700,
+       40
+      ],
+      [
+       820,
+       20
+      ],
+      [
+       950,
+       30
+      ],
+      [
+       60,
+       40
+      ]
+     ],
+     "dam": {
+      "x": 40,
+      "y": 470,
+      "label": "Kalindi Dam"
+     }
+    },
+    "recovery_sites": {
+     "water_point": {
+      "x": 640,
+      "y": 100,
+      "label": "Water purification point"
+     },
+     "medical_camp": {
+      "x": 760,
+      "y": 50,
+      "label": "Medical camp"
+     },
+     "substation": {
+      "x": 360,
+      "y": 100,
+      "label": "Power substation"
+     },
+     "health_centre": {
+      "x": 580,
+      "y": 60,
+      "label": "Primary health centre"
+     },
+     "supply_depot": {
+      "x": 960,
+      "y": 260,
+      "label": "Relief depot"
+     }
+    },
+    "water_body": "river"
+   },
+   "hazard_type": "dam_release",
+   "hazard_label": "Dam release downstream",
+   "difficulty_label": "Moderate",
+   "hook": "The dam must release water in a few hours. Can you warn every village in time, and get the release slowed down?",
+   "illustration": "dam",
+   "tick_duration_minutes": 30,
+   "languages": [
+    "en",
+    "hi"
+   ],
+   "difficulties": [
+    "easy",
+    "standard",
+    "hard"
+   ],
+   "mechanic_type": "dam_release",
+   "external_support": {
+    "uses": 1,
+    "delay_ticks": 5,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 300,
+    "supply_units": 40
+   },
+   "npcs": [
+    {
+     "id": "village_head",
+     "name": "Sarpanch Lakshmi",
+     "role": "Village head of Ghat Village",
+     "location": "ghat-village",
+     "initial_dialogue": "Many families here farm on the riverbank. If the dam opens without notice, they will be caught in the fields."
+    },
+    {
+     "id": "rescue_worker",
+     "name": "Constable Imran",
+     "role": "Police and rescue volunteer",
+     "location": "ghat-village",
+     "initial_dialogue": "We have three boats at the ghat and two jeeps. The low bridge to Temple Hamlet floods quickly."
+    },
+    {
+     "id": "family_member",
+     "name": "Gopal",
+     "role": "Ghat Village farmer",
+     "location": "ghat-village",
+     "initial_dialogue": "My mother cannot walk far. Will someone tell us before the water comes?"
+    },
+    {
+     "id": "health_worker",
+     "name": "ASHA worker Meena",
+     "role": "Community health worker",
+     "location": "temple-hamlet",
+     "initial_dialogue": "I know which houses have elderly people and pregnant women. They need to move first."
+    },
+    {
+     "id": "district_official",
+     "name": "Mr. Kulkarni",
+     "role": "Dam control room liaison",
+     "location": "hilltop-school",
+     "initial_dialogue": "The dam engineers must release water to keep the dam safe. They may agree to release it more slowly if we ask early."
+    }
+   ],
+   "shelters": [
+    {
+     "id": "hilltop-school",
+     "name": "Hilltop School",
+     "capacity": 320
+    }
+   ]
+  },
+  {
+   "id": "urban-flash-flood-01",
+   "name": "Ward 14 Flash Flood",
+   "version": "1.0.0",
+   "total_ticks": 24,
+   "description": "A cloudburst over a city ward. Blocked drains and a railway underpass turn streets into channels within minutes. Act fast, then restore power, roads and safe water.",
+   "layout": {
+    "canvas": {
+     "width": 1000,
+     "height": 600
+    },
+    "levels": {
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330
+    },
+    "river": {
+     "name": "Storm-water canal",
+     "flow_direction": "left-to-right",
+     "center_path": [
+      [
+       0,
+       505
+      ],
+      [
+       200,
+       495
+      ],
+      [
+       420,
+       510
+      ],
+      [
+       640,
+       492
+      ],
+      [
+       820,
+       505
+      ],
+      [
+       1000,
+       498
+      ]
+     ],
+     "north_bank": [
+      [
+       0,
+       470
+      ],
+      [
+       200,
+       462
+      ],
+      [
+       420,
+       475
+      ],
+      [
+       640,
+       458
+      ],
+      [
+       820,
+       470
+      ],
+      [
+       1000,
+       463
+      ]
+     ],
+     "south_bank": [
+      [
+       0,
+       545
+      ],
+      [
+       200,
+       535
+      ],
+      [
+       420,
+       548
+      ],
+      [
+       640,
+       530
+      ],
+      [
+       820,
+       543
+      ],
+      [
+       1000,
+       536
+      ]
+     ]
+    },
+    "embankment": {
+     "name": "Canal retaining wall",
+     "crest_height_cm": 290,
+     "segments": [
+      {
+       "id": "wall-west",
+       "start": [
+        80,
+        466
+       ],
+       "end": [
+        420,
+        475
+       ],
+       "label": "West wall"
+      },
+      {
+       "id": "wall-central",
+       "start": [
+        420,
+        475
+       ],
+       "end": [
+        640,
+        458
+       ],
+       "label": "Central wall"
+      },
+      {
+       "id": "wall-east",
+       "start": [
+        640,
+        458
+       ],
+       "end": [
+        900,
+        468
+       ],
+       "label": "East wall"
+      }
+     ]
+    },
+    "zones": [
+     {
+      "id": "underpass-colony",
+      "name": "Underpass Colony",
+      "x": 110,
+      "y": 320,
+      "width": 200,
+      "height": 110,
+      "elevation_cm": 190,
+      "house_points": [
+       [
+        125,
+        340
+       ],
+       [
+        165,
+        355
+       ],
+       [
+        205,
+        335
+       ],
+       [
+        245,
+        352
+       ],
+       [
+        150,
+        395
+       ],
+       [
+        230,
+        392
+       ],
+       [
+        280,
+        370
+       ]
+      ]
+     },
+     {
+      "id": "station-market",
+      "name": "Station Market",
+      "x": 400,
+      "y": 250,
+      "width": 200,
+      "height": 110,
+      "elevation_cm": 235,
+      "house_points": [
+       [
+        415,
+        268
+       ],
+       [
+        455,
+        285
+       ],
+       [
+        500,
+        262
+       ],
+       [
+        545,
+        282
+       ],
+       [
+        440,
+        325
+       ],
+       [
+        520,
+        322
+       ],
+       [
+        575,
+        300
+       ]
+      ]
+     },
+     {
+      "id": "lakeview",
+      "name": "Lake View Apartments",
+      "x": 690,
+      "y": 260,
+      "width": 190,
+      "height": 120,
+      "elevation_cm": 340,
+      "house_points": [
+       [
+        710,
+        280
+       ],
+       [
+        760,
+        280
+       ],
+       [
+        810,
+        280
+       ],
+       [
+        860,
+        280
+       ],
+       [
+        735,
+        335
+       ],
+       [
+        785,
+        335
+       ],
+       [
+        835,
+        335
+       ]
+      ]
+     }
+    ],
+    "shelters": [
+     {
+      "id": "community-hall",
+      "name": "Community Hall",
+      "x": 330,
+      "y": 70,
+      "width": 120,
+      "height": 70,
+      "elevation_cm": 380
+     },
+     {
+      "id": "municipal-school",
+      "name": "Municipal School",
+      "x": 820,
+      "y": 60,
+      "width": 130,
+      "height": 80,
+      "elevation_cm": 400
+     }
+    ],
+    "routes": [
+     {
+      "zone_id": "underpass-colony",
+      "shelter_id": "community-hall",
+      "transport_modes": [
+       "boat",
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 15,
+      "waypoints": [
+       [
+        210,
+        340
+       ],
+       [
+        260,
+        270
+       ],
+       [
+        330,
+        200
+       ],
+       [
+        390,
+        120
+       ]
+      ]
+     },
+     {
+      "zone_id": "station-market",
+      "shelter_id": "community-hall",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        500,
+        262
+       ],
+       [
+        470,
+        200
+       ],
+       [
+        420,
+        150
+       ],
+       [
+        390,
+        120
+       ]
+      ]
+     },
+     {
+      "zone_id": "lakeview",
+      "shelter_id": "municipal-school",
+      "transport_modes": [
+       "vehicle",
+       "foot"
+      ],
+      "road_cutoff_depth_cm": 30,
+      "waypoints": [
+       [
+        785,
+        280
+       ],
+       [
+        820,
+        210
+       ],
+       [
+        870,
+        160
+       ],
+       [
+        885,
+        110
+       ]
+      ]
+     }
+    ],
+    "decor": {
+     "trees": [
+      [
+       60,
+       200
+      ],
+      [
+       640,
+       180
+      ],
+      [
+       960,
+       260
+      ],
+      [
+       40,
+       380
+      ],
+      [
+       620,
+       400
+      ]
+     ],
+     "jetty": {
+      "x": 90,
+      "y": 455,
+      "label": "Fire station"
+     },
+     "bridges": [
+      {
+       "x": 520,
+       "y": 470,
+       "label": "Canal bridge"
+      }
+     ],
+     "hills": [],
+     "buildings": [
+      [
+       60,
+       120
+      ],
+      [
+       140,
+       90
+      ],
+      [
+       220,
+       150
+      ],
+      [
+       560,
+       120
+      ],
+      [
+       640,
+       90
+      ],
+      [
+       700,
+       160
+      ],
+      [
+       960,
+       180
+      ]
+     ],
+     "underpasses": [
+      {
+       "x": 300,
+       "y": 300,
+       "label": "Railway underpass"
+      }
+     ],
+     "railway": [
+      [
+       0,
+       300
+      ],
+      [
+       1000,
+       230
+      ]
+     ]
+    },
+    "recovery_sites": {
+     "water_point": {
+      "x": 620,
+      "y": 200,
+      "label": "Water tanker point"
+     },
+     "medical_camp": {
+      "x": 700,
+      "y": 90,
+      "label": "Medical camp"
+     },
+     "substation": {
+      "x": 160,
+      "y": 220,
+      "label": "Electricity substation"
+     },
+     "health_centre": {
+      "x": 520,
+      "y": 70,
+      "label": "Urban health centre"
+     },
+     "supply_depot": {
+      "x": 960,
+      "y": 330,
+      "label": "Relief depot"
+     }
+    },
+    "water_body": "canal"
+   },
+   "hazard_type": "urban_flash_flood",
+   "hazard_label": "Urban flash flood",
+   "difficulty_label": "Hard",
+   "hook": "A cloudburst hits a dense city ward. Drains are blocked, the underpass fills first, and you have minutes, not hours.",
+   "illustration": "city",
+   "tick_duration_minutes": 15,
+   "languages": [
+    "en",
+    "hi"
+   ],
+   "difficulties": [
+    "easy",
+    "standard",
+    "hard"
+   ],
+   "mechanic_type": "drains",
+   "external_support": {
+    "uses": 1,
+    "delay_ticks": 3,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 200,
+    "supply_units": 40
+   },
+   "npcs": [
+    {
+     "id": "village_head",
+     "name": "Councillor Fatima",
+     "role": "Ward councillor",
+     "location": "station-market",
+     "initial_dialogue": "The drains behind the market are choked with plastic again. If the rain keeps up, the underpass will fill first."
+    },
+    {
+     "id": "rescue_worker",
+     "name": "Fire Officer Raju",
+     "role": "Fire and emergency services",
+     "location": "underpass-colony",
+     "initial_dialogue": "We have two rescue dinghies and four trucks. Trucks cannot go through the underpass once water is above the kerb."
+    },
+    {
+     "id": "family_member",
+     "name": "Anita",
+     "role": "Underpass Colony resident",
+     "location": "underpass-colony",
+     "initial_dialogue": "Our lane is already ankle-deep and my neighbour uses a wheelchair."
+    },
+    {
+     "id": "health_worker",
+     "name": "Dr. Mehta",
+     "role": "Urban health centre doctor",
+     "location": "lakeview",
+     "initial_dialogue": "Floodwater mixed with sewage is a serious risk. We will need clean water quickly afterwards."
+    },
+    {
+     "id": "district_official",
+     "name": "Mr. Rao",
+     "role": "Municipal disaster cell officer",
+     "location": "municipal-school",
+     "initial_dialogue": "The state response force can send boats, but they need a few hours to reach this ward."
+    }
+   ],
+   "shelters": [
+    {
+     "id": "community-hall",
+     "name": "Community Hall",
+     "capacity": 220
+    },
+    {
+     "id": "municipal-school",
+     "name": "Municipal School",
+     "capacity": 360
+    }
+   ]
   }
  ]
 }

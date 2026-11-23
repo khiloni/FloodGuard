@@ -10,7 +10,7 @@
  "reject_reason": null,
  "state": {
   "scenario_id": "village-river-01",
-  "scenario_version": "2.0.0",
+  "scenario_version": "2.1.0",
   "tick": 1,
   "max_ticks": 30,
   "water_level_cm": 160,
@@ -69,7 +69,11 @@
     "max_depth_cm": 0,
     "returned": 0,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 24,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false
    },
    "ward-2": {
     "id": "ward-2",
@@ -93,7 +97,11 @@
     "max_depth_cm": 0,
     "returned": 0,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 36,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false
    },
    "ward-3": {
     "id": "ward-3",
@@ -117,7 +125,11 @@
     "max_depth_cm": 0,
     "returned": 0,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 20,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false
    }
   },
   "shelters": {
@@ -167,7 +179,8 @@
    "illness_treated": 0,
    "power_on": true,
    "health_centre_open": true,
-   "community_trust": 60
+   "community_trust": 60,
+   "water_contamination": 0
   },
   "recovery_config": {
    "enabled": true,
@@ -199,7 +212,33 @@
    "trust_breach_penalty": 10,
    "trust_supplies_ran_out_penalty": 10,
    "road_debris_depth_cm": 30
-  }
+  },
+  "difficulty": "standard",
+  "npc_ids": [
+   "village_head",
+   "rescue_worker",
+   "family_member",
+   "health_worker",
+   "district_official"
+  ],
+  "contained_safe_elevation_cm": 350,
+  "embankment_max_cm": 470,
+  "foot_evacuation_per_tick": 12,
+  "support": {
+   "uses": 1,
+   "delay_ticks": 4,
+   "boats": 1,
+   "vehicles": 2,
+   "sandbags": 200,
+   "supply_units": 40
+  },
+  "support_requests_left": 1,
+  "support_eta_tick": null,
+  "mechanic": {
+   "type": "none",
+   "params": {}
+  },
+  "mechanic_state": {}
  },
  "summary": {
   "tick": 1,
@@ -208,6 +247,33 @@
   "flood_start_tick": null,
   "recovery_start_tick": null,
   "displaced": 0,
+  "score_so_far": 11,
+  "residents_at_risk": 300,
+  "lost_total": 0,
+  "warnings_delivered": 0,
+  "difficulty": "standard",
+  "mechanic": {
+   "type": "none",
+   "boats_at_sea": 0,
+   "fishers_stranded": 0,
+   "recalled": false,
+   "landfall_tick": null,
+   "release_tick": null,
+   "staggered": false,
+   "drain_crews": 0,
+   "power_down": false
+  },
+  "support": {
+   "available": true,
+   "uses_left": 1,
+   "eta_tick": null,
+   "delay_ticks": 4,
+   "boats": 1,
+   "vehicles": 2,
+   "sandbags": 200,
+   "supply_units": 40
+  },
+  "sandbags": 400,
   "recovery": {
    "shelter_supplies": 30,
    "supply_deliveries_left": 3,
@@ -221,7 +287,8 @@
    "illness_untreated": 0,
    "power_on": true,
    "health_centre_open": true,
-   "community_trust": 60
+   "community_trust": 60,
+   "water_contamination": 0
   },
   "water_level_cm": 160,
   "normal_level_cm": 200,
@@ -262,7 +329,13 @@
     "returned": 0,
     "in_shelter": 0,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 24,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false,
+    "lost": 0,
+    "elevation_cm": 220
    },
    "ward-2": {
     "name": "Ward 2 (Market Settlement)",
@@ -281,7 +354,13 @@
     "returned": 0,
     "in_shelter": 0,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 36,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false,
+    "lost": 0,
+    "elevation_cm": 360
    },
    "ward-3": {
     "name": "Ward 3 (Highland Ridge)",
@@ -300,7 +379,13 @@
     "returned": 0,
     "in_shelter": 0,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 20,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false,
+    "lost": 0,
+    "elevation_cm": 520
    }
   }
  },
@@ -789,11 +874,13 @@
    "zone": "ward-2",
    "target": "ward-2",
    "caused_by": "Action damage_survey",
-   "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm.",
+   "description": "Engineers surveyed Ward 2 (Market Settlement): 13 of 36 houses damaged; the water had reached 115 cm.",
    "details": {
     "zone": "ward-2",
     "target": "ward-2",
     "max_depth_cm": 115,
+    "damaged_houses": 13,
+    "households": 36,
     "phase": "recovery"
    },
    "event_type": null
@@ -811,6 +898,191 @@
     "returned": 100,
     "still_in_shelter": 80,
     "phase": "recovery"
+   },
+   "event_type": null
+  },
+  {
+   "type": "support_requested",
+   "tick": 4,
+   "zone": null,
+   "target": "district",
+   "caused_by": "Action request_external_support",
+   "description": "The district promised outside help; it should arrive in 3 ticks.",
+   "details": {
+    "zone": null,
+    "target": "district",
+    "eta_tick": 7,
+    "delay_ticks": 3,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "support_arrived",
+   "tick": 7,
+   "zone": null,
+   "target": "district",
+   "caused_by": "Outside support requested earlier",
+   "description": "A district convoy arrived with 2 boats, 1 trucks, 200 sandbags and 40 supply units.",
+   "details": {
+    "zone": null,
+    "target": "district",
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 200,
+    "supply_units": 40,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "resource_depleted",
+   "tick": 5,
+   "zone": null,
+   "target": "boats",
+   "caused_by": "All units committed or used",
+   "description": "No boats are left in reserve.",
+   "details": {
+    "zone": null,
+    "target": "boats",
+    "resource": "boats",
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "drains_cleared",
+   "tick": 3,
+   "zone": "station-market",
+   "target": "station-market",
+   "caused_by": "Action clear_drains",
+   "description": "Municipal crews cleared blocked drains in Station Market.",
+   "details": {
+    "zone": "station-market",
+    "target": "station-market",
+    "crews_left": 1,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "drain_overflow",
+   "tick": 3,
+   "zone": "underpass-colony",
+   "target": "underpass-colony",
+   "caused_by": "Drains blocked by debris during heavy rain",
+   "description": "Blocked drains overflowed in Underpass Colony; streets are filling with water.",
+   "details": {
+    "zone": "underpass-colony",
+    "target": "underpass-colony",
+    "extra_cm": 30,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "dam_release_notice",
+   "tick": 6,
+   "zone": null,
+   "target": "dam",
+   "caused_by": "Scheduled dam operation",
+   "description": "The dam authority announced a water release starting at tick 9.",
+   "details": {
+    "zone": null,
+    "target": "dam",
+    "release_tick": 9,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "dam_release_started",
+   "tick": 9,
+   "zone": null,
+   "target": "dam",
+   "caused_by": "Scheduled dam operation (staggered)",
+   "description": "The dam release began, adding 44 cm to the river.",
+   "details": {
+    "zone": null,
+    "target": "dam",
+    "added_cm": 44,
+    "water_level_cm": 329,
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "release_staggered",
+   "tick": 2,
+   "zone": null,
+   "target": "dam",
+   "caused_by": "Action request_staggered_release",
+   "description": "The dam authority agreed to release water more slowly over a longer period.",
+   "details": {
+    "zone": null,
+    "target": "dam",
+    "release_tick": 9,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "fishing_boats_recalled",
+   "tick": 1,
+   "zone": null,
+   "target": "sea",
+   "caused_by": "Action recall_fishing_boats",
+   "description": "A recall message reached 8 fishing boats at sea.",
+   "details": {
+    "zone": null,
+    "target": "sea",
+    "boats_at_sea": 8,
+    "return_tick": 4,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "fishing_boats_returned",
+   "tick": 4,
+   "zone": null,
+   "target": "harbour",
+   "caused_by": "Recall message sent earlier",
+   "description": "8 fishing boats reached the harbour safely.",
+   "details": {
+    "zone": null,
+    "target": "harbour",
+    "boats": 8,
+    "phase": "before"
+   },
+   "event_type": null
+  },
+  {
+   "type": "cyclone_landfall",
+   "tick": 13,
+   "zone": null,
+   "target": "coast",
+   "caused_by": "Cyclone track",
+   "description": "The cyclone made landfall. Strong winds cut power across the village.",
+   "details": {
+    "zone": null,
+    "target": "coast",
+    "phase": "flood"
+   },
+   "event_type": null
+  },
+  {
+   "type": "fishers_stranded",
+   "tick": 13,
+   "zone": null,
+   "target": "sea",
+   "caused_by": "Fishing boats were not recalled before landfall",
+   "description": "32 fishers were still at sea when the cyclone hit and are missing.",
+   "details": {
+    "zone": null,
+    "target": "sea",
+    "fishers": 32,
+    "phase": "flood"
    },
    "event_type": null
   }

@@ -1,0 +1,4978 @@
+{
+ "session": {
+  "session_id": "7e9480f0-3d65-4aaa-b5d8-cb328550c31f",
+  "seed": 5,
+  "state": {
+   "scenario_id": "urban-flash-flood-01",
+   "scenario_version": "1.0.0",
+   "tick": 0,
+   "max_ticks": 24,
+   "water_level_cm": 150,
+   "forecast_cm": [
+    150,
+    160,
+    175,
+    205,
+    245,
+    285,
+    315,
+    330,
+    318,
+    296,
+    270,
+    245,
+    222,
+    205,
+    192,
+    182,
+    174,
+    168,
+    162,
+    158,
+    155,
+    152,
+    150,
+    148
+   ],
+   "zones": {
+    "underpass-colony": {
+     "id": "underpass-colony",
+     "name": "Underpass Colony",
+     "elevation_cm": 190,
+     "initial_population": 160,
+     "population_remaining": 160,
+     "initial_vulnerable": 35,
+     "vulnerable_remaining": 35,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 32,
+     "damaged_houses": 0,
+     "drain_blocked": true,
+     "underpass": true
+    },
+    "station-market": {
+     "id": "station-market",
+     "name": "Station Market",
+     "elevation_cm": 235,
+     "initial_population": 200,
+     "population_remaining": 200,
+     "initial_vulnerable": 40,
+     "vulnerable_remaining": 40,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 40,
+     "damaged_houses": 0,
+     "drain_blocked": true,
+     "underpass": false
+    },
+    "lakeview": {
+     "id": "lakeview",
+     "name": "Lake View Apartments",
+     "elevation_cm": 340,
+     "initial_population": 240,
+     "population_remaining": 240,
+     "initial_vulnerable": 45,
+     "vulnerable_remaining": 45,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 48,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    }
+   },
+   "shelters": {
+    "community-hall": {
+     "id": "community-hall",
+     "name": "Community Hall",
+     "elevation_cm": 380,
+     "capacity": 220,
+     "current_occupancy": 0,
+     "is_open": false
+    },
+    "municipal-school": {
+     "id": "municipal-school",
+     "name": "Municipal School",
+     "elevation_cm": 400,
+     "capacity": 360,
+     "current_occupancy": 0,
+     "is_open": false
+    }
+   },
+   "resources": {
+    "total_boats": 2,
+    "available_boats": 2,
+    "boat_capacity": 10,
+    "total_vehicles": 4,
+    "available_vehicles": 4,
+    "vehicle_capacity": 25,
+    "sandbags": 300
+   },
+   "embankment": {
+    "height_cm": 290,
+    "integrity": 100,
+    "breached": false,
+    "reinforced_count": 0
+   },
+   "first_warning_tick": null,
+   "first_evacuation_tick": null,
+   "is_finished": false,
+   "score": null,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "recovery": {
+    "shelter_supplies": 25,
+    "supply_deliveries_left": 3,
+    "supply_shortfall_ticks": 0,
+    "supplies_low_warned": false,
+    "clean_water_kits": 1,
+    "clean_water_active": false,
+    "medical_teams": 1,
+    "medical_camp_active": false,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_treated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 55,
+    "water_contamination": 0
+   },
+   "recovery_config": {
+    "enabled": true,
+    "flood_starts_at_cm": 220,
+    "recovery_below_cm": 280,
+    "shelter_supplies_initial": 25,
+    "people_per_supply_unit": 60,
+    "supply_deliveries": 3,
+    "units_per_delivery": 40,
+    "supplies_low_threshold": 10,
+    "clean_water_kits": 1,
+    "medical_teams": 1,
+    "return_batch_per_turn": 120,
+    "treat_per_tick": 6,
+    "disease_base": 25,
+    "disease_per_flooded_zone": 10,
+    "disease_breach_bonus": 10,
+    "disease_rise_per_tick": 5,
+    "disease_crowding_pct": 90,
+    "disease_crowding_rise": 3,
+    "disease_no_supplies_rise": 4,
+    "disease_clean_water_drop": 8,
+    "disease_medical_camp_drop": 6,
+    "disease_high_threshold": 60,
+    "trust_initial": 55,
+    "trust_early_warning_bonus": 10,
+    "trust_early_warning_by_tick": 3,
+    "trust_losses_penalty": 10,
+    "trust_breach_penalty": 10,
+    "trust_supplies_ran_out_penalty": 10,
+    "road_debris_depth_cm": 30
+   },
+   "difficulty": "standard",
+   "npc_ids": [
+    "village_head",
+    "rescue_worker",
+    "family_member",
+    "health_worker",
+    "district_official"
+   ],
+   "contained_safe_elevation_cm": 260,
+   "embankment_max_cm": 350,
+   "foot_evacuation_per_tick": 35,
+   "support": {
+    "uses": 1,
+    "delay_ticks": 3,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 200,
+    "supply_units": 40
+   },
+   "support_requests_left": 1,
+   "support_eta_tick": null,
+   "mechanic": {
+    "type": "drains",
+    "params": {
+     "blocked_drain_extra_cm": 30,
+     "underpass_cutoff_cm": 15,
+     "drain_crews": 2
+    }
+   },
+   "mechanic_state": {
+    "drain_crews": 2
+   }
+  },
+  "layout": {
+   "canvas": {
+    "width": 1000,
+    "height": 600
+   },
+   "levels": {
+    "normal_level_cm": 150,
+    "warning_level_cm": 220,
+    "danger_level_cm": 280,
+    "crest_level_cm": 330
+   },
+   "river": {
+    "name": "Storm-water canal",
+    "flow_direction": "left-to-right",
+    "center_path": [
+     [
+      0,
+      505
+     ],
+     [
+      200,
+      495
+     ],
+     [
+      420,
+      510
+     ],
+     [
+      640,
+      492
+     ],
+     [
+      820,
+      505
+     ],
+     [
+      1000,
+      498
+     ]
+    ],
+    "north_bank": [
+     [
+      0,
+      470
+     ],
+     [
+      200,
+      462
+     ],
+     [
+      420,
+      475
+     ],
+     [
+      640,
+      458
+     ],
+     [
+      820,
+      470
+     ],
+     [
+      1000,
+      463
+     ]
+    ],
+    "south_bank": [
+     [
+      0,
+      545
+     ],
+     [
+      200,
+      535
+     ],
+     [
+      420,
+      548
+     ],
+     [
+      640,
+      530
+     ],
+     [
+      820,
+      543
+     ],
+     [
+      1000,
+      536
+     ]
+    ]
+   },
+   "embankment": {
+    "name": "Canal retaining wall",
+    "crest_height_cm": 290,
+    "segments": [
+     {
+      "id": "wall-west",
+      "start": [
+       80,
+       466
+      ],
+      "end": [
+       420,
+       475
+      ],
+      "label": "West wall"
+     },
+     {
+      "id": "wall-central",
+      "start": [
+       420,
+       475
+      ],
+      "end": [
+       640,
+       458
+      ],
+      "label": "Central wall"
+     },
+     {
+      "id": "wall-east",
+      "start": [
+       640,
+       458
+      ],
+      "end": [
+       900,
+       468
+      ],
+      "label": "East wall"
+     }
+    ]
+   },
+   "zones": [
+    {
+     "id": "underpass-colony",
+     "name": "Underpass Colony",
+     "x": 110,
+     "y": 320,
+     "width": 200,
+     "height": 110,
+     "elevation_cm": 190,
+     "house_points": [
+      [
+       125,
+       340
+      ],
+      [
+       165,
+       355
+      ],
+      [
+       205,
+       335
+      ],
+      [
+       245,
+       352
+      ],
+      [
+       150,
+       395
+      ],
+      [
+       230,
+       392
+      ],
+      [
+       280,
+       370
+      ]
+     ]
+    },
+    {
+     "id": "station-market",
+     "name": "Station Market",
+     "x": 400,
+     "y": 250,
+     "width": 200,
+     "height": 110,
+     "elevation_cm": 235,
+     "house_points": [
+      [
+       415,
+       268
+      ],
+      [
+       455,
+       285
+      ],
+      [
+       500,
+       262
+      ],
+      [
+       545,
+       282
+      ],
+      [
+       440,
+       325
+      ],
+      [
+       520,
+       322
+      ],
+      [
+       575,
+       300
+      ]
+     ]
+    },
+    {
+     "id": "lakeview",
+     "name": "Lake View Apartments",
+     "x": 690,
+     "y": 260,
+     "width": 190,
+     "height": 120,
+     "elevation_cm": 340,
+     "house_points": [
+      [
+       710,
+       280
+      ],
+      [
+       760,
+       280
+      ],
+      [
+       810,
+       280
+      ],
+      [
+       860,
+       280
+      ],
+      [
+       735,
+       335
+      ],
+      [
+       785,
+       335
+      ],
+      [
+       835,
+       335
+      ]
+     ]
+    }
+   ],
+   "shelters": [
+    {
+     "id": "community-hall",
+     "name": "Community Hall",
+     "x": 330,
+     "y": 70,
+     "width": 120,
+     "height": 70,
+     "elevation_cm": 380
+    },
+    {
+     "id": "municipal-school",
+     "name": "Municipal School",
+     "x": 820,
+     "y": 60,
+     "width": 130,
+     "height": 80,
+     "elevation_cm": 400
+    }
+   ],
+   "routes": [
+    {
+     "zone_id": "underpass-colony",
+     "shelter_id": "community-hall",
+     "transport_modes": [
+      "boat",
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 15,
+     "waypoints": [
+      [
+       210,
+       340
+      ],
+      [
+       260,
+       270
+      ],
+      [
+       330,
+       200
+      ],
+      [
+       390,
+       120
+      ]
+     ]
+    },
+    {
+     "zone_id": "station-market",
+     "shelter_id": "community-hall",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       500,
+       262
+      ],
+      [
+       470,
+       200
+      ],
+      [
+       420,
+       150
+      ],
+      [
+       390,
+       120
+      ]
+     ]
+    },
+    {
+     "zone_id": "lakeview",
+     "shelter_id": "municipal-school",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       785,
+       280
+      ],
+      [
+       820,
+       210
+      ],
+      [
+       870,
+       160
+      ],
+      [
+       885,
+       110
+      ]
+     ]
+    }
+   ],
+   "decor": {
+    "trees": [
+     [
+      60,
+      200
+     ],
+     [
+      640,
+      180
+     ],
+     [
+      960,
+      260
+     ],
+     [
+      40,
+      380
+     ],
+     [
+      620,
+      400
+     ]
+    ],
+    "jetty": {
+     "x": 90,
+     "y": 455,
+     "label": "Fire station"
+    },
+    "bridges": [
+     {
+      "x": 520,
+      "y": 470,
+      "label": "Canal bridge"
+     }
+    ],
+    "hills": [],
+    "buildings": [
+     [
+      60,
+      120
+     ],
+     [
+      140,
+      90
+     ],
+     [
+      220,
+      150
+     ],
+     [
+      560,
+      120
+     ],
+     [
+      640,
+      90
+     ],
+     [
+      700,
+      160
+     ],
+     [
+      960,
+      180
+     ]
+    ],
+    "underpasses": [
+     {
+      "x": 300,
+      "y": 300,
+      "label": "Railway underpass"
+     }
+    ],
+    "railway": [
+     [
+      0,
+      300
+     ],
+     [
+      1000,
+      230
+     ]
+    ]
+   },
+   "recovery_sites": {
+    "water_point": {
+     "x": 620,
+     "y": 200,
+     "label": "Water tanker point"
+    },
+    "medical_camp": {
+     "x": 700,
+     "y": 90,
+     "label": "Medical camp"
+    },
+    "substation": {
+     "x": 160,
+     "y": 220,
+     "label": "Electricity substation"
+    },
+    "health_centre": {
+     "x": 520,
+     "y": 70,
+     "label": "Urban health centre"
+    },
+    "supply_depot": {
+     "x": 960,
+     "y": 330,
+     "label": "Relief depot"
+    }
+   },
+   "water_body": "canal"
+  },
+  "summary": {
+   "tick": 0,
+   "max_ticks": 24,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "displaced": 0,
+   "score_so_far": 8,
+   "residents_at_risk": 360,
+   "lost_total": 0,
+   "warnings_delivered": 0,
+   "difficulty": "standard",
+   "mechanic": {
+    "type": "drains",
+    "boats_at_sea": 0,
+    "fishers_stranded": 0,
+    "recalled": false,
+    "landfall_tick": null,
+    "release_tick": null,
+    "staggered": false,
+    "drain_crews": 2,
+    "power_down": false
+   },
+   "support": {
+    "available": true,
+    "uses_left": 1,
+    "eta_tick": null,
+    "delay_ticks": 3,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 200,
+    "supply_units": 40
+   },
+   "sandbags": 300,
+   "recovery": {
+    "shelter_supplies": 25,
+    "supply_deliveries_left": 3,
+    "clean_water_active": false,
+    "clean_water_kits": 1,
+    "medical_camp_active": false,
+    "medical_teams": 1,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_untreated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 55,
+    "water_contamination": 0
+   },
+   "water_level_cm": 150,
+   "normal_level_cm": 150,
+   "warning_level_cm": 220,
+   "danger_level_cm": 280,
+   "crest_level_cm": 330,
+   "embankment_integrity": 100,
+   "embankment_height_cm": 290,
+   "embankment_breached": false,
+   "shelter": {
+    "occupancy": 0,
+    "capacity": 580,
+    "is_open": false
+   },
+   "transport": {
+    "boats_total": 2,
+    "boats_available": 2,
+    "boats_in_use": 0,
+    "vehicles_total": 4,
+    "vehicles_available": 4,
+    "vehicles_in_use": 0
+   },
+   "zones": {
+    "underpass-colony": {
+     "name": "Underpass Colony",
+     "population_remaining": 160,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 35,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 32,
+     "damaged_houses": 0,
+     "drain_blocked": true,
+     "underpass": true,
+     "lost": 0,
+     "elevation_cm": 190
+    },
+    "station-market": {
+     "name": "Station Market",
+     "population_remaining": 200,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 40,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 40,
+     "damaged_houses": 0,
+     "drain_blocked": true,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 235
+    },
+    "lakeview": {
+     "name": "Lake View Apartments",
+     "population_remaining": 240,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 45,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 48,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 340
+    }
+   }
+  },
+  "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions about evacuation, safety or health."
+ },
+ "script": [
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "community-hall"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "community-hall"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 1,
+     "max_ticks": 24,
+     "water_level_cm": 150,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 160,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 0,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 10,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 2
+     }
+    },
+    "summary": {
+     "tick": 1,
+     "max_ticks": 24,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 11,
+     "residents_at_risk": 360,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 2,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 150,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 160,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "shelter_opened",
+      "tick": 1,
+      "zone": null,
+      "target": "community-hall",
+      "caused_by": "Action open_shelter",
+      "description": "Shelter 'Community Hall' officially opened with intake capacity of 220.",
+      "details": {
+       "zone": null,
+       "target": "community-hall",
+       "shelter_id": "community-hall",
+       "capacity": 220,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 1,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 150 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 150,
+       "tick": 1,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Relief infrastructure online: Shelter 'Community Hall' officially opened with intake capacity of 220. Hydrology monitor: the river is at 150 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-05",
+      "title": "Safe Shelter Operations",
+      "category": "Shelter",
+      "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+      "keywords": [
+       "shelter",
+       "school",
+       "intake",
+       "capacity",
+       "elevated",
+       "open"
+      ],
+      "source_reference": "Emergency Shelter Management Protocols"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "underpass-colony"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "underpass-colony"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 2,
+     "max_ticks": 24,
+     "water_level_cm": 160,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 125,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 27,
+       "safe_evacuated": 35,
+       "vulnerable_saved": 8,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 35,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 10,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 2
+     }
+    },
+    "summary": {
+     "tick": 2,
+     "max_ticks": 24,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 35,
+     "score_so_far": 23,
+     "residents_at_risk": 325,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 2,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 160,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 35,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 125,
+       "safe_evacuated": 35,
+       "in_transit": 0,
+       "vulnerable_remaining": 27,
+       "vulnerable_saved": 8,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 35,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "evacuation_ordered",
+      "tick": 2,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Action order_evacuation",
+      "description": "Mandatory evacuation ordered for Underpass Colony.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 2,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 160 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 160,
+       "tick": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 2,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 35 residents from Underpass Colony to safety.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "evacuated": 35,
+       "vulnerable_included": 8,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 2,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "8 vulnerable individuals from Underpass Colony reached secure shelter.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "vulnerable_count": 8,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Civil authorities activated evacuation protocols: Mandatory evacuation ordered for Underpass Colony. Hydrology monitor: the river is at 160 cm. Evacuation progress: Evacuated 35 residents from Underpass Colony to safety. Priority evacuation: 8 vulnerable individuals from Underpass Colony reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "clear_drains",
+     "params": {
+      "zone": "station-market"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "clear_drains",
+     "params": {
+      "zone": "station-market"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 3,
+     "max_ticks": 24,
+     "water_level_cm": 175,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 125,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 27,
+       "safe_evacuated": 35,
+       "vulnerable_saved": 8,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 15,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 35,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 10,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 23,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 1,
+      "overflow_underpass-colony": 1
+     }
+    },
+    "summary": {
+     "tick": 3,
+     "max_ticks": 24,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "displaced": 35,
+     "score_so_far": 23,
+     "residents_at_risk": 325,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 1,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 23,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 175,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 35,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 125,
+       "safe_evacuated": 35,
+       "in_transit": 0,
+       "vulnerable_remaining": 27,
+       "vulnerable_saved": 8,
+       "water_depth_cm": 15,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "in_shelter": 35,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "drains_cleared",
+      "tick": 3,
+      "zone": "station-market",
+      "target": "station-market",
+      "caused_by": "Action clear_drains",
+      "description": "Municipal crews cleared blocked drains in Station Market.",
+      "details": {
+       "zone": "station-market",
+       "target": "station-market",
+       "crews_left": 1,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 3,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 175 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 175,
+       "tick": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "phase_changed",
+      "tick": 3,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Floodwater entered Underpass Colony",
+      "description": "The river reached 175 cm and water is entering homes. The flood phase has begun.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "from_phase": "before",
+       "to_phase": "flood",
+       "water_level_cm": 175,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "drain_overflow",
+      "tick": 3,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Drains blocked by debris during heavy rain",
+      "description": "Blocked drains overflowed in Underpass Colony; streets are filling with water.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "extra_cm": 30,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "road_inundated",
+      "tick": 3,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Flood depth exceeding road clearance threshold",
+      "description": "Access road to Underpass Colony submerged beneath 15 cm of water. Wheeled transport blocked.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "water_depth_cm": 15,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 3,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into Underpass Colony. Depth reached 15 cm.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "water_depth_cm": 15,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 175 cm. New phase: The river reached 175 cm and water is entering homes. The flood phase has begun. URGENT: Access road to Underpass Colony submerged beneath 15 cm of water. Wheeled transport blocked. FLOOD WARNING: Water breached into Underpass Colony. Depth reached 15 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-11",
+      "title": "Keep Urban Drains Clear",
+      "category": "Urban flooding",
+      "guidance": "Blocked storm drains turn heavy rain into street flooding within minutes. Clearing choke points before and during a cloudburst, and keeping people out of underpasses, reduces the danger.",
+      "keywords": [
+       "drain",
+       "drains",
+       "underpass",
+       "urban",
+       "street",
+       "clear",
+       "cloudburst"
+      ],
+      "source_reference": "Urban Flood Management Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "request_external_support",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "request_external_support",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 4,
+     "max_ticks": 24,
+     "water_level_cm": 205,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 125,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 27,
+       "safe_evacuated": 35,
+       "vulnerable_saved": 8,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 45,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 45,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 35,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 2,
+      "boat_capacity": 10,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 22,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 0,
+     "support_eta_tick": 7,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 1,
+      "overflow_underpass-colony": 1
+     }
+    },
+    "summary": {
+     "tick": 4,
+     "max_ticks": 24,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "displaced": 35,
+     "score_so_far": 23,
+     "residents_at_risk": 325,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 1,
+      "power_down": false
+     },
+     "support": {
+      "available": false,
+      "uses_left": 0,
+      "eta_tick": 7,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 22,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 205,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 35,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 2,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 125,
+       "safe_evacuated": 35,
+       "in_transit": 0,
+       "vulnerable_remaining": 27,
+       "vulnerable_saved": 8,
+       "water_depth_cm": 45,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 45,
+       "returned": 0,
+       "in_shelter": 35,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "support_requested",
+      "tick": 4,
+      "zone": null,
+      "target": "district",
+      "caused_by": "Action request_external_support",
+      "description": "The district promised outside help; it should arrive in 3 ticks.",
+      "details": {
+       "zone": null,
+       "target": "district",
+       "eta_tick": 7,
+       "delay_ticks": 3,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 4,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 205 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 205,
+       "tick": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 205 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-14",
+      "title": "Requesting Outside Support Early",
+      "category": "Coordination",
+      "guidance": "District and state teams need time to reach a village. Request outside support as soon as local resources look insufficient, rather than when they have run out.",
+      "keywords": [
+       "support",
+       "district",
+       "convoy",
+       "reinforcements",
+       "request",
+       "outside",
+       "resources"
+      ],
+      "source_reference": "Incident Response Coordination Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "assign_transport",
+     "params": {
+      "zone": "underpass-colony",
+      "transport_type": "boat",
+      "count": 2
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "assign_transport",
+     "params": {
+      "zone": "underpass-colony",
+      "transport_type": "boat",
+      "count": 2
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 5,
+     "max_ticks": 24,
+     "water_level_cm": 245,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 105,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 23,
+       "safe_evacuated": 55,
+       "vulnerable_saved": 12,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 85,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 85,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 10,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 10,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 55,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 0,
+      "boat_capacity": 10,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 21,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 0,
+     "support_eta_tick": 7,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 1,
+      "overflow_underpass-colony": 1
+     }
+    },
+    "summary": {
+     "tick": 5,
+     "max_ticks": 24,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "displaced": 55,
+     "score_so_far": 26,
+     "residents_at_risk": 305,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 1,
+      "power_down": false
+     },
+     "support": {
+      "available": false,
+      "uses_left": 0,
+      "eta_tick": 7,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 21,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 245,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 55,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 0,
+      "boats_in_use": 2,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 105,
+       "safe_evacuated": 55,
+       "in_transit": 0,
+       "vulnerable_remaining": 23,
+       "vulnerable_saved": 12,
+       "water_depth_cm": 85,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 85,
+       "returned": 0,
+       "in_shelter": 55,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 10,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 10,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "transport_assigned",
+      "tick": 5,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Action assign_transport",
+      "description": "Assigned 2 motorized rescue boat(s) to Underpass Colony.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "transport_type": "boat",
+       "count": 2,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 5,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 245 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 245,
+       "tick": 5,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 5,
+      "zone": "station-market",
+      "target": "station-market",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into Station Market. Depth reached 10 cm.",
+      "details": {
+       "zone": "station-market",
+       "target": "station-market",
+       "water_depth_cm": 10,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 5,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 20 residents from Underpass Colony to safety.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "evacuated": 20,
+       "vulnerable_included": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 5,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "4 vulnerable individuals from Underpass Colony reached secure shelter.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "vulnerable_count": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "resource_depleted",
+      "tick": 5,
+      "zone": null,
+      "target": "boats",
+      "caused_by": "All units committed or used",
+      "description": "No boats are left in reserve.",
+      "details": {
+       "zone": null,
+       "target": "boats",
+       "resource": "boats",
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Logistics update: Assigned 2 motorized rescue boat(s) to Underpass Colony. Hydrology monitor: the river is at 245 cm. FLOOD WARNING: Water breached into Station Market. Depth reached 10 cm. Evacuation progress: Evacuated 20 residents from Underpass Colony to safety. Priority evacuation: 4 vulnerable individuals from Underpass Colony reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-03",
+      "title": "Vehicle Safety in Floodwaters",
+      "category": "Logistics",
+      "guidance": "Do not dispatch standard wheeled motor vehicles through roads with moving floodwaters deeper than knee level. Use boats or high-clearance specialized equipment when roads submerge.",
+      "keywords": [
+       "vehicle",
+       "truck",
+       "boat",
+       "water depth",
+       "road",
+       "transport"
+      ],
+      "source_reference": "Transport and Road Safety Flooding Guidelines"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 6,
+     "max_ticks": 24,
+     "water_level_cm": 285,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 85,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 19,
+       "safe_evacuated": 75,
+       "vulnerable_saved": 16,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 125,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 125,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 50,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 50,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 75,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 2,
+      "available_boats": 0,
+      "boat_capacity": 10,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 25,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 19,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 0,
+     "support_eta_tick": 7,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 1,
+      "overflow_underpass-colony": 1
+     }
+    },
+    "summary": {
+     "tick": 6,
+     "max_ticks": 24,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "displaced": 75,
+     "score_so_far": 28,
+     "residents_at_risk": 285,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 1,
+      "power_down": false
+     },
+     "support": {
+      "available": false,
+      "uses_left": 0,
+      "eta_tick": 7,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 19,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 285,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 75,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 2,
+      "boats_available": 0,
+      "boats_in_use": 2,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 85,
+       "safe_evacuated": 75,
+       "in_transit": 0,
+       "vulnerable_remaining": 19,
+       "vulnerable_saved": 16,
+       "water_depth_cm": 125,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 125,
+       "returned": 0,
+       "in_shelter": 75,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 50,
+       "road_flooded": true,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 50,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 6,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 6,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 285 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 285,
+       "tick": 6,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "road_inundated",
+      "tick": 6,
+      "zone": "station-market",
+      "target": "station-market",
+      "caused_by": "Flood depth exceeding road clearance threshold",
+      "description": "Access road to Station Market submerged beneath 50 cm of water. Wheeled transport blocked.",
+      "details": {
+       "zone": "station-market",
+       "target": "station-market",
+       "water_depth_cm": 50,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 6,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 20 residents from Underpass Colony to safety.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "evacuated": 20,
+       "vulnerable_included": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 6,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "4 vulnerable individuals from Underpass Colony reached secure shelter.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "vulnerable_count": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 285 cm. URGENT: Access road to Station Market submerged beneath 50 cm of water. Wheeled transport blocked. Evacuation progress: Evacuated 20 residents from Underpass Colony to safety. Priority evacuation: 4 vulnerable individuals from Underpass Colony reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 7,
+     "max_ticks": 24,
+     "water_level_cm": 315,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 65,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 95,
+       "vulnerable_saved": 20,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 155,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 155,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 80,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 80,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 95,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 4,
+      "available_boats": 2,
+      "boat_capacity": 10,
+      "total_vehicles": 5,
+      "available_vehicles": 5,
+      "vehicle_capacity": 25,
+      "sandbags": 500
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 50,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 57,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 0,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 1,
+      "overflow_underpass-colony": 1
+     }
+    },
+    "summary": {
+     "tick": 7,
+     "max_ticks": 24,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "displaced": 95,
+     "score_so_far": 29,
+     "residents_at_risk": 265,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 1,
+      "power_down": false
+     },
+     "support": {
+      "available": false,
+      "uses_left": 0,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 500,
+     "recovery": {
+      "shelter_supplies": 57,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 315,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 50,
+     "embankment_height_cm": 290,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 95,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 4,
+      "boats_available": 2,
+      "boats_in_use": 2,
+      "vehicles_total": 5,
+      "vehicles_available": 5,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 65,
+       "safe_evacuated": 95,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 20,
+       "water_depth_cm": 155,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 155,
+       "returned": 0,
+       "in_shelter": 95,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 80,
+       "road_flooded": true,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 80,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 7,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "support_arrived",
+      "tick": 7,
+      "zone": null,
+      "target": "district",
+      "caused_by": "Outside support requested earlier",
+      "description": "A district convoy arrived with 2 boats, 1 trucks, 200 sandbags and 40 supply units.",
+      "details": {
+       "zone": null,
+       "target": "district",
+       "boats": 2,
+       "vehicles": 1,
+       "sandbags": 200,
+       "supply_units": 40,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 7,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 315 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 315,
+       "tick": 7,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "embankment_overflow",
+      "tick": 7,
+      "zone": null,
+      "target": "embankment",
+      "caused_by": "River level exceeding embankment crest",
+      "description": "Floodwaters overtopped embankment crest by 25 cm! Integrity down to 50%.",
+      "details": {
+       "zone": null,
+       "target": "embankment",
+       "overflow_cm": 25,
+       "remaining_integrity": 50,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 7,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 20 residents from Underpass Colony to safety.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "evacuated": 20,
+       "vulnerable_included": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 7,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "4 vulnerable individuals from Underpass Colony reached secure shelter.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "vulnerable_count": 4,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 315 cm. HAZARD: Floodwaters overtopped embankment crest by 25 cm! Integrity down to 50%. Evacuation progress: Evacuated 20 residents from Underpass Colony to safety. Priority evacuation: 4 vulnerable individuals from Underpass Colony reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "urban-flash-flood-01",
+     "scenario_version": "1.0.0",
+     "tick": 8,
+     "max_ticks": 24,
+     "water_level_cm": 330,
+     "forecast_cm": [
+      150,
+      160,
+      175,
+      205,
+      245,
+      285,
+      315,
+      330,
+      318,
+      296,
+      270,
+      245,
+      222,
+      205,
+      192,
+      182,
+      174,
+      168,
+      162,
+      158,
+      155,
+      152,
+      150,
+      148
+     ],
+     "zones": {
+      "underpass-colony": {
+       "id": "underpass-colony",
+       "name": "Underpass Colony",
+       "elevation_cm": 190,
+       "initial_population": 160,
+       "population_remaining": 45,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 115,
+       "vulnerable_saved": 25,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 170,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 170,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true
+      },
+      "station-market": {
+       "id": "station-market",
+       "name": "Station Market",
+       "elevation_cm": 235,
+       "initial_population": 200,
+       "population_remaining": 200,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 95,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 95,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "lakeview": {
+       "id": "lakeview",
+       "name": "Lake View Apartments",
+       "elevation_cm": 340,
+       "initial_population": 240,
+       "population_remaining": 240,
+       "initial_vulnerable": 45,
+       "vulnerable_remaining": 45,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "community-hall": {
+       "id": "community-hall",
+       "name": "Community Hall",
+       "elevation_cm": 380,
+       "capacity": 220,
+       "current_occupancy": 115,
+       "is_open": true
+      },
+      "municipal-school": {
+       "id": "municipal-school",
+       "name": "Municipal School",
+       "elevation_cm": 400,
+       "capacity": 360,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 4,
+      "available_boats": 2,
+      "boat_capacity": 10,
+      "total_vehicles": 5,
+      "available_vehicles": 5,
+      "vehicle_capacity": 25,
+      "sandbags": 500
+     },
+     "embankment": {
+      "height_cm": 290,
+      "integrity": 0,
+      "breached": true,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": 2,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 55,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 220,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 120,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 260,
+     "embankment_max_cm": 350,
+     "foot_evacuation_per_tick": 35,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "support_requests_left": 0,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "drains",
+      "params": {
+       "blocked_drain_extra_cm": 30,
+       "underpass_cutoff_cm": 15,
+       "drain_crews": 2
+      }
+     },
+     "mechanic_state": {
+      "drain_crews": 1,
+      "overflow_underpass-colony": 1
+     }
+    },
+    "summary": {
+     "tick": 8,
+     "max_ticks": 24,
+     "phase": "flood",
+     "flood_start_tick": 3,
+     "recovery_start_tick": null,
+     "displaced": 115,
+     "score_so_far": 27,
+     "residents_at_risk": 245,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "drains",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 1,
+      "power_down": false
+     },
+     "support": {
+      "available": false,
+      "uses_left": 0,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 200,
+      "supply_units": 40
+     },
+     "sandbags": 500,
+     "recovery": {
+      "shelter_supplies": 55,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 330,
+     "normal_level_cm": 150,
+     "warning_level_cm": 220,
+     "danger_level_cm": 280,
+     "crest_level_cm": 330,
+     "embankment_integrity": 0,
+     "embankment_height_cm": 290,
+     "embankment_breached": true,
+     "shelter": {
+      "occupancy": 115,
+      "capacity": 580,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 4,
+      "boats_available": 2,
+      "boats_in_use": 2,
+      "vehicles_total": 5,
+      "vehicles_available": 5,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "underpass-colony": {
+       "name": "Underpass Colony",
+       "population_remaining": 45,
+       "safe_evacuated": 115,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 25,
+       "water_depth_cm": 170,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 0,
+       "boats_assigned": 2,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 170,
+       "returned": 0,
+       "in_shelter": 115,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": true,
+       "underpass": true,
+       "lost": 0,
+       "elevation_cm": 190
+      },
+      "station-market": {
+       "name": "Station Market",
+       "population_remaining": 200,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 95,
+       "road_flooded": true,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 95,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 40,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 235
+      },
+      "lakeview": {
+       "name": "Lake View Apartments",
+       "population_remaining": 240,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 45,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 48,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 8,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 330 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 330,
+       "tick": 8,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "embankment_overflow",
+      "tick": 8,
+      "zone": null,
+      "target": "embankment",
+      "caused_by": "River level exceeding embankment crest",
+      "description": "Floodwaters overtopped embankment crest by 40 cm! Integrity down to 0%.",
+      "details": {
+       "zone": null,
+       "target": "embankment",
+       "overflow_cm": 40,
+       "remaining_integrity": 0,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "embankment_breached",
+      "tick": 8,
+      "zone": null,
+      "target": "embankment",
+      "caused_by": "Embankment structural integrity reached 0%",
+      "description": "Embankment barrier collapsed under intense hydraulic pressure! Uncontrolled inundation.",
+      "details": {
+       "zone": null,
+       "target": "embankment",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 8,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 20 residents from Underpass Colony to safety.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "evacuated": 20,
+       "vulnerable_included": 5,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 8,
+      "zone": "underpass-colony",
+      "target": "underpass-colony",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "5 vulnerable individuals from Underpass Colony reached secure shelter.",
+      "details": {
+       "zone": "underpass-colony",
+       "target": "underpass-colony",
+       "vulnerable_count": 5,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 330 cm. HAZARD: Floodwaters overtopped embankment crest by 40 cm! Integrity down to 0%. CRITICAL BREACH: Embankment barrier collapsed under intense hydraulic pressure! Uncontrolled inundation. Evacuation progress: Evacuated 20 residents from Underpass Colony to safety. Priority evacuation: 5 vulnerable individuals from Underpass Colony reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  }
+ ]
+}

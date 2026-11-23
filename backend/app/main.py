@@ -145,7 +145,24 @@ def build_state_summary(state_dict: Dict[str, Any], layout: Optional[Dict[str, A
             "in_shelter": z.get("safe_evacuated", 0) - z.get("returned", 0),
             "road_blocked": z.get("road_blocked", False),
             "surveyed": z.get("surveyed", False),
+            "households": z.get("households", 0),
+            "damaged_houses": z.get("damaged_houses", 0),
+            "drain_blocked": z.get("drain_blocked", False),
+            "underpass": z.get("underpass", False),
+            "lost": z.get("lost", 0),
+            "elevation_cm": z.get("elevation_cm", 0),
         }
+
+    # Score so far and mechanic status, computed by the engine (never in the browser).
+    try:
+        st_obj = State.model_validate(state_dict)
+        score_so_far = (st_obj.score or calculate_score(st_obj)).total_score
+    except Exception:
+        st_obj, score_so_far = None, 0
+    mech = state_dict.get("mechanic") or {}
+    mstate = state_dict.get("mechanic_state") or {}
+    mparams = mech.get("params") or {}
+    support = state_dict.get("support") or {}
 
     rec = state_dict.get("recovery") or {}
     return {
@@ -155,6 +172,36 @@ def build_state_summary(state_dict: Dict[str, Any], layout: Optional[Dict[str, A
         "flood_start_tick": state_dict.get("flood_start_tick"),
         "recovery_start_tick": state_dict.get("recovery_start_tick"),
         "displaced": shelter_occupancy,
+        "score_so_far": score_so_far,
+        "residents_at_risk": sum(
+            z.get("population_remaining", 0) for z in zones.values()
+            if z.get("water_depth_cm", 0) > 0 or z.get("elevation_cm", 0) < max(state_dict.get("forecast_cm") or [0])
+        ),
+        "lost_total": sum(z.get("lost", 0) for z in zones.values()) + int(mstate.get("fishers_stranded", 0)),
+        "warnings_delivered": sum(1 for z in zones.values() if z.get("warning_level", 0) > 0),
+        "difficulty": state_dict.get("difficulty", "standard"),
+        "mechanic": {
+            "type": mech.get("type", "none"),
+            "boats_at_sea": int(mstate.get("boats_at_sea", 0)),
+            "fishers_stranded": int(mstate.get("fishers_stranded", 0)),
+            "recalled": bool(mstate.get("recalled", 0)),
+            "landfall_tick": mparams.get("landfall_tick"),
+            "release_tick": mparams.get("release_tick"),
+            "staggered": bool(mstate.get("staggered", 0)),
+            "drain_crews": int(mstate.get("drain_crews", 0)),
+            "power_down": bool(mstate.get("power_down", 0)),
+        },
+        "support": {
+            "available": int(state_dict.get("support_requests_left", 0)) > 0 and state_dict.get("support_eta_tick") is None,
+            "uses_left": int(state_dict.get("support_requests_left", 0)),
+            "eta_tick": state_dict.get("support_eta_tick"),
+            "delay_ticks": int(support.get("delay_ticks", 0)),
+            "boats": int(support.get("boats", 0)),
+            "vehicles": int(support.get("vehicles", 0)),
+            "sandbags": int(support.get("sandbags", 0)),
+            "supply_units": int(support.get("supply_units", 0)),
+        },
+        "sandbags": resources.get("sandbags", 0),
         "recovery": {
             "shelter_supplies": rec.get("shelter_supplies", 0),
             "supply_deliveries_left": rec.get("supply_deliveries_left", 0),
@@ -169,6 +216,7 @@ def build_state_summary(state_dict: Dict[str, Any], layout: Optional[Dict[str, A
             "power_on": rec.get("power_on", True),
             "health_centre_open": rec.get("health_centre_open", True),
             "community_trust": rec.get("community_trust", 0),
+            "water_contamination": rec.get("water_contamination", 0),
         },
         "water_level_cm": state_dict.get("water_level_cm"),
         "normal_level_cm": levels.get("normal_level_cm", 200),
@@ -432,6 +480,35 @@ class ZoneSummary(BaseModel):
     in_shelter: int = 0
     road_blocked: bool = False
     surveyed: bool = False
+    households: int = 0
+    damaged_houses: int = 0
+    drain_blocked: bool = False
+    underpass: bool = False
+    lost: int = 0
+    elevation_cm: int = 0
+
+
+class MechanicSummary(BaseModel):
+    type: str = "none"
+    boats_at_sea: int = 0
+    fishers_stranded: int = 0
+    recalled: bool = False
+    landfall_tick: Optional[int] = None
+    release_tick: Optional[int] = None
+    staggered: bool = False
+    drain_crews: int = 0
+    power_down: bool = False
+
+
+class SupportSummary(BaseModel):
+    available: bool = False
+    uses_left: int = 0
+    eta_tick: Optional[int] = None
+    delay_ticks: int = 0
+    boats: int = 0
+    vehicles: int = 0
+    sandbags: int = 0
+    supply_units: int = 0
 
 
 class RecoverySummary(BaseModel):
@@ -448,6 +525,7 @@ class RecoverySummary(BaseModel):
     power_on: bool
     health_centre_open: bool
     community_trust: int
+    water_contamination: int = 0
 
 
 class StateSummary(BaseModel):
@@ -457,6 +535,14 @@ class StateSummary(BaseModel):
     flood_start_tick: Optional[int] = None
     recovery_start_tick: Optional[int] = None
     displaced: int = 0
+    score_so_far: int = 0
+    residents_at_risk: int = 0
+    lost_total: int = 0
+    warnings_delivered: int = 0
+    difficulty: str = "standard"
+    mechanic: MechanicSummary = Field(default_factory=MechanicSummary)
+    support: SupportSummary = Field(default_factory=SupportSummary)
+    sandbags: int = 0
     recovery: Optional[RecoverySummary] = None
     water_level_cm: int
     normal_level_cm: int

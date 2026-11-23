@@ -1,5 +1,5 @@
 {
- "session_id": "f3fa570c-3dee-4a35-bfd9-350b4e60e9ae",
+ "session_id": "327bdbbf-5fa6-45b6-be7b-eed8d223a162",
  "score": {
   "total_score": 97,
   "residents_safe_score": 30,
@@ -49,7 +49,7 @@
  },
  "final_state": {
   "scenario_id": "village-river-01",
-  "scenario_version": "2.0.0",
+  "scenario_version": "2.1.0",
   "tick": 30,
   "max_ticks": 30,
   "water_level_cm": 110,
@@ -108,7 +108,11 @@
     "max_depth_cm": 255,
     "returned": 120,
     "road_blocked": false,
-    "surveyed": true
+    "surveyed": true,
+    "households": 24,
+    "damaged_houses": 24,
+    "drain_blocked": false,
+    "underpass": false
    },
    "ward-2": {
     "id": "ward-2",
@@ -132,7 +136,11 @@
     "max_depth_cm": 115,
     "returned": 180,
     "road_blocked": false,
-    "surveyed": true
+    "surveyed": true,
+    "households": 36,
+    "damaged_houses": 13,
+    "drain_blocked": false,
+    "underpass": false
    },
    "ward-3": {
     "id": "ward-3",
@@ -156,7 +164,11 @@
     "max_depth_cm": 0,
     "returned": 20,
     "road_blocked": false,
-    "surveyed": false
+    "surveyed": false,
+    "households": 20,
+    "damaged_houses": 0,
+    "drain_blocked": false,
+    "underpass": false
    }
   },
   "shelters": {
@@ -252,7 +264,8 @@
    "illness_treated": 0,
    "power_on": true,
    "health_centre_open": true,
-   "community_trust": 100
+   "community_trust": 100,
+   "water_contamination": 0
   },
   "recovery_config": {
    "enabled": true,
@@ -284,7 +297,33 @@
    "trust_breach_penalty": 10,
    "trust_supplies_ran_out_penalty": 10,
    "road_debris_depth_cm": 30
-  }
+  },
+  "difficulty": "standard",
+  "npc_ids": [
+   "village_head",
+   "rescue_worker",
+   "family_member",
+   "health_worker",
+   "district_official"
+  ],
+  "contained_safe_elevation_cm": 350,
+  "embankment_max_cm": 470,
+  "foot_evacuation_per_tick": 12,
+  "support": {
+   "uses": 1,
+   "delay_ticks": 4,
+   "boats": 1,
+   "vehicles": 2,
+   "sandbags": 200,
+   "supply_units": 40
+  },
+  "support_requests_left": 1,
+  "support_eta_tick": null,
+  "mechanic": {
+   "type": "none",
+   "params": {}
+  },
+  "mechanic_state": {}
  },
  "events": [
   {
@@ -552,6 +591,21 @@
    "event_type": "vulnerable_evacuated"
   },
   {
+   "type": "resource_depleted",
+   "tick": 5,
+   "zone": null,
+   "target": "boats",
+   "caused_by": "All units committed or used",
+   "description": "No boats are left in reserve.",
+   "details": {
+    "zone": null,
+    "target": "boats",
+    "resource": "boats",
+    "phase": "flood"
+   },
+   "event_type": "resource_depleted"
+  },
+  {
    "type": "transport_assigned",
    "tick": 6,
    "zone": "ward-2",
@@ -789,6 +843,21 @@
     "phase": "flood"
    },
    "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "resource_depleted",
+   "tick": 8,
+   "zone": null,
+   "target": "sandbags",
+   "caused_by": "All units committed or used",
+   "description": "No sandbags are left in reserve.",
+   "details": {
+    "zone": null,
+    "target": "sandbags",
+    "resource": "sandbags",
+    "phase": "flood"
+   },
+   "event_type": "resource_depleted"
   },
   {
    "type": "evacuation_ordered",
@@ -1361,11 +1430,13 @@
    "zone": "ward-2",
    "target": "ward-2",
    "caused_by": "Action damage_survey",
-   "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm.",
+   "description": "Engineers surveyed Ward 2 (Market Settlement): 13 of 36 houses damaged; the water had reached 115 cm.",
    "details": {
     "zone": "ward-2",
     "target": "ward-2",
     "max_depth_cm": 115,
+    "damaged_houses": 13,
+    "households": 36,
     "phase": "recovery"
    },
    "event_type": "damage_surveyed"
@@ -1560,11 +1631,13 @@
    "zone": "ward-1",
    "target": "ward-1",
    "caused_by": "Action damage_survey",
-   "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm.",
+   "description": "Engineers surveyed Ward 1 (Lowland Riverside): 24 of 24 houses damaged; the water had reached 255 cm.",
    "details": {
     "zone": "ward-1",
     "target": "ward-1",
     "max_depth_cm": 255,
+    "damaged_houses": 24,
+    "households": 24,
     "phase": "recovery"
    },
    "event_type": "damage_surveyed"
@@ -1846,6 +1919,12 @@
      "description": "Access road to Ward 1 (Lowland Riverside) submerged beneath 50 cm of water. Wheeled transport blocked."
     },
     {
+     "tick": 5,
+     "type": "resource_depleted",
+     "zone": null,
+     "description": "No boats are left in reserve."
+    },
+    {
      "tick": 6,
      "type": "transport_assigned",
      "zone": "ward-2",
@@ -1864,6 +1943,12 @@
      "description": "Crews laid 200 sandbags. Embankment height raised to 470 cm (integrity 100%)."
     },
     {
+     "tick": 8,
+     "type": "resource_depleted",
+     "zone": null,
+     "description": "No sandbags are left in reserve."
+    },
+    {
      "tick": 9,
      "type": "evacuation_ordered",
      "zone": "ward-2",
@@ -1880,18 +1965,6 @@
      "type": "evacuation_ordered",
      "zone": "ward-3",
      "description": "Mandatory evacuation ordered for Ward 3 (Highland Ridge)."
-    },
-    {
-     "tick": 12,
-     "type": "supplies_distributed",
-     "zone": null,
-     "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units."
-    },
-    {
-     "tick": 12,
-     "type": "embankment_overflow",
-     "zone": null,
-     "description": "Floodwaters overtopped embankment crest by 5 cm! Integrity down to 85%."
     }
    ],
    "score_components": {
@@ -1932,7 +2005,7 @@
      "tick": 20,
      "type": "damage_surveyed",
      "zone": "ward-2",
-     "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm."
+     "description": "Engineers surveyed Ward 2 (Market Settlement): 13 of 36 houses damaged; the water had reached 115 cm."
     },
     {
      "tick": 21,
@@ -1980,7 +2053,7 @@
      "tick": 25,
      "type": "damage_surveyed",
      "zone": "ward-1",
-     "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm."
+     "description": "Engineers surveyed Ward 1 (Lowland Riverside): 24 of 24 houses damaged; the water had reached 255 cm."
     }
    ],
    "score_components": {
@@ -2008,7 +2081,11 @@
     "zone": "ward-1",
     "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety."
    },
-   "explanation": "With the shelter open, evacuees had a safe place to go."
+   "explanation": "With the shelter open, evacuees had a safe place to go.",
+   "rule_card_ids": [
+    "RC-01",
+    "RC-05"
+   ]
   },
   {
    "phase": "before",
@@ -2024,7 +2101,10 @@
     "zone": "ward-1",
     "description": "Evacuated 12 residents from Ward 1 (Lowland Riverside) to safety."
    },
-   "explanation": "The early warning made residents more willing to leave when transport arrived."
+   "explanation": "The early warning made residents more willing to leave when transport arrived.",
+   "rule_card_ids": [
+    "RC-01"
+   ]
   },
   {
    "phase": "flood",
@@ -2040,7 +2120,11 @@
     "zone": "ward-1",
     "description": "Evacuated 30 residents from Ward 1 (Lowland Riverside) to safety."
    },
-   "explanation": "Assigned boats and trucks moved people out of this ward."
+   "explanation": "Assigned boats and trucks moved people out of this ward.",
+   "rule_card_ids": [
+    "RC-01",
+    "RC-03"
+   ]
   },
   {
    "phase": "flood",
@@ -2056,7 +2140,10 @@
     "zone": null,
     "description": "Wheeled vehicles could no longer reach ward-1; only boats could."
    },
-   "explanation": "Flood depth above the road cut-off blocks trucks."
+   "explanation": "Flood depth above the road cut-off blocks trucks.",
+   "rule_card_ids": [
+    "RC-03"
+   ]
   },
   {
    "phase": "flood",
@@ -2072,7 +2159,11 @@
     "zone": "ward-2",
     "description": "Evacuated 40 residents from Ward 2 (Market Settlement) to safety."
    },
-   "explanation": "Assigned boats and trucks moved people out of this ward."
+   "explanation": "Assigned boats and trucks moved people out of this ward.",
+   "rule_card_ids": [
+    "RC-01",
+    "RC-03"
+   ]
   },
   {
    "phase": "flood",
@@ -2088,7 +2179,10 @@
     "zone": null,
     "description": "The embankment held (integrity 85%)."
    },
-   "explanation": "Sandbags laid before the peak raised the bund and kept it from collapsing."
+   "explanation": "Sandbags laid before the peak raised the bund and kept it from collapsing.",
+   "rule_card_ids": [
+    "RC-04"
+   ]
   },
   {
    "phase": "flood",
@@ -2104,7 +2198,10 @@
     "zone": null,
     "description": "A relief delivery of 40 supply units reached the shelter. Stock is now 41 units."
    },
-   "explanation": "A delivery after the low-stock warning kept the shelter supplied."
+   "explanation": "A delivery after the low-stock warning kept the shelter supplied.",
+   "rule_card_ids": [
+    "RC-09"
+   ]
   },
   {
    "phase": "flood",
@@ -2120,7 +2217,10 @@
     "zone": null,
     "description": "Wheeled vehicles could no longer reach ward-2; only boats could."
    },
-   "explanation": "Flood depth above the road cut-off blocks trucks."
+   "explanation": "Flood depth above the road cut-off blocks trucks.",
+   "rule_card_ids": [
+    "RC-03"
+   ]
   },
   {
    "phase": "recovery",
@@ -2136,7 +2236,8 @@
     "zone": null,
     "description": "The river fell to 370 cm after the peak. The recovery phase has begun; power is out and roads are blocked by debris."
    },
-   "explanation": "Standing floodwater set the starting disease risk to 40 out of 100."
+   "explanation": "Standing floodwater set the starting disease risk to 40 out of 100.",
+   "rule_card_ids": []
   },
   {
    "phase": "recovery",
@@ -2152,7 +2253,10 @@
     "zone": null,
     "description": "Disease risk stayed below the high mark (peak 40)."
    },
-   "explanation": "Providing clean water early kept illness from spreading."
+   "explanation": "Providing clean water early kept illness from spreading.",
+   "rule_card_ids": [
+    "RC-06"
+   ]
   },
   {
    "phase": "recovery",
@@ -2168,7 +2272,10 @@
     "zone": null,
     "description": "No new illness was reported while the camp was running."
    },
-   "explanation": "Health checks at the camp stopped illness from taking hold."
+   "explanation": "Health checks at the camp stopped illness from taking hold.",
+   "rule_card_ids": [
+    "RC-07"
+   ]
   },
   {
    "phase": "recovery",
@@ -2176,7 +2283,7 @@
     "tick": 20,
     "type": "damage_surveyed",
     "zone": "ward-2",
-    "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm."
+    "description": "Engineers surveyed Ward 2 (Market Settlement): 13 of 36 houses damaged; the water had reached 115 cm."
    },
    "effect": {
     "tick": 23,
@@ -2184,7 +2291,10 @@
     "zone": "ward-2",
     "description": "100 residents of Ward 2 (Market Settlement) returned home from the shelter."
    },
-   "explanation": "Houses were checked before families moved back."
+   "explanation": "Houses were checked before families moved back.",
+   "rule_card_ids": [
+    "RC-08"
+   ]
   },
   {
    "phase": "recovery",
@@ -2200,7 +2310,10 @@
     "zone": null,
     "description": "Repair crews restored electricity from the substation."
    },
-   "explanation": "A cleared road let repair crews reach the substation."
+   "explanation": "A cleared road let repair crews reach the substation.",
+   "rule_card_ids": [
+    "RC-10"
+   ]
   },
   {
    "phase": "recovery",
@@ -2216,7 +2329,10 @@
     "zone": null,
     "description": "With power back, the village health centre reopened."
    },
-   "explanation": "Electricity let the health centre reopen."
+   "explanation": "Electricity let the health centre reopen.",
+   "rule_card_ids": [
+    "RC-10"
+   ]
   },
   {
    "phase": "recovery",
@@ -2224,7 +2340,7 @@
     "tick": 25,
     "type": "damage_surveyed",
     "zone": "ward-1",
-    "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm."
+    "description": "Engineers surveyed Ward 1 (Lowland Riverside): 24 of 24 houses damaged; the water had reached 255 cm."
    },
    "effect": {
     "tick": 26,
@@ -2232,7 +2348,10 @@
     "zone": "ward-1",
     "description": "100 residents of Ward 1 (Lowland Riverside) returned home from the shelter."
    },
-   "explanation": "Houses were checked before families moved back."
+   "explanation": "Houses were checked before families moved back.",
+   "rule_card_ids": [
+    "RC-08"
+   ]
   },
   {
    "phase": "recovery",
@@ -2248,8 +2367,154 @@
     "zone": null,
     "description": "Community trust fell and disease risk rose while the shelter had no supplies."
    },
-   "explanation": "Empty shelter stocks harm health and trust."
+   "explanation": "Empty shelter stocks harm health and trust.",
+   "rule_card_ids": [
+    "RC-09"
+   ]
   }
  ],
+ "rule_cards": [
+  {
+   "id": "RC-01",
+   "title": "Early Public Warning Protocol",
+   "category": "Alerts",
+   "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+   "keywords": [
+    "warning",
+    "alert",
+    "broadcast",
+    "early",
+    "evacuation"
+   ],
+   "source_reference": "General Community Disaster Preparedness Practice"
+  },
+  {
+   "id": "RC-05",
+   "title": "Safe Shelter Operations",
+   "category": "Shelter",
+   "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+   "keywords": [
+    "shelter",
+    "school",
+    "intake",
+    "capacity",
+    "elevated",
+    "open"
+   ],
+   "source_reference": "Emergency Shelter Management Protocols"
+  },
+  {
+   "id": "RC-03",
+   "title": "Vehicle Safety in Floodwaters",
+   "category": "Logistics",
+   "guidance": "Do not dispatch standard wheeled motor vehicles through roads with moving floodwaters deeper than knee level. Use boats or high-clearance specialized equipment when roads submerge.",
+   "keywords": [
+    "vehicle",
+    "truck",
+    "boat",
+    "water depth",
+    "road",
+    "transport"
+   ],
+   "source_reference": "Transport and Road Safety Flooding Guidelines"
+  },
+  {
+   "id": "RC-04",
+   "title": "Embankment Sandbagging Best Practices",
+   "category": "Infrastructure",
+   "guidance": "Deploy sandbag barriers along low-lying bunds prior to the flood peak. Reinforcing bunds early slows down localized breaches and buys crucial hours for evacuation.",
+   "keywords": [
+    "embankment",
+    "sandbags",
+    "reinforce",
+    "breach",
+    "bund",
+    "dike"
+   ],
+   "source_reference": "Community Flood Mitigation Handbook"
+  },
+  {
+   "id": "RC-09",
+   "title": "Keeping Shelters Supplied",
+   "category": "Recovery",
+   "guidance": "Plan relief deliveries before shelter stocks run out. Shortages of food and essentials harm health and erode community trust in the response.",
+   "keywords": [
+    "supplies",
+    "relief",
+    "food",
+    "ration",
+    "shelter",
+    "distribute"
+   ],
+   "source_reference": "Emergency Shelter Management Protocols"
+  },
+  {
+   "id": "RC-06",
+   "title": "Safe Drinking Water After Floods",
+   "category": "Recovery",
+   "guidance": "Floodwater contaminates wells and pipes. Setting up a supervised water purification point early in the recovery lowers the risk of waterborne illness for sheltered and returning families.",
+   "keywords": [
+    "clean water",
+    "drinking water",
+    "purification",
+    "disease",
+    "waterborne",
+    "well"
+   ],
+   "source_reference": "General Community Disaster Preparedness Practice"
+  },
+  {
+   "id": "RC-07",
+   "title": "Health Monitoring and Medical Camps",
+   "category": "Recovery",
+   "guidance": "Crowded shelters and standing water raise the chance of stomach and skin illness. A medical camp near the shelter helps detect and treat cases early, before they spread.",
+   "keywords": [
+    "medical",
+    "camp",
+    "illness",
+    "health",
+    "doctor",
+    "disease"
+   ],
+   "source_reference": "Community Health in Emergencies Practice"
+  },
+  {
+   "id": "RC-08",
+   "title": "Return Home Only After Inspection",
+   "category": "Recovery",
+   "guidance": "Residents should return only when their area is dry, the access road is open and houses have been checked for structural and electrical damage by the authorities.",
+   "keywords": [
+    "return",
+    "home",
+    "survey",
+    "inspection",
+    "damage",
+    "residents"
+   ],
+   "source_reference": "Post-Disaster Damage Assessment Practice"
+  },
+  {
+   "id": "RC-10",
+   "title": "Clearing Access and Restoring Services",
+   "category": "Recovery",
+   "guidance": "Clear debris from access roads first so repair crews can reach substations and health facilities. Restoring power lets clinics and water pumps run again.",
+   "keywords": [
+    "roads",
+    "debris",
+    "power",
+    "electricity",
+    "substation",
+    "clear",
+    "rescue",
+    "search",
+    "stranded"
+   ],
+   "source_reference": "Infrastructure Recovery Practice"
+  }
+ ],
+ "scenario_id": "village-river-01",
+ "seed": 2026,
+ "difficulty": "standard",
+ "language": "en",
  "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions about evacuation, safety or health."
 }

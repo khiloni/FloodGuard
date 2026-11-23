@@ -1,0 +1,86 @@
+{
+ "options": [
+  {
+   "action": {
+    "name": "provide_clean_water",
+    "params": {}
+   },
+   "tradeoff": "Disease risk is 50 out of 100 and rises each tick without clean water.",
+   "priority": 95,
+   "rule_card": {
+    "id": "RC-06",
+    "title": "Safe Drinking Water After Floods",
+    "category": "Recovery",
+    "guidance": "Floodwater contaminates wells and pipes. Setting up a supervised water purification point early in the recovery lowers the risk of waterborne illness for sheltered and returning families.",
+    "keywords": [
+     "clean water",
+     "drinking water",
+     "purification",
+     "disease",
+     "waterborne",
+     "well"
+    ],
+    "source_reference": "General Community Disaster Preparedness Practice"
+   }
+  },
+  {
+   "action": {
+    "name": "run_medical_camp",
+    "params": {}
+   },
+   "tradeoff": "0 people are ill now; the camp also slows the spread of disease.",
+   "priority": 85,
+   "rule_card": {
+    "id": "RC-07",
+    "title": "Health Monitoring and Medical Camps",
+    "category": "Recovery",
+    "guidance": "Crowded shelters and standing water raise the chance of stomach and skin illness. A medical camp near the shelter helps detect and treat cases early, before they spread.",
+    "keywords": [
+     "medical",
+     "camp",
+     "illness",
+     "health",
+     "doctor",
+     "disease"
+    ],
+    "source_reference": "Community Health in Emergencies Practice"
+   }
+  },
+  {
+   "action": {
+    "name": "clear_roads",
+    "params": {
+     "zone": "ward-2"
+    }
+   },
+   "tradeoff": "Opens Ward 2 (Market Settlement) for repair crews and for residents going home.",
+   "priority": 72,
+   "rule_card": {
+    "id": "RC-10",
+    "title": "Clearing Access and Restoring Services",
+    "category": "Recovery",
+    "guidance": "Clear debris from access roads first so repair crews can reach substations and health facilities. Restoring power lets clinics and water pumps run again.",
+    "keywords": [
+     "roads",
+     "debris",
+     "power",
+     "electricity",
+     "substation",
+     "clear",
+     "rescue",
+     "search",
+     "stranded"
+    ],
+    "source_reference": "Infrastructure Recovery Practice"
+   }
+  }
+ ],
+ "source": "template",
+ "guardrail": {
+  "status": "disabled",
+  "retries": 0,
+  "fallback_reason": null
+ },
+ "llm_mode": "template",
+ "note": "Suggestions only. Nothing happens until you choose an order and confirm it."
+}

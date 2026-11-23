@@ -1,0 +1,4777 @@
+{
+ "session": {
+  "session_id": "78ad0dfb-ab40-406d-b1ec-39d659c84332",
+  "seed": 5,
+  "state": {
+   "scenario_id": "dam-release-01",
+   "scenario_version": "1.0.0",
+   "tick": 0,
+   "max_ticks": 30,
+   "water_level_cm": 180,
+   "forecast_cm": [
+    180,
+    190,
+    200,
+    215,
+    230,
+    245,
+    260,
+    275,
+    285,
+    295,
+    300,
+    295,
+    285,
+    270,
+    255,
+    240,
+    225,
+    210,
+    200,
+    190,
+    185,
+    180,
+    175,
+    170,
+    165,
+    160,
+    158,
+    156,
+    154,
+    152
+   ],
+   "zones": {
+    "ghat-village": {
+     "id": "ghat-village",
+     "name": "Ghat Village",
+     "elevation_cm": 260,
+     "initial_population": 150,
+     "population_remaining": 150,
+     "initial_vulnerable": 35,
+     "vulnerable_remaining": 35,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "temple-hamlet": {
+     "id": "temple-hamlet",
+     "name": "Temple Hamlet",
+     "elevation_cm": 340,
+     "initial_population": 130,
+     "population_remaining": 130,
+     "initial_vulnerable": 25,
+     "vulnerable_remaining": 25,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 26,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "upper-farms": {
+     "id": "upper-farms",
+     "name": "Upper Farms",
+     "elevation_cm": 440,
+     "initial_population": 90,
+     "population_remaining": 90,
+     "initial_vulnerable": 15,
+     "vulnerable_remaining": 15,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 18,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    }
+   },
+   "shelters": {
+    "hilltop-school": {
+     "id": "hilltop-school",
+     "name": "Hilltop School",
+     "elevation_cm": 520,
+     "capacity": 320,
+     "current_occupancy": 0,
+     "is_open": false
+    }
+   },
+   "resources": {
+    "total_boats": 3,
+    "available_boats": 3,
+    "boat_capacity": 12,
+    "total_vehicles": 2,
+    "available_vehicles": 2,
+    "vehicle_capacity": 20,
+    "sandbags": 400
+   },
+   "embankment": {
+    "height_cm": 400,
+    "integrity": 100,
+    "breached": false,
+    "reinforced_count": 0
+   },
+   "first_warning_tick": null,
+   "first_evacuation_tick": null,
+   "is_finished": false,
+   "score": null,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "recovery": {
+    "shelter_supplies": 30,
+    "supply_deliveries_left": 3,
+    "supply_shortfall_ticks": 0,
+    "supplies_low_warned": false,
+    "clean_water_kits": 1,
+    "clean_water_active": false,
+    "medical_teams": 1,
+    "medical_camp_active": false,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_treated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 60,
+    "water_contamination": 0
+   },
+   "recovery_config": {
+    "enabled": true,
+    "flood_starts_at_cm": 280,
+    "recovery_below_cm": 360,
+    "shelter_supplies_initial": 30,
+    "people_per_supply_unit": 60,
+    "supply_deliveries": 3,
+    "units_per_delivery": 40,
+    "supplies_low_threshold": 10,
+    "clean_water_kits": 1,
+    "medical_teams": 1,
+    "return_batch_per_turn": 100,
+    "treat_per_tick": 6,
+    "disease_base": 20,
+    "disease_per_flooded_zone": 10,
+    "disease_breach_bonus": 10,
+    "disease_rise_per_tick": 5,
+    "disease_crowding_pct": 90,
+    "disease_crowding_rise": 3,
+    "disease_no_supplies_rise": 4,
+    "disease_clean_water_drop": 8,
+    "disease_medical_camp_drop": 6,
+    "disease_high_threshold": 60,
+    "trust_initial": 60,
+    "trust_early_warning_bonus": 10,
+    "trust_early_warning_by_tick": 6,
+    "trust_losses_penalty": 10,
+    "trust_breach_penalty": 10,
+    "trust_supplies_ran_out_penalty": 10,
+    "road_debris_depth_cm": 30
+   },
+   "difficulty": "standard",
+   "npc_ids": [
+    "village_head",
+    "rescue_worker",
+    "family_member",
+    "health_worker",
+    "district_official"
+   ],
+   "contained_safe_elevation_cm": 400,
+   "embankment_max_cm": 470,
+   "foot_evacuation_per_tick": 12,
+   "support": {
+    "uses": 1,
+    "delay_ticks": 5,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 300,
+    "supply_units": 40
+   },
+   "support_requests_left": 1,
+   "support_eta_tick": null,
+   "mechanic": {
+    "type": "dam_release",
+    "params": {
+     "release_tick": 9,
+     "release_ticks": 4,
+     "release_cm": 160,
+     "notice_ticks": 3,
+     "staggered_pct": 55
+    }
+   },
+   "mechanic_state": {}
+  },
+  "layout": {
+   "canvas": {
+    "width": 1000,
+    "height": 600
+   },
+   "levels": {
+    "normal_level_cm": 180,
+    "warning_level_cm": 280,
+    "danger_level_cm": 360,
+    "crest_level_cm": 460
+   },
+   "river": {
+    "name": "Kalindi River",
+    "flow_direction": "left-to-right",
+    "center_path": [
+     [
+      0,
+      470
+     ],
+     [
+      170,
+      480
+     ],
+     [
+      340,
+      465
+     ],
+     [
+      520,
+      490
+     ],
+     [
+      700,
+      470
+     ],
+     [
+      860,
+      488
+     ],
+     [
+      1000,
+      476
+     ]
+    ],
+    "north_bank": [
+     [
+      0,
+      430
+     ],
+     [
+      170,
+      440
+     ],
+     [
+      340,
+      425
+     ],
+     [
+      520,
+      450
+     ],
+     [
+      700,
+      430
+     ],
+     [
+      860,
+      448
+     ],
+     [
+      1000,
+      436
+     ]
+    ],
+    "south_bank": [
+     [
+      0,
+      520
+     ],
+     [
+      170,
+      530
+     ],
+     [
+      340,
+      515
+     ],
+     [
+      520,
+      540
+     ],
+     [
+      700,
+      520
+     ],
+     [
+      860,
+      538
+     ],
+     [
+      1000,
+      526
+     ]
+    ]
+   },
+   "embankment": {
+    "name": "River bund",
+    "crest_height_cm": 400,
+    "segments": [
+     {
+      "id": "bund-west",
+      "start": [
+       110,
+       437
+      ],
+      "end": [
+       340,
+       425
+      ],
+      "label": "West bund"
+     },
+     {
+      "id": "bund-central",
+      "start": [
+       340,
+       425
+      ],
+      "end": [
+       560,
+       445
+      ],
+      "label": "Central bund"
+     },
+     {
+      "id": "bund-east",
+      "start": [
+       560,
+       445
+      ],
+      "end": [
+       800,
+       438
+      ],
+      "label": "East bund"
+     }
+    ]
+   },
+   "zones": [
+    {
+     "id": "ghat-village",
+     "name": "Ghat Village",
+     "x": 140,
+     "y": 300,
+     "width": 190,
+     "height": 105,
+     "elevation_cm": 260,
+     "house_points": [
+      [
+       155,
+       320
+      ],
+      [
+       195,
+       335
+      ],
+      [
+       240,
+       315
+      ],
+      [
+       285,
+       330
+      ],
+      [
+       175,
+       375
+      ],
+      [
+       245,
+       372
+      ]
+     ]
+    },
+    {
+     "id": "temple-hamlet",
+     "name": "Temple Hamlet",
+     "x": 440,
+     "y": 220,
+     "width": 180,
+     "height": 105,
+     "elevation_cm": 340,
+     "house_points": [
+      [
+       455,
+       238
+      ],
+      [
+       495,
+       255
+      ],
+      [
+       540,
+       235
+      ],
+      [
+       585,
+       250
+      ],
+      [
+       480,
+       290
+      ],
+      [
+       560,
+       288
+      ]
+     ]
+    },
+    {
+     "id": "upper-farms",
+     "name": "Upper Farms",
+     "x": 730,
+     "y": 130,
+     "width": 170,
+     "height": 100,
+     "elevation_cm": 440,
+     "house_points": [
+      [
+       745,
+       148
+      ],
+      [
+       785,
+       165
+      ],
+      [
+       830,
+       142
+      ],
+      [
+       870,
+       160
+      ],
+      [
+       770,
+       200
+      ],
+      [
+       850,
+       198
+      ]
+     ]
+    }
+   ],
+   "shelters": [
+    {
+     "id": "hilltop-school",
+     "name": "Hilltop School",
+     "x": 860,
+     "y": 40,
+     "width": 115,
+     "height": 75,
+     "elevation_cm": 520
+    }
+   ],
+   "routes": [
+    {
+     "zone_id": "ghat-village",
+     "shelter_id": "hilltop-school",
+     "transport_modes": [
+      "boat",
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       235,
+       330
+      ],
+      [
+       340,
+       270
+      ],
+      [
+       450,
+       220
+      ],
+      [
+       620,
+       170
+      ],
+      [
+       760,
+       120
+      ],
+      [
+       870,
+       75
+      ]
+     ]
+    },
+    {
+     "zone_id": "temple-hamlet",
+     "shelter_id": "hilltop-school",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       530,
+       240
+      ],
+      [
+       640,
+       180
+      ],
+      [
+       760,
+       125
+      ],
+      [
+       870,
+       75
+      ]
+     ]
+    },
+    {
+     "zone_id": "upper-farms",
+     "shelter_id": "hilltop-school",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 40,
+     "waypoints": [
+      [
+       815,
+       145
+      ],
+      [
+       845,
+       105
+      ],
+      [
+       870,
+       75
+      ]
+     ]
+    }
+   ],
+   "decor": {
+    "trees": [
+     [
+      80,
+      250
+     ],
+     [
+      130,
+      200
+     ],
+     [
+      380,
+      170
+     ],
+     [
+      420,
+      140
+     ],
+     [
+      680,
+      260
+     ],
+     [
+      690,
+      80
+     ],
+     [
+      940,
+      200
+     ],
+     [
+      40,
+      120
+     ]
+    ],
+    "jetty": {
+     "x": 120,
+     "y": 450,
+     "label": "Ghat boats"
+    },
+    "bridges": [
+     {
+      "x": 360,
+      "y": 430,
+      "label": "Low bridge"
+     }
+    ],
+    "hills": [
+     [
+      700,
+      40
+     ],
+     [
+      820,
+      20
+     ],
+     [
+      950,
+      30
+     ],
+     [
+      60,
+      40
+     ]
+    ],
+    "dam": {
+     "x": 40,
+     "y": 470,
+     "label": "Kalindi Dam"
+    }
+   },
+   "recovery_sites": {
+    "water_point": {
+     "x": 640,
+     "y": 100,
+     "label": "Water purification point"
+    },
+    "medical_camp": {
+     "x": 760,
+     "y": 50,
+     "label": "Medical camp"
+    },
+    "substation": {
+     "x": 360,
+     "y": 100,
+     "label": "Power substation"
+    },
+    "health_centre": {
+     "x": 580,
+     "y": 60,
+     "label": "Primary health centre"
+    },
+    "supply_depot": {
+     "x": 960,
+     "y": 260,
+     "label": "Relief depot"
+    }
+   },
+   "water_body": "river"
+  },
+  "summary": {
+   "tick": 0,
+   "max_ticks": 30,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "displaced": 0,
+   "score_so_far": 8,
+   "residents_at_risk": 150,
+   "lost_total": 0,
+   "warnings_delivered": 0,
+   "difficulty": "standard",
+   "mechanic": {
+    "type": "dam_release",
+    "boats_at_sea": 0,
+    "fishers_stranded": 0,
+    "recalled": false,
+    "landfall_tick": null,
+    "release_tick": 9,
+    "staggered": false,
+    "drain_crews": 0,
+    "power_down": false
+   },
+   "support": {
+    "available": true,
+    "uses_left": 1,
+    "eta_tick": null,
+    "delay_ticks": 5,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 300,
+    "supply_units": 40
+   },
+   "sandbags": 400,
+   "recovery": {
+    "shelter_supplies": 30,
+    "supply_deliveries_left": 3,
+    "clean_water_active": false,
+    "clean_water_kits": 1,
+    "medical_camp_active": false,
+    "medical_teams": 1,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_untreated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 60,
+    "water_contamination": 0
+   },
+   "water_level_cm": 180,
+   "normal_level_cm": 180,
+   "warning_level_cm": 280,
+   "danger_level_cm": 360,
+   "crest_level_cm": 460,
+   "embankment_integrity": 100,
+   "embankment_height_cm": 400,
+   "embankment_breached": false,
+   "shelter": {
+    "occupancy": 0,
+    "capacity": 320,
+    "is_open": false
+   },
+   "transport": {
+    "boats_total": 3,
+    "boats_available": 3,
+    "boats_in_use": 0,
+    "vehicles_total": 2,
+    "vehicles_available": 2,
+    "vehicles_in_use": 0
+   },
+   "zones": {
+    "ghat-village": {
+     "name": "Ghat Village",
+     "population_remaining": 150,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 35,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 260
+    },
+    "temple-hamlet": {
+     "name": "Temple Hamlet",
+     "population_remaining": 130,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 25,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 26,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 340
+    },
+    "upper-farms": {
+     "name": "Upper Farms",
+     "population_remaining": 90,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 15,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 18,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 440
+    }
+   }
+  },
+  "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions about evacuation, safety or health."
+ },
+ "script": [
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "hilltop-school"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "hilltop-school"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 1,
+     "max_ticks": 30,
+     "water_level_cm": 180,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 0,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 1,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 11,
+     "residents_at_risk": 150,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 180,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "shelter_opened",
+      "tick": 1,
+      "zone": null,
+      "target": "hilltop-school",
+      "caused_by": "Action open_shelter",
+      "description": "Shelter 'Hilltop School' officially opened with intake capacity of 320.",
+      "details": {
+       "zone": null,
+       "target": "hilltop-school",
+       "shelter_id": "hilltop-school",
+       "capacity": 320,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 1,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 180 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 180,
+       "tick": 1,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Relief infrastructure online: Shelter 'Hilltop School' officially opened with intake capacity of 320. Hydrology monitor: the river is at 180 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-05",
+      "title": "Safe Shelter Operations",
+      "category": "Shelter",
+      "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+      "keywords": [
+       "shelter",
+       "school",
+       "intake",
+       "capacity",
+       "elevated",
+       "open"
+      ],
+      "source_reference": "Emergency Shelter Management Protocols"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "request_staggered_release",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "request_staggered_release",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 2,
+     "max_ticks": 30,
+     "water_level_cm": 190,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 0,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": null,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 2,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 11,
+     "residents_at_risk": 150,
+     "lost_total": 0,
+     "warnings_delivered": 0,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 190,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 0,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "release_staggered",
+      "tick": 2,
+      "zone": null,
+      "target": "dam",
+      "caused_by": "Action request_staggered_release",
+      "description": "The dam authority agreed to release water more slowly over a longer period.",
+      "details": {
+       "zone": null,
+       "target": "dam",
+       "release_tick": 9,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 2,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 190 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 190,
+       "tick": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 190 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-12",
+      "title": "Dam Release Communication",
+      "category": "Alerts",
+      "guidance": "Downstream villages need advance notice before a dam release. Coordinate with the dam authority early; a slower, staggered release with clear warnings gives people time to move.",
+      "keywords": [
+       "dam",
+       "release",
+       "staggered",
+       "notice",
+       "downstream",
+       "authority",
+       "warning"
+      ],
+      "source_reference": "Dam Safety and Downstream Warning Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "issue_warning",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "issue_warning",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 3,
+     "max_ticks": 30,
+     "water_level_cm": 200,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 0,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 3,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 3,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 16,
+     "residents_at_risk": 150,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 30,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 200,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "warning_issued",
+      "tick": 3,
+      "zone": null,
+      "target": "all",
+      "caused_by": "Action issue_warning",
+      "description": "Public flood warning broadcast to all community zones.",
+      "details": {
+       "zone": null,
+       "target": "all",
+       "new_warning_level": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 3,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 200 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 200,
+       "tick": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Sirens and loudspeaker broadcasts echoed across the riverbank. Public flood warning broadcast to all community zones. Hydrology monitor: the river is at 200 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "ghat-village"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "ghat-village"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 4,
+     "max_ticks": 30,
+     "water_level_cm": 215,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 138,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 32,
+       "safe_evacuated": 12,
+       "vulnerable_saved": 3,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 12,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 3,
+     "first_evacuation_tick": 4,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 29,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 4,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 12,
+     "score_so_far": 25,
+     "residents_at_risk": 138,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 29,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 215,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 12,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 138,
+       "safe_evacuated": 12,
+       "in_transit": 0,
+       "vulnerable_remaining": 32,
+       "vulnerable_saved": 3,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 12,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "evacuation_ordered",
+      "tick": 4,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Action order_evacuation",
+      "description": "Mandatory evacuation ordered for Ghat Village.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 4,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 215 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 215,
+       "tick": 4,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 4,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Ghat Village to safety.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "evacuated": 12,
+       "vulnerable_included": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 4,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "3 vulnerable individuals from Ghat Village reached secure shelter.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "vulnerable_count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Civil authorities activated evacuation protocols: Mandatory evacuation ordered for Ghat Village. Hydrology monitor: the river is at 215 cm. Evacuation progress: Evacuated 12 residents from Ghat Village to safety. Priority evacuation: 3 vulnerable individuals from Ghat Village reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 5,
+     "max_ticks": 30,
+     "water_level_cm": 230,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 126,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 29,
+       "safe_evacuated": 24,
+       "vulnerable_saved": 6,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 24,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 3,
+     "first_evacuation_tick": 4,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 28,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 5,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 24,
+     "score_so_far": 27,
+     "residents_at_risk": 126,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 28,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 230,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 24,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 126,
+       "safe_evacuated": 24,
+       "in_transit": 0,
+       "vulnerable_remaining": 29,
+       "vulnerable_saved": 6,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 24,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 5,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 5,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 230 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 230,
+       "tick": 5,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 5,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Ghat Village to safety.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "evacuated": 12,
+       "vulnerable_included": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 5,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "3 vulnerable individuals from Ghat Village reached secure shelter.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "vulnerable_count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 230 cm. Evacuation progress: Evacuated 12 residents from Ghat Village to safety. Priority evacuation: 3 vulnerable individuals from Ghat Village reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 6,
+     "max_ticks": 30,
+     "water_level_cm": 245,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 114,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 26,
+       "safe_evacuated": 36,
+       "vulnerable_saved": 9,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 36,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 3,
+     "first_evacuation_tick": 4,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 27,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 6,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 36,
+     "score_so_far": 28,
+     "residents_at_risk": 114,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 27,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 245,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 36,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 114,
+       "safe_evacuated": 36,
+       "in_transit": 0,
+       "vulnerable_remaining": 26,
+       "vulnerable_saved": 9,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 36,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 6,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 6,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 245 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 245,
+       "tick": 6,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 6,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Ghat Village to safety.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "evacuated": 12,
+       "vulnerable_included": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 6,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "3 vulnerable individuals from Ghat Village reached secure shelter.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "vulnerable_count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "dam_release_notice",
+      "tick": 6,
+      "zone": null,
+      "target": "dam",
+      "caused_by": "Scheduled dam operation",
+      "description": "The dam authority announced a water release starting at tick 9.",
+      "details": {
+       "zone": null,
+       "target": "dam",
+       "release_tick": 9,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 245 cm. Evacuation progress: Evacuated 12 residents from Ghat Village to safety. Priority evacuation: 3 vulnerable individuals from Ghat Village reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 7,
+     "max_ticks": 30,
+     "water_level_cm": 260,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 102,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 23,
+       "safe_evacuated": 48,
+       "vulnerable_saved": 12,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 48,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 3,
+     "first_evacuation_tick": 4,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 26,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 7,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 48,
+     "score_so_far": 30,
+     "residents_at_risk": 102,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 26,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 260,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 48,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 102,
+       "safe_evacuated": 48,
+       "in_transit": 0,
+       "vulnerable_remaining": 23,
+       "vulnerable_saved": 12,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 48,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 7,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 7,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 260 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 260,
+       "tick": 7,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 7,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from Ghat Village to safety.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "evacuated": 12,
+       "vulnerable_included": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 7,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "3 vulnerable individuals from Ghat Village reached secure shelter.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "vulnerable_count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 260 cm. Evacuation progress: Evacuated 12 residents from Ghat Village to safety. Priority evacuation: 3 vulnerable individuals from Ghat Village reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "dam-release-01",
+     "scenario_version": "1.0.0",
+     "tick": 8,
+     "max_ticks": 30,
+     "water_level_cm": 275,
+     "forecast_cm": [
+      180,
+      190,
+      200,
+      215,
+      230,
+      245,
+      260,
+      275,
+      285,
+      295,
+      300,
+      295,
+      285,
+      270,
+      255,
+      240,
+      225,
+      210,
+      200,
+      190,
+      185,
+      180,
+      175,
+      170,
+      165,
+      160,
+      158,
+      156,
+      154,
+      152
+     ],
+     "zones": {
+      "ghat-village": {
+       "id": "ghat-village",
+       "name": "Ghat Village",
+       "elevation_cm": 260,
+       "initial_population": 150,
+       "population_remaining": 102,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 23,
+       "safe_evacuated": 48,
+       "vulnerable_saved": 12,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 15,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "temple-hamlet": {
+       "id": "temple-hamlet",
+       "name": "Temple Hamlet",
+       "elevation_cm": 340,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "upper-farms": {
+       "id": "upper-farms",
+       "name": "Upper Farms",
+       "elevation_cm": 440,
+       "initial_population": 90,
+       "population_remaining": 90,
+       "initial_vulnerable": 15,
+       "vulnerable_remaining": 15,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "hilltop-school": {
+       "id": "hilltop-school",
+       "name": "Hilltop School",
+       "elevation_cm": 520,
+       "capacity": 320,
+       "current_occupancy": 48,
+       "is_open": true
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 12,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 400
+     },
+     "embankment": {
+      "height_cm": 400,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 3,
+     "first_evacuation_tick": 4,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 8,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 280,
+      "recovery_below_cm": 360,
+      "shelter_supplies_initial": 30,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 20,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 6,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 400,
+     "embankment_max_cm": 470,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "dam_release",
+      "params": {
+       "release_tick": 9,
+       "release_ticks": 4,
+       "release_cm": 160,
+       "notice_ticks": 3,
+       "staggered_pct": 55
+      }
+     },
+     "mechanic_state": {
+      "staggered": 1
+     }
+    },
+    "summary": {
+     "tick": 8,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 8,
+     "recovery_start_tick": null,
+     "displaced": 48,
+     "score_so_far": 30,
+     "residents_at_risk": 102,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "dam_release",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": 9,
+      "staggered": true,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 5,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 300,
+      "supply_units": 40
+     },
+     "sandbags": 400,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 275,
+     "normal_level_cm": 180,
+     "warning_level_cm": 280,
+     "danger_level_cm": 360,
+     "crest_level_cm": 460,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 400,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 48,
+      "capacity": 320,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "ghat-village": {
+       "name": "Ghat Village",
+       "population_remaining": 102,
+       "safe_evacuated": 48,
+       "in_transit": 0,
+       "vulnerable_remaining": 23,
+       "vulnerable_saved": 12,
+       "water_depth_cm": 15,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "in_shelter": 48,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 260
+      },
+      "temple-hamlet": {
+       "name": "Temple Hamlet",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 340
+      },
+      "upper-farms": {
+       "name": "Upper Farms",
+       "population_remaining": 90,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 15,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 18,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 440
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 8,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 275 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 275,
+       "tick": 8,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "phase_changed",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Floodwater entered Ghat Village",
+      "description": "The river reached 275 cm and water is entering homes. The flood phase has begun.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "from_phase": "before",
+       "to_phase": "flood",
+       "water_level_cm": 275,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 8,
+      "zone": "ghat-village",
+      "target": "ghat-village",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into Ghat Village. Depth reached 15 cm.",
+      "details": {
+       "zone": "ghat-village",
+       "target": "ghat-village",
+       "water_depth_cm": 15,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 275 cm. New phase: The river reached 275 cm and water is entering homes. The flood phase has begun. FLOOD WARNING: Water breached into Ghat Village. Depth reached 15 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  }
+ ]
+}

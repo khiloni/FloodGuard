@@ -53,6 +53,17 @@ NEGLECT = {
 }
 
 
+PACK_PLANS = {
+    "urban-flash-flood-01": {1: B("open_shelter", shelter_id="community-hall"), 2: B("order_evacuation", zone="underpass-colony"),
+                             3: B("clear_drains", zone="station-market"), 4: B("request_external_support"),
+                             5: B("assign_transport", zone="underpass-colony", transport_type="boat", count=2)},
+    "dam-release-01": {1: B("open_shelter", shelter_id="hilltop-school"), 2: B("request_staggered_release"),
+                       3: B("issue_warning"), 4: B("order_evacuation", zone="ghat-village")},
+    "cyclone-surge-01": {2: B("open_shelter", shelter_id="cyclone-shelter"), 3: B("order_evacuation", zone="fishing-hamlet"),
+                         14: B("consult_npc", npc_id="health_worker")},
+}
+
+
 def slim(resp):
     """Turn responses repeat the static layout; the frontend takes it from the session."""
     resp = dict(resp)
@@ -60,12 +71,12 @@ def slim(resp):
     return resp
 
 
-def new_session(seed):
-    return client.post("/api/v1/sessions", json={"scenario_id": "village-river-01", "seed": seed}).json()
+def new_session(seed, pack="village-river-01"):
+    return client.post("/api/v1/sessions", json={"scenario_id": pack, "seed": seed}).json()
 
 
-def play(plan, seed):
-    sess = new_session(seed)
+def play(plan, seed, pack="village-river-01", max_turns=None):
+    sess = new_session(seed, pack)
     sid = sess["session_id"]
     script, tick = [], 0
     while True:
@@ -75,7 +86,7 @@ def play(plan, seed):
             raise SystemExit(f"tick {tick + 1}: {inp} -> {res['status']} {res.get('reject_reason') or res.get('clarify')}")
         script.append({"input": inp, "response": slim(res)})
         tick = res["state"]["tick"]
-        if res["state"]["is_finished"]:
+        if res["state"]["is_finished"] or (max_turns and tick >= max_turns):
             break
     return sess, script
 
@@ -106,10 +117,32 @@ def main():
     write("emergency.json", slim(client.post(f"/api/v1/sessions/{side}/turns",
                                              json={"input": T("this is a real emergency, I am actually trapped")}).json()))
 
+    # Help and an NPC reply with a suggestion
+    help_sid = new_session(11)["session_id"]
+    write("help.json", client.post(f"/api/v1/sessions/{help_sid}/help").json())
+    write("npc.json", slim(client.post(f"/api/v1/sessions/{help_sid}/npc/district_official/messages",
+                                       json={"message": "Can the district help us?"}).json()))
+    rec_sid = new_session(12)["session_id"]
+    for _ in range(17):
+        client.post(f"/api/v1/sessions/{rec_sid}/turns", json={"input": B("wait")})
+    write("help_recovery.json", client.post(f"/api/v1/sessions/{rec_sid}/help").json())
+
+    # Every pack: its session and the first turns of an expert run (scenario select + map tests)
+    extra_steps = []
+    os.makedirs(os.path.join(OUT, "packs"), exist_ok=True)
+    _, recall_run = play({1: B("recall_fishing_boats")}, seed=6, pack="cyclone-surge-01", max_turns=6)
+    extra_steps += recall_run
+    for pack, plan in PACK_PLANS.items():
+        psess, pscript = play(plan, seed=5, pack=pack)
+        extra_steps += pscript
+        with open(os.path.join(OUT, "packs", f"{pack}.json"), "w", encoding="utf-8", newline="\n") as f:
+            json.dump({"session": psess, "script": pscript[:8]}, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+
     # One real event of every type, for the per-event animation tests
     _, neglect = play(NEGLECT, seed=99)
     first_of = {}
-    for step_ in script + neglect:
+    for step_ in script + neglect + extra_steps:
         for ev in step_["response"]["events"]:
             first_of.setdefault(ev["type"], ev)
     missing = [t.value for t in EventType if t.value not in first_of]

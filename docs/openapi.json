@@ -1149,6 +1149,69 @@
         "title": "MechanicConfig",
         "description": "One scenario-specific mechanic: type in {none, drains, dam_release, cyclone}; integer params."
       },
+      "MechanicSummary": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "default": "none"
+          },
+          "boats_at_sea": {
+            "type": "integer",
+            "title": "Boats At Sea",
+            "default": 0
+          },
+          "fishers_stranded": {
+            "type": "integer",
+            "title": "Fishers Stranded",
+            "default": 0
+          },
+          "recalled": {
+            "type": "boolean",
+            "title": "Recalled",
+            "default": false
+          },
+          "landfall_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Landfall Tick"
+          },
+          "release_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Release Tick"
+          },
+          "staggered": {
+            "type": "boolean",
+            "title": "Staggered",
+            "default": false
+          },
+          "drain_crews": {
+            "type": "integer",
+            "title": "Drain Crews",
+            "default": 0
+          },
+          "power_down": {
+            "type": "boolean",
+            "title": "Power Down",
+            "default": false
+          }
+        },
+        "type": "object",
+        "title": "MechanicSummary"
+      },
       "MetaResponse": {
         "properties": {
           "version": {
@@ -1807,6 +1870,11 @@
           "community_trust": {
             "type": "integer",
             "title": "Community Trust"
+          },
+          "water_contamination": {
+            "type": "integer",
+            "title": "Water Contamination",
+            "default": 0
           }
         },
         "type": "object",
@@ -2831,6 +2899,42 @@
             "title": "Displaced",
             "default": 0
           },
+          "score_so_far": {
+            "type": "integer",
+            "title": "Score So Far",
+            "default": 0
+          },
+          "residents_at_risk": {
+            "type": "integer",
+            "title": "Residents At Risk",
+            "default": 0
+          },
+          "lost_total": {
+            "type": "integer",
+            "title": "Lost Total",
+            "default": 0
+          },
+          "warnings_delivered": {
+            "type": "integer",
+            "title": "Warnings Delivered",
+            "default": 0
+          },
+          "difficulty": {
+            "type": "string",
+            "title": "Difficulty",
+            "default": "standard"
+          },
+          "mechanic": {
+            "$ref": "#/components/schemas/MechanicSummary"
+          },
+          "support": {
+            "$ref": "#/components/schemas/SupportSummary"
+          },
+          "sandbags": {
+            "type": "integer",
+            "title": "Sandbags",
+            "default": 0
+          },
           "recovery": {
             "anyOf": [
               {
@@ -2939,6 +3043,58 @@
         "type": "object",
         "title": "SupportConfig",
         "description": "Outside help the player can request once (or `uses` times); arrives after a delay."
+      },
+      "SupportSummary": {
+        "properties": {
+          "available": {
+            "type": "boolean",
+            "title": "Available",
+            "default": false
+          },
+          "uses_left": {
+            "type": "integer",
+            "title": "Uses Left",
+            "default": 0
+          },
+          "eta_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Eta Tick"
+          },
+          "delay_ticks": {
+            "type": "integer",
+            "title": "Delay Ticks",
+            "default": 0
+          },
+          "boats": {
+            "type": "integer",
+            "title": "Boats",
+            "default": 0
+          },
+          "vehicles": {
+            "type": "integer",
+            "title": "Vehicles",
+            "default": 0
+          },
+          "sandbags": {
+            "type": "integer",
+            "title": "Sandbags",
+            "default": 0
+          },
+          "supply_units": {
+            "type": "integer",
+            "title": "Supply Units",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "SupportSummary"
       },
       "TransportSummary": {
         "properties": {
@@ -3415,6 +3571,36 @@
             "type": "boolean",
             "title": "Surveyed",
             "default": false
+          },
+          "households": {
+            "type": "integer",
+            "title": "Households",
+            "default": 0
+          },
+          "damaged_houses": {
+            "type": "integer",
+            "title": "Damaged Houses",
+            "default": 0
+          },
+          "drain_blocked": {
+            "type": "boolean",
+            "title": "Drain Blocked",
+            "default": false
+          },
+          "underpass": {
+            "type": "boolean",
+            "title": "Underpass",
+            "default": false
+          },
+          "lost": {
+            "type": "integer",
+            "title": "Lost",
+            "default": 0
+          },
+          "elevation_cm": {
+            "type": "integer",
+            "title": "Elevation Cm",
+            "default": 0
           }
         },
         "type": "object",

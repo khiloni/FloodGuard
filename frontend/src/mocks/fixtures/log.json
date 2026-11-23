@@ -1,5 +1,5 @@
 {
- "session_id": "f3fa570c-3dee-4a35-bfd9-350b4e60e9ae",
+ "session_id": "327bdbbf-5fa6-45b6-be7b-eed8d223a162",
  "scenario_id": "village-river-01",
  "seed": 2026,
  "actions": [
@@ -433,6 +433,21 @@
    "event_type": "vulnerable_evacuated"
   },
   {
+   "type": "resource_depleted",
+   "tick": 5,
+   "zone": null,
+   "target": "boats",
+   "caused_by": "All units committed or used",
+   "description": "No boats are left in reserve.",
+   "details": {
+    "zone": null,
+    "target": "boats",
+    "resource": "boats",
+    "phase": "flood"
+   },
+   "event_type": "resource_depleted"
+  },
+  {
    "type": "transport_assigned",
    "tick": 6,
    "zone": "ward-2",
@@ -670,6 +685,21 @@
     "phase": "flood"
    },
    "event_type": "vulnerable_evacuated"
+  },
+  {
+   "type": "resource_depleted",
+   "tick": 8,
+   "zone": null,
+   "target": "sandbags",
+   "caused_by": "All units committed or used",
+   "description": "No sandbags are left in reserve.",
+   "details": {
+    "zone": null,
+    "target": "sandbags",
+    "resource": "sandbags",
+    "phase": "flood"
+   },
+   "event_type": "resource_depleted"
   },
   {
    "type": "evacuation_ordered",
@@ -1242,11 +1272,13 @@
    "zone": "ward-2",
    "target": "ward-2",
    "caused_by": "Action damage_survey",
-   "description": "Engineers surveyed houses in Ward 2 (Market Settlement), where the water had reached 115 cm.",
+   "description": "Engineers surveyed Ward 2 (Market Settlement): 13 of 36 houses damaged; the water had reached 115 cm.",
    "details": {
     "zone": "ward-2",
     "target": "ward-2",
     "max_depth_cm": 115,
+    "damaged_houses": 13,
+    "households": 36,
     "phase": "recovery"
    },
    "event_type": "damage_surveyed"
@@ -1441,11 +1473,13 @@
    "zone": "ward-1",
    "target": "ward-1",
    "caused_by": "Action damage_survey",
-   "description": "Engineers surveyed houses in Ward 1 (Lowland Riverside), where the water had reached 255 cm.",
+   "description": "Engineers surveyed Ward 1 (Lowland Riverside): 24 of 24 houses damaged; the water had reached 255 cm.",
    "details": {
     "zone": "ward-1",
     "target": "ward-1",
     "max_depth_cm": 255,
+    "damaged_houses": 24,
+    "households": 24,
     "phase": "recovery"
    },
    "event_type": "damage_surveyed"
@@ -1668,6 +1702,33 @@
     "flood_start_tick": null,
     "recovery_start_tick": null,
     "displaced": 0,
+    "score_so_far": 8,
+    "residents_at_risk": 300,
+    "lost_total": 0,
+    "warnings_delivered": 0,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 30,
      "supply_deliveries_left": 3,
@@ -1681,7 +1742,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 160,
     "normal_level_cm": 200,
@@ -1722,7 +1784,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -1741,7 +1809,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -1760,7 +1834,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -1781,6 +1861,33 @@
     "flood_start_tick": null,
     "recovery_start_tick": null,
     "displaced": 0,
+    "score_so_far": 11,
+    "residents_at_risk": 300,
+    "lost_total": 0,
+    "warnings_delivered": 0,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 30,
      "supply_deliveries_left": 3,
@@ -1794,7 +1901,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 160,
     "normal_level_cm": 200,
@@ -1835,7 +1943,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -1854,7 +1968,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -1873,7 +1993,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -1892,6 +2018,33 @@
     "flood_start_tick": null,
     "recovery_start_tick": null,
     "displaced": 0,
+    "score_so_far": 16,
+    "residents_at_risk": 300,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 30,
      "supply_deliveries_left": 3,
@@ -1905,7 +2058,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 180,
     "normal_level_cm": 200,
@@ -1946,7 +2100,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -1965,7 +2125,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -1984,7 +2150,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2005,6 +2177,33 @@
     "flood_start_tick": null,
     "recovery_start_tick": null,
     "displaced": 12,
+    "score_so_far": 25,
+    "residents_at_risk": 288,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 29,
      "supply_deliveries_left": 3,
@@ -2018,7 +2217,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 205,
     "normal_level_cm": 200,
@@ -2059,7 +2259,13 @@
       "returned": 0,
       "in_shelter": 12,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2078,7 +2284,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2097,7 +2309,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2118,6 +2336,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 12,
+    "score_so_far": 25,
+    "residents_at_risk": 288,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 28,
      "supply_deliveries_left": 3,
@@ -2131,7 +2376,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 235,
     "normal_level_cm": 200,
@@ -2172,7 +2418,13 @@
       "returned": 0,
       "in_shelter": 12,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2191,7 +2443,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2210,7 +2468,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2233,6 +2497,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 42,
+    "score_so_far": 36,
+    "residents_at_risk": 258,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 27,
      "supply_deliveries_left": 3,
@@ -2246,7 +2537,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 270,
     "normal_level_cm": 200,
@@ -2287,7 +2579,13 @@
       "returned": 0,
       "in_shelter": 42,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2306,7 +2604,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2325,7 +2629,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2348,6 +2658,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 112,
+    "score_so_far": 45,
+    "residents_at_risk": 188,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 400,
     "recovery": {
      "shelter_supplies": 25,
      "supply_deliveries_left": 3,
@@ -2361,7 +2698,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 305,
     "normal_level_cm": 200,
@@ -2402,7 +2740,13 @@
       "returned": 0,
       "in_shelter": 72,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2421,7 +2765,13 @@
       "returned": 0,
       "in_shelter": 40,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2440,7 +2790,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2461,6 +2817,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 182,
+    "score_so_far": 57,
+    "residents_at_risk": 118,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 200,
     "recovery": {
      "shelter_supplies": 21,
      "supply_deliveries_left": 3,
@@ -2474,7 +2857,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 340,
     "normal_level_cm": 200,
@@ -2515,7 +2899,13 @@
       "returned": 0,
       "in_shelter": 102,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2534,7 +2924,13 @@
       "returned": 0,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2553,7 +2949,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2574,6 +2976,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 240,
+    "score_so_far": 65,
+    "residents_at_risk": 60,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 17,
      "supply_deliveries_left": 3,
@@ -2587,7 +3016,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 375,
     "normal_level_cm": 200,
@@ -2628,7 +3058,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2647,7 +3083,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2666,7 +3108,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2687,6 +3135,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 292,
+    "score_so_far": 73,
+    "residents_at_risk": 8,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 12,
      "supply_deliveries_left": 3,
@@ -2700,7 +3175,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 410,
     "normal_level_cm": 200,
@@ -2741,7 +3217,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2760,7 +3242,13 @@
       "returned": 0,
       "in_shelter": 172,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2779,7 +3267,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2801,6 +3295,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 300,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 7,
      "supply_deliveries_left": 3,
@@ -2814,7 +3335,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 440,
     "normal_level_cm": 200,
@@ -2855,7 +3377,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2874,7 +3402,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -2893,7 +3427,13 @@
       "returned": 0,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -2914,6 +3454,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 312,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 1,
      "supply_deliveries_left": 3,
@@ -2927,7 +3494,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 465,
     "normal_level_cm": 200,
@@ -2968,7 +3536,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -2987,7 +3561,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3006,7 +3586,13 @@
       "returned": 0,
       "in_shelter": 12,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3025,6 +3611,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 320,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 35,
      "supply_deliveries_left": 2,
@@ -3038,7 +3651,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 475,
     "normal_level_cm": 200,
@@ -3079,7 +3693,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3098,7 +3718,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3117,7 +3743,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3136,6 +3768,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 320,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 29,
      "supply_deliveries_left": 2,
@@ -3149,7 +3808,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 470,
     "normal_level_cm": 200,
@@ -3190,7 +3850,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3209,7 +3875,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3228,7 +3900,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3247,6 +3925,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 320,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 23,
      "supply_deliveries_left": 2,
@@ -3260,7 +3965,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 455,
     "normal_level_cm": 200,
@@ -3301,7 +4007,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3320,7 +4032,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3339,7 +4057,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3358,6 +4082,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 320,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 57,
      "supply_deliveries_left": 1,
@@ -3371,7 +4122,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 430,
     "normal_level_cm": 200,
@@ -3412,7 +4164,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3431,7 +4189,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3450,7 +4214,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3469,6 +4239,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": null,
     "displaced": 320,
+    "score_so_far": 75,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 51,
      "supply_deliveries_left": 1,
@@ -3482,7 +4279,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 60
+     "community_trust": 60,
+     "water_contamination": 0
     },
     "water_level_cm": 400,
     "normal_level_cm": 200,
@@ -3523,7 +4321,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3542,7 +4346,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3561,7 +4371,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3580,6 +4396,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 320,
+    "score_so_far": 84,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 45,
      "supply_deliveries_left": 1,
@@ -3593,7 +4436,8 @@
      "illness_untreated": 0,
      "power_on": false,
      "health_centre_open": false,
-     "community_trust": 70
+     "community_trust": 70,
+     "water_contamination": 60
     },
     "water_level_cm": 370,
     "normal_level_cm": 200,
@@ -3634,7 +4478,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3653,7 +4503,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3672,7 +4528,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3691,6 +4553,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 320,
+    "score_so_far": 86,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 39,
      "supply_deliveries_left": 1,
@@ -3704,7 +4593,8 @@
      "illness_untreated": 0,
      "power_on": false,
      "health_centre_open": false,
-     "community_trust": 71
+     "community_trust": 71,
+     "water_contamination": 48
     },
     "water_level_cm": 340,
     "normal_level_cm": 200,
@@ -3745,7 +4635,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3764,7 +4660,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3783,7 +4685,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3802,6 +4710,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 320,
+    "score_so_far": 86,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 33,
      "supply_deliveries_left": 1,
@@ -3815,7 +4750,8 @@
      "illness_untreated": 0,
      "power_on": false,
      "health_centre_open": false,
-     "community_trust": 73
+     "community_trust": 73,
+     "water_contamination": 36
     },
     "water_level_cm": 310,
     "normal_level_cm": 200,
@@ -3856,7 +4792,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3875,7 +4817,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -3894,7 +4842,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -3915,6 +4869,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 320,
+    "score_so_far": 86,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 27,
      "supply_deliveries_left": 1,
@@ -3928,7 +4909,8 @@
      "illness_untreated": 0,
      "power_on": false,
      "health_centre_open": false,
-     "community_trust": 75
+     "community_trust": 75,
+     "water_contamination": 24
     },
     "water_level_cm": 280,
     "normal_level_cm": 200,
@@ -3969,7 +4951,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -3988,7 +4976,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": true,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4007,7 +5001,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4028,6 +5028,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 320,
+    "score_so_far": 87,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 21,
      "supply_deliveries_left": 1,
@@ -4041,7 +5068,8 @@
      "illness_untreated": 0,
      "power_on": false,
      "health_centre_open": false,
-     "community_trust": 77
+     "community_trust": 77,
+     "water_contamination": 12
     },
     "water_level_cm": 250,
     "normal_level_cm": 200,
@@ -4082,7 +5110,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4101,7 +5135,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4120,7 +5160,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4139,6 +5185,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 320,
+    "score_so_far": 89,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 15,
      "supply_deliveries_left": 1,
@@ -4152,7 +5225,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 83
+     "community_trust": 83,
+     "water_contamination": 0
     },
     "water_level_cm": 225,
     "normal_level_cm": 200,
@@ -4193,7 +5267,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4212,7 +5292,13 @@
       "returned": 0,
       "in_shelter": 180,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4231,7 +5317,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4252,6 +5344,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 220,
+    "score_so_far": 91,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 11,
      "supply_deliveries_left": 1,
@@ -4265,7 +5384,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 89
+     "community_trust": 89,
+     "water_contamination": 0
     },
     "water_level_cm": 200,
     "normal_level_cm": 200,
@@ -4306,7 +5426,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": true,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4325,7 +5451,13 @@
       "returned": 100,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4344,7 +5476,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4365,6 +5503,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 220,
+    "score_so_far": 93,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 7,
      "supply_deliveries_left": 1,
@@ -4378,7 +5543,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 92
+     "community_trust": 92,
+     "water_contamination": 0
     },
     "water_level_cm": 180,
     "normal_level_cm": 200,
@@ -4419,7 +5585,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4438,7 +5610,13 @@
       "returned": 100,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4457,7 +5635,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4478,6 +5662,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 220,
+    "score_so_far": 93,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 3,
      "supply_deliveries_left": 1,
@@ -4491,7 +5702,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 95
+     "community_trust": 95,
+     "water_contamination": 0
     },
     "water_level_cm": 165,
     "normal_level_cm": 200,
@@ -4532,7 +5744,13 @@
       "returned": 0,
       "in_shelter": 120,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4551,7 +5769,13 @@
       "returned": 100,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4570,7 +5794,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4591,6 +5821,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 120,
+    "score_so_far": 95,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 1,
      "supply_deliveries_left": 1,
@@ -4604,7 +5861,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 100
+     "community_trust": 100,
+     "water_contamination": 0
     },
     "water_level_cm": 150,
     "normal_level_cm": 200,
@@ -4645,7 +5903,13 @@
       "returned": 100,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4664,7 +5928,13 @@
       "returned": 100,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4683,7 +5953,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4704,6 +5980,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 100,
+    "score_so_far": 95,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 0,
      "supply_deliveries_left": 1,
@@ -4717,7 +6020,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 100
+     "community_trust": 100,
+     "water_contamination": 0
     },
     "water_level_cm": 140,
     "normal_level_cm": 200,
@@ -4758,7 +6062,13 @@
       "returned": 120,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4777,7 +6087,13 @@
       "returned": 100,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4796,7 +6112,13 @@
       "returned": 0,
       "in_shelter": 20,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4817,6 +6139,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 80,
+    "score_so_far": 96,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 0,
      "supply_deliveries_left": 1,
@@ -4830,7 +6179,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 100
+     "community_trust": 100,
+     "water_contamination": 0
     },
     "water_level_cm": 130,
     "normal_level_cm": 200,
@@ -4871,7 +6221,13 @@
       "returned": 120,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -4890,7 +6246,13 @@
       "returned": 100,
       "in_shelter": 80,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -4909,7 +6271,13 @@
       "returned": 20,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -4930,6 +6298,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 0,
+    "score_so_far": 97,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 0,
      "supply_deliveries_left": 1,
@@ -4943,7 +6338,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 100
+     "community_trust": 100,
+     "water_contamination": 0
     },
     "water_level_cm": 120,
     "normal_level_cm": 200,
@@ -4984,7 +6380,13 @@
       "returned": 120,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -5003,7 +6405,13 @@
       "returned": 180,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -5022,7 +6430,13 @@
       "returned": 20,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }
@@ -5041,6 +6455,33 @@
     "flood_start_tick": 4,
     "recovery_start_tick": 17,
     "displaced": 0,
+    "score_so_far": 97,
+    "residents_at_risk": 0,
+    "lost_total": 0,
+    "warnings_delivered": 3,
+    "difficulty": "standard",
+    "mechanic": {
+     "type": "none",
+     "boats_at_sea": 0,
+     "fishers_stranded": 0,
+     "recalled": false,
+     "landfall_tick": null,
+     "release_tick": null,
+     "staggered": false,
+     "drain_crews": 0,
+     "power_down": false
+    },
+    "support": {
+     "available": true,
+     "uses_left": 1,
+     "eta_tick": null,
+     "delay_ticks": 4,
+     "boats": 1,
+     "vehicles": 2,
+     "sandbags": 200,
+     "supply_units": 40
+    },
+    "sandbags": 0,
     "recovery": {
      "shelter_supplies": 0,
      "supply_deliveries_left": 1,
@@ -5054,7 +6495,8 @@
      "illness_untreated": 0,
      "power_on": true,
      "health_centre_open": true,
-     "community_trust": 100
+     "community_trust": 100,
+     "water_contamination": 0
     },
     "water_level_cm": 110,
     "normal_level_cm": 200,
@@ -5095,7 +6537,13 @@
       "returned": 120,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 24,
+      "damaged_houses": 24,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 220
      },
      "ward-2": {
       "name": "Ward 2 (Market Settlement)",
@@ -5114,7 +6562,13 @@
       "returned": 180,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": true
+      "surveyed": true,
+      "households": 36,
+      "damaged_houses": 13,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 360
      },
      "ward-3": {
       "name": "Ward 3 (Highland Ridge)",
@@ -5133,7 +6587,13 @@
       "returned": 20,
       "in_shelter": 0,
       "road_blocked": false,
-      "surveyed": false
+      "surveyed": false,
+      "households": 20,
+      "damaged_houses": 0,
+      "drain_blocked": false,
+      "underpass": false,
+      "lost": 0,
+      "elevation_cm": 520
      }
     }
    }

@@ -1,0 +1,83 @@
+{
+ "options": [
+  {
+   "action": {
+    "name": "open_shelter",
+    "params": {
+     "shelter_id": "school"
+    }
+   },
+   "tradeoff": "Gives 320 places; nobody can be evacuated until a shelter is open.",
+   "priority": 100,
+   "rule_card": {
+    "id": "RC-05",
+    "title": "Safe Shelter Operations",
+    "category": "Shelter",
+    "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+    "keywords": [
+     "shelter",
+     "school",
+     "intake",
+     "capacity",
+     "elevated",
+     "open"
+    ],
+    "source_reference": "Emergency Shelter Management Protocols"
+   }
+  },
+  {
+   "action": {
+    "name": "issue_warning",
+    "params": {}
+   },
+   "tradeoff": "Warned residents are far more willing to leave; it uses this turn only.",
+   "priority": 96,
+   "rule_card": {
+    "id": "RC-01",
+    "title": "Early Public Warning Protocol",
+    "category": "Alerts",
+    "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+    "keywords": [
+     "warning",
+     "alert",
+     "broadcast",
+     "early",
+     "evacuation"
+    ],
+    "source_reference": "General Community Disaster Preparedness Practice"
+   }
+  },
+  {
+   "action": {
+    "name": "order_evacuation",
+    "params": {
+     "zone": "ward-1"
+    }
+   },
+   "tradeoff": "120 people in Ward 1 (Lowland Riverside); the water is forecast to reach 475 cm against ground at 220 cm.",
+   "priority": 88,
+   "rule_card": {
+    "id": "RC-01",
+    "title": "Early Public Warning Protocol",
+    "category": "Alerts",
+    "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+    "keywords": [
+     "warning",
+     "alert",
+     "broadcast",
+     "early",
+     "evacuation"
+    ],
+    "source_reference": "General Community Disaster Preparedness Practice"
+   }
+  }
+ ],
+ "source": "template",
+ "guardrail": {
+  "status": "disabled",
+  "retries": 0,
+  "fallback_reason": null
+ },
+ "llm_mode": "template",
+ "note": "Suggestions only. Nothing happens until you choose an order and confirm it."
+}
