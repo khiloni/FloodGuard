@@ -50,7 +50,7 @@ and fails on anything else unless it is a documented exception.
 | certifi | MPL-2.0 | CA certificate bundle, used unmodified; pulled in by httpx. | Allowed (MPL-2.0 approved) |
 
 ### Frontend (Node / TypeScript)
-Runtime (shipped in the 75 KB gzip bundle):
+Runtime (shipped in the ~83 KB gzip JavaScript bundle):
 | Package | License | Usage |
 | --- | --- | --- |
 | react, react-dom, scheduler, loose-envify, js-tokens | MIT | UI |
@@ -72,9 +72,26 @@ Documented dev-only exception (approved 23 Nov 2026): **caniuse-lite**, licensed
 at build time only and is **not** shipped: the production bundle in `frontend/dist` contains no caniuse data
 (verified with a search of the built files).
 
-Fonts: system fonts only. Art: hand-drawn inline SVG; no stock art, no CDN.
+Fonts: system fonts only. Art: hand-drawn inline SVG (maps, hazard illustrations, character portraits); no
+stock art, no CDN. The FloodGuard logo, favicon and PWA icons are original artwork made for this project
+(`frontend/branding/`), released with the code under Apache-2.0.
+
+### Deployment (not part of the app's code)
+| Component | License | Usage |
+| --- | --- | --- |
+| Caddy (`caddy:2` image) | Apache-2.0 | HTTPS reverse proxy in `docker-compose.yml` |
+| Ollama (`ollama/ollama` image) | MIT | Optional local model server (`local-llm` profile) |
+| Docker Engine / Compose | Apache-2.0 | Container runtime on the server |
 
 ### Local Open-Source LLM Model (Ollama / llama.cpp / vLLM)
 | Model Identifier | Base License | Serving Engine | Verified (Gate A) |
 | --- | --- | --- | --- |
 | `Qwen2.5-1.5B-Instruct` (`qwen2.5:1.5b`) | Apache-2.0 | Ollama (MIT) / llama.cpp (MIT) | [x] Apache-2.0 & Live Ollama Verified |
+
+### Hosted open models (optional, by `LLM_PROVIDER`)
+| Model | License | Provider |
+| --- | --- | --- |
+| `sarvam-105b` | Apache-2.0 | Sarvam API |
+| `gpt-oss-20b` | Apache-2.0 | Cloudflare Workers AI, Hugging Face Inference Providers |
+
+Closed or non-OSI models are not used at runtime.

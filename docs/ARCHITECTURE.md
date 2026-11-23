@@ -78,7 +78,18 @@ backend/app/store/sqlite.py (SQLite audit log & bit-exact session replay)
    - Turn responses include `guardrail: {"status": "passed"|"fallback", "retries": n}`.
    - Frontend displays clear AI disclosure badges on all generated text.
 
-## Phases and the frontend (Parts 2 and 3)
+## Scenario packs, Help and the two-page UI
+- Each scenario YAML adds `mechanic` (`drains`, `dam_release`, `cyclone`), `external_support`, `difficulty`
+  levers, five `npcs` and map `layout` decor. `backend/app/engine/mechanics.py` applies the mechanic inside the
+  pure step; outside support arrives on a fixed tick after the request.
+- `backend/app/services/advisor.py` ranks valid actions for the current state. `POST /sessions/{id}/help`
+  returns two or three of them with trade-offs; NPC replies may carry one as a suggestion. Neither executes:
+  the frontend only pre-fills an order that the player must confirm.
+- The frontend fits one screen (100dvh): a HUD, page 1 **Act** (map, orders, Help, timeline) and page 2
+  **Village** (briefing, status, logs, people, outside support), switched by swipe, tabs, arrows or keys.
+  Map animations are driven only by engine events in each turn response.
+
+## Phases and the frontend
 - The engine carries `phase` (before -> flood -> recovery) and a recovery state; every event has `details.phase`.
 - `GET /report` adds `phases` and a deterministic `causal_chain`; `GET /log?frames=true` replays the stored
   actions on the server so the replay scrubber never computes outcomes in the browser.

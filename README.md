@@ -11,23 +11,35 @@
 
 ## What it is
 
-You are the decision-maker of a riverside village as a monsoon flood arrives. The story covers
-**before** the flood (warnings, shelter, evacuation), **during** it (boats, trucks, sandbags, protecting
-vulnerable people) and **after** it (search and rescue, clean water, medical camp, roads, power, damage
-surveys and a safe return home). You watch it all happen on an animated top-down village map.
+You lead the response to a flood, from the hours **before** it (warnings, shelters, evacuation), through
+**the flood itself** (boats, trucks, sandbags, protecting vulnerable people) to **recovery** (search and rescue,
+clean water, medical camp, roads, power, damage surveys and a safe return home). Four stories each have their
+own map, characters and one special mechanic:
+
+| Story | Hazard | Special mechanic |
+| --- | --- | --- |
+| Riverbank Village Flood Response | River flood | Embankment and the river peak |
+| Ward 14 Flash Flood | Urban flash flood | Blocked drains, an underpass that floods first, 15-minute turns |
+| Below Kalindi Dam | Dam release | A scheduled release you can ask to stagger |
+| Cyclone at Machhiwada | Cyclone storm surge | Fishing boats at sea, landfall cuts power |
+
+Each story has easy, standard and hard difficulty. The app fits one screen: page 1 (**Act**) is the live
+animated map and your orders, page 2 (**Village**) is status, the event log and the people you can talk to.
+"What should I do?" lists two or three options with their trade-offs; nothing happens until you confirm.
 
 **The engine decides what happens. The API moves data. The LLM only describes.**
 
 | Layer | Where | What it does |
 | --- | --- | --- |
-| Engine | `backend/app/engine/` | Pure, deterministic `step(state, action, rng) -> (state, events)`; 16 actions; 3 phases; integer scoring out of 100 |
-| Scenario | `scenarios/village-river-01.yaml` (v2.0.0) | 30 ticks of 30 min, forecast curve, resources, recovery constants, map layout |
+| Engine | `backend/app/engine/` | Pure, deterministic `step(state, action, rng) -> (state, events)`; 3 phases; scenario mechanics; outside support; integer scoring out of 100 |
+| Scenarios | `scenarios/*.yaml` | Four packs: forecast, resources, zones, characters, difficulty levers, mechanic, map layout |
 | API | `backend/app/main.py` | FastAPI `/api/v1/*`, frozen contract in `docs/openapi.json` |
-| LLM (optional) | `backend/app/llm/openai_compat.py` | Narration, NPC dialogue and a fallback parser via any OpenAI-compatible server (Ollama, llama.cpp, vLLM); every output is validated, retried twice, then replaced by templates |
-| Frontend | `frontend/` | React + TypeScript + Vite; inline SVG village scene, per-event animations, timeline and replay |
+| LLM (optional) | `backend/app/llm/` | Narration, NPC dialogue, Help phrasing and a fallback parser through an OpenAI-compatible API (Sarvam, Cloudflare Workers AI, Hugging Face or a local Ollama); every output is validated, retried twice, then replaced by templates |
+| Frontend | `frontend/` | React + TypeScript + Vite; one-screen two-page UI, inline SVG maps, per-event animations, timeline, replay and report |
 
 Docs: [ARCHITECTURE](docs/ARCHITECTURE.md) · [POST_FLOOD_DESIGN](docs/POST_FLOOD_DESIGN.md) ·
-[MODEL_CARD](docs/MODEL_CARD.md) · [LICENSES](docs/LICENSES.md) · [PROGRESS](docs/PROGRESS.md)
+[MODEL_CARD](docs/MODEL_CARD.md) · [LICENSES](docs/LICENSES.md) · [PROGRESS](docs/PROGRESS.md) ·
+[DEPLOY_ORACLE](docs/DEPLOY_ORACLE.md)
 
 ## Run locally
 
@@ -53,38 +65,45 @@ npm run dev                     # http://localhost:5173
 cd frontend
 npm run dev:mock
 ```
-Useful URL switches in mock mode: `?mock=allEvents` (every animation at once), `?mock=end` (jump to the last turn), `?mock=slow` (cold start), `?mock=llm` (AI badges).
+Useful URL switches in mock mode: `?mock=allEvents` (every animation at once), `?mock=end` (jump to the last turn), `?mock=slow` (cold start), `?mock=llm` (AI badges), `?mock=llmdown` (AI configured but offline).
 
-## Run with an open-source LLM (Ollama)
+## Run with an open-source LLM
 
-1. Install Ollama (MIT) and read the model card of an Apache-2.0 model, for example
-   [Qwen2.5-1.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct).
-2. Pull it and start the backend in LLM mode:
-   ```powershell
-   ollama pull qwen2.5:1.5b
-   # Windows PowerShell
-   $env:LLM_MODE="openai_compat"; $env:LLM_BASE_URL="http://127.0.0.1:11434/v1"; $env:LLM_MODEL="qwen2.5:1.5b"
-   uvicorn backend.app.main:app --port 10000
-   ```
-   ```bash
-   # macOS / Linux
-   LLM_MODE=openai_compat LLM_BASE_URL=http://127.0.0.1:11434/v1 LLM_MODEL=qwen2.5:1.5b uvicorn backend.app.main:app --port 10000
-   ```
-3. `GET /api/v1/health` shows `llm_mode: openai_compat`. Messages show `source: llm` (an "AI · may be wrong"
-   badge in the UI). Stop Ollama and the next turn falls back to `source: template`; the game never blocks.
+The game is fully playable without an LLM (`LLM_MODE=template`, the default). To add AI narration, set
+`LLM_MODE=openai_compat` and choose a provider with `LLM_PROVIDER`. Keys are read from environment variables
+only. Only Apache-2.0 or MIT models are used.
 
-Optional settings: `LLM_TIMEOUT` (30 s), `LLM_CONNECT_TIMEOUT` (3 s), `LLM_TURN_BUDGET` (45 s),
-`LLM_COOLDOWN` (15 s), `LLM_MAX_TOKENS` (300), `LLM_JSON_MODE` (1).
+| `LLM_PROVIDER` | Key variables | Default model (licence) |
+| --- | --- | --- |
+| `sarvam` | `SARVAM_API_KEY` | `sarvam-105b` (Apache-2.0) |
+| `cloudflare` | `CF_ACCOUNT_ID`, `CF_API_TOKEN` | `@cf/openai/gpt-oss-20b` (Apache-2.0) |
+| `huggingface` | `HF_TOKEN` | `openai/gpt-oss-20b` (Apache-2.0) |
+| `ollama` (local) | none | `qwen2.5:1.5b` (Apache-2.0) |
+
+```powershell
+# Windows PowerShell, e.g. Sarvam
+$env:LLM_MODE="openai_compat"; $env:LLM_PROVIDER="sarvam"; $env:SARVAM_API_KEY="<your key>"
+uvicorn backend.app.main:app --port 10000
+```
+```bash
+# macOS / Linux, local Ollama
+ollama pull qwen2.5:1.5b
+LLM_MODE=openai_compat LLM_PROVIDER=ollama uvicorn backend.app.main:app --port 10000
+```
+`GET /api/v1/meta` shows the provider, model and licence. Messages show `source: llm` (an "AI · may be wrong"
+badge in the UI). If the provider is down or the key is missing, the next turn falls back to templates; the
+game never blocks. `LLM_BASE_URL` and `LLM_MODEL` override a preset; other optional settings: `LLM_TIMEOUT`,
+`LLM_CONNECT_TIMEOUT`, `LLM_TURN_BUDGET`, `LLM_COOLDOWN`, `LLM_MAX_TOKENS`, `LLM_JSON_MODE`.
 
 ## Tests
 
 ```bash
-pytest -v -p no:opik -p no:langsmith          # 72 backend tests
+pytest -v -p no:opik -p no:langsmith          # 111 backend tests
 python backend/scripts/check_licenses.py      # dependency license allowlist
 cd frontend
 npm run build && npm run size                 # type-check, build, 300 KB gzip budget, no mocks in dist
 npx playwright install chromium               # once
-npx playwright test                           # 18 end-to-end tests (mock API, desktop + 360px mobile)
+npx playwright test                           # 29 end-to-end tests (mock API, desktop + 360px mobile)
 ```
 After changing the API or scenario: `python -m backend.scripts.export_openapi` (contract) and
 `python -m backend.scripts.record_fixtures` (frontend mock fixtures).
@@ -96,6 +115,13 @@ docker build -t floodguard:latest .
 docker run --rm -p 10000:10000 floodguard:latest      # http://localhost:10000
 ```
 The image builds the frontend and serves it from FastAPI on port 10000 with `LLM_MODE=template`.
+
+**With Docker Compose and HTTPS** (any server; made for Oracle Cloud Always Free):
+```bash
+cp .env.example .env        # set SITE_ADDRESS and, optionally, an LLM provider key
+docker compose up -d --build
+```
+Caddy serves one HTTPS URL with an automatic certificate. Step-by-step guide: [docs/DEPLOY_ORACLE.md](docs/DEPLOY_ORACLE.md).
 
 ## Deploy to Render (free tier)
 

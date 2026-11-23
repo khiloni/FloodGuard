@@ -46,6 +46,21 @@ This document records the evaluation, provenance, and license details for the op
 **Verified by**: Automated M1 `pytest` suite (`32 passed`, fake-HTTP + adversarial guardrail checks) and live Ollama `qwen2.5:1.5b` end-to-end verification (`source: "llm"` online / `source: "template"` unreachable fallback).  
 **Date**: 2026-11-22
 
+### Hosted providers (chosen by `LLM_PROVIDER`)
+The same client and guardrails serve hosted, openly licensed models through OpenAI-compatible APIs. Keys are
+read from environment variables only and are never logged or returned.
+
+| Provider | Endpoint | Model | Licence | Key variables |
+| --- | --- | --- | --- | --- |
+| Sarvam | `https://api.sarvam.ai/v1` | `sarvam-105b` (`sarvam-30b` is deprecated on Sarvam's API) | Apache-2.0 | `SARVAM_API_KEY` |
+| Cloudflare Workers AI | `https://api.cloudflare.com/client/v4/accounts/<id>/ai/v1` | `@cf/openai/gpt-oss-20b` | Apache-2.0 | `CF_ACCOUNT_ID`, `CF_API_TOKEN` |
+| Hugging Face Inference Providers | `https://router.huggingface.co/v1` | `openai/gpt-oss-20b` | Apache-2.0 | `HF_TOKEN` |
+| Local (Ollama, llama.cpp, vLLM) | `http://127.0.0.1:11434/v1` | `qwen2.5:1.5b` | Apache-2.0 | none |
+
+Reasoning models may return `<think>` blocks; these are stripped before validation. The LLM also rephrases the
+advisor's Help options (one validated line per option); the options themselves always come from the engine.
+A missing key sets `llm_status: missing_key` and every output uses templates.
+
 ## 6. Human verification (Part 1 gate) - fill in by hand
 | Check | Result | Date / initials |
 | --- | --- | --- |
