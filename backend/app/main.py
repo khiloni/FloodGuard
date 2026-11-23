@@ -4,10 +4,10 @@ import random
 import time
 from collections import defaultdict
 from typing import Dict, Any, List, Optional
-from fastapi import FastAPI, HTTPException, status, Request
+from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field, ConfigDict
 
 from .engine.loader import load_scenario, load_scenario_config
@@ -16,7 +16,6 @@ from .engine.scoring import calculate_score
 from .guardrail.validator import GuardrailValidator
 from .llm.openai_compat import get_llm_mode, get_llm_status
 from .services.turn_pipeline import process_turn
-from .services.npc import generate_npc_message
 from .services.report import build_report_sections
 from .store.sqlite import SessionStore
 

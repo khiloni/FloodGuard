@@ -9,7 +9,6 @@ from backend.app.engine.models import State, Event, EventType, ActionName
 from backend.app.guardrail.validator import GuardrailValidator, extract_numbers
 from backend.app.llm.openai_compat import (
     generate_llm_narration,
-    generate_llm_npc,
     narrate,
     npc_reply,
     parse_llm_action_fallback,

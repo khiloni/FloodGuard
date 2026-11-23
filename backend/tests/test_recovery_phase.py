@@ -174,7 +174,7 @@ def test_parser_recovery_action_without_zone_asks():
     assert status in ("ok", "rejected")  # still an evacuation phrase, not clear_roads
 
 
-def test_api_full_session_replay_report_and_summary(tmp_path):
+def test_api_full_session_replay_report_and_summary():
     client = TestClient(app)
     sid = client.post("/api/v1/sessions", json={"scenario_id": "village-river-01", "seed": 77}).json()["session_id"]
     plan = {**FLOOD_EXPERT, **RECOVERY_EXPERT}

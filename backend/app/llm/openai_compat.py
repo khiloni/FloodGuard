@@ -450,11 +450,6 @@ def generate_llm_narration(state, events, rule_cards, validator, facts_allowed, 
     return r.text, r.cited_cards, r.source, r.retries
 
 
-def generate_llm_npc(npc_id, state, events, user_message, validator, facts_allowed, language="en"):
-    """Returns (text, cited_cards, source, retries)."""
-    r = npc_reply(npc_id, state, events, user_message, validator, facts_allowed, language)
-    return r.text, r.cited_cards, r.source, r.retries
-
 
 # =========================================================================
 # Job 2: Fallback Action Parser (temperature 0, strict schema)
