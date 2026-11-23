@@ -78,6 +78,15 @@ EXAMPLE_COMMANDS = [
     "send ward 2 residents back home",
 ]
 
+EXAMPLE_COMMANDS_BY_PHASE = {
+    "before": ["warn all wards", "open the school shelter", "evacuate ward 1", "prioritize vulnerable in ward 1"],
+    "flood": ["send 2 boats to ward 1", "reinforce embankment with 200 sandbags", "evacuate ward 2",
+              "send relief supplies to the shelter", "talk to the rescue worker"],
+    "recovery": ["provide clean drinking water", "set up a medical camp", "search and rescue in ward 1",
+                 "clear the road to ward 1", "survey damage in ward 1", "restore power",
+                 "send ward 2 residents back home", "send relief supplies to the shelter"],
+}
+
 API_VERSION = "2.0.0"
 
 
@@ -237,6 +246,7 @@ class MetaResponse(BaseModel):
     llm_mode: str
     llm_status: str
     example_commands: List[str]
+    example_commands_by_phase: Dict[str, List[str]] = Field(default_factory=dict)
 
 
 class CanvasModel(BaseModel):
@@ -505,12 +515,20 @@ class NPCMessageResponse(TurnResponse):
     pass
 
 
+class ReplayFrameOut(BaseModel):
+    tick: int
+    phase: str
+    action: Optional[Action] = None
+    summary: StateSummary
+
+
 class SessionLogResponse(BaseModel):
     session_id: str
     scenario_id: str
     seed: int
     actions: List[Action]
     events: List[EventOut]
+    frames: Optional[List[ReplayFrameOut]] = None
 
 
 class CauseEffectOut(BaseModel):
@@ -577,6 +595,7 @@ def get_meta():
         "llm_mode": get_llm_mode(),
         "llm_status": get_llm_status(),
         "example_commands": EXAMPLE_COMMANDS,
+        "example_commands_by_phase": EXAMPLE_COMMANDS_BY_PHASE,
     }
 
 
@@ -769,8 +788,25 @@ def consult_npc_chat(session_id: str, npc_id: str, req: NPCMessageRequest):
     return result
 
 
+def build_replay_frames(scenario_id: str, actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Server-side deterministic replay: one summary per tick, so the browser never computes outcomes."""
+    from .engine.step import step as engine_step
+    fpath = os.path.join(SCENARIOS_DIR, f"{scenario_id}.yaml")
+    state = load_scenario(fpath)
+    layout = get_scenario_layout(scenario_id)
+    rng = random.Random(0)  # the engine does not draw from the RNG; kept for the step() signature
+    frames = [{"tick": 0, "phase": state.phase, "action": None,
+               "summary": build_state_summary(state.model_dump(), layout)}]
+    for a in actions:
+        act = Action(name=ActionName(a["name"]), params=a.get("params", {}))
+        state, _ = engine_step(state, act, rng)
+        frames.append({"tick": state.tick, "phase": state.phase, "action": act.model_dump(),
+                       "summary": build_state_summary(state.model_dump(), layout)})
+    return frames
+
+
 @app.get("/api/v1/sessions/{session_id}/log", response_model=SessionLogResponse)
-def get_session_log(session_id: str):
+def get_session_log(session_id: str, frames: bool = False):
     sess = store.get_session(session_id)
     if not sess:
         raise HTTPException(
@@ -784,6 +820,7 @@ def get_session_log(session_id: str):
         "seed": sess["seed"],
         "actions": sess["actions"],
         "events": events,
+        "frames": build_replay_frames(sess["scenario_id"], sess["actions"]) if frames else None,
     }
 
 

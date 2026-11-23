@@ -257,6 +257,16 @@
               "type": "string",
               "title": "Session Id"
             }
+          },
+          {
+            "name": "frames",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false,
+              "title": "Frames"
+            }
           }
         ],
         "responses": {
@@ -1036,6 +1046,16 @@
             },
             "type": "array",
             "title": "Example Commands"
+          },
+          "example_commands_by_phase": {
+            "additionalProperties": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "type": "object",
+            "title": "Example Commands By Phase"
           }
         },
         "type": "object",
@@ -1557,6 +1577,38 @@
         ],
         "title": "RecoverySummary"
       },
+      "ReplayFrameOut": {
+        "properties": {
+          "tick": {
+            "type": "integer",
+            "title": "Tick"
+          },
+          "phase": {
+            "type": "string",
+            "title": "Phase"
+          },
+          "action": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Action"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "summary": {
+            "$ref": "#/components/schemas/StateSummary"
+          }
+        },
+        "type": "object",
+        "required": [
+          "tick",
+          "phase",
+          "summary"
+        ],
+        "title": "ReplayFrameOut"
+      },
       "ReportPhaseOut": {
         "properties": {
           "phase": {
@@ -1958,6 +2010,20 @@
             },
             "type": "array",
             "title": "Events"
+          },
+          "frames": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ReplayFrameOut"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Frames"
           }
         },
         "type": "object",

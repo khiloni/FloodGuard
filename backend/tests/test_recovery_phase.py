@@ -214,3 +214,21 @@ def test_api_full_session_replay_report_and_summary(tmp_path):
 
     layout = client.get(f"/api/v1/sessions/{sid}/state").json()["layout"]
     assert {"water_point", "medical_camp", "substation", "health_centre", "supply_depot"} <= set(layout["recovery_sites"])
+
+
+def test_log_frames_replay_matches_live_session():
+    client = TestClient(app)
+    sid = client.post("/api/v1/sessions", json={"scenario_id": "village-river-01", "seed": 5}).json()["session_id"]
+    live = []
+    for act in [A("open_shelter", shelter_id="school"), A("issue_warning"), WAIT, A("order_evacuation", zone="ward-1")]:
+        res = client.post(f"/api/v1/sessions/{sid}/turns",
+                          json={"input": {"type": "button", "action": {"name": act.name.value, "params": act.params}}}).json()
+        live.append(res["summary"])
+    log = client.get(f"/api/v1/sessions/{sid}/log", params={"frames": "true"}).json()
+    frames = log["frames"]
+    assert [f["tick"] for f in frames] == [0, 1, 2, 3, 4]
+    for f, summary in zip(frames[1:], live):
+        assert f["summary"] == summary
+    assert client.get(f"/api/v1/sessions/{sid}/log").json()["frames"] is None
+    meta = client.get("/api/v1/meta").json()
+    assert set(meta["example_commands_by_phase"]) == {"before", "flood", "recovery"}
