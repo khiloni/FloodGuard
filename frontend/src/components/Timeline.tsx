@@ -12,6 +12,7 @@ const MARKER_TYPES: Record<string, string> = {
 interface Props {
   maxTicks: number;
   currentTick: number;
+  minutesPerTick?: number;
   floodStart: number | null;
   recoveryStart: number | null;
   peakTick: number | null;
@@ -26,7 +27,7 @@ interface Props {
 }
 
 export const Timeline: React.FC<Props> = ({
-  maxTicks, currentTick, floodStart, recoveryStart, peakTick, events, replayTick, replayPlaying,
+  maxTicks, currentTick, minutesPerTick = 30, floodStart, recoveryStart, peakTick, events, replayTick, replayPlaying,
   replayAvailable, onEnterReplay, onScrub, onTogglePlay, onExitReplay,
 }) => {
   const pct = (t: number) => `${(t / Math.max(1, maxTicks)) * 100}%`;
@@ -63,7 +64,7 @@ export const Timeline: React.FC<Props> = ({
       <div className="timeline-controls">
         {replayTick === null ? (
           <>
-            <span className="timeline-now">Tick <strong data-testid="timeline-tick">{currentTick}</strong> of {maxTicks} · each tick is 30 minutes</span>
+            <span className="timeline-now">Tick <strong data-testid="timeline-tick">{currentTick}</strong> of {maxTicks} <span className="muted small hide-sm">· {minutesPerTick} min each</span></span>
             <button className="btn small" onClick={onEnterReplay} disabled={!replayAvailable || currentTick === 0} data-testid="replay-open">
               <RotateCcw aria-hidden="true" /> Replay
             </button>

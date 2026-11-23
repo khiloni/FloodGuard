@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { enter, waitAction } from './helpers';
+import { enter, expectNoPageScroll, waitAction } from './helpers';
 
 test('replay scrubber uses server frames from /log and returns to live', async ({ page }) => {
   await enter(page);
@@ -38,4 +38,19 @@ test('end of story shows the three-phase report with causal chain and disclaimer
   expect(await page.getByTestId('causal-chain').locator('li').count()).toBeGreaterThan(3);
   await expect(page.getByTestId('report-disclaimer')).toContainText('112');
   await expect(page.getByTestId('emergency-footer')).toBeVisible();
+  await expect(page.getByTestId('chain-cards').first()).toContainText('RC-');
+  await expect(page.getByTestId('rule-cards')).toBeAttached();
+  await expectNoPageScroll(page);
+});
+
+test('retry with the same seed starts the same story again', async ({ page }) => {
+  await enter(page, '?mock=end');
+  await page.getByTestId('action-wait').click();
+  await page.getByTestId('open-report').click();
+  const req = page.waitForRequest((r) => r.url().endsWith('/api/v1/sessions') && r.method() === 'POST');
+  await page.getByTestId('report-retry').click();
+  const body = (await req).postDataJSON();
+  expect(body.scenario_id).toBe('village-river-01');
+  expect(typeof body.seed).toBe('number');
+  await expect(page.getByTestId('intro')).toBeVisible();
 });

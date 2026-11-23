@@ -13,8 +13,22 @@ import clarify from './fixtures/clarify.json';
 import rejected from './fixtures/rejected.json';
 import emergency from './fixtures/emergency.json';
 import allEvents from './fixtures/all_events.json';
+import help from './fixtures/help.json';
+import helpRecovery from './fixtures/help_recovery.json';
+import npc from './fixtures/npc.json';
+import urban from './fixtures/packs/urban-flash-flood-01.json';
+import dam from './fixtures/packs/dam-release-01.json';
+import cyclone from './fixtures/packs/cyclone-surge-01.json';
 
-// Test switches via the page URL: ?mock=slow | allEvents | end | llm
+const PACKS: Record<string, { session: any; script: any[] }> = {
+  'urban-flash-flood-01': urban as any,
+  'dam-release-01': dam as any,
+  'cyclone-surge-01': cyclone as any,
+};
+let pack: string = 'village-river-01';
+const currentScript = (): any[] => (PACKS[pack]?.script || (script as any[]));
+
+// Test switches via the page URL: ?mock=slow | allEvents | end | llm | llmdown
 const mode = new URLSearchParams(window.location.search).get('mock') || '';
 let turn = 0;
 const started = Date.now();
@@ -27,11 +41,17 @@ const KNOWN_TEXT = new Set([
 
 function withLlm<T extends Record<string, any>>(res: T): T {
   if (mode !== 'llm') return res;
-  return { ...res, source: 'llm', llm_mode: 'openai_compat', narration: { ...res.narration, source: 'llm' } };
+  const out: any = { ...res, source: 'llm', llm_mode: 'openai_compat' };
+  if (res.narration) out.narration = { ...res.narration, source: 'llm' };
+  if (Array.isArray(res.npc_messages)) out.npc_messages = res.npc_messages.map((m: any) => ({ ...m, source: 'llm' }));
+  if (Array.isArray(res.options)) out.source = 'llm';
+  return out;
 }
+const llmMeta = (m: any) => (mode === 'llm' ? { ...m, llm_mode: 'openai_compat', llm_status: 'online' }
+  : mode === 'llmdown' ? { ...m, llm_mode: 'openai_compat', llm_status: 'offline' } : m);
 
 function nextTurn() {
-  const steps = script as any[];
+  const steps = currentScript();
   if (mode === 'allEvents' && turn === 0) {
     turn = 1;
     return allEvents;
@@ -45,13 +65,21 @@ export const handlers = [
   http.get('/api/v1/health', async () => {
     const left = 4000 - (Date.now() - started);
     if (mode === 'slow' && left > 0) await delay(left);
-    return HttpResponse.json(mode === 'llm' ? { ...health, llm_mode: 'openai_compat', llm_status: 'online' } : health);
+    return HttpResponse.json(llmMeta(health));
   }),
-  http.get('/api/v1/meta', () => HttpResponse.json(mode === 'llm' ? { ...meta, llm_mode: 'openai_compat', llm_status: 'online' } : meta)),
+  http.get('/api/v1/meta', () => HttpResponse.json(llmMeta(meta))),
   http.get('/api/v1/scenarios', () => HttpResponse.json(scenarios)),
-  http.post('/api/v1/sessions', () => {
-    turn = mode === 'end' ? (script as any[]).length - 1 : 0;
-    return HttpResponse.json(session);
+  http.post('/api/v1/sessions', async ({ request }) => {
+    const body = (await request.json().catch(() => ({}))) as { scenario_id?: string; seed?: number };
+    pack = body.scenario_id || 'village-river-01';
+    turn = mode === 'end' ? currentScript().length - 1 : 0;
+    const base = PACKS[pack]?.session || session;
+    return HttpResponse.json(body.seed !== undefined ? { ...base, seed: body.seed } : base);
+  }),
+  http.post('/api/v1/sessions/:sid/help', async () => {
+    await delay(120);
+    const recovery = mode === 'end';
+    return HttpResponse.json(withLlm(recovery ? helpRecovery : help));
   }),
   http.post('/api/v1/sessions/:sid/turns', async ({ request }) => {
     const body = (await request.json()) as { input: any };
@@ -61,11 +89,15 @@ export const handlers = [
       const text = String(input.text || '');
       if (EMERGENCY_RE.test(text)) return HttpResponse.json(emergency);
       if (/restore power/i.test(text) && turn < 17) return HttpResponse.json(rejected);
-      if (!KNOWN_TEXT.has(text.toLowerCase())) return HttpResponse.json(clarify);
+      if (pack === 'village-river-01' && !KNOWN_TEXT.has(text.toLowerCase())) return HttpResponse.json(clarify);
     }
     return HttpResponse.json(withLlm(nextTurn()));
   }),
-  http.post('/api/v1/sessions/:sid/npc/:npc', () => HttpResponse.json(withLlm(nextTurn()))),
+  http.post('/api/v1/sessions/:sid/npc/:npc/messages', async () => {
+    await delay(120);
+    turn += 1;
+    return HttpResponse.json(withLlm(npc));
+  }),
   http.get('/api/v1/sessions/:sid/log', () => {
     const upto = Math.min(turn, (log as any).frames.length - 1);
     return HttpResponse.json({

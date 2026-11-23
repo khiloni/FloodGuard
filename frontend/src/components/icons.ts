@@ -2,5 +2,6 @@
 export {
   Siren, Phone, Bot, FileText, Play, Pause, RotateCcw, Users, Info, Send, Eye, EyeOff,
   Shield, School, Ship, Truck, Package, Droplets, Zap, HeartPulse, HeartHandshake, Thermometer,
-  Construction, WavesHorizontal, ChevronRight,
+  Construction, WavesHorizontal, ChevronRight, ChevronLeft, Lightbulb, X, Clock, Sparkles, Languages, Gauge,
+  BookOpen, ScrollText, ListChecks, MessagesSquare, Megaphone, Anchor, Grid2x2, Timer, Map, Landmark, ArrowLeft,
 } from 'lucide-react';

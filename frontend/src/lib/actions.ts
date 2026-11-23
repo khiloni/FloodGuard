@@ -1,7 +1,7 @@
 import {
   Megaphone, DoorOpen, Ship, HeartHandshake, School, BrickWall, MessageCircle, Hourglass,
   LifeBuoy, Package, Droplets, Stethoscope, Zap, Construction, ClipboardCheck, House,
-  type LucideIcon,
+  Truck, Grid2x2, Timer, Anchor, type LucideIcon,
 } from 'lucide-react';
 import type { Action, Phase } from '../api/types';
 
@@ -15,6 +15,7 @@ export interface ActionMeta {
   icon: LucideIcon;
   group: 'move' | 'protect' | 'recover' | 'other';
   availability: Availability;
+  mechanic?: string;   // only shown in scenarios with this mechanic
   params: ParamKind[];
   help: string;
 }
@@ -30,12 +31,20 @@ export const ACTIONS: ActionMeta[] = [
     help: 'Send boats or trucks to carry people from a ward. Trucks cannot use flooded roads.' },
   { name: 'prioritize_vulnerable', label: 'Prioritise vulnerable people', short: 'Vulnerable', icon: HeartHandshake, group: 'move', availability: 'flood', params: ['zone'],
     help: 'Move elderly people, children and people with disabilities first.' },
-  { name: 'open_shelter', label: 'Open the shelter', short: 'Shelter', icon: School, group: 'protect', availability: 'any', params: ['shelter'],
+  { name: 'open_shelter', label: 'Open a shelter', short: 'Shelter', icon: School, group: 'move', availability: 'any', params: ['shelter'],
     help: 'Open the school on high ground so evacuees have somewhere to go.' },
   { name: 'reinforce_embankment', label: 'Reinforce embankment', short: 'Sandbags', icon: BrickWall, group: 'protect', availability: 'flood', params: ['sandbags'],
     help: 'Lay sandbags to raise the river bund before the peak.' },
   { name: 'distribute_supplies', label: 'Send relief supplies', short: 'Supplies', icon: Package, group: 'protect', availability: 'any', params: [],
     help: 'Deliver food and essentials to the open shelter.' },
+  { name: 'request_external_support', label: 'Request outside support', short: 'Support', icon: Truck, group: 'protect', availability: 'any', params: [],
+    help: 'Ask the district for a convoy of boats, trucks, sandbags and relief. It arrives after a delay and can be requested once.' },
+  { name: 'clear_drains', label: 'Clear blocked drains', short: 'Drains', icon: Grid2x2, group: 'protect', availability: 'flood', params: ['zone'], mechanic: 'drains',
+    help: 'Send a municipal crew to clear blocked drains in one area so rainwater can run off.' },
+  { name: 'request_staggered_release', label: 'Ask for a slower dam release', short: 'Dam', icon: Timer, group: 'protect', availability: 'flood', params: [], mechanic: 'dam_release',
+    help: 'Ask the dam authority to release water more slowly over a longer time. Only possible before the release starts.' },
+  { name: 'recall_fishing_boats', label: 'Recall fishing boats', short: 'Recall', icon: Anchor, group: 'move', availability: 'flood', params: [], mechanic: 'cyclone',
+    help: 'Radio the fishing fleet to come home. Boats need a few ticks to reach the harbour before landfall.' },
   { name: 'search_and_rescue', label: 'Search and rescue', short: 'Rescue', icon: LifeBuoy, group: 'recover', availability: 'recovery', params: ['zone'],
     help: 'Send teams to bring stranded residents of a flooded ward to the shelter.' },
   { name: 'provide_clean_water', label: 'Provide clean water', short: 'Water', icon: Droplets, group: 'recover', availability: 'recovery', params: [],
@@ -65,6 +74,10 @@ export const GROUP_LABELS: Record<ActionMeta['group'], string> = {
   other: 'Talk or wait',
 };
 
+export function actionsFor(mechanic: string | undefined): ActionMeta[] {
+  return ACTIONS.filter((a) => !a.mechanic || a.mechanic === mechanic);
+}
+
 export function isAvailable(meta: ActionMeta, phase: Phase): boolean {
   if (meta.availability === 'any') return true;
   if (meta.availability === 'recovery') return phase === 'recovery';
@@ -77,11 +90,22 @@ export function unavailableReason(meta: ActionMeta): string {
     : 'The flood response is over; use the recovery actions.';
 }
 
-export const NPCS: Record<string, { name: string; role: string; zone: string }> = {
+export type NpcMap = Record<string, { name: string; role: string; zone: string }>;
+
+/** Fallback roster (river village); the scenario pack's own NPCs replace it at runtime. */
+export const NPCS: NpcMap = {
   village_head: { name: 'Sarpanch Ramesh', role: 'Village head', zone: 'ward-2' },
   rescue_worker: { name: 'Officer Sunita', role: 'Civil defence volunteer', zone: 'ward-1' },
   family_member: { name: 'Mohan', role: 'Ward 1 resident', zone: 'ward-1' },
+  health_worker: { name: 'Nurse Kavita', role: 'Health worker', zone: 'ward-2' },
+  district_official: { name: 'Ms. Desai', role: 'District official', zone: 'school' },
 };
+
+let activeNpcs: NpcMap = NPCS;
+export function setActiveNpcs(list: { id: string; name: string; role: string; location?: string | null }[]) {
+  activeNpcs = list.length ? Object.fromEntries(list.map((n) => [n.id, { name: n.name, role: n.role, zone: n.location || '' }])) : NPCS;
+}
+export function npcs(): NpcMap { return activeNpcs; }
 
 export function describeAction(a: Action, zoneNames: Record<string, string> = {}): string {
   const meta = ACTION_BY_NAME[a.name];
@@ -91,6 +115,7 @@ export function describeAction(a: Action, zoneNames: Record<string, string> = {}
   if (typeof p.zone === 'string') bits.push(zoneNames[p.zone] || p.zone);
   if (p.transport_type) bits.push(`${p.count ?? 1} ${p.transport_type === 'boat' ? 'boat(s)' : 'truck(s)'}`);
   if (p.sandbags) bits.push(`${p.sandbags} sandbags`);
-  if (typeof p.npc_id === 'string') bits.push(NPCS[p.npc_id]?.name || p.npc_id);
+  if (typeof p.npc_id === 'string') bits.push(activeNpcs[p.npc_id]?.name || p.npc_id);
+  if (typeof p.shelter_id === 'string' && zoneNames[p.shelter_id]) bits.push(zoneNames[p.shelter_id]);
   return bits.length ? `${base}: ${bits.join(', ')}` : base;
 }

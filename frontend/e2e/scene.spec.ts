@@ -24,7 +24,7 @@ test('village scene is drawn from the API layout', async ({ page }) => {
   await expect(page.getByTestId('gauge')).toContainText(`${(session as any).summary.water_level_cm} cm`);
   // Screen-reader description comes from the API summary
   await expect(page.locator('#scene-desc')).toContainText('Ward 1');
-  await expect(page.getByTestId('llm-badge')).toContainText('AI narration off');
+  await expect(page.getByTestId('llm-badge')).toContainText('AI off');
   await expect(page.getByTestId('phase-chip')).toContainText('Before the flood');
 });
 
@@ -33,7 +33,8 @@ test('turn updates the scene, narration has a source badge and is announced', as
   await page.getByTestId('action-open_shelter').click();
   await expect(page.getByTestId('timeline-tick')).toHaveText('1');
   await expect(page.getByTestId('shelter')).toHaveClass(/open/);
-  await expect(page.getByTestId('msg-narration').last()).toBeVisible();
+  await expect(page.getByTestId('caption')).toContainText('Shelter');
+  await expect(page.getByTestId('msg-narration').last()).toBeAttached();
   await expect(page.getByTestId('source-template').first()).toBeVisible();
   await expect(page.getByTestId('live-narration')).toContainText('Shelter');
 });
@@ -51,14 +52,15 @@ test('parameter picker sends an action with a ward', async ({ page }) => {
 
 test('unavailable recovery action explains why instead of acting', async ({ page }) => {
   await enter(page);
+  await page.getByTestId('group-recover').click();
   await page.getByTestId('action-provide_clean_water').click();
-  await expect(page.getByTestId('msg-hint').last()).toContainText('Available after the flood');
+  await expect(page.getByTestId('caption')).toContainText('Available after the flood');
   await expect(page.getByTestId('timeline-tick')).toHaveText('0');
 });
 
 test('LLM mode shows AI badges and the may-be-wrong label', async ({ page }) => {
   await enter(page, '?mock=llm');
-  await expect(page.getByTestId('llm-badge')).toContainText('AI narration on');
+  await expect(page.getByTestId('llm-badge')).toContainText('AI on');
   await expect(page.getByTestId('ai-label')).toContainText('may be wrong');
   await waitAction(page);
   await expect(page.getByTestId('source-llm').first()).toContainText('AI');

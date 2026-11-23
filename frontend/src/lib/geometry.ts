@@ -56,3 +56,17 @@ export function dotGrid(x: number, y: number, w: number, count: number, gap = 13
   const cols = Math.max(1, Math.floor(w / gap));
   return Array.from({ length: count }, (_, i) => [x + (i % cols) * gap, y + Math.floor(i / cols) * gap] as Point);
 }
+
+/** Position of a named decor item (dam, sea_boats, first underpass), with a fallback. */
+export function decorAt(layout: Layout, key: 'dam' | 'sea_boats' | 'underpass' | 'jetty', fallback: Point): Point {
+  const d = layout.decor || {};
+  const v = key === 'underpass' ? d.underpasses?.[0] : (d as any)[key];
+  return v ? [v.x, v.y] : fallback;
+}
+
+/** Where outside help enters the map: the far end of the first road route (map edge). */
+export function mapEdgeEntry(layout: Layout): Point {
+  const w = layout.canvas?.width ?? 1000;
+  const sc = shelterCenter(layout);
+  return [w + 40, sc[1]];
+}

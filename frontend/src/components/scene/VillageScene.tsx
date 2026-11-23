@@ -69,7 +69,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
   for (const [zid, z] of Object.entries(state?.zones || {})) lostByZone[zid] = z.lost;
 
   return (
-    <div className={`scene-wrap phase-${s.phase}${reduced ? ' reduced' : ''}`} data-testid="scene">
+    <div className={`scene-wrap phase-${s.phase}${reduced ? ' reduced' : ''}`} data-testid="scene" style={{ background: layout.water_body === 'canal' ? '#dfe3e8' : '#e3ecd0' }}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="scene-title scene-desc" className="scene" preserveAspectRatio="xMidYMid meet">
         <title id="scene-title">Village map</title>
         <desc id="scene-desc">{sceneDescription(s, layout)}</desc>
@@ -99,7 +99,8 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         </defs>
 
         {/* Land, hills, trees */}
-        <rect width={W} height={H} fill="#e3ecd0" />
+        <rect width={W} height={H} fill={layout.water_body === 'canal' ? '#dfe3e8' : '#e3ecd0'} />
+        <Decor layout={layout} s={s} reduced={reduced} layer="under" />
         {(layout.decor?.hills || []).map(([x, y], i) => (
           <ellipse key={`h${i}`} cx={x} cy={y} rx="90" ry="40" fill="#cddcb1" />
         ))}
@@ -136,7 +137,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         {/* River with swelling water and status outline */}
         {river && (
           <g data-testid="river" className={`river river-${status}`}>
-            <path d={riverPath} fill="#56B4E9" />
+            <path d={riverPath} fill={layout.water_body === 'sea' ? '#0072B2' : layout.water_body === 'canal' ? '#6fb5de' : '#56B4E9'} />
             {status !== 'normal' && (
               <path d={riverPath} fill={`url(#hatch-${status === 'danger' ? 'danger' : 'warn'})`} opacity="0.35" />
             )}
@@ -144,6 +145,8 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
             <path d={pathFrom(river.center_path)} fill="none" stroke="#ffffff" strokeOpacity="0.6" strokeWidth="2" strokeDasharray="14 22" className="river-flow" />
           </g>
         )}
+
+        <Decor layout={layout} s={s} reduced={reduced} layer="over" />
 
         {/* Embankment */}
         <g data-testid="embankment" className={s.embankment_breached ? 'embankment breached' : 'embankment'}>
@@ -219,19 +222,21 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         })}
 
         {/* Shelter */}
-        {layout.shelters.map((sh) => {
-          const occ = s.shelter.occupancy;
+        {layout.shelters.map((sh, si) => {
+          const occ = si === 0 ? s.shelter.occupancy : 0;
           const dots = dotGrid(sh.x + 8, sh.y + 26, sh.width - 16, Math.ceil(occ / 10), 10);
           return (
-            <g key={sh.id} data-testid="shelter" className={s.shelter.is_open ? 'shelter open' : 'shelter closed'}>
+            <g key={sh.id} data-testid={si === 0 ? 'shelter' : `shelter-${sh.id}`} className={s.shelter.is_open ? 'shelter open' : 'shelter closed'}>
               <path d={`M${sh.x - 6} ${sh.y + 14} L${sh.x + sh.width / 2} ${sh.y - 14} L${sh.x + sh.width + 6} ${sh.y + 14} Z`} fill="#b45f3c" />
               <rect x={sh.x} y={sh.y + 12} width={sh.width} height={sh.height} rx="4" fill={s.shelter.is_open ? '#fff7d6' : '#d9d4c7'} stroke="#5b4636" strokeWidth="2" />
               {dots.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="3.5" fill="#009E73" />)}
-              <rect x={sh.x} y={sh.y + sh.height + 18} width={sh.width} height="8" rx="4" fill="#e6e1d3" />
-              <rect x={sh.x} y={sh.y + sh.height + 18} width={sh.width * clamp01(occ / Math.max(1, s.shelter.capacity))} height="8" rx="4" fill="#009E73" />
-              <text x={sh.x + sh.width / 2} y={sh.y + sh.height + 44} textAnchor="middle" className="svg-label small">
-                {s.shelter.is_open ? `Shelter ${occ}/${s.shelter.capacity}` : 'Shelter closed'}
-              </text>
+              {si === 0 ? (<>
+                <rect x={sh.x} y={sh.y + sh.height + 18} width={sh.width} height="8" rx="4" fill="#e6e1d3" />
+                <rect x={sh.x} y={sh.y + sh.height + 18} width={sh.width * clamp01(occ / Math.max(1, s.shelter.capacity))} height="8" rx="4" fill="#009E73" />
+                <text x={sh.x + sh.width / 2} y={sh.y + sh.height + 44} textAnchor="middle" className="svg-label small">
+                  {s.shelter.is_open ? `${layout.shelters.length > 1 ? 'Shelters' : 'Shelter'} ${occ}/${s.shelter.capacity}` : 'Shelter closed'}
+                </text></>) : (
+                <text x={sh.x + sh.width / 2} y={sh.y + sh.height + 34} textAnchor="middle" className="svg-label tiny">{sh.name}</text>)}
             </g>
           );
         })}
@@ -285,7 +290,8 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         </g>
 
         {/* River gauge */}
-        <Gauge s={s} status={status} />
+        <Gauge s={s} status={status} label={layout.water_body === 'sea' ? 'Sea' : layout.water_body === 'canal' ? 'Canal' : 'River'} />
+        <ResourceCluster layout={layout} s={s} />
 
         <EventEffects layout={layout} items={fx} reduced={reduced} />
       </svg>
@@ -314,7 +320,7 @@ const Debris: React.FC<{ at: Point }> = ({ at: [x, y] }) => (
   </g>
 );
 
-const Gauge: React.FC<{ s: Summary; status: string }> = ({ s, status }) => {
+const Gauge: React.FC<{ s: Summary; status: string; label: string }> = ({ s, status, label }) => {
   const top = 70, bottom = 300, min = 100, max = 520;
   const y = (cm: number) => bottom - ((cm - min) / (max - min)) * (bottom - top);
   return (
@@ -330,7 +336,7 @@ const Gauge: React.FC<{ s: Summary; status: string }> = ({ s, status }) => {
       <text x="34" y={y(s.danger_level_cm) + 5} className="svg-label tiny">danger</text>
       <text x="34" y={y(s.warning_level_cm) + 5} className="svg-label tiny">warning</text>
       <text x="13" y={bottom + 24} textAnchor="middle" className="svg-label small">{s.water_level_cm} cm</text>
-      <text x="13" y={top - 10} textAnchor="middle" className="svg-label tiny">River</text>
+      <text x="13" y={top - 10} textAnchor="middle" className="svg-label tiny">{label}</text>
     </g>
   );
 };
@@ -377,6 +383,93 @@ const RecoverySites: React.FC<{ layout: Layout; s: Summary }> = ({ layout, s }) 
           <text y="22" textAnchor="middle" className="svg-label tiny">Depot</text>
         </g>
       )}
+    </g>
+  );
+};
+
+/** Scenario decor: dam, city blocks, railway, underpass, bridges, jetty, fishing boats at sea. Presentational only. */
+const Decor: React.FC<{ layout: Layout; s: Summary; reduced: boolean; layer: 'under' | 'over' }> = ({ layout, s, reduced, layer }) => {
+  const d = layout.decor || {};
+  const mech = s.mechanic;
+  if (layer === 'under') {
+    return (
+      <g data-testid="decor" aria-hidden="true">
+        {(d.buildings || []).map(([x, y], i) => (
+          <g key={`b${i}`} transform={`translate(${x} ${y})`}>
+            <rect x="-22" y={-30 - (i % 3) * 10} width="44" height={52 + (i % 3) * 10} fill="#9aa6b8" stroke="#4b5563" strokeWidth="1.5" />
+            {[0, 1, 2].map((r) => [0, 1].map((c) => <rect key={`${r}${c}`} x={-14 + c * 18} y={-22 - (i % 3) * 10 + r * 14} width="9" height="7" fill={mech?.power_down ? '#4b5563' : '#F0E442'} opacity="0.75" />))}
+          </g>
+        ))}
+        {(d.railway || []).length > 1 && (
+          <g data-testid="railway">
+            <path d={pathFrom(d.railway!)} stroke="#4b5563" strokeWidth="8" fill="none" />
+            <path d={pathFrom(d.railway!)} stroke="#e5e7eb" strokeWidth="5" strokeDasharray="2 8" fill="none" />
+          </g>
+        )}
+      </g>
+    );
+  }
+  return (
+    <g data-testid="decor-over" aria-hidden="true">
+      {(d.underpasses || []).map((u, i) => (
+        <g key={`u${i}`} transform={`translate(${u.x} ${u.y})`} data-testid="underpass">
+          <path d="M-26 10 v-12 a26 18 0 0 1 52 0 v12" fill="#374151" stroke="#111827" strokeWidth="2" />
+          <text y="26" textAnchor="middle" className="svg-label tiny">{u.label || 'Underpass'}</text>
+        </g>
+      ))}
+      {(d.bridges || []).map((b, i) => (
+        <g key={`br${i}`} transform={`translate(${b.x} ${b.y})`}>
+          <rect x="-34" y="-7" width="68" height="14" rx="3" fill="#a3896b" stroke="#5b4636" strokeWidth="2" />
+          {b.label && <text y="-12" textAnchor="middle" className="svg-label tiny">{b.label}</text>}
+        </g>
+      ))}
+      {d.dam && (
+        <g transform={`translate(${d.dam.x} ${d.dam.y})`} data-testid="dam">
+          <path d="M-30 -40 L20 -30 L20 40 L-30 50 Z" fill="#9ca3af" stroke="#374151" strokeWidth="2.5" />
+          {[0, 1, 2].map((i) => <rect key={i} x="10" y={-18 + i * 16} width="10" height="8" fill={mech && s.tick >= (mech.release_tick ?? 999) ? '#56B4E9' : '#4b5563'} />)}
+          <text y="66" textAnchor="middle" className="svg-label tiny">{d.dam.label || 'Dam'}</text>
+        </g>
+      )}
+      {d.jetty && (
+        <g transform={`translate(${d.jetty.x} ${d.jetty.y})`}>
+          <rect x="-26" y="-6" width="52" height="12" fill="#8a6a4f" />
+          <text y="26" textAnchor="middle" className="svg-label tiny">{d.jetty.label || 'Depot'}</text>
+        </g>
+      )}
+      {d.sea_boats && mech && mech.boats_at_sea > 0 && (
+        <g transform={`translate(${d.sea_boats.x} ${d.sea_boats.y})`} data-testid="sea-boats">
+          {Array.from({ length: Math.min(6, mech.boats_at_sea) }, (_, i) => (
+            <g key={i} transform={`translate(${(i % 3) * 38 - 38} ${Math.floor(i / 3) * 18 - 10})`} className={reduced ? '' : 'bob'}>
+              <path d="M-12 0 h24 l-6 7 h-12z" fill="#E69F00" stroke="#5b3a00" /><line x1="0" y1="0" x2="0" y2="-12" stroke="#333" strokeWidth="1.5" />
+            </g>
+          ))}
+          <text y="34" textAnchor="middle" className="svg-label tiny">{mech.boats_at_sea} boats at sea</text>
+        </g>
+      )}
+    </g>
+  );
+};
+
+/** Free boats, trucks and sandbags at the depot; an icon greys out at zero. */
+const ResourceCluster: React.FC<{ layout: Layout; s: Summary }> = ({ layout, s }) => {
+  const j = layout.decor?.jetty || { x: 120, y: 435 };
+  const items = [
+    { id: 'boats', n: s.transport.boats_available, sym: '#boat' },
+    { id: 'trucks', n: s.transport.vehicles_available, sym: '#truck' },
+  ];
+  return (
+    <g transform={`translate(${j.x - 40} ${j.y + 40})`} data-testid="resources" aria-hidden="true">
+      <rect x="-10" y="-16" width="132" height="32" rx="8" fill="#ffffff" opacity="0.85" stroke="#4b5563" />
+      {items.map((it, i) => (
+        <g key={it.id} transform={`translate(${i * 44 + 8} 0)`} className={it.n ? 'res' : 'res depleted'} data-testid={`res-${it.id}${it.n ? '' : '-empty'}`}>
+          <use href={it.sym} x="-8" y="-9" width="24" height="16" />
+          <text x="22" y="5" className="svg-label tiny">{it.n}</text>
+        </g>
+      ))}
+      <g transform="translate(96 0)" className={(s.sandbags ?? 0) ? 'res' : 'res depleted'} data-testid={`res-sandbags${(s.sandbags ?? 0) ? '' : '-empty'}`}>
+        <rect x="-8" y="-6" width="12" height="8" rx="2" fill="#c8a165" stroke="#5b3a1e" />
+        <text x="8" y="5" className="svg-label tiny">{s.sandbags ?? 0}</text>
+      </g>
     </g>
   );
 };

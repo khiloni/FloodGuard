@@ -18,6 +18,13 @@ test('there is one animation for every event type', async ({ page }) => {
   for (const t of TYPES) {
     expect(drawn[t], `animation for ${t}`).toBeGreaterThan(0);
   }
+  // New scenario events have their own drawings, not the generic label.
+  const NEW_TYPES = ['support_arrived', 'support_requested', 'resource_depleted', 'drains_cleared', 'drain_overflow',
+    'dam_release_notice', 'dam_release_started', 'release_staggered', 'fishing_boats_recalled', 'fishing_boats_returned',
+    'cyclone_landfall', 'fishers_stranded'];
+  for (const t of NEW_TYPES) expect(TYPES, t).toContain(t);
+  expect(await page.getByTestId('fx-support_arrived').locator('.fx-move').count(), 'convoy of trucks').toBeGreaterThanOrEqual(3);
+  expect(await page.getByTestId('fx-embankment_reinforced').locator('rect').count(), 'stacked sandbags').toBeGreaterThan(3);
   // Effects are temporary
   await expect(page.locator('[data-testid^="fx-"]')).toHaveCount(0, { timeout: 12000 });
 });

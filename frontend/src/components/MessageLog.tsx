@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { NPCS } from '../lib/actions';
+import { npcs } from '../lib/actions';
 import { Bot, FileText, Shield, Info } from './icons';
 
 export interface Message {
@@ -41,7 +41,7 @@ export const MessageLog: React.FC<{ messages: Message[]; llmOn: boolean }> = ({ 
           <li key={m.id} className={`msg msg-${m.kind}`} data-testid={`msg-${m.kind}`}>
             <div className="msg-head">
               {typeof m.tick === 'number' && <span className="msg-tick">Tick {m.tick}</span>}
-              {m.kind === 'npc' && m.npcId && <strong>{NPCS[m.npcId]?.name || m.npcId}</strong>}
+              {m.kind === 'npc' && m.npcId && <strong>{npcs()[m.npcId]?.name || m.npcId}</strong>}
               {(m.kind === 'reject' || m.kind === 'hint') && <Info aria-hidden="true" />}
               <SourceBadge source={m.source} />
             </div>

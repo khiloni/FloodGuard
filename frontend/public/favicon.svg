@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- FloodGuard mark: a shield holding a water drop over a wave. Original artwork, Apache-2.0. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1E88E5"/>
+      <stop offset="1" stop-color="#0B3D6E"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 3 L56 11 V30 C56 45 46 55 32 61 C18 55 8 45 8 30 V11 Z" fill="url(#g)" stroke="#F0E442" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M32 14 C39 24 43 30 43 36 A11 11 0 0 1 21 36 C21 30 25 24 32 14 Z" fill="#ffffff"/>
+  <path d="M14 44 C19 40 24 48 32 44 S45 40 50 44" fill="none" stroke="#56B4E9" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M27 35 A6 6 0 0 0 32 41" fill="none" stroke="#56B4E9" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

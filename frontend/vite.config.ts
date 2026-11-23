@@ -1,12 +1,25 @@
-import { defineConfig } from 'vite';
+import { readFileSync } from 'node:fs';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// MSW mocks exist only in `--mode mock` (npm run dev:mock and Playwright). In every other
-// mode the service worker folder is not served and the mock code is dead-code eliminated,
-// so nothing from src/mocks or mock-public reaches dist/.
+// The MSW service worker lives in mock-public/ and is served only by the dev server in
+// `--mode mock` (npm run dev:mock and Playwright). It is never copied into dist/.
+function mockWorker(): Plugin {
+  return {
+    name: 'floodguard-mock-worker',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use('/mockServiceWorker.js', (_req, res) => {
+        res.setHeader('Content-Type', 'text/javascript');
+        res.end(readFileSync(new URL('./mock-public/mockServiceWorker.js', import.meta.url)));
+      });
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => ({
-  plugins: [react()],
-  publicDir: mode === 'mock' ? 'mock-public' : false,
+  plugins: [react(), ...(mode === 'mock' ? [mockWorker()] : [])],
+  publicDir: 'public', // icons, favicon, web manifest
   server: {
     port: 5173,
     proxy: mode === 'mock' ? undefined : {

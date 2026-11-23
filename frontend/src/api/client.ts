@@ -1,5 +1,5 @@
 import type {
-  Action, Health, Meta, Report, SessionCreated, SessionLog, TurnResponse,
+  Action, Health, HelpResponse, Meta, Report, ScenarioInfo, SessionCreated, SessionLog, TurnResponse,
 } from './types';
 
 const BASE = (import.meta.env.VITE_API_BASE ?? '').replace(/\/$/, '');
@@ -38,7 +38,10 @@ export type TurnInput = { type: 'button'; action: Action } | { type: 'text'; tex
 export const api = {
   health: (timeoutMs?: number) => request<Health>('/health', undefined, timeoutMs),
   meta: () => request<Meta>('/meta'),
-  createSession: (seed?: number) => post<SessionCreated>('/sessions', { scenario_id: 'village-river-01', seed }),
+  scenarios: () => request<{ scenarios: ScenarioInfo[] }>('/scenarios'),
+  createSession: (opts: { scenario_id: string; seed?: number; difficulty?: string; language?: string }) =>
+    post<SessionCreated>('/sessions', opts),
+  help: (sid: string) => post<HelpResponse>(`/sessions/${sid}/help`, {}),
   turn: (sid: string, input: TurnInput) => post<TurnResponse>(`/sessions/${sid}/turns`, { input }),
   npc: (sid: string, npcId: string, message: string) => post<TurnResponse>(`/sessions/${sid}/npc/${npcId}/messages`, { message }),
   log: (sid: string, frames = false) => request<SessionLog>(`/sessions/${sid}/log${frames ? '?frames=true' : ''}`),

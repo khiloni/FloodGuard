@@ -28,3 +28,24 @@ test('keyboard only: Tab to an action and press Enter', async ({ page }) => {
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('timeline-tick')).toHaveText('1');
 });
+
+async function swipe(page: import('@playwright/test').Page, selector: string, dx: number) {
+  await page.locator(selector).first().evaluate((el, d) => {
+    const r = el.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    const opts = (cx: number) => ({ bubbles: true, pointerType: 'touch', clientX: cx, clientY: y, pointerId: 7, isPrimary: true });
+    el.dispatchEvent(new PointerEvent('pointerdown', opts(x)));
+    el.dispatchEvent(new PointerEvent('pointerup', opts(x + d)));
+  }, dx);
+}
+
+test('swipe switches pages; a swipe on the map does not', async ({ page }) => {
+  await enter(page);
+  await swipe(page, '[data-testid="caption"]', -150);
+  await expect(page.getByTestId('tab-village')).toHaveAttribute('aria-selected', 'true');
+  await swipe(page, '[data-testid="briefing"]', 150);
+  await expect(page.getByTestId('tab-act')).toHaveAttribute('aria-selected', 'true');
+  await swipe(page, '[data-testid="scene"]', -150);
+  await expect(page.getByTestId('tab-act')).toHaveAttribute('aria-selected', 'true');
+});
