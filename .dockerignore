@@ -1,0 +1,18 @@
+# Keep the build context small and platform-neutral.
+# node_modules from Windows must never overwrite the Linux packages installed by `npm ci`.
+.git
+.github
+.venv
+venv
+.pytest_cache
+**/__pycache__
+**/*.pyc
+frontend/node_modules
+frontend/dist
+frontend/test-results
+frontend/playwright-report
+backend/tests
+backend/*.db
+*.db
+*.md
+docs
