@@ -151,6 +151,18 @@ def test_session_replay_integrity():
         assert live_state["zones"][zid]["population_remaining"] == replayed_state.zones[zid].population_remaining
 
 
+def _normalise_schema(node):
+    if isinstance(node, dict):
+        return {
+            k: _normalise_schema(v)
+            for k, v in node.items()
+            if not (k == "additionalProperties" and v is True)
+        }
+    if isinstance(node, list):
+        return [_normalise_schema(v) for v in node]
+    return node
+
+
 def test_openapi_contract_frozen_and_complete():
     root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     openapi_path = os.path.join(root, "docs", "openapi.json")
@@ -158,7 +170,13 @@ def test_openapi_contract_frozen_and_complete():
         frozen = json.load(f)
 
     live = app.openapi()
-    assert frozen == live, "docs/openapi.json is out of sync with app.openapi()"
+    # Pydantic >= 2.11 renders Dict[str, Any] with "additionalProperties": true,
+    # older versions omit it. Both mean the same in JSON Schema, so normalise
+    # before comparing; otherwise the contract test depends on the pydantic version.
+    assert _normalise_schema(frozen) == _normalise_schema(live), (
+        "docs/openapi.json is out of sync with app.openapi(); regenerate with "
+        "python -m backend.scripts.export_openapi"
+    )
 
     paths = frozen["paths"]
     assert "/{full_path}" not in paths
