@@ -1,8 +1,7 @@
 # FloodGuard Progress
 
-Base: commit `8b67f9b` (Phase 0, F1-F3, LLM layer, layout data). An earlier
-uncommitted frontend attempt is saved in `git stash` as `old-frontend-attempt`
-(reference only; Part 3 rebuilds the frontend from scratch).
+Base: commit `8b67f9b` (Phase 0, F1-F3, LLM layer, layout data). The earlier uncommitted frontend
+attempt was kept in a stash during Part 3 and dropped on 23 Nov 2026 after the rebuild.
 
 ## Part 1 - LLM layer (backend) - DONE, awaiting human gate
 - [x] `backend/app/llm/openai_compat.py`: OpenAI-compatible client (Ollama, llama.cpp, vLLM).
@@ -40,7 +39,7 @@ uncommitted frontend attempt is saved in `git stash` as `old-frontend-attempt`
 - Note: sessions saved in an old SQLite file with scenario 1.0.0 replay with the 2.0.0 rules.
 
 ## Part 3 - Immersive visual frontend - DONE
-- [x] Rebuilt from scratch (old attempt kept only in `git stash` "old-frontend-attempt").
+- [x] Rebuilt from scratch (the old attempt stash has been dropped).
 - [x] Scene from API layout only: river, embankment (cracks, breach), zones, houses, residents and
       vulnerable icons, routes, moving boats/trucks, shelter occupancy, recovery sites; rain and
       dusk/night toward the peak, clearing in recovery. No outcomes computed in the browser.
@@ -58,6 +57,15 @@ uncommitted frontend attempt is saved in `git stash` as `old-frontend-attempt`
 - Frontend: `tsc` clean, build OK, size check OK, Playwright 18/18 (run twice).
 - Not verified here: `docker build` (no Docker in this environment) and the Render deploy.
 
+## Cleanup and license decisions (23 Nov 2026)
+- [x] MPL-2.0 allowed for unmodified dependencies (certifi via httpx, Hypothesis if added); httpx kept.
+- [x] caniuse-lite (CC BY 4.0) accepted as a dev-only build-time exception with attribution; the size check
+      fails the build if caniuse data ever reaches `frontend/dist` (currently 0 files).
+- [x] Dead code removed (unused imports and wrapper in the backend, unused icon re-exports).
+- [x] Old frontend stash dropped.
+- [x] Verified: pytest 72 passed, license check pass, frontend build + size check + Playwright 18 passed.
+- Ready to push: all work is committed locally on `main`; nothing pushed or deployed.
+
 ## Open questions
-- certifi (MPL-2.0, pulled in by httpx) is listed as a documented exception pending approval.
-- caniuse-lite (CC-BY-4.0) is a dev-only build tool data file, documented as an exception.
+- None. (`FloodGuard - Complete Project Documentation.md` and `FloodGuard - Implementation Plan.md` in the
+  repository root are the original planning documents and were left in place.)
