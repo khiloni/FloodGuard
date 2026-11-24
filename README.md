@@ -129,9 +129,11 @@ Caddy serves one HTTPS URL with an automatic certificate. Step-by-step guide: [d
 `LLM_MODE=template`. Connect the GitHub repository as a Blueprint (or redeploy the existing service) after
 pushing `main`. The free tier sleeps when idle; the UI shows a "waking up" screen during the cold start.
 
-## Deploy to Hugging Face Spaces (free, no card)
+## Deploy to Hugging Face Spaces (needs a PRO subscription)
 
-The same `Dockerfile` runs as a Docker Space; [deploy/hf-space/README.md](deploy/hf-space/README.md) is the
+Hugging Face now returns `402 Payment Required` when creating a Docker or Gradio Space on the free
+`cpu-basic` hardware without a PRO subscription; only static Spaces are free, and FloodGuard needs its
+Python backend. With PRO, the same `Dockerfile` runs as a Docker Space; [deploy/hf-space/README.md](deploy/hf-space/README.md) is the
 Space's README (`sdk: docker`, `app_port: 10000`). Log in once with a write token, then upload:
 
 ```bash

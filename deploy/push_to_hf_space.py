@@ -4,6 +4,8 @@ Uploads every git-tracked file, with deploy/hf-space/README.md as the Space's RE
 `sdk: docker` / `app_port` header), and sets the non-secret LLM variables. API keys are never handled here:
 add CF_ACCOUNT_ID and CF_API_TOKEN yourself under the Space's Settings -> Variables and secrets.
 
+Requires a Hugging Face PRO subscription: free accounts get "402 Payment Required" for Docker Spaces.
+
 Usage (log in once first with `hf auth login` or `huggingface-cli login`, using a token with write access):
 
     python deploy/push_to_hf_space.py <hf-username>/<space-name>
