@@ -11,18 +11,18 @@ export const DisclaimerGate: React.FC<{ onAcknowledge: () => void; serverDisclai
       <div className="card gate">
         <h1 id="gate-title" tabIndex={-1} ref={titleRef}>Before you start: this is a simulation</h1>
         <p><strong>This is an educational simulation, not emergency guidance.</strong> FloodGuard is a simplified
-          teaching game. Its water levels, outcomes and scores are invented and are <strong>not</strong> a flood
+          teaching simulation. Its water levels, outcomes and scores are invented and are <strong>not</strong> a flood
           forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong.</p>
         <p className="callout danger" role="note">
           <Siren aria-hidden="true" /> <span><strong>If you are in a real emergency or a flood is happening near you:</strong> stop
           playing now and call <strong>112</strong> (India emergency number) or <strong>1078</strong> (disaster
           helpline). Follow your local authorities and official sources (IMD, CWC, your State Disaster Management Authority).</span>
         </p>
-        <p>Do not rely on this game for decisions about evacuation, safety or health.</p>
+        <p>Do not rely on this simulation for decisions about evacuation, safety or health.</p>
         {serverDisclaimer && <details><summary>Full notice from the server</summary><p>{serverDisclaimer}</p></details>}
         <label className="check">
           <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} data-testid="gate-check" />
-          <span>I understand that FloodGuard is an educational simulation game and not real-world emergency guidance.</span>
+          <span>I understand that FloodGuard is an educational simulation and not real-world emergency guidance.</span>
         </label>
         <button className="btn primary big" disabled={!agreed} onClick={onAcknowledge} data-testid="gate-enter">Enter the simulation</button>
       </div>
@@ -38,7 +38,7 @@ export const EmergencyFooter: React.FC = () => (
   </footer>
 );
 
-/** Shown when the server's real-emergency detector fires. The game is paused behind it. */
+/** Shown when the server's real-emergency detector fires. The simulation is paused behind it. */
 export const RealEmergencyScreen: React.FC<{ message: string; onReturn: () => void }> = ({ message, onReturn }) => {
   const ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => { ref.current?.focus(); }, []);
@@ -51,7 +51,7 @@ export const RealEmergencyScreen: React.FC<{ message: string; onReturn: () => vo
           <a className="helpline" href="tel:112">Call 112<small>India emergency number</small></a>
           <a className="helpline" href="tel:1078">Call 1078<small>Disaster helpline</small></a>
         </div>
-        <p>The game is paused. This simulation cannot help in a real emergency.</p>
+        <p>The simulation is paused. FloodGuard cannot help in a real emergency.</p>
         <button className="btn" onClick={onReturn}>I am safe, return to the simulation</button>
       </div>
     </div>

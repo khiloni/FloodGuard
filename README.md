@@ -2,7 +2,7 @@
 
 > [!CAUTION]
 > **Educational simulation, not emergency guidance.**
-> FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented and are
+> FloodGuard is a simplified teaching simulation. Its water levels, outcomes and scores are invented and are
 > **not** a flood forecast, an evacuation plan or operational guidance. Characters are fictional and
 > AI-generated text can be wrong.
 > **If you are in a real flood emergency, stop and call 112 (India emergency number) or 1078 (disaster
@@ -69,7 +69,7 @@ Useful URL switches in mock mode: `?mock=allEvents` (every animation at once), `
 
 ## Run with an open-source LLM
 
-The game is fully playable without an LLM (`LLM_MODE=template`, the default). To add AI narration, set
+The simulator is fully usable without an LLM (`LLM_MODE=template`, the default). To add AI narration, set
 `LLM_MODE=openai_compat` and choose a provider with `LLM_PROVIDER`. Keys are read from environment variables
 only. Only Apache-2.0 or MIT models are used.
 
@@ -92,7 +92,7 @@ LLM_MODE=openai_compat LLM_PROVIDER=ollama uvicorn backend.app.main:app --port 1
 ```
 `GET /api/v1/meta` shows the provider, model and licence. Messages show `source: llm` (an "AI · may be wrong"
 badge in the UI). If the provider is down or the key is missing, the next turn falls back to templates; the
-game never blocks. `LLM_BASE_URL` and `LLM_MODEL` override a preset; other optional settings: `LLM_TIMEOUT`,
+the simulation never blocks. `LLM_BASE_URL` and `LLM_MODEL` override a preset; other optional settings: `LLM_TIMEOUT`,
 `LLM_CONNECT_TIMEOUT`, `LLM_TURN_BUDGET`, `LLM_COOLDOWN`, `LLM_MAX_TOKENS`, `LLM_JSON_MODE`.
 
 ## Tests

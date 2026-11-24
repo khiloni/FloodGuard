@@ -260,12 +260,12 @@ app.add_middleware(
 
 DISCLAIMER_FULL_TEXT = (
     "This is an educational simulation, not emergency guidance. "
-    "FloodGuard is a simplified teaching game. Its water levels, outcomes and scores are invented "
+    "FloodGuard is a simplified teaching simulation. Its water levels, outcomes and scores are invented "
     "and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated "
     "text can be wrong. If you are in a real emergency or a flood is happening near you, stop "
     "playing and call 112 (India emergency number). Follow instructions from your local authorities "
     "and official sources for your area (for example the India Meteorological Department, the Central "
-    "Water Commission and your State Disaster Management Authority). Do not rely on this game for decisions "
+    "Water Commission and your State Disaster Management Authority). Do not rely on this simulation for decisions "
     "about evacuation, safety or health."
 )
 

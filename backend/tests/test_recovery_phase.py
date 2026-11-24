@@ -140,7 +140,7 @@ def test_supplies_consumed_while_people_are_sheltered():
     assert with_supplies.recovery.supply_shortfall_ticks < final.recovery.supply_shortfall_ticks
 
 
-def test_full_game_determinism_100_runs():
+def test_full_run_determinism_100_runs():
     plan = {**FLOOD_EXPERT, **RECOVERY_EXPERT}
     hashes = set()
     for _ in range(100):

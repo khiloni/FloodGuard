@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { enter, waitAction, fixture } from './helpers';
 const session = fixture('session');
 
-test('disclaimer gate blocks the game and the emergency footer is always visible', async ({ page }) => {
+test('disclaimer gate blocks the simulation and the emergency footer is always visible', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId('emergency-footer')).toContainText('112');
   await expect(page.getByTestId('emergency-footer')).toContainText('1078');

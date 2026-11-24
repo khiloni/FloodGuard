@@ -67,6 +67,6 @@ A missing key sets `llm_status: missing_key` and every output uses templates.
 | Read the model card on Hugging Face and confirmed the license is Apache-2.0 | | |
 | `ollama pull` + backend with `LLM_MODE=openai_compat`: `/api/v1/health` shows `llm_mode: openai_compat`, `llm_status: online` | | |
 | One button turn returns `narration.source: "llm"` and `guardrail.status: "passed"` | | |
-| Ollama stopped: next turn returns `source: "template"`, `guardrail.status: "fallback"`, game continues | | |
+| Ollama stopped: next turn returns `source: "template"`, `guardrail.status: "fallback"`, simulation continues | | |
 | Model name and digest used (`ollama show --modelfile <model>`) | | |
 

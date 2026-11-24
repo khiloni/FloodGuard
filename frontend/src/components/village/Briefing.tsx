@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { GameEvent, ScenarioInfo, Summary } from '../../api/types';
+import type { SimEvent, ScenarioInfo, Summary } from '../../api/types';
 import type { Message } from '../MessageLog';
 import { MessageLog } from '../MessageLog';
 import { BookOpen, ScrollText, ListChecks } from '../icons';
@@ -35,7 +35,7 @@ export const Briefing: React.FC<{ scenario: ScenarioInfo | null; s: Summary }> =
   );
 };
 
-export const Logs: React.FC<{ messages: Message[]; events: GameEvent[]; llmOn: boolean }> = ({ messages, events, llmOn }) => {
+export const Logs: React.FC<{ messages: Message[]; events: SimEvent[]; llmOn: boolean }> = ({ messages, events, llmOn }) => {
   const [tab, setTab] = useState<'story' | 'events'>('story');
   return (
     <div className="logs">

@@ -6,7 +6,7 @@ socket -> fake OpenAI-compatible server. Timeouts and refused connections are
 real network events, not mocked exceptions.
 
 Every bad model output must be blocked (retried twice with the violation as
-feedback, then replaced by the template) and the game must never block.
+feedback, then replaced by the template) and the simulation must never block.
 """
 import json
 import socket
@@ -117,7 +117,7 @@ def _assert_template_fallback(res, expect_retries=None):
     assert res["guardrail"]["fallback_reason"]
     if expect_retries is not None:
         assert res["guardrail"]["retries"] == expect_retries
-    # Engine still advanced: the game never blocks on the LLM.
+    # Engine still advanced: the simulation never blocks on the LLM.
     assert res["state"]["tick"] == 1
 
 

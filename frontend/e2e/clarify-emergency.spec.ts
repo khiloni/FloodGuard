@@ -28,7 +28,7 @@ test('rejected order is explained and time does not pass', async ({ page }) => {
   await expect(page.getByTestId('timeline-tick')).toHaveText('0');
 });
 
-test('real emergency stops the game and shows 112 and 1078', async ({ page }) => {
+test('real emergency stops the simulation and shows 112 and 1078', async ({ page }) => {
   await enter(page);
   await page.getByTestId('command-input').fill('this is a real emergency, I am actually trapped');
   await page.getByTestId('command-send').click();

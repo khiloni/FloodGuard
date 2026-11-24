@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GameEvent, Layout, Point } from '../../api/types';
+import type { SimEvent, Layout, Point } from '../../api/types';
 import {
   decorAt, depot, embankmentMid, mapEdgeEntry, pathFrom, pointAt, routeFor, shelterCenter, site, zoneCenter,
 } from '../../lib/geometry';
@@ -7,7 +7,7 @@ import { npcs } from '../../lib/actions';
 
 export interface FxItem {
   key: string;
-  event: GameEvent;
+  event: SimEvent;
   delay: number; // ms
 }
 
@@ -71,7 +71,7 @@ const People: React.FC<{ n: number; color?: string; vulnerable?: boolean }> = ({
 const Boat = () => <use href="#boat" x="-16" y="-9" width="32" height="18" />;
 const Truck = () => <use href="#truck" x="-16" y="-10" width="32" height="20" />;
 
-function renderFx(ev: GameEvent, ctx: Ctx): React.ReactNode {
+function renderFx(ev: SimEvent, ctx: Ctx): React.ReactNode {
   const L = ctx.layout;
   const zc = zoneCenter(L, ev.zone);
   const sc = shelterCenter(L);

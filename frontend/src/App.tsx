@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { api, type TurnInput } from './api/client';
 import type {
-  Action, EngineState, GameEvent, HelpResponse, Layout, Meta, ReplayFrame, Report, ScenarioInfo, Summary, TurnResponse,
+  Action, EngineState, SimEvent, HelpResponse, Layout, Meta, ReplayFrame, Report, ScenarioInfo, Summary, TurnResponse,
 } from './api/types';
 import { DisclaimerGate, EmergencyFooter, RealEmergencyScreen, WakingUp } from './components/Safety';
 import { Header } from './components/Header';
@@ -41,7 +41,7 @@ export const App: React.FC = () => {
   const [summary, setSummary] = useState<Summary | null>(null);
   const [state, setState] = useState<EngineState | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
-  const [events, setEvents] = useState<GameEvent[]>([]);
+  const [events, setEvents] = useState<SimEvent[]>([]);
   const [fx, setFx] = useState<FxItem[]>([]);
   const [busy, setBusy] = useState(false);
   const [clarify, setClarify] = useState<{ question: string; options: Action[] } | null>(null);
@@ -56,7 +56,7 @@ export const App: React.FC = () => {
   const [pending, setPending] = useState<{ action: Action; from?: string } | null>(null);
 
   const [frames, setFrames] = useState<ReplayFrame[] | null>(null);
-  const [logEvents, setLogEvents] = useState<GameEvent[]>([]);
+  const [logEvents, setLogEvents] = useState<SimEvent[]>([]);
   const [replayTick, setReplayTick] = useState<number | null>(null);
   const [replayPlaying, setReplayPlaying] = useState(false);
 
@@ -97,7 +97,7 @@ export const App: React.FC = () => {
   }, [boot]);
 
   // ---- Event animations: one short animation per engine event, staggered ----
-  const playFx = useCallback((evs: GameEvent[], tick: number) => {
+  const playFx = useCallback((evs: SimEvent[], tick: number) => {
     window.clearTimeout(fxTimer.current);
     if (!evs.length) { setFx([]); return; }
     const step = Math.min(350, 3000 / evs.length);

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GameEvent, Phase } from '../api/types';
+import type { SimEvent, Phase } from '../api/types';
 import { Play, Pause, RotateCcw } from './icons';
 
 const MARKER_TYPES: Record<string, string> = {
@@ -16,7 +16,7 @@ interface Props {
   floodStart: number | null;
   recoveryStart: number | null;
   peakTick: number | null;
-  events: GameEvent[];
+  events: SimEvent[];
   replayTick: number | null;
   replayPlaying: boolean;
   replayAvailable: boolean;

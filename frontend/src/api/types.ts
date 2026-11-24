@@ -8,7 +8,7 @@ export interface Action {
   params: Record<string, unknown>;
 }
 
-export interface GameEvent {
+export interface SimEvent {
   type: string;
   tick: number;
   zone?: string | null;
@@ -167,7 +167,7 @@ export interface TurnResponse {
   reject_reason: string | null;
   state: EngineState | null;
   summary?: Summary | null;
-  events: GameEvent[];
+  events: SimEvent[];
   narration: { text: string; source: string };
   npc_messages: { npc_id: string; text: string; source: string; suggestion?: Suggestion | null }[];
   guardrail: { status: string; retries: number; fallback_reason?: string | null };
@@ -249,7 +249,7 @@ export interface ReplayFrame { tick: number; phase: Phase; action: Action | null
 export interface SessionLog {
   session_id: string;
   actions: Action[];
-  events: GameEvent[];
+  events: SimEvent[];
   frames?: ReplayFrame[] | null;
 }
 
