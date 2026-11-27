@@ -4,4 +4,5 @@ export {
   Shield, School, Ship, Truck, Package, Droplets, Zap, HeartPulse, HeartHandshake, Thermometer,
   Construction, WavesHorizontal, ChevronRight, ChevronLeft, Lightbulb, X, Clock, Sparkles, Languages, Gauge,
   BookOpen, ScrollText, ListChecks, MessagesSquare, Megaphone, Anchor, Grid2x2, Timer, Map, Landmark, ArrowLeft,
+  Volume2, VolumeX, GraduationCap, Award, Star, Check, Backpack, CircleHelp, Printer, Trophy, Mountain, Mic,
 } from 'lucide-react';

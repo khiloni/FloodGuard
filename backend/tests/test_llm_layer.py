@@ -463,6 +463,19 @@ def test_validator_extract_numbers_and_guardrail_hardening(validator):
     assert not ok_en_in_hi
     ok_hi_valid, _ = validator.validate_text("वार्ड 1 में नदी का जलस्तर 180 सेमी तक पहुंच गया।", facts, events, [], language="hi")
     assert ok_hi_valid
+    # Other Indian languages: their own script passes, English or the wrong script fails
+    for lang, good in [("gu", "વોર્ડ 1 માં નદીનું સ્તર 180 સેમી સુધી પહોંચ્યું."),
+                       ("mr", "वार्ड 1 मध्ये नदीची पातळी 180 सेमी झाली."),
+                       ("bn", "ওয়ার্ড 1-এ নদীর জল 180 সেমি পৌঁছেছে।"),
+                       ("ta", "வார்டு 1 இல் ஆற்று நீர் 180 செமீ ஆனது."),
+                       ("te", "వార్డు 1 లో నది నీరు 180 సెం.మీ. చేరింది."),
+                       ("kn", "ವಾರ್ಡ್ 1 ರಲ್ಲಿ ನದಿ ನೀರು 180 ಸೆಂ.ಮೀ. ತಲುಪಿತು.")]:
+        ok_good, v = validator.validate_text(good, facts, events, [], language=lang)
+        assert ok_good, (lang, v)
+        ok_en, _ = validator.validate_text("River water level reached 180 cm.", facts, events, [], language=lang)
+        assert not ok_en, lang
+    ok_wrong_script, _ = validator.validate_text("वार्ड 1 में नदी का जलस्तर 180 सेमी।", facts, events, [], language="gu")
+    assert not ok_wrong_script
 
     # Valid identifiers, single underscore, fractions, and safe phrasing preserved
     for valid_text in [

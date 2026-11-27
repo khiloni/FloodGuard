@@ -367,6 +367,16 @@ _COMMON_RULES = (
 )
 
 
+_LANGUAGE_NAMES = {"en": "English", "hi": "Hindi", "mr": "Marathi", "gu": "Gujarati", "bn": "Bengali",
+                   "ta": "Tamil", "te": "Telugu", "kn": "Kannada"}
+
+
+def language_label(code: str) -> str:
+    """'gu' -> 'Gujarati (gu), in its native script' so the model knows exactly what to write."""
+    name = _LANGUAGE_NAMES.get((code or "en").split("-")[0], code)
+    return name if code == "en" else f"{name} ({code}), written in its native script"
+
+
 def _events_payload(events: List[Event]) -> List[Dict[str, Any]]:
     return [
         {"type": e.type.value, "description": e.description, "zone": e.zone, "target": e.target}
@@ -393,7 +403,7 @@ def narrate(
         "Describe this turn's events in 2-3 short sentences.\n" + _COMMON_RULES
     )
     user_prompt = (
-        f"LANGUAGE: {language}\n"
+        f"LANGUAGE: {language_label(language)}\n"
         f"ALLOWED_NUMBERS: {sorted(facts_allowed)}\n"
         f"TICK: {state.tick} of {state.max_ticks}\n"
         f"RIVER_LEVEL_CM: {state.water_level_cm}\n"
@@ -445,7 +455,7 @@ def npc_reply(
     )
     clean_msg = _sanitize_player_input(user_message) or "What should we do right now?"
     user_prompt = (
-        f"LANGUAGE: {language}\n"
+        f"LANGUAGE: {language_label(language)}\n"
         f"ALLOWED_NUMBERS: {sorted(facts_allowed)}\n"
         f"EVENTS: {json.dumps(_events_payload(events))}\n"
         f"RULE_CARDS: {json.dumps([{'id': c.get('id'), 'title': c.get('title')} for c in (rule_cards or [])])}\n"
@@ -676,7 +686,7 @@ def phrase_advice(
         f"with exactly {len(options)} sentences separated by {ADVICE_SEP}."
     )
     user_prompt = (
-        f"LANGUAGE: {language}\n"
+        f"LANGUAGE: {language_label(language)}\n"
         f"ALLOWED_NUMBERS: {sorted(facts_allowed)}\n"
         f"OPTIONS: {json.dumps(listing)}\n"
         f"RULE_CARDS: {json.dumps([{'id': c.get('id'), 'title': c.get('title')} for c in rule_cards])}"

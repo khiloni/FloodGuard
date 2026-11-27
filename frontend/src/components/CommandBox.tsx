@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Action } from '../api/types';
 import { describeAction } from '../lib/actions';
-import { Send } from './icons';
+import { Send, Mic } from './icons';
 
 interface Props {
   examples: string[];
@@ -10,9 +10,12 @@ interface Props {
   zoneNames: Record<string, string>;
   onText: (t: string) => void;
   onOption: (a: Action) => void;
+  onMic?: () => void;
+  listening?: boolean;
+  micLabel?: string;
 }
 
-export const CommandBox: React.FC<Props> = ({ examples, busy, clarify, zoneNames, onText, onOption }) => {
+export const CommandBox: React.FC<Props> = ({ examples, busy, clarify, zoneNames, onText, onOption, onMic, listening, micLabel }) => {
   const [text, setText] = useState('');
   const send = (t: string) => {
     const v = t.trim();
@@ -39,6 +42,12 @@ export const CommandBox: React.FC<Props> = ({ examples, busy, clarify, zoneNames
         <label htmlFor="cmd" className="sr-only">Command</label>
         <input id="cmd" type="text" value={text} maxLength={400} onChange={(e) => setText(e.target.value)}
           placeholder="Type an order, e.g. evacuate ward 1" autoComplete="off" data-testid="command-input" />
+        {onMic && (
+          <button type="button" className={`btn icon mic${listening ? ' listening' : ''}`} onClick={onMic} disabled={busy}
+            aria-pressed={!!listening} aria-label={micLabel || 'Speak an order'} title={micLabel || 'Speak an order'} data-testid="mic">
+            <Mic aria-hidden="true" />
+          </button>
+        )}
         <button type="submit" className="btn primary" disabled={busy || !text.trim()} data-testid="command-send">
           <Send aria-hidden="true" /> Send
         </button>

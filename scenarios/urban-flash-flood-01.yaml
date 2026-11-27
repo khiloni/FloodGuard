@@ -11,7 +11,7 @@ hazard_label: "Urban flash flood"
 difficulty_label: "Hard"
 illustration: "city"
 hook: "A cloudburst hits a dense city ward. Drains are blocked, the underpass fills first, and you have minutes, not hours."
-languages: ["en", "hi"]
+languages: ["en", "hi", "gu", "mr", "bn", "ta", "te", "kn"]
 
 difficulty:
   easy:

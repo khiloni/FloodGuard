@@ -1,0 +1,224 @@
+id: "glacial-lake-01"
+name: "Glacial Lake Burst above Tsomo Valley"
+version: "1.0.0"
+description: "Sensors on a glacial lake high above a mountain valley warn that its moraine wall may give way. If it bursts, a wall of water and debris reaches the valley within hours. Use the short warning window to move everyone uphill, then reopen the valley."
+total_ticks: 28
+tick_duration_minutes: 15
+
+# Scenario-select card
+hazard_type: "glacial_lake_outburst"
+hazard_label: "Glacial lake outburst"
+difficulty_label: "Very hard"
+illustration: "mountain"
+hook: "Lake sensors high above the valley just tripped. You have about two hours before a surge of water and boulders arrives."
+languages: ["en", "hi", "gu", "mr", "bn", "ta", "te", "kn"]
+
+difficulty:
+  easy:
+    resources_pct: 130
+    forecast_offset_cm: -25
+    support_delay_delta: -1
+  hard:
+    resources_pct: 75
+    forecast_offset_cm: 20
+    support_delay_delta: 1
+
+resources:
+  boats: 1
+  boat_capacity: 8
+  vehicles: 4
+  vehicle_capacity: 20
+  sandbags: 200
+
+embankment:
+  initial_height_cm: 280
+  initial_integrity: 100
+  sandbags_per_reinforce: 100
+  height_gain_per_reinforce_cm: 20
+  max_reinforced_height_cm: 320
+
+# Ground above this stays dry while the gabion wall holds.
+contained_safe_elevation_cm: 300
+
+# Guided groups on steep paths
+foot_evacuation_per_tick: 25
+
+# River level at the valley gauge (cm). Meltwater rises slowly, then the outburst surge arrives at tick 9.
+water_forecast_cm: [110, 115, 122, 130, 140, 152, 168, 190, 260, 380, 440, 410, 360, 310, 270, 240, 215, 196, 182, 170, 160, 152, 146, 140, 135, 131, 128, 125]
+
+external_support:
+  uses: 1
+  delay_ticks: 3
+  boats: 0
+  vehicles: 3
+  sandbags: 100
+  supply_units: 50
+
+phases:
+  flood_starts_at_cm: 185
+  recovery_below_cm: 280
+
+recovery:
+  shelter_supplies_initial: 25
+  people_per_supply_unit: 60
+  supply_deliveries: 3
+  units_per_delivery: 40
+  supplies_low_threshold: 10
+  clean_water_kits: 1
+  medical_teams: 1
+  return_batch_per_turn: 100
+  treat_per_tick: 6
+  road_debris_depth_cm: 25
+  disease:
+    base: 15
+    per_flooded_zone: 10
+    breach_bonus: 10
+    rise_per_tick: 4
+    crowding_pct: 90
+    crowding_rise: 3
+    no_supplies_rise: 4
+    clean_water_drop: 8
+    medical_camp_drop: 6
+    high_threshold: 60
+  trust:
+    initial: 60
+    early_warning_bonus: 10
+    early_warning_by_tick: 3
+    losses_penalty: 10
+    breach_penalty: 10
+    supplies_ran_out_penalty: 10
+
+zones:
+  - id: "river-bazaar"
+    name: "Riverside Bazaar"
+    elevation_cm: 175
+    population: 150
+    vulnerable: 30
+    road_cutoff_depth_cm: 25
+  - id: "hydro-camp"
+    name: "Hydropower Workers' Camp"
+    elevation_cm: 230
+    population: 100
+    vulnerable: 10
+    road_cutoff_depth_cm: 30
+  - id: "monastery-hamlet"
+    name: "Monastery Hamlet"
+    elevation_cm: 400
+    population: 120
+    vulnerable: 35
+    road_cutoff_depth_cm: 40
+
+shelters:
+  - id: "ridge-camp"
+    name: "Army Transit Camp on the Ridge"
+    elevation_cm: 650
+    capacity: 240
+    is_open: false
+  - id: "monastery-hall"
+    name: "Monastery Prayer Hall"
+    elevation_cm: 560
+    capacity: 140
+    is_open: false
+
+npcs:
+  - id: "village_head"
+    name: "Panchayat President Dorjee"
+    role: "Elected panchayat president"
+    location: "river-bazaar"
+    initial_dialogue: "Shopkeepers say the river is only a little higher than usual. They will not close the bazaar unless the warning is loud and clear."
+  - id: "rescue_worker"
+    name: "Inspector Lhamu"
+    role: "State disaster response force"
+    location: "hydro-camp"
+    initial_dialogue: "Four trucks, one rubber raft. In a debris surge the raft is useless; the trucks are our real lifeline until the road goes."
+  - id: "family_member"
+    name: "Pemba"
+    role: "Shopkeeper caring for his grandmother"
+    location: "river-bazaar"
+    initial_dialogue: "My grandmother is ninety and cannot climb the monastery steps. Please send a vehicle for the old people first."
+  - id: "health_worker"
+    name: "Dr. Chettri"
+    role: "Primary health centre doctor"
+    location: "monastery-hamlet"
+    initial_dialogue: "Cold nights on the ridge will be hard for babies and elders. We will need blankets, clean water and a medical camp."
+  - id: "district_official"
+    name: "Ms. Rai"
+    role: "District emergency operations centre"
+    location: "ridge-camp"
+    initial_dialogue: "The lake sensors sent an alarm. Cell broadcast is ready, but the decision to sound the sirens is yours."
+
+layout:
+  canvas: { width: 1000, height: 600 }
+  levels: { normal_level_cm: 110, warning_level_cm: 185, danger_level_cm: 280, crest_level_cm: 440 }
+  water_body: "river"
+  river:
+    name: "Tsomo Chu"
+    flow_direction: "left-to-right"
+    center_path: [[0, 195], [200, 270], [400, 362], [600, 432], [800, 482], [1000, 512]]
+    north_bank: [[0, 160], [200, 235], [400, 325], [600, 395], [800, 448], [1000, 478]]
+    south_bank: [[0, 232], [200, 308], [400, 402], [600, 470], [800, 518], [1000, 548]]
+  embankment:
+    name: "Gabion river wall"
+    crest_height_cm: 280
+    segments:
+      - { id: "wall-upper", start: [380, 318], end: [560, 384], label: "Upper gabion wall" }
+      - { id: "wall-middle", start: [560, 384], end: [740, 434], label: "Middle gabion wall" }
+      - { id: "wall-lower", start: [740, 434], end: [920, 462], label: "Lower gabion wall" }
+  zones:
+    - id: "river-bazaar"
+      name: "Riverside Bazaar"
+      x: 470
+      y: 245
+      width: 180
+      height: 95
+      elevation_cm: 175
+      house_points: [[485, 262], [525, 276], [570, 260], [615, 274], [505, 318], [590, 316]]
+    - id: "hydro-camp"
+      name: "Hydropower Workers' Camp"
+      x: 150
+      y: 400
+      width: 190
+      height: 90
+      elevation_cm: 230
+      house_points: [[165, 418], [205, 432], [250, 416], [295, 430], [190, 466], [275, 464]]
+    - id: "monastery-hamlet"
+      name: "Monastery Hamlet"
+      x: 760
+      y: 215
+      width: 170
+      height: 100
+      elevation_cm: 400
+      house_points: [[775, 232], [815, 248], [860, 230], [900, 246], [800, 290], [880, 288]]
+  shelters:
+    - { id: "ridge-camp", name: "Ridge Camp", x: 820, y: 60, width: 130, height: 75, elevation_cm: 650 }
+    - { id: "monastery-hall", name: "Prayer Hall", x: 560, y: 95, width: 115, height: 65, elevation_cm: 560 }
+  routes:
+    - zone_id: "river-bazaar"
+      shelter_id: "ridge-camp"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 25
+      waypoints: [[560, 270], [690, 200], [790, 150], [885, 110]]
+    - zone_id: "hydro-camp"
+      shelter_id: "monastery-hall"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 30
+      waypoints: [[245, 420], [300, 340], [330, 290], [450, 200], [615, 130]]
+    - zone_id: "monastery-hamlet"
+      shelter_id: "ridge-camp"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 40
+      waypoints: [[845, 240], [870, 170], [885, 110]]
+  decor:
+    peaks: [[60, 40, 120], [190, 20, 90], [330, 50, 110], [470, 10, 80], [960, 10, 90]]
+    lake: { x: 95, y: 110, label: "Glacial lake" }
+    trees: [[420, 180], [700, 330], [960, 360], [80, 330], [120, 520], [380, 520], [690, 560], [950, 230], [730, 140], [400, 470]]
+    hills: [[700, 40], [560, 30]]
+    jetty: { x: 150, y: 515, label: "Road depot" }
+    bridges:
+      - { x: 315, y: 300, label: "Suspension bridge" }
+  recovery_sites:
+    water_point: { x: 700, y: 360, label: "Water filter point" }
+    medical_camp: { x: 440, y: 150, label: "Medical camp" }
+    substation: { x: 240, y: 150, label: "Micro-hydel station" }
+    health_centre: { x: 720, y: 60, label: "Primary health centre" }
+    supply_depot: { x: 960, y: 320, label: "Relief depot" }

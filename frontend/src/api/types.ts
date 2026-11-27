@@ -134,6 +134,11 @@ export interface Layout {
     underpasses?: { x: number; y: number; label?: string }[];
     dam?: { x: number; y: number; label?: string };
     sea_boats?: { x: number; y: number; label?: string };
+    /** Sandbar islands drawn over the river: [cx, cy, rx, ry]. */
+    islands?: [number, number, number, number][];
+    /** Mountain peaks: [x, baseY offset from top, size]. */
+    peaks?: [number, number, number][];
+    lake?: { x: number; y: number; label?: string };
   };
   recovery_sites?: Record<string, { x: number; y: number; label?: string }>;
 }

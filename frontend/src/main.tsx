@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
 import './styles.css';
+import './styles-v3.css';
+import { LangProvider } from './lib/i18n';
 
 async function start() {
   // Mock Service Worker only in `vite --mode mock`. The condition is a build-time constant,
@@ -12,7 +14,7 @@ async function start() {
   }
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
-      <App />
+      <LangProvider><App /></LangProvider>
     </React.StrictMode>,
   );
 }

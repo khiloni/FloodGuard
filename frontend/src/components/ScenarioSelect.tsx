@@ -1,7 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import type { ScenarioInfo } from '../api/types';
 import { HazardArt } from './Logo';
-import { ChevronRight, Languages, Gauge } from './icons';
+import { ChevronRight, Languages, Gauge, GraduationCap, Star } from './icons';
+import { MedalShelf } from './academy/Academy';
+import { loadProgress } from '../lib/progress';
+import { LANGS, useLang, type Lang } from '../lib/i18n';
 
 export interface StartOptions { scenario_id: string; difficulty: string; language: string }
 
@@ -10,45 +13,62 @@ const DIFFICULTIES = [
   { id: 'standard', label: 'Standard', hint: 'As designed' },
   { id: 'hard', label: 'Hard', hint: 'Fewer resources, higher water, slower help' },
 ];
-const LANGUAGES = [
-  { id: 'en', label: 'English' },
-  { id: 'hi', label: 'हिन्दी (Hindi)' },
-];
 
 export const ScenarioSelect: React.FC<{
   scenarios: ScenarioInfo[];
   busy: boolean;
   onStart: (o: StartOptions) => void;
-}> = ({ scenarios, busy, onStart }) => {
+  onAcademy?: () => void;
+}> = ({ scenarios, busy, onStart, onAcademy }) => {
+  const progress = loadProgress();
   const [difficulty, setDifficulty] = useState('standard');
-  const [language, setLanguage] = useState('en');
+  const { lang: language, setLang, t } = useLang();
   const titleRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => { titleRef.current?.focus(); }, []);
 
   return (
     <main className="select-screen" id="main" data-testid="scenario-select">
+      <div className="select-hero" aria-hidden="true">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="hero-waves">
+          <path className="wave w1" d="M0 70 Q150 40 300 70 T600 70 T900 70 T1200 70 V120 H0Z" />
+          <path className="wave w2" d="M0 85 Q150 60 300 85 T600 85 T900 85 T1200 85 V120 H0Z" />
+          <path className="wave w3" d="M0 100 Q150 82 300 100 T600 100 T900 100 T1200 100 V120 H0Z" />
+        </svg>
+      </div>
       <div className="select-head">
-        <h1 tabIndex={-1} ref={titleRef}>Choose a story</h1>
-        <p className="muted">Each story is a stylized teaching model of a real kind of hazard. You lead the response before, during and after it.</p>
+        <div className="select-title-row">
+          <h1 tabIndex={-1} ref={titleRef}>{t('chooseStory')}</h1>
+          {onAcademy && (
+            <button className="btn academy-btn" onClick={onAcademy} data-testid="open-academy">
+              <GraduationCap aria-hidden="true" /> {t('academy')}
+            </button>
+          )}
+        </div>
+        <p className="muted">{t('chooseStoryLede')}</p>
         <div className="select-controls">
           <fieldset className="seg" aria-label="Difficulty">
-            <legend><Gauge aria-hidden="true" /> Difficulty</legend>
+            <legend><Gauge aria-hidden="true" /> {t('difficulty')}</legend>
             {DIFFICULTIES.map((d) => (
               <label key={d.id} className={difficulty === d.id ? 'on' : ''} title={d.hint}>
                 <input type="radio" name="difficulty" value={d.id} checked={difficulty === d.id}
                   onChange={() => setDifficulty(d.id)} data-testid={`difficulty-${d.id}`} />
-                {d.label}
+                {t(d.id as 'easy')}
               </label>
             ))}
           </fieldset>
           <label className="lang">
-            <Languages aria-hidden="true" /> <span>AI narration language</span>
-            <select value={language} onChange={(e) => setLanguage(e.target.value)} data-testid="language-select">
-              {LANGUAGES.map((l) => <option key={l.id} value={l.id}>{l.label}</option>)}
+            <Languages aria-hidden="true" /> <span>{t('language')}</span>
+            <select value={language} onChange={(e) => setLang(e.target.value as Lang)} data-testid="language-select">
+              {LANGS.map((l) => <option key={l.id} value={l.id}>{l.label}</option>)}
             </select>
           </label>
         </div>
-        {language !== 'en' && <p className="muted small">Menus stay in English. AI narration and characters use your language when the AI is on; fixed template text stays in English.</p>}
+        <div className="journey">
+          <span className="muted small">{t('medals')}</span>
+          <MedalShelf />
+          <span className="muted small">{progress.finished.length} / {scenarios.length} {t('finished')}</span>
+        </div>
+        {language !== 'en' && <p className="muted small">{t('langNote')}</p>}
       </div>
       <ul className="scenario-cards" aria-label="Stories">
         {scenarios.map((s, i) => (
@@ -60,11 +80,17 @@ export const ScenarioSelect: React.FC<{
                 <span className={`chip-diff diff-${s.difficulty_label.toLowerCase()}`}>{s.difficulty_label}</span>
               </p>
               <h2>{s.name}</h2>
+              {progress.best[s.id] && (
+                <p className="best" data-testid={`best-${s.id}`} aria-label={`Best score ${progress.best[s.id].score}, ${progress.best[s.id].stars} of 3 stars`}>
+                  {[1, 2, 3].map((k) => <Star key={k} aria-hidden="true" className={k <= progress.best[s.id].stars ? 'star on' : 'star'} />)}
+                  <span>Best {progress.best[s.id].score}</span>
+                </p>
+              )}
               <p className="hook">{s.hook}</p>
               <p className="muted small">{s.total_ticks} turns of {s.tick_duration_minutes} min · {s.npcs.length} characters · {s.shelters.length} shelter{s.shelters.length > 1 ? 's' : ''}</p>
               <button className="btn primary" disabled={busy} onClick={() => onStart({ scenario_id: s.id, difficulty, language })}
                 data-testid={`start-${s.id}`} autoFocus={i === 0 ? undefined : undefined}>
-                Begin this story <ChevronRight aria-hidden="true" />
+                {t('begin')} <ChevronRight aria-hidden="true" />
               </button>
             </div>
           </li>

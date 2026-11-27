@@ -11,7 +11,7 @@ hazard_label: "Cyclone storm surge"
 difficulty_label: "Hard"
 illustration: "coast"
 hook: "Landfall is hours away, fishing boats are still at sea and the cyclone shelter cannot hold everyone."
-languages: ["en", "hi"]
+languages: ["en", "hi", "gu", "mr", "bn", "ta", "te", "kn"]
 
 difficulty:
   easy:

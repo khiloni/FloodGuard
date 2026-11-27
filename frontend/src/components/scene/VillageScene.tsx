@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import type { EngineState, Layout, Point, Summary } from '../../api/types';
 import { dotGrid, pathFrom, pointAt, reversePath, routeFor } from '../../lib/geometry';
 import { EventEffects, type FxItem } from './EventEffects';
+import { CloudShadows, Landforms, Lightning, Rain, RecoveryJoy, SceneDefs, ShelterGlow, Stars, Tree } from './Atmosphere';
 
 interface Props {
   layout: Layout;
@@ -53,7 +54,11 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
   const status = waterStatus(s);
   const swell = clamp01((s.water_level_cm - s.normal_level_cm) / Math.max(1, s.crest_level_cm - s.normal_level_cm));
   const night = nightLevel(s, state);
-  const rain = s.phase === 'before' ? 36 : s.phase === 'flood' ? 90 : 0;
+  const rain = s.phase === 'before' ? 0.2 + 0.3 * swell : s.phase === 'flood' ? 0.55 + 0.45 * swell : 0;
+  const isSea = layout.water_body === 'sea';
+  const terrain = layout.decor?.peaks ? 'mountain' : layout.water_body === 'canal' ? 'city' : isSea ? 'coast' : 'green';
+  const [land, landDark] = terrain === 'mountain' ? ['#c9d3b0', '#93a37f'] : terrain === 'city' ? ['#e4e7ec', '#bcc3cd']
+    : terrain === 'coast' ? ['#e9e2c0', '#bfc99a'] : ['#e6efcf', '#b9cf98'];
   const rec = s.recovery;
   const inRecovery = s.phase === 'recovery';
 
@@ -61,19 +66,17 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
   const northRaised: Point[] = useMemo(
     () => (river?.north_bank || []).map(([x, y]) => [x, y - swell * 30] as Point), [river, swell]);
   const riverPath = river ? `${pathFrom(northRaised)} L${reversePath(river.south_bank).slice(1)} Z` : '';
-  const rainDrops = useMemo(() => Array.from({ length: 90 }, (_, i) => ({
-    x: (i * 137) % W, y: (i * 89) % H, d: 0.6 + ((i * 7) % 10) / 20,
-  })), [W, H]);
 
   const lostByZone: Record<string, number> = {};
   for (const [zid, z] of Object.entries(state?.zones || {})) lostByZone[zid] = z.lost;
 
   return (
-    <div className={`scene-wrap phase-${s.phase}${reduced ? ' reduced' : ''}`} data-testid="scene" style={{ background: layout.water_body === 'canal' ? '#dfe3e8' : '#e3ecd0' }}>
+    <div className={`scene-wrap phase-${s.phase} status-${status}${reduced ? ' reduced' : ''}`} data-testid="scene" style={{ background: landDark }}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="scene-title scene-desc" className="scene" preserveAspectRatio="xMidYMid meet">
         <title id="scene-title">Village map</title>
         <desc id="scene-desc">{sceneDescription(s, layout)}</desc>
         <defs>
+          <SceneDefs reduced={reduced} land={land} landDark={landDark} />
           <pattern id="hatch-warn" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
             <line x1="0" y1="0" x2="0" y2="10" stroke="#E69F00" strokeWidth="3" />
           </pattern>
@@ -84,8 +87,11 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
             <path d="M0 6 Q3 3 6 6 T12 6" fill="none" stroke="#ffffff" strokeOpacity="0.55" strokeWidth="1.5" />
           </pattern>
           <symbol id="house" viewBox="-12 -12 24 24">
-            <path d="M-10 0 L0 -10 L10 0 V10 H-10 Z" fill="#f7f3ea" stroke="#5b4636" strokeWidth="2" />
-            <rect x="-3" y="3" width="6" height="7" fill="#8a6a4f" />
+            <rect x="-9" y="-1" width="18" height="11" fill="#f7f1e3" stroke="#5b4636" strokeWidth="1.5" />
+            <path d="M-11 0 L0 -10 L11 0 Z" fill="url(#fg-roof)" stroke="#5b2f1a" strokeWidth="1.5" strokeLinejoin="round" />
+            <rect x="-2.5" y="3" width="5" height="7" fill="#8a6a4f" />
+            <rect x="-7.5" y="2" width="3.5" height="3.5" fill="#bcd7ea" stroke="#5b4636" strokeWidth="0.6" />
+            <rect x="4" y="2" width="3.5" height="3.5" fill="#bcd7ea" stroke="#5b4636" strokeWidth="0.6" />
           </symbol>
           <symbol id="boat" viewBox="-16 -9 32 18">
             <path d="M-15 -2 H15 L10 7 H-10 Z" fill="#0072B2" stroke="#023858" strokeWidth="1.5" />
@@ -99,16 +105,18 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         </defs>
 
         {/* Land, hills, trees */}
-        <rect width={W} height={H} fill={layout.water_body === 'canal' ? '#dfe3e8' : '#e3ecd0'} />
-        <Decor layout={layout} s={s} reduced={reduced} layer="under" />
+        <rect width={W} height={H} fill="url(#fg-land)" />
+        <rect width={W} height={H} fill="url(#fg-grain)" />
         {(layout.decor?.hills || []).map(([x, y], i) => (
-          <ellipse key={`h${i}`} cx={x} cy={y} rx="90" ry="40" fill="#cddcb1" />
-        ))}
-        {(layout.decor?.trees || []).map(([x, y], i) => (
-          <g key={`t${i}`} transform={`translate(${x} ${y})`}>
-            <circle r="13" fill="#7fa65a" /><circle r="6" cx="-4" cy="-4" fill="#9cc274" />
+          <g key={`h${i}`}>
+            <ellipse cx={x + 6} cy={y + 8} rx="92" ry="40" fill="#000" opacity="0.08" />
+            <ellipse cx={x} cy={y} rx="90" ry="40" fill={terrain === 'mountain' ? '#a9b892' : '#c7d9a6'} />
+            <ellipse cx={x - 18} cy={y - 10} rx="50" ry="18" fill="#ffffff" opacity="0.14" />
           </g>
         ))}
+        <Landforms layout={layout} s={s} layer="back" />
+        <Decor layout={layout} s={s} reduced={reduced} layer="under" />
+        {(layout.decor?.trees || []).map(([x, y], i) => <Tree key={`t${i}`} x={x} y={y} i={i} pine={terrain === 'mountain'} />)}
 
         {/* Roads */}
         {layout.routes.map((r) => {
@@ -137,7 +145,9 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         {/* River with swelling water and status outline */}
         {river && (
           <g data-testid="river" className={`river river-${status}`}>
-            <path d={riverPath} fill={layout.water_body === 'sea' ? '#0072B2' : layout.water_body === 'canal' ? '#6fb5de' : '#56B4E9'} />
+            <path d={riverPath} fill={isSea ? 'url(#fg-sea)' : 'url(#fg-water)'} />
+            <path d={riverPath} fill="url(#fg-shimmer)" />
+            <path d={pathFrom(northRaised)} fill="none" stroke="#ffffff" strokeOpacity="0.55" strokeWidth="7" strokeDasharray="3 14" strokeLinecap="round" className="shore-foam" />
             {status !== 'normal' && (
               <path d={riverPath} fill={`url(#hatch-${status === 'danger' ? 'danger' : 'warn'})`} opacity="0.35" />
             )}
@@ -146,6 +156,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
           </g>
         )}
 
+        <Landforms layout={layout} s={s} layer="over-water" />
         <Decor layout={layout} s={s} reduced={reduced} layer="over" />
 
         {/* Embankment */}
@@ -186,20 +197,33 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
           const vdots = dotGrid(z.x + 10, z.y + 26, z.width - 20, Math.ceil(zs.vulnerable_remaining / 10), 16);
           return (
             <g key={z.id} data-testid={`zone-${z.id}`} className="zone">
-              <rect x={z.x} y={z.y} width={z.width} height={z.height} rx="10" fill="#f3efe2" stroke="#7b6a52" strokeWidth="2" />
+              <rect x={z.x + 3} y={z.y + 5} width={z.width} height={z.height} rx="12" fill="#000" opacity="0.1" />
+              <rect x={z.x} y={z.y} width={z.width} height={z.height} rx="12" fill="#f4eedb" stroke="#7b6a52" strokeWidth="2" />
+              <rect x={z.x + 4} y={z.y + 4} width={z.width - 8} height={z.height - 8} rx="9" fill="none" stroke="#ffffff" strokeOpacity="0.6" strokeDasharray="2 5" />
               {zs.water_depth_cm > 0 && (
                 <g data-testid={`zone-water-${z.id}`}>
                   <rect x={z.x} y={z.y + z.height * (1 - Math.max(0.25, depthFrac))} width={z.width}
-                    height={z.height * Math.max(0.25, depthFrac)} rx="8" fill="#56B4E9" opacity={0.35 + 0.45 * depthFrac} className="zone-water" />
+                    height={z.height * Math.max(0.25, depthFrac)} rx="8" fill="url(#fg-flood)" opacity={0.5 + 0.4 * depthFrac} className="zone-water" />
+                  <rect x={z.x} y={z.y + z.height * (1 - Math.max(0.25, depthFrac))} width={z.width}
+                    height={z.height * Math.max(0.25, depthFrac)} rx="8" fill="url(#fg-shimmer)" className="zone-water" />
                   {zs.water_depth_cm >= 150 && (
                     <rect x={z.x} y={z.y} width={z.width} height={z.height} rx="8" fill="url(#deep-water)" />
                   )}
                 </g>
               )}
-              {z.house_points.map(([hx, hy], i) => (
-                <use key={i} href="#house" x={hx - 11} y={hy - 11} width="22" height="22"
-                  className={inRecovery && rec?.power_on && zs.returned > 0 ? 'house lit' : 'house'} />
-              ))}
+              <g filter="url(#fg-shadow)">
+                {z.house_points.map(([hx, hy], i) => (
+                  <use key={i} href="#house" x={hx - 12} y={hy - 12} width="24" height="24"
+                    className={inRecovery && rec?.power_on && zs.returned > 0 ? 'house lit' : 'house'} />
+                ))}
+              </g>
+              {night > 0.35 && zs.water_depth_cm < 60 && (zs.population_remaining > 0 || (inRecovery && !!rec?.power_on && zs.returned > 0)) && (
+                <g aria-hidden="true" opacity={Math.min(1, (night - 0.3) * 2.2)}>
+                  {z.house_points.map(([hx, hy], i) => (
+                    <circle key={i} cx={hx} cy={hy + 3} r="9" fill="url(#fg-glow)" className="window-glow" style={{ animationDelay: `${(i % 5) * 0.37}s` }} />
+                  ))}
+                </g>
+              )}
               {dots.map(([x, y], i) => <circle key={`p${i}`} cx={x} cy={y} r="4.5" className="person" />)}
               {vdots.map(([x, y], i) => (
                 <g key={`v${i}`} className="person-vulnerable" transform={`translate(${x} ${y})`}>
@@ -270,19 +294,18 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
           });
         })}
 
+        <CloudShadows W={W} H={H} s={s} reduced={reduced} />
         {/* Rain */}
-        {rain > 0 && (
-          <g className="rain" aria-hidden="true">
-            {rainDrops.slice(0, rain).map((r, i) => (
-              <line key={i} x1={r.x} y1={r.y} x2={r.x - 4} y2={r.y + 14} stroke="#5d7fa3" strokeOpacity="0.45" strokeWidth="1.5"
-                style={{ animationDuration: `${r.d}s`, animationDelay: `${-(i % 10) / 10}s` }} />
-            ))}
-          </g>
-        )}
+        <Rain W={W} H={H} amount={rain} reduced={reduced} wind={isSea ? 1.6 : s.phase === 'flood' ? 1.0 : 0.5} />
 
         {/* Light: dusk and night as the peak nears, clearing for recovery */}
         <rect width={W} height={H} fill="#f39c4a" opacity={0.16 * Math.sin(Math.PI * clamp01(night / 0.65))} pointerEvents="none" className="light-layer" />
         <rect width={W} height={H} fill="#13213f" opacity={night * 0.55} pointerEvents="none" data-testid="night" className="light-layer" />
+        <ShelterGlow layout={layout} open={s.shelter.is_open} night={night} />
+        <Stars W={W} night={night} />
+        <Lightning W={W} H={H} active={s.phase === 'flood' && status === 'danger'} reduced={reduced} />
+        <RecoveryJoy W={W} s={s} reduced={reduced} />
+        <rect width={W} height={H} fill="url(#fg-vignette)" pointerEvents="none" />
         <g transform="translate(940 34)" aria-hidden="true">
           {night < 0.35
             ? <g><circle r="16" fill="#F0E442" stroke="#b8a600" /></g>
@@ -458,7 +481,7 @@ const ResourceCluster: React.FC<{ layout: Layout; s: Summary }> = ({ layout, s }
     { id: 'trucks', n: s.transport.vehicles_available, sym: '#truck' },
   ];
   return (
-    <g transform={`translate(${j.x - 40} ${j.y + 40})`} data-testid="resources" aria-hidden="true">
+    <g transform={`translate(${j.x - 40} ${j.y + 52})`} data-testid="resources" aria-hidden="true">
       <rect x="-10" y="-16" width="132" height="32" rx="8" fill="#ffffff" opacity="0.85" stroke="#4b5563" />
       {items.map((it, i) => (
         <g key={it.id} transform={`translate(${i * 44 + 8} 0)`} className={it.n ? 'res' : 'res depleted'} data-testid={`res-${it.id}${it.n ? '' : '-empty'}`}>

@@ -11,7 +11,7 @@ hazard_label: "Dam release downstream"
 difficulty_label: "Moderate"
 illustration: "dam"
 hook: "The dam must release water in a few hours. Can you warn every village in time, and get the release slowed down?"
-languages: ["en", "hi"]
+languages: ["en", "hi", "gu", "mr", "bn", "ta", "te", "kn"]
 
 difficulty:
   easy:

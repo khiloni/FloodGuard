@@ -61,6 +61,12 @@ PACK_PLANS = {
                        3: B("issue_warning"), 4: B("order_evacuation", zone="ghat-village")},
     "cyclone-surge-01": {2: B("open_shelter", shelter_id="cyclone-shelter"), 3: B("order_evacuation", zone="fishing-hamlet"),
                          14: B("consult_npc", npc_id="health_worker")},
+    "river-island-01": {1: B("issue_warning"), 2: B("open_shelter", shelter_id="raised-platform"),
+                        3: B("order_evacuation", zone="east-char"),
+                        4: B("assign_transport", zone="east-char", transport_type="boat", count=3)},
+    "glacial-lake-01": {1: B("issue_warning"), 2: B("open_shelter", shelter_id="ridge-camp"),
+                        3: B("order_evacuation", zone="river-bazaar"),
+                        4: B("assign_transport", zone="river-bazaar", transport_type="vehicle", count=3)},
 }
 
 

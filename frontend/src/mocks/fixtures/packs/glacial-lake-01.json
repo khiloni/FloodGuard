@@ -1,0 +1,4760 @@
+{
+ "session": {
+  "session_id": "ee5371e2-e53e-4e74-b85f-fc1ad7a3c80a",
+  "seed": 5,
+  "state": {
+   "scenario_id": "glacial-lake-01",
+   "scenario_version": "1.0.0",
+   "tick": 0,
+   "max_ticks": 28,
+   "water_level_cm": 110,
+   "forecast_cm": [
+    110,
+    115,
+    122,
+    130,
+    140,
+    152,
+    168,
+    190,
+    260,
+    380,
+    440,
+    410,
+    360,
+    310,
+    270,
+    240,
+    215,
+    196,
+    182,
+    170,
+    160,
+    152,
+    146,
+    140,
+    135,
+    131,
+    128,
+    125
+   ],
+   "zones": {
+    "river-bazaar": {
+     "id": "river-bazaar",
+     "name": "Riverside Bazaar",
+     "elevation_cm": 175,
+     "initial_population": 150,
+     "population_remaining": 150,
+     "initial_vulnerable": 30,
+     "vulnerable_remaining": 30,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "hydro-camp": {
+     "id": "hydro-camp",
+     "name": "Hydropower Workers' Camp",
+     "elevation_cm": 230,
+     "initial_population": 100,
+     "population_remaining": 100,
+     "initial_vulnerable": 10,
+     "vulnerable_remaining": 10,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 20,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "monastery-hamlet": {
+     "id": "monastery-hamlet",
+     "name": "Monastery Hamlet",
+     "elevation_cm": 400,
+     "initial_population": 120,
+     "population_remaining": 120,
+     "initial_vulnerable": 35,
+     "vulnerable_remaining": 35,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 24,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    }
+   },
+   "shelters": {
+    "ridge-camp": {
+     "id": "ridge-camp",
+     "name": "Army Transit Camp on the Ridge",
+     "elevation_cm": 650,
+     "capacity": 240,
+     "current_occupancy": 0,
+     "is_open": false
+    },
+    "monastery-hall": {
+     "id": "monastery-hall",
+     "name": "Monastery Prayer Hall",
+     "elevation_cm": 560,
+     "capacity": 140,
+     "current_occupancy": 0,
+     "is_open": false
+    }
+   },
+   "resources": {
+    "total_boats": 1,
+    "available_boats": 1,
+    "boat_capacity": 8,
+    "total_vehicles": 4,
+    "available_vehicles": 4,
+    "vehicle_capacity": 20,
+    "sandbags": 200
+   },
+   "embankment": {
+    "height_cm": 280,
+    "integrity": 100,
+    "breached": false,
+    "reinforced_count": 0
+   },
+   "first_warning_tick": null,
+   "first_evacuation_tick": null,
+   "is_finished": false,
+   "score": null,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "recovery": {
+    "shelter_supplies": 25,
+    "supply_deliveries_left": 3,
+    "supply_shortfall_ticks": 0,
+    "supplies_low_warned": false,
+    "clean_water_kits": 1,
+    "clean_water_active": false,
+    "medical_teams": 1,
+    "medical_camp_active": false,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_treated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 60,
+    "water_contamination": 0
+   },
+   "recovery_config": {
+    "enabled": true,
+    "flood_starts_at_cm": 185,
+    "recovery_below_cm": 280,
+    "shelter_supplies_initial": 25,
+    "people_per_supply_unit": 60,
+    "supply_deliveries": 3,
+    "units_per_delivery": 40,
+    "supplies_low_threshold": 10,
+    "clean_water_kits": 1,
+    "medical_teams": 1,
+    "return_batch_per_turn": 100,
+    "treat_per_tick": 6,
+    "disease_base": 15,
+    "disease_per_flooded_zone": 10,
+    "disease_breach_bonus": 10,
+    "disease_rise_per_tick": 4,
+    "disease_crowding_pct": 90,
+    "disease_crowding_rise": 3,
+    "disease_no_supplies_rise": 4,
+    "disease_clean_water_drop": 8,
+    "disease_medical_camp_drop": 6,
+    "disease_high_threshold": 60,
+    "trust_initial": 60,
+    "trust_early_warning_bonus": 10,
+    "trust_early_warning_by_tick": 3,
+    "trust_losses_penalty": 10,
+    "trust_breach_penalty": 10,
+    "trust_supplies_ran_out_penalty": 10,
+    "road_debris_depth_cm": 25
+   },
+   "difficulty": "standard",
+   "npc_ids": [
+    "village_head",
+    "rescue_worker",
+    "family_member",
+    "health_worker",
+    "district_official"
+   ],
+   "contained_safe_elevation_cm": 300,
+   "embankment_max_cm": 320,
+   "foot_evacuation_per_tick": 25,
+   "support": {
+    "uses": 1,
+    "delay_ticks": 3,
+    "boats": 0,
+    "vehicles": 3,
+    "sandbags": 100,
+    "supply_units": 50
+   },
+   "support_requests_left": 1,
+   "support_eta_tick": null,
+   "mechanic": {
+    "type": "none",
+    "params": {}
+   },
+   "mechanic_state": {}
+  },
+  "layout": {
+   "canvas": {
+    "width": 1000,
+    "height": 600
+   },
+   "levels": {
+    "normal_level_cm": 110,
+    "warning_level_cm": 185,
+    "danger_level_cm": 280,
+    "crest_level_cm": 440
+   },
+   "river": {
+    "name": "Tsomo Chu",
+    "flow_direction": "left-to-right",
+    "center_path": [
+     [
+      0,
+      195
+     ],
+     [
+      200,
+      270
+     ],
+     [
+      400,
+      362
+     ],
+     [
+      600,
+      432
+     ],
+     [
+      800,
+      482
+     ],
+     [
+      1000,
+      512
+     ]
+    ],
+    "north_bank": [
+     [
+      0,
+      160
+     ],
+     [
+      200,
+      235
+     ],
+     [
+      400,
+      325
+     ],
+     [
+      600,
+      395
+     ],
+     [
+      800,
+      448
+     ],
+     [
+      1000,
+      478
+     ]
+    ],
+    "south_bank": [
+     [
+      0,
+      232
+     ],
+     [
+      200,
+      308
+     ],
+     [
+      400,
+      402
+     ],
+     [
+      600,
+      470
+     ],
+     [
+      800,
+      518
+     ],
+     [
+      1000,
+      548
+     ]
+    ]
+   },
+   "embankment": {
+    "name": "Gabion river wall",
+    "crest_height_cm": 280,
+    "segments": [
+     {
+      "id": "wall-upper",
+      "start": [
+       380,
+       318
+      ],
+      "end": [
+       560,
+       384
+      ],
+      "label": "Upper gabion wall"
+     },
+     {
+      "id": "wall-middle",
+      "start": [
+       560,
+       384
+      ],
+      "end": [
+       740,
+       434
+      ],
+      "label": "Middle gabion wall"
+     },
+     {
+      "id": "wall-lower",
+      "start": [
+       740,
+       434
+      ],
+      "end": [
+       920,
+       462
+      ],
+      "label": "Lower gabion wall"
+     }
+    ]
+   },
+   "zones": [
+    {
+     "id": "river-bazaar",
+     "name": "Riverside Bazaar",
+     "x": 470,
+     "y": 245,
+     "width": 180,
+     "height": 95,
+     "elevation_cm": 175,
+     "house_points": [
+      [
+       485,
+       262
+      ],
+      [
+       525,
+       276
+      ],
+      [
+       570,
+       260
+      ],
+      [
+       615,
+       274
+      ],
+      [
+       505,
+       318
+      ],
+      [
+       590,
+       316
+      ]
+     ]
+    },
+    {
+     "id": "hydro-camp",
+     "name": "Hydropower Workers' Camp",
+     "x": 150,
+     "y": 400,
+     "width": 190,
+     "height": 90,
+     "elevation_cm": 230,
+     "house_points": [
+      [
+       165,
+       418
+      ],
+      [
+       205,
+       432
+      ],
+      [
+       250,
+       416
+      ],
+      [
+       295,
+       430
+      ],
+      [
+       190,
+       466
+      ],
+      [
+       275,
+       464
+      ]
+     ]
+    },
+    {
+     "id": "monastery-hamlet",
+     "name": "Monastery Hamlet",
+     "x": 760,
+     "y": 215,
+     "width": 170,
+     "height": 100,
+     "elevation_cm": 400,
+     "house_points": [
+      [
+       775,
+       232
+      ],
+      [
+       815,
+       248
+      ],
+      [
+       860,
+       230
+      ],
+      [
+       900,
+       246
+      ],
+      [
+       800,
+       290
+      ],
+      [
+       880,
+       288
+      ]
+     ]
+    }
+   ],
+   "shelters": [
+    {
+     "id": "ridge-camp",
+     "name": "Ridge Camp",
+     "x": 820,
+     "y": 60,
+     "width": 130,
+     "height": 75,
+     "elevation_cm": 650
+    },
+    {
+     "id": "monastery-hall",
+     "name": "Prayer Hall",
+     "x": 560,
+     "y": 95,
+     "width": 115,
+     "height": 65,
+     "elevation_cm": 560
+    }
+   ],
+   "routes": [
+    {
+     "zone_id": "river-bazaar",
+     "shelter_id": "ridge-camp",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 25,
+     "waypoints": [
+      [
+       560,
+       270
+      ],
+      [
+       690,
+       200
+      ],
+      [
+       790,
+       150
+      ],
+      [
+       885,
+       110
+      ]
+     ]
+    },
+    {
+     "zone_id": "hydro-camp",
+     "shelter_id": "monastery-hall",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 30,
+     "waypoints": [
+      [
+       245,
+       420
+      ],
+      [
+       300,
+       340
+      ],
+      [
+       330,
+       290
+      ],
+      [
+       450,
+       200
+      ],
+      [
+       615,
+       130
+      ]
+     ]
+    },
+    {
+     "zone_id": "monastery-hamlet",
+     "shelter_id": "ridge-camp",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 40,
+     "waypoints": [
+      [
+       845,
+       240
+      ],
+      [
+       870,
+       170
+      ],
+      [
+       885,
+       110
+      ]
+     ]
+    }
+   ],
+   "decor": {
+    "trees": [
+     [
+      420,
+      180
+     ],
+     [
+      700,
+      330
+     ],
+     [
+      960,
+      360
+     ],
+     [
+      80,
+      330
+     ],
+     [
+      120,
+      520
+     ],
+     [
+      380,
+      520
+     ],
+     [
+      690,
+      560
+     ],
+     [
+      950,
+      230
+     ],
+     [
+      730,
+      140
+     ],
+     [
+      400,
+      470
+     ]
+    ],
+    "jetty": {
+     "x": 150,
+     "y": 515,
+     "label": "Road depot"
+    },
+    "bridges": [
+     {
+      "x": 315,
+      "y": 300,
+      "label": "Suspension bridge"
+     }
+    ],
+    "hills": [
+     [
+      700,
+      40
+     ],
+     [
+      560,
+      30
+     ]
+    ],
+    "peaks": [
+     [
+      60,
+      40,
+      120
+     ],
+     [
+      190,
+      20,
+      90
+     ],
+     [
+      330,
+      50,
+      110
+     ],
+     [
+      470,
+      10,
+      80
+     ],
+     [
+      960,
+      10,
+      90
+     ]
+    ],
+    "lake": {
+     "x": 95,
+     "y": 110,
+     "label": "Glacial lake"
+    }
+   },
+   "recovery_sites": {
+    "water_point": {
+     "x": 700,
+     "y": 360,
+     "label": "Water filter point"
+    },
+    "medical_camp": {
+     "x": 440,
+     "y": 150,
+     "label": "Medical camp"
+    },
+    "substation": {
+     "x": 240,
+     "y": 150,
+     "label": "Micro-hydel station"
+    },
+    "health_centre": {
+     "x": 720,
+     "y": 60,
+     "label": "Primary health centre"
+    },
+    "supply_depot": {
+     "x": 960,
+     "y": 320,
+     "label": "Relief depot"
+    }
+   },
+   "water_body": "river"
+  },
+  "summary": {
+   "tick": 0,
+   "max_ticks": 28,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "displaced": 0,
+   "score_so_far": 8,
+   "residents_at_risk": 370,
+   "lost_total": 0,
+   "warnings_delivered": 0,
+   "difficulty": "standard",
+   "mechanic": {
+    "type": "none",
+    "boats_at_sea": 0,
+    "fishers_stranded": 0,
+    "recalled": false,
+    "landfall_tick": null,
+    "release_tick": null,
+    "staggered": false,
+    "drain_crews": 0,
+    "power_down": false
+   },
+   "support": {
+    "available": true,
+    "uses_left": 1,
+    "eta_tick": null,
+    "delay_ticks": 3,
+    "boats": 0,
+    "vehicles": 3,
+    "sandbags": 100,
+    "supply_units": 50
+   },
+   "sandbags": 200,
+   "recovery": {
+    "shelter_supplies": 25,
+    "supply_deliveries_left": 3,
+    "clean_water_active": false,
+    "clean_water_kits": 1,
+    "medical_camp_active": false,
+    "medical_teams": 1,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_untreated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 60,
+    "water_contamination": 0
+   },
+   "water_level_cm": 110,
+   "normal_level_cm": 110,
+   "warning_level_cm": 185,
+   "danger_level_cm": 280,
+   "crest_level_cm": 440,
+   "embankment_integrity": 100,
+   "embankment_height_cm": 280,
+   "embankment_breached": false,
+   "shelter": {
+    "occupancy": 0,
+    "capacity": 380,
+    "is_open": false
+   },
+   "transport": {
+    "boats_total": 1,
+    "boats_available": 1,
+    "boats_in_use": 0,
+    "vehicles_total": 4,
+    "vehicles_available": 4,
+    "vehicles_in_use": 0
+   },
+   "zones": {
+    "river-bazaar": {
+     "name": "Riverside Bazaar",
+     "population_remaining": 150,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 30,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 175
+    },
+    "hydro-camp": {
+     "name": "Hydropower Workers' Camp",
+     "population_remaining": 100,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 10,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 20,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 230
+    },
+    "monastery-hamlet": {
+     "name": "Monastery Hamlet",
+     "population_remaining": 120,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 35,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 24,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 400
+    }
+   }
+  },
+  "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching simulation. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this simulation for decisions about evacuation, safety or health."
+ },
+ "script": [
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "issue_warning",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "issue_warning",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 1,
+     "max_ticks": 28,
+     "water_level_cm": 110,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 0,
+       "is_open": false
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 1,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 13,
+     "residents_at_risk": 370,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 110,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 380,
+      "is_open": false
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "warning_issued",
+      "tick": 1,
+      "zone": null,
+      "target": "all",
+      "caused_by": "Action issue_warning",
+      "description": "Public flood warning broadcast to all community zones.",
+      "details": {
+       "zone": null,
+       "target": "all",
+       "new_warning_level": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 1,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 110 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 110,
+       "tick": 1,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Sirens and loudspeaker broadcasts echoed across the riverbank. Public flood warning broadcast to all community zones. Hydrology monitor: the river is at 110 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "ridge-camp"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "ridge-camp"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 2,
+     "max_ticks": 28,
+     "water_level_cm": 115,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 0,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 2,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 16,
+     "residents_at_risk": 370,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 115,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "shelter_opened",
+      "tick": 2,
+      "zone": null,
+      "target": "ridge-camp",
+      "caused_by": "Action open_shelter",
+      "description": "Shelter 'Army Transit Camp on the Ridge' officially opened with intake capacity of 240.",
+      "details": {
+       "zone": null,
+       "target": "ridge-camp",
+       "shelter_id": "ridge-camp",
+       "capacity": 240,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 2,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 115 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 115,
+       "tick": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Relief infrastructure online: Shelter 'Army Transit Camp on the Ridge' officially opened with intake capacity of 240. Hydrology monitor: the river is at 115 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-05",
+      "title": "Safe Shelter Operations",
+      "category": "Shelter",
+      "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+      "keywords": [
+       "shelter",
+       "school",
+       "intake",
+       "capacity",
+       "elevated",
+       "open"
+      ],
+      "source_reference": "Emergency Shelter Management Protocols"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "river-bazaar"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "river-bazaar"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 3,
+     "max_ticks": 28,
+     "water_level_cm": 122,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 125,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 25,
+       "vulnerable_saved": 5,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 25,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 4,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 3,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 25,
+     "score_so_far": 26,
+     "residents_at_risk": 345,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 122,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 25,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 4,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 125,
+       "safe_evacuated": 25,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 5,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 25,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "evacuation_ordered",
+      "tick": 3,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Action order_evacuation",
+      "description": "Mandatory evacuation ordered for Riverside Bazaar.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 3,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 122 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 122,
+       "tick": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 3,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 25 residents from Riverside Bazaar to safety.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "evacuated": 25,
+       "vulnerable_included": 5,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 3,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "5 vulnerable individuals from Riverside Bazaar reached secure shelter.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "vulnerable_count": 5,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Civil authorities activated evacuation protocols: Mandatory evacuation ordered for Riverside Bazaar. Hydrology monitor: the river is at 122 cm. Evacuation progress: Evacuated 25 residents from Riverside Bazaar to safety. Priority evacuation: 5 vulnerable individuals from Riverside Bazaar reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "assign_transport",
+     "params": {
+      "zone": "river-bazaar",
+      "transport_type": "vehicle",
+      "count": 3
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "assign_transport",
+     "params": {
+      "zone": "river-bazaar",
+      "transport_type": "vehicle",
+      "count": 3
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 4,
+     "max_ticks": 28,
+     "water_level_cm": 130,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 40,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 8,
+       "safe_evacuated": 110,
+       "vulnerable_saved": 22,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 110,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 1,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 22,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 4,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 110,
+     "score_so_far": 38,
+     "residents_at_risk": 260,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 22,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 130,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 110,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 1,
+      "vehicles_in_use": 3
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 40,
+       "safe_evacuated": 110,
+       "in_transit": 0,
+       "vulnerable_remaining": 8,
+       "vulnerable_saved": 22,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 110,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "transport_assigned",
+      "tick": 4,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Action assign_transport",
+      "description": "Dispatched 3 transport truck(s) to Riverside Bazaar.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "transport_type": "vehicle",
+       "count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 4,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 130 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 130,
+       "tick": 4,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 4,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 85 residents from Riverside Bazaar to safety.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "evacuated": 85,
+       "vulnerable_included": 17,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 4,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "17 vulnerable individuals from Riverside Bazaar reached secure shelter.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "vulnerable_count": 17,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Logistics update: Dispatched 3 transport truck(s) to Riverside Bazaar. Hydrology monitor: the river is at 130 cm. Evacuation progress: Evacuated 85 residents from Riverside Bazaar to safety. Priority evacuation: 17 vulnerable individuals from Riverside Bazaar reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-03",
+      "title": "Vehicle Safety in Floodwaters",
+      "category": "Logistics",
+      "guidance": "Do not dispatch standard wheeled motor vehicles through roads with moving floodwaters deeper than knee level. Use boats or high-clearance specialized equipment when roads submerge.",
+      "keywords": [
+       "vehicle",
+       "truck",
+       "boat",
+       "water depth",
+       "road",
+       "transport"
+      ],
+      "source_reference": "Transport and Road Safety Flooding Guidelines"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 5,
+     "max_ticks": 28,
+     "water_level_cm": 140,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 0,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 0,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 30,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 1,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 19,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 5,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 43,
+     "residents_at_risk": 220,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 19,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 140,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 1,
+      "vehicles_in_use": 3
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 0,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 0,
+       "vulnerable_saved": 30,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 5,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 5,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 140 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 140,
+       "tick": 5,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 5,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 40 residents from Riverside Bazaar to safety.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "evacuated": 40,
+       "vulnerable_included": 8,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 5,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "8 vulnerable individuals from Riverside Bazaar reached secure shelter.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "vulnerable_count": 8,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 140 cm. Evacuation progress: Evacuated 40 residents from Riverside Bazaar to safety. Priority evacuation: 8 vulnerable individuals from Riverside Bazaar reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 6,
+     "max_ticks": 28,
+     "water_level_cm": 152,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 0,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 0,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 30,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 1,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 16,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 6,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 43,
+     "residents_at_risk": 220,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 16,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 152,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 1,
+      "vehicles_in_use": 3
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 0,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 0,
+       "vulnerable_saved": 30,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 6,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 6,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 152 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 152,
+       "tick": 6,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 152 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 7,
+     "max_ticks": 28,
+     "water_level_cm": 168,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 0,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 0,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 30,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 1,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 13,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 7,
+     "max_ticks": 28,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 43,
+     "residents_at_risk": 220,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 13,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 168,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 1,
+      "vehicles_in_use": 3
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 0,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 0,
+       "vulnerable_saved": 30,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 7,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 7,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 168 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 168,
+       "tick": 7,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 168 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "glacial-lake-01",
+     "scenario_version": "1.0.0",
+     "tick": 8,
+     "max_ticks": 28,
+     "water_level_cm": 190,
+     "forecast_cm": [
+      110,
+      115,
+      122,
+      130,
+      140,
+      152,
+      168,
+      190,
+      260,
+      380,
+      440,
+      410,
+      360,
+      310,
+      270,
+      240,
+      215,
+      196,
+      182,
+      170,
+      160,
+      152,
+      146,
+      140,
+      135,
+      131,
+      128,
+      125
+     ],
+     "zones": {
+      "river-bazaar": {
+       "id": "river-bazaar",
+       "name": "Riverside Bazaar",
+       "elevation_cm": 175,
+       "initial_population": 150,
+       "population_remaining": 0,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 0,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 30,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 15,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "road_flooded": false,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "hydro-camp": {
+       "id": "hydro-camp",
+       "name": "Hydropower Workers' Camp",
+       "elevation_cm": 230,
+       "initial_population": 100,
+       "population_remaining": 100,
+       "initial_vulnerable": 10,
+       "vulnerable_remaining": 10,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "monastery-hamlet": {
+       "id": "monastery-hamlet",
+       "name": "Monastery Hamlet",
+       "elevation_cm": 400,
+       "initial_population": 120,
+       "population_remaining": 120,
+       "initial_vulnerable": 35,
+       "vulnerable_remaining": 35,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "ridge-camp": {
+       "id": "ridge-camp",
+       "name": "Army Transit Camp on the Ridge",
+       "elevation_cm": 650,
+       "capacity": 240,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "monastery-hall": {
+       "id": "monastery-hall",
+       "name": "Monastery Prayer Hall",
+       "elevation_cm": 560,
+       "capacity": 140,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 1,
+      "available_boats": 1,
+      "boat_capacity": 8,
+      "total_vehicles": 4,
+      "available_vehicles": 1,
+      "vehicle_capacity": 20,
+      "sandbags": 200
+     },
+     "embankment": {
+      "height_cm": 280,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 8,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 10,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": true,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 185,
+      "recovery_below_cm": 280,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 100,
+      "treat_per_tick": 6,
+      "disease_base": 15,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 4,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 60,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 3,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 25
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 300,
+     "embankment_max_cm": 320,
+     "foot_evacuation_per_tick": 25,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 8,
+     "max_ticks": 28,
+     "phase": "flood",
+     "flood_start_tick": 8,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 43,
+     "residents_at_risk": 220,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 3,
+      "boats": 0,
+      "vehicles": 3,
+      "sandbags": 100,
+      "supply_units": 50
+     },
+     "sandbags": 200,
+     "recovery": {
+      "shelter_supplies": 10,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 60,
+      "water_contamination": 0
+     },
+     "water_level_cm": 190,
+     "normal_level_cm": 110,
+     "warning_level_cm": 185,
+     "danger_level_cm": 280,
+     "crest_level_cm": 440,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 280,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 380,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 1,
+      "boats_available": 1,
+      "boats_in_use": 0,
+      "vehicles_total": 4,
+      "vehicles_available": 1,
+      "vehicles_in_use": 3
+     },
+     "zones": {
+      "river-bazaar": {
+       "name": "Riverside Bazaar",
+       "population_remaining": 0,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 0,
+       "vulnerable_saved": 30,
+       "water_depth_cm": 15,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 3,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 175
+      },
+      "hydro-camp": {
+       "name": "Hydropower Workers' Camp",
+       "population_remaining": 100,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 10,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 20,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 230
+      },
+      "monastery-hamlet": {
+       "name": "Monastery Hamlet",
+       "population_remaining": 120,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 35,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 24,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 400
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 8,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 190 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 190,
+       "tick": 8,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "phase_changed",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "River level reached the warning level of 185 cm",
+      "description": "The river reached 190 cm and water is entering homes. The flood phase has begun.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "from_phase": "before",
+       "to_phase": "flood",
+       "water_level_cm": 190,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 8,
+      "zone": "river-bazaar",
+      "target": "river-bazaar",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into Riverside Bazaar. Depth reached 15 cm.",
+      "details": {
+       "zone": "river-bazaar",
+       "target": "river-bazaar",
+       "water_depth_cm": 15,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "shelter_supplies_low",
+      "tick": 8,
+      "zone": null,
+      "target": "shelter",
+      "caused_by": "150 people sheltered use 3 supply units per tick",
+      "description": "Shelter supplies are running low: 10 units left.",
+      "details": {
+       "zone": null,
+       "target": "shelter",
+       "occupancy": 150,
+       "shelter_supplies": 10,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 190 cm. New phase: The river reached 190 cm and water is entering homes. The flood phase has begun. FLOOD WARNING: Water breached into Riverside Bazaar. Depth reached 15 cm. Shelter notice: Shelter supplies are running low: 10 units left.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  }
+ ]
+}

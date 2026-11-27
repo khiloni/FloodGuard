@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Meta, Phase } from '../api/types';
-import { Bot, FileText, Eye, EyeOff, ArrowLeft } from './icons';
+import { Bot, FileText, Eye, EyeOff, ArrowLeft, Volume2, VolumeX, MessagesSquare } from './icons';
+import { useLang } from '../lib/i18n';
+import { canSpeak } from '../lib/voice';
 import { Logo } from './Logo';
 
 export const PHASE_LABEL: Record<Phase, string> = {
@@ -18,7 +20,12 @@ export const Header: React.FC<{
   scenarioName?: string;
   onHome?: () => void;
   onToggleReduced: (v: boolean) => void;
-}> = ({ meta, phase, tick, maxTicks, reduced, scenarioName, onHome, onToggleReduced }) => {
+  soundOn?: boolean;
+  onToggleSound?: (v: boolean) => void;
+  readAloud?: boolean;
+  onToggleReadAloud?: (v: boolean) => void;
+}> = ({ meta, phase, tick, maxTicks, reduced, scenarioName, onHome, onToggleReduced, soundOn, onToggleSound, readAloud, onToggleReadAloud }) => {
+  const { t } = useLang();
   const llmOn = meta?.llm_mode === 'openai_compat';
   return (
     <header className="app-header">
@@ -30,7 +37,7 @@ export const Header: React.FC<{
       </div>
       {phase && (
         <div className={`phase-chip phase-${phase}`} data-testid="phase-chip">
-          <span className="phase-dot" aria-hidden="true" />{PHASE_LABEL[phase]}
+          <span className="phase-dot" aria-hidden="true" />{t(phase)}
           {typeof tick === 'number' && <span className="tick" data-testid="header-tick"> · tick {tick}/{maxTicks}</span>}
         </div>
       )}
@@ -38,11 +45,24 @@ export const Header: React.FC<{
         <span className={`badge ${llmOn ? 'badge-ai' : 'badge-template'}`} data-testid="llm-badge"
           title={llmOn ? `Open-source LLM narration (${meta?.llm_status})` : 'Narration from fixed templates'}>
           {llmOn ? <Bot aria-hidden="true" /> : <FileText aria-hidden="true" />}
-          <span>{llmOn ? `AI on${meta?.llm_status && meta.llm_status !== 'online' ? ` (${meta.llm_status})` : ''}` : 'AI off'}</span>
+          <span>{llmOn ? `${t('aiOn')}${meta?.llm_status && meta.llm_status !== 'online' ? ` (${meta.llm_status})` : ''}` : t('aiOff')}</span>
         </span>
+        {onToggleSound && (
+          <button className="btn ghost small" aria-pressed={!!soundOn} onClick={() => onToggleSound(!soundOn)} data-testid="sound-toggle"
+            title="Ambient rain, wind and event sounds, made in your browser">
+            {soundOn ? <Volume2 aria-hidden="true" /> : <VolumeX aria-hidden="true" />}
+            <span className="hide-sm">{soundOn ? t('soundOn') : t('sound')}</span>
+          </button>
+        )}
+        {onToggleReadAloud && canSpeak() && (
+          <button className="btn ghost small" aria-pressed={!!readAloud} onClick={() => onToggleReadAloud(!readAloud)} data-testid="read-aloud-toggle"
+            title="Voice assistant: read the story aloud">
+            <MessagesSquare aria-hidden="true" /><span className="hide-sm">{readAloud ? t('reading') : t('readAloud')}</span>
+          </button>
+        )}
         <button className="btn ghost small" aria-pressed={reduced} onClick={() => onToggleReduced(!reduced)} data-testid="reduced-toggle">
           {reduced ? <EyeOff aria-hidden="true" /> : <Eye aria-hidden="true" />}
-          <span className="hide-sm">{reduced ? 'Motion reduced' : 'Reduce motion'}</span>
+          <span className="hide-sm">{reduced ? t('motionReduced') : t('reduceMotion')}</span>
         </button>
       </div>
     </header>

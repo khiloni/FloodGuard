@@ -5,7 +5,13 @@
  "disaster_helpline": "1078",
  "supported_languages": [
   "en",
-  "hi"
+  "hi",
+  "gu",
+  "mr",
+  "bn",
+  "ta",
+  "te",
+  "kn"
  ],
  "llm_mode": "template",
  "llm_status": "off",

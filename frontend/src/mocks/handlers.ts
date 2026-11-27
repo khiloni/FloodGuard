@@ -19,11 +19,15 @@ import npc from './fixtures/npc.json';
 import urban from './fixtures/packs/urban-flash-flood-01.json';
 import dam from './fixtures/packs/dam-release-01.json';
 import cyclone from './fixtures/packs/cyclone-surge-01.json';
+import island from './fixtures/packs/river-island-01.json';
+import glacial from './fixtures/packs/glacial-lake-01.json';
 
 const PACKS: Record<string, { session: any; script: any[] }> = {
   'urban-flash-flood-01': urban as any,
   'dam-release-01': dam as any,
   'cyclone-surge-01': cyclone as any,
+  'river-island-01': island as any,
+  'glacial-lake-01': glacial as any,
 };
 let pack: string = 'village-river-01';
 const currentScript = (): any[] => (PACKS[pack]?.script || (script as any[]));

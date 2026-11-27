@@ -1,0 +1,4838 @@
+{
+ "session": {
+  "session_id": "390f92ab-194f-47ad-86d3-7b6cd592ab29",
+  "seed": 5,
+  "state": {
+   "scenario_id": "river-island-01",
+   "scenario_version": "1.0.0",
+   "tick": 0,
+   "max_ticks": 30,
+   "water_level_cm": 150,
+   "forecast_cm": [
+    150,
+    165,
+    180,
+    200,
+    225,
+    250,
+    278,
+    305,
+    335,
+    362,
+    385,
+    402,
+    410,
+    405,
+    390,
+    368,
+    342,
+    318,
+    296,
+    275,
+    255,
+    238,
+    222,
+    208,
+    196,
+    186,
+    178,
+    170,
+    164,
+    158
+   ],
+   "zones": {
+    "east-char": {
+     "id": "east-char",
+     "name": "East Char (Fisher Para)",
+     "elevation_cm": 210,
+     "initial_population": 160,
+     "population_remaining": 160,
+     "initial_vulnerable": 40,
+     "vulnerable_remaining": 40,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 32,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "west-char": {
+     "id": "west-char",
+     "name": "West Char (Weavers' Para)",
+     "elevation_cm": 270,
+     "initial_population": 130,
+     "population_remaining": 130,
+     "initial_vulnerable": 30,
+     "vulnerable_remaining": 30,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 26,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    },
+    "ghat-bank": {
+     "id": "ghat-bank",
+     "name": "Mainland Ghat Village",
+     "elevation_cm": 360,
+     "initial_population": 150,
+     "population_remaining": 150,
+     "initial_vulnerable": 25,
+     "vulnerable_remaining": 25,
+     "safe_evacuated": 0,
+     "vulnerable_saved": 0,
+     "in_transit": 0,
+     "lost": 0,
+     "water_depth_cm": 0,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "prioritize_vulnerable": false,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "road_flooded": false,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false
+    }
+   },
+   "shelters": {
+    "raised-platform": {
+     "id": "raised-platform",
+     "name": "Raised Flood Platform",
+     "elevation_cm": 460,
+     "capacity": 150,
+     "current_occupancy": 0,
+     "is_open": false
+    },
+    "mainland-school": {
+     "id": "mainland-school",
+     "name": "Mainland Higher Secondary School",
+     "elevation_cm": 520,
+     "capacity": 260,
+     "current_occupancy": 0,
+     "is_open": false
+    }
+   },
+   "resources": {
+    "total_boats": 3,
+    "available_boats": 3,
+    "boat_capacity": 15,
+    "total_vehicles": 2,
+    "available_vehicles": 2,
+    "vehicle_capacity": 20,
+    "sandbags": 300
+   },
+   "embankment": {
+    "height_cm": 330,
+    "integrity": 100,
+    "breached": false,
+    "reinforced_count": 0
+   },
+   "first_warning_tick": null,
+   "first_evacuation_tick": null,
+   "is_finished": false,
+   "score": null,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "recovery": {
+    "shelter_supplies": 25,
+    "supply_deliveries_left": 3,
+    "supply_shortfall_ticks": 0,
+    "supplies_low_warned": false,
+    "clean_water_kits": 1,
+    "clean_water_active": false,
+    "medical_teams": 1,
+    "medical_camp_active": false,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_treated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 55,
+    "water_contamination": 0
+   },
+   "recovery_config": {
+    "enabled": true,
+    "flood_starts_at_cm": 250,
+    "recovery_below_cm": 320,
+    "shelter_supplies_initial": 25,
+    "people_per_supply_unit": 60,
+    "supply_deliveries": 3,
+    "units_per_delivery": 40,
+    "supplies_low_threshold": 10,
+    "clean_water_kits": 1,
+    "medical_teams": 1,
+    "return_batch_per_turn": 90,
+    "treat_per_tick": 6,
+    "disease_base": 25,
+    "disease_per_flooded_zone": 10,
+    "disease_breach_bonus": 10,
+    "disease_rise_per_tick": 5,
+    "disease_crowding_pct": 90,
+    "disease_crowding_rise": 3,
+    "disease_no_supplies_rise": 4,
+    "disease_clean_water_drop": 8,
+    "disease_medical_camp_drop": 6,
+    "disease_high_threshold": 60,
+    "trust_initial": 55,
+    "trust_early_warning_bonus": 10,
+    "trust_early_warning_by_tick": 5,
+    "trust_losses_penalty": 10,
+    "trust_breach_penalty": 10,
+    "trust_supplies_ran_out_penalty": 10,
+    "road_debris_depth_cm": 30
+   },
+   "difficulty": "standard",
+   "npc_ids": [
+    "village_head",
+    "rescue_worker",
+    "family_member",
+    "health_worker",
+    "district_official"
+   ],
+   "contained_safe_elevation_cm": 330,
+   "embankment_max_cm": 400,
+   "foot_evacuation_per_tick": 12,
+   "support": {
+    "uses": 1,
+    "delay_ticks": 4,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 150,
+    "supply_units": 50
+   },
+   "support_requests_left": 1,
+   "support_eta_tick": null,
+   "mechanic": {
+    "type": "none",
+    "params": {}
+   },
+   "mechanic_state": {}
+  },
+  "layout": {
+   "canvas": {
+    "width": 1000,
+    "height": 600
+   },
+   "levels": {
+    "normal_level_cm": 150,
+    "warning_level_cm": 250,
+    "danger_level_cm": 320,
+    "crest_level_cm": 410
+   },
+   "river": {
+    "name": "Great River",
+    "flow_direction": "left-to-right",
+    "center_path": [
+     [
+      0,
+      250
+     ],
+     [
+      200,
+      240
+     ],
+     [
+      420,
+      255
+     ],
+     [
+      640,
+      238
+     ],
+     [
+      840,
+      252
+     ],
+     [
+      1000,
+      244
+     ]
+    ],
+    "north_bank": [
+     [
+      0,
+      205
+     ],
+     [
+      180,
+      198
+     ],
+     [
+      360,
+      212
+     ],
+     [
+      560,
+      196
+     ],
+     [
+      760,
+      210
+     ],
+     [
+      1000,
+      200
+     ]
+    ],
+    "south_bank": [
+     [
+      0,
+      600
+     ],
+     [
+      250,
+      600
+     ],
+     [
+      500,
+      600
+     ],
+     [
+      750,
+      600
+     ],
+     [
+      1000,
+      600
+     ]
+    ]
+   },
+   "embankment": {
+    "name": "Ring bund",
+    "crest_height_cm": 330,
+    "segments": [
+     {
+      "id": "bund-west",
+      "start": [
+       190,
+       318
+      ],
+      "end": [
+       400,
+       292
+      ],
+      "label": "West ring bund"
+     },
+     {
+      "id": "bund-central",
+      "start": [
+       400,
+       292
+      ],
+      "end": [
+       600,
+       290
+      ],
+      "label": "Central ring bund"
+     },
+     {
+      "id": "bund-east",
+      "start": [
+       600,
+       290
+      ],
+      "end": [
+       810,
+       316
+      ],
+      "label": "East ring bund"
+     }
+    ]
+   },
+   "zones": [
+    {
+     "id": "east-char",
+     "name": "East Char (Fisher Para)",
+     "x": 590,
+     "y": 340,
+     "width": 200,
+     "height": 100,
+     "elevation_cm": 210,
+     "house_points": [
+      [
+       605,
+       358
+      ],
+      [
+       645,
+       372
+      ],
+      [
+       690,
+       355
+      ],
+      [
+       735,
+       370
+      ],
+      [
+       770,
+       356
+      ],
+      [
+       630,
+       412
+      ],
+      [
+       715,
+       410
+      ]
+     ]
+    },
+    {
+     "id": "west-char",
+     "name": "West Char (Weavers' Para)",
+     "x": 210,
+     "y": 345,
+     "width": 190,
+     "height": 95,
+     "elevation_cm": 270,
+     "house_points": [
+      [
+       225,
+       362
+      ],
+      [
+       265,
+       377
+      ],
+      [
+       310,
+       360
+      ],
+      [
+       355,
+       374
+      ],
+      [
+       250,
+       412
+      ],
+      [
+       335,
+       410
+      ]
+     ]
+    },
+    {
+     "id": "ghat-bank",
+     "name": "Mainland Ghat Village",
+     "x": 120,
+     "y": 62,
+     "width": 200,
+     "height": 100,
+     "elevation_cm": 360,
+     "house_points": [
+      [
+       135,
+       80
+      ],
+      [
+       175,
+       95
+      ],
+      [
+       220,
+       78
+      ],
+      [
+       265,
+       92
+      ],
+      [
+       300,
+       80
+      ],
+      [
+       160,
+       132
+      ],
+      [
+       250,
+       130
+      ]
+     ]
+    }
+   ],
+   "shelters": [
+    {
+     "id": "raised-platform",
+     "name": "Raised Platform",
+     "x": 440,
+     "y": 330,
+     "width": 110,
+     "height": 62,
+     "elevation_cm": 460
+    },
+    {
+     "id": "mainland-school",
+     "name": "Mainland School",
+     "x": 780,
+     "y": 40,
+     "width": 125,
+     "height": 75,
+     "elevation_cm": 520
+    }
+   ],
+   "routes": [
+    {
+     "zone_id": "east-char",
+     "shelter_id": "mainland-school",
+     "transport_modes": [
+      "boat"
+     ],
+     "road_cutoff_depth_cm": 20,
+     "waypoints": [
+      [
+       690,
+       360
+      ],
+      [
+       720,
+       300
+      ],
+      [
+       760,
+       230
+      ],
+      [
+       810,
+       150
+      ],
+      [
+       840,
+       100
+      ]
+     ]
+    },
+    {
+     "zone_id": "west-char",
+     "shelter_id": "raised-platform",
+     "transport_modes": [
+      "boat",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 25,
+     "waypoints": [
+      [
+       310,
+       365
+      ],
+      [
+       380,
+       352
+      ],
+      [
+       440,
+       360
+      ],
+      [
+       495,
+       360
+      ]
+     ]
+    },
+    {
+     "zone_id": "ghat-bank",
+     "shelter_id": "mainland-school",
+     "transport_modes": [
+      "vehicle",
+      "foot"
+     ],
+     "road_cutoff_depth_cm": 40,
+     "waypoints": [
+      [
+       220,
+       95
+      ],
+      [
+       420,
+       120
+      ],
+      [
+       620,
+       100
+      ],
+      [
+       780,
+       80
+      ]
+     ]
+    }
+   ],
+   "decor": {
+    "trees": [
+     [
+      60,
+      90
+     ],
+     [
+      380,
+      60
+     ],
+     [
+      470,
+      160
+     ],
+     [
+      680,
+      150
+     ],
+     [
+      960,
+      130
+     ],
+     [
+      235,
+      450
+     ],
+     [
+      520,
+      460
+     ],
+     [
+      760,
+      455
+     ],
+     [
+      430,
+      440
+     ]
+    ],
+    "jetty": {
+     "x": 420,
+     "y": 180,
+     "label": "Mainland ghat"
+    },
+    "bridges": [],
+    "hills": [
+     [
+      600,
+      20
+     ],
+     [
+      940,
+      30
+     ]
+    ],
+    "islands": [
+     [
+      500,
+      395,
+      360,
+      120
+     ],
+     [
+      880,
+      520,
+      70,
+      22
+     ],
+     [
+      110,
+      540,
+      60,
+      18
+     ]
+    ]
+   },
+   "recovery_sites": {
+    "water_point": {
+     "x": 560,
+     "y": 120,
+     "label": "Chlorination point"
+    },
+    "medical_camp": {
+     "x": 495,
+     "y": 470,
+     "label": "Medical camp on the platform"
+    },
+    "substation": {
+     "x": 370,
+     "y": 160,
+     "label": "Solar micro-grid"
+    },
+    "health_centre": {
+     "x": 680,
+     "y": 60,
+     "label": "Sub-centre"
+    },
+    "supply_depot": {
+     "x": 950,
+     "y": 90,
+     "label": "Relief depot"
+    }
+   },
+   "water_body": "river"
+  },
+  "summary": {
+   "tick": 0,
+   "max_ticks": 30,
+   "phase": "before",
+   "flood_start_tick": null,
+   "recovery_start_tick": null,
+   "displaced": 0,
+   "score_so_far": 8,
+   "residents_at_risk": 440,
+   "lost_total": 0,
+   "warnings_delivered": 0,
+   "difficulty": "standard",
+   "mechanic": {
+    "type": "none",
+    "boats_at_sea": 0,
+    "fishers_stranded": 0,
+    "recalled": false,
+    "landfall_tick": null,
+    "release_tick": null,
+    "staggered": false,
+    "drain_crews": 0,
+    "power_down": false
+   },
+   "support": {
+    "available": true,
+    "uses_left": 1,
+    "eta_tick": null,
+    "delay_ticks": 4,
+    "boats": 2,
+    "vehicles": 1,
+    "sandbags": 150,
+    "supply_units": 50
+   },
+   "sandbags": 300,
+   "recovery": {
+    "shelter_supplies": 25,
+    "supply_deliveries_left": 3,
+    "clean_water_active": false,
+    "clean_water_kits": 1,
+    "medical_camp_active": false,
+    "medical_teams": 1,
+    "disease_risk": 0,
+    "peak_disease_risk": 0,
+    "illness_cases": 0,
+    "illness_untreated": 0,
+    "power_on": true,
+    "health_centre_open": true,
+    "community_trust": 55,
+    "water_contamination": 0
+   },
+   "water_level_cm": 150,
+   "normal_level_cm": 150,
+   "warning_level_cm": 250,
+   "danger_level_cm": 320,
+   "crest_level_cm": 410,
+   "embankment_integrity": 100,
+   "embankment_height_cm": 330,
+   "embankment_breached": false,
+   "shelter": {
+    "occupancy": 0,
+    "capacity": 410,
+    "is_open": false
+   },
+   "transport": {
+    "boats_total": 3,
+    "boats_available": 3,
+    "boats_in_use": 0,
+    "vehicles_total": 2,
+    "vehicles_available": 2,
+    "vehicles_in_use": 0
+   },
+   "zones": {
+    "east-char": {
+     "name": "East Char (Fisher Para)",
+     "population_remaining": 160,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 40,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 32,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 210
+    },
+    "west-char": {
+     "name": "West Char (Weavers' Para)",
+     "population_remaining": 130,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 30,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 26,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 270
+    },
+    "ghat-bank": {
+     "name": "Mainland Ghat Village",
+     "population_remaining": 150,
+     "safe_evacuated": 0,
+     "in_transit": 0,
+     "vulnerable_remaining": 25,
+     "vulnerable_saved": 0,
+     "water_depth_cm": 0,
+     "road_flooded": false,
+     "evacuation_ordered": false,
+     "warning_level": 0,
+     "boats_assigned": 0,
+     "vehicles_assigned": 0,
+     "max_depth_cm": 0,
+     "returned": 0,
+     "in_shelter": 0,
+     "road_blocked": false,
+     "surveyed": false,
+     "households": 30,
+     "damaged_houses": 0,
+     "drain_blocked": false,
+     "underpass": false,
+     "lost": 0,
+     "elevation_cm": 360
+    }
+   }
+  },
+  "disclaimer": "This is an educational simulation, not emergency guidance. FloodGuard is a simplified teaching simulation. Its water levels, outcomes and scores are invented and are not a flood forecast or a real-world plan. Characters are fictional and AI-generated text can be wrong. If you are in a real emergency or a flood is happening near you, stop playing and call 112 (India emergency number). Follow instructions from your local authorities and official sources for your area (for example the India Meteorological Department, the Central Water Commission and your State Disaster Management Authority). Do not rely on this simulation for decisions about evacuation, safety or health."
+ },
+ "script": [
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "issue_warning",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "issue_warning",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 1,
+     "max_ticks": 30,
+     "water_level_cm": 150,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 160,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 0,
+       "is_open": false
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 1,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 13,
+     "residents_at_risk": 440,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 150,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 410,
+      "is_open": false
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 160,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "warning_issued",
+      "tick": 1,
+      "zone": null,
+      "target": "all",
+      "caused_by": "Action issue_warning",
+      "description": "Public flood warning broadcast to all community zones.",
+      "details": {
+       "zone": null,
+       "target": "all",
+       "new_warning_level": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 1,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 150 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 150,
+       "tick": 1,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Sirens and loudspeaker broadcasts echoed across the riverbank. Public flood warning broadcast to all community zones. Hydrology monitor: the river is at 150 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "raised-platform"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "open_shelter",
+     "params": {
+      "shelter_id": "raised-platform"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 2,
+     "max_ticks": 30,
+     "water_level_cm": 165,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 160,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 40,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 0,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": null,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 2,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 0,
+     "score_so_far": 16,
+     "residents_at_risk": 440,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 25,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 165,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 0,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 160,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 40,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "shelter_opened",
+      "tick": 2,
+      "zone": null,
+      "target": "raised-platform",
+      "caused_by": "Action open_shelter",
+      "description": "Shelter 'Raised Flood Platform' officially opened with intake capacity of 150.",
+      "details": {
+       "zone": null,
+       "target": "raised-platform",
+       "shelter_id": "raised-platform",
+       "capacity": 150,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 2,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 165 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 165,
+       "tick": 2,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Relief infrastructure online: Shelter 'Raised Flood Platform' officially opened with intake capacity of 150. Hydrology monitor: the river is at 165 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-05",
+      "title": "Safe Shelter Operations",
+      "category": "Shelter",
+      "guidance": "Designate and unlock multi-story masonry public buildings on elevated ground as relief shelters before evacuees arrive to ensure orderly intake and security.",
+      "keywords": [
+       "shelter",
+       "school",
+       "intake",
+       "capacity",
+       "elevated",
+       "open"
+      ],
+      "source_reference": "Emergency Shelter Management Protocols"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "east-char"
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "order_evacuation",
+     "params": {
+      "zone": "east-char"
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 3,
+     "max_ticks": 30,
+     "water_level_cm": 180,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 148,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 37,
+       "safe_evacuated": 12,
+       "vulnerable_saved": 3,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 12,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 3,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 3,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 12,
+     "score_so_far": 25,
+     "residents_at_risk": 428,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 24,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 180,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 12,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 3,
+      "boats_in_use": 0,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 148,
+       "safe_evacuated": 12,
+       "in_transit": 0,
+       "vulnerable_remaining": 37,
+       "vulnerable_saved": 3,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 12,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "evacuation_ordered",
+      "tick": 3,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Action order_evacuation",
+      "description": "Mandatory evacuation ordered for East Char (Fisher Para).",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 3,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 180 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 180,
+       "tick": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 3,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 12 residents from East Char (Fisher Para) to safety.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "evacuated": 12,
+       "vulnerable_included": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 3,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "3 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "vulnerable_count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Civil authorities activated evacuation protocols: Mandatory evacuation ordered for East Char (Fisher Para). Hydrology monitor: the river is at 180 cm. Evacuation progress: Evacuated 12 residents from East Char (Fisher Para) to safety. Priority evacuation: 3 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "assign_transport",
+     "params": {
+      "zone": "east-char",
+      "transport_type": "boat",
+      "count": 3
+     }
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "assign_transport",
+     "params": {
+      "zone": "east-char",
+      "transport_type": "boat",
+      "count": 3
+     }
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 4,
+     "max_ticks": 30,
+     "water_level_cm": 200,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 91,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 23,
+       "safe_evacuated": 69,
+       "vulnerable_saved": 17,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 69,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 0,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 22,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 4,
+     "max_ticks": 30,
+     "phase": "before",
+     "flood_start_tick": null,
+     "recovery_start_tick": null,
+     "displaced": 69,
+     "score_so_far": 32,
+     "residents_at_risk": 371,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 22,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 200,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 69,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 0,
+      "boats_in_use": 3,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 91,
+       "safe_evacuated": 69,
+       "in_transit": 0,
+       "vulnerable_remaining": 23,
+       "vulnerable_saved": 17,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 69,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "transport_assigned",
+      "tick": 4,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Action assign_transport",
+      "description": "Assigned 3 motorized rescue boat(s) to East Char (Fisher Para).",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "transport_type": "boat",
+       "count": 3,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 4,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 200 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 200,
+       "tick": 4,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 4,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 57 residents from East Char (Fisher Para) to safety.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "evacuated": 57,
+       "vulnerable_included": 14,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 4,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "14 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "vulnerable_count": 14,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "resource_depleted",
+      "tick": 4,
+      "zone": null,
+      "target": "boats",
+      "caused_by": "All units committed or used",
+      "description": "No boats are left in reserve.",
+      "details": {
+       "zone": null,
+       "target": "boats",
+       "resource": "boats",
+       "phase": "before"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Logistics update: Assigned 3 motorized rescue boat(s) to East Char (Fisher Para). Hydrology monitor: the river is at 200 cm. Evacuation progress: Evacuated 57 residents from East Char (Fisher Para) to safety. Priority evacuation: 14 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-03",
+      "title": "Vehicle Safety in Floodwaters",
+      "category": "Logistics",
+      "guidance": "Do not dispatch standard wheeled motor vehicles through roads with moving floodwaters deeper than knee level. Use boats or high-clearance specialized equipment when roads submerge.",
+      "keywords": [
+       "vehicle",
+       "truck",
+       "boat",
+       "water depth",
+       "road",
+       "transport"
+      ],
+      "source_reference": "Transport and Road Safety Flooding Guidelines"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 5,
+     "max_ticks": 30,
+     "water_level_cm": 225,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 46,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 12,
+       "safe_evacuated": 114,
+       "vulnerable_saved": 28,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 15,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 114,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 0,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 20,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 5,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "displaced": 114,
+     "score_so_far": 37,
+     "residents_at_risk": 326,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 20,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 225,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 114,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 0,
+      "boats_in_use": 3,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 46,
+       "safe_evacuated": 114,
+       "in_transit": 0,
+       "vulnerable_remaining": 12,
+       "vulnerable_saved": 28,
+       "water_depth_cm": 15,
+       "road_flooded": false,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 15,
+       "returned": 0,
+       "in_shelter": 114,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 5,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 5,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 225 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 225,
+       "tick": 5,
+       "phase": "before"
+      },
+      "event_type": null
+     },
+     {
+      "type": "phase_changed",
+      "tick": 5,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Floodwater entered East Char (Fisher Para)",
+      "description": "The river reached 225 cm and water is entering homes. The flood phase has begun.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "from_phase": "before",
+       "to_phase": "flood",
+       "water_level_cm": 225,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 5,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into East Char (Fisher Para). Depth reached 15 cm.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "water_depth_cm": 15,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 5,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 45 residents from East Char (Fisher Para) to safety.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "evacuated": 45,
+       "vulnerable_included": 11,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 5,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "11 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "vulnerable_count": 11,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 225 cm. New phase: The river reached 225 cm and water is entering homes. The flood phase has begun. FLOOD WARNING: Water breached into East Char (Fisher Para). Depth reached 15 cm. Evacuation progress: Evacuated 45 residents from East Char (Fisher Para) to safety. Priority evacuation: 11 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 6,
+     "max_ticks": 30,
+     "water_level_cm": 250,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 10,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 3,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 37,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 40,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 40,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 0,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 17,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 6,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 41,
+     "residents_at_risk": 290,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 17,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 250,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 0,
+      "boats_in_use": 3,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 10,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 3,
+       "vulnerable_saved": 37,
+       "water_depth_cm": 40,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 40,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 6,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 6,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 250 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 250,
+       "tick": 6,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "road_inundated",
+      "tick": 6,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Flood depth exceeding road clearance threshold",
+      "description": "Access road to East Char (Fisher Para) submerged beneath 40 cm of water. Wheeled transport blocked.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "water_depth_cm": 40,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "residents_evacuated",
+      "tick": 6,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Active evacuation transport and open shelter capacity",
+      "description": "Evacuated 36 residents from East Char (Fisher Para) to safety.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "evacuated": 36,
+       "vulnerable_included": 9,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "vulnerable_evacuated",
+      "tick": 6,
+      "zone": "east-char",
+      "target": "east-char",
+      "caused_by": "Vulnerability priority protocol",
+      "description": "9 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+      "details": {
+       "zone": "east-char",
+       "target": "east-char",
+       "vulnerable_count": 9,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 250 cm. URGENT: Access road to East Char (Fisher Para) submerged beneath 40 cm of water. Wheeled transport blocked. Evacuation progress: Evacuated 36 residents from East Char (Fisher Para) to safety. Priority evacuation: 9 vulnerable individuals from East Char (Fisher Para) reached secure shelter.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 7,
+     "max_ticks": 30,
+     "water_level_cm": 278,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 10,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 3,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 37,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 68,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 68,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 8,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 8,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 0,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 14,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 7,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 41,
+     "residents_at_risk": 290,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 14,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 278,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 0,
+      "boats_in_use": 3,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 10,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 3,
+       "vulnerable_saved": 37,
+       "water_depth_cm": 68,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 68,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 8,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 8,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 7,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 7,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 278 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 278,
+       "tick": 7,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "zone_flooded",
+      "tick": 7,
+      "zone": "west-char",
+      "target": "west-char",
+      "caused_by": "River overtopping local elevation",
+      "description": "Water breached into West Char (Weavers' Para). Depth reached 8 cm.",
+      "details": {
+       "zone": "west-char",
+       "target": "west-char",
+       "water_depth_cm": 8,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 278 cm. FLOOD WARNING: Water breached into West Char (Weavers' Para). Depth reached 8 cm.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  },
+  {
+   "input": {
+    "type": "button",
+    "action": {
+     "name": "wait",
+     "params": {}
+    }
+   },
+   "response": {
+    "status": "ok",
+    "parsed_action": {
+     "name": "wait",
+     "params": {}
+    },
+    "clarify": null,
+    "reject_reason": null,
+    "state": {
+     "scenario_id": "river-island-01",
+     "scenario_version": "1.0.0",
+     "tick": 8,
+     "max_ticks": 30,
+     "water_level_cm": 305,
+     "forecast_cm": [
+      150,
+      165,
+      180,
+      200,
+      225,
+      250,
+      278,
+      305,
+      335,
+      362,
+      385,
+      402,
+      410,
+      405,
+      390,
+      368,
+      342,
+      318,
+      296,
+      275,
+      255,
+      238,
+      222,
+      208,
+      196,
+      186,
+      178,
+      170,
+      164,
+      158
+     ],
+     "zones": {
+      "east-char": {
+       "id": "east-char",
+       "name": "East Char (Fisher Para)",
+       "elevation_cm": 210,
+       "initial_population": 160,
+       "population_remaining": 10,
+       "initial_vulnerable": 40,
+       "vulnerable_remaining": 3,
+       "safe_evacuated": 150,
+       "vulnerable_saved": 37,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 95,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 95,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "west-char": {
+       "id": "west-char",
+       "name": "West Char (Weavers' Para)",
+       "elevation_cm": 270,
+       "initial_population": 130,
+       "population_remaining": 130,
+       "initial_vulnerable": 30,
+       "vulnerable_remaining": 30,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 35,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": true,
+       "max_depth_cm": 35,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      },
+      "ghat-bank": {
+       "id": "ghat-bank",
+       "name": "Mainland Ghat Village",
+       "elevation_cm": 360,
+       "initial_population": 150,
+       "population_remaining": 150,
+       "initial_vulnerable": 25,
+       "vulnerable_remaining": 25,
+       "safe_evacuated": 0,
+       "vulnerable_saved": 0,
+       "in_transit": 0,
+       "lost": 0,
+       "water_depth_cm": 0,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "prioritize_vulnerable": false,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "road_flooded": false,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false
+      }
+     },
+     "shelters": {
+      "raised-platform": {
+       "id": "raised-platform",
+       "name": "Raised Flood Platform",
+       "elevation_cm": 460,
+       "capacity": 150,
+       "current_occupancy": 150,
+       "is_open": true
+      },
+      "mainland-school": {
+       "id": "mainland-school",
+       "name": "Mainland Higher Secondary School",
+       "elevation_cm": 520,
+       "capacity": 260,
+       "current_occupancy": 0,
+       "is_open": false
+      }
+     },
+     "resources": {
+      "total_boats": 3,
+      "available_boats": 0,
+      "boat_capacity": 15,
+      "total_vehicles": 2,
+      "available_vehicles": 2,
+      "vehicle_capacity": 20,
+      "sandbags": 300
+     },
+     "embankment": {
+      "height_cm": 330,
+      "integrity": 100,
+      "breached": false,
+      "reinforced_count": 0
+     },
+     "first_warning_tick": 1,
+     "first_evacuation_tick": 3,
+     "is_finished": false,
+     "score": null,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "recovery": {
+      "shelter_supplies": 11,
+      "supply_deliveries_left": 3,
+      "supply_shortfall_ticks": 0,
+      "supplies_low_warned": false,
+      "clean_water_kits": 1,
+      "clean_water_active": false,
+      "medical_teams": 1,
+      "medical_camp_active": false,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_treated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "recovery_config": {
+      "enabled": true,
+      "flood_starts_at_cm": 250,
+      "recovery_below_cm": 320,
+      "shelter_supplies_initial": 25,
+      "people_per_supply_unit": 60,
+      "supply_deliveries": 3,
+      "units_per_delivery": 40,
+      "supplies_low_threshold": 10,
+      "clean_water_kits": 1,
+      "medical_teams": 1,
+      "return_batch_per_turn": 90,
+      "treat_per_tick": 6,
+      "disease_base": 25,
+      "disease_per_flooded_zone": 10,
+      "disease_breach_bonus": 10,
+      "disease_rise_per_tick": 5,
+      "disease_crowding_pct": 90,
+      "disease_crowding_rise": 3,
+      "disease_no_supplies_rise": 4,
+      "disease_clean_water_drop": 8,
+      "disease_medical_camp_drop": 6,
+      "disease_high_threshold": 60,
+      "trust_initial": 55,
+      "trust_early_warning_bonus": 10,
+      "trust_early_warning_by_tick": 5,
+      "trust_losses_penalty": 10,
+      "trust_breach_penalty": 10,
+      "trust_supplies_ran_out_penalty": 10,
+      "road_debris_depth_cm": 30
+     },
+     "difficulty": "standard",
+     "npc_ids": [
+      "village_head",
+      "rescue_worker",
+      "family_member",
+      "health_worker",
+      "district_official"
+     ],
+     "contained_safe_elevation_cm": 330,
+     "embankment_max_cm": 400,
+     "foot_evacuation_per_tick": 12,
+     "support": {
+      "uses": 1,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "support_requests_left": 1,
+     "support_eta_tick": null,
+     "mechanic": {
+      "type": "none",
+      "params": {}
+     },
+     "mechanic_state": {}
+    },
+    "summary": {
+     "tick": 8,
+     "max_ticks": 30,
+     "phase": "flood",
+     "flood_start_tick": 5,
+     "recovery_start_tick": null,
+     "displaced": 150,
+     "score_so_far": 41,
+     "residents_at_risk": 290,
+     "lost_total": 0,
+     "warnings_delivered": 3,
+     "difficulty": "standard",
+     "mechanic": {
+      "type": "none",
+      "boats_at_sea": 0,
+      "fishers_stranded": 0,
+      "recalled": false,
+      "landfall_tick": null,
+      "release_tick": null,
+      "staggered": false,
+      "drain_crews": 0,
+      "power_down": false
+     },
+     "support": {
+      "available": true,
+      "uses_left": 1,
+      "eta_tick": null,
+      "delay_ticks": 4,
+      "boats": 2,
+      "vehicles": 1,
+      "sandbags": 150,
+      "supply_units": 50
+     },
+     "sandbags": 300,
+     "recovery": {
+      "shelter_supplies": 11,
+      "supply_deliveries_left": 3,
+      "clean_water_active": false,
+      "clean_water_kits": 1,
+      "medical_camp_active": false,
+      "medical_teams": 1,
+      "disease_risk": 0,
+      "peak_disease_risk": 0,
+      "illness_cases": 0,
+      "illness_untreated": 0,
+      "power_on": true,
+      "health_centre_open": true,
+      "community_trust": 55,
+      "water_contamination": 0
+     },
+     "water_level_cm": 305,
+     "normal_level_cm": 150,
+     "warning_level_cm": 250,
+     "danger_level_cm": 320,
+     "crest_level_cm": 410,
+     "embankment_integrity": 100,
+     "embankment_height_cm": 330,
+     "embankment_breached": false,
+     "shelter": {
+      "occupancy": 150,
+      "capacity": 410,
+      "is_open": true
+     },
+     "transport": {
+      "boats_total": 3,
+      "boats_available": 0,
+      "boats_in_use": 3,
+      "vehicles_total": 2,
+      "vehicles_available": 2,
+      "vehicles_in_use": 0
+     },
+     "zones": {
+      "east-char": {
+       "name": "East Char (Fisher Para)",
+       "population_remaining": 10,
+       "safe_evacuated": 150,
+       "in_transit": 0,
+       "vulnerable_remaining": 3,
+       "vulnerable_saved": 37,
+       "water_depth_cm": 95,
+       "road_flooded": true,
+       "evacuation_ordered": true,
+       "warning_level": 1,
+       "boats_assigned": 3,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 95,
+       "returned": 0,
+       "in_shelter": 150,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 32,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 210
+      },
+      "west-char": {
+       "name": "West Char (Weavers' Para)",
+       "population_remaining": 130,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 30,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 35,
+       "road_flooded": true,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 35,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 26,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 270
+      },
+      "ghat-bank": {
+       "name": "Mainland Ghat Village",
+       "population_remaining": 150,
+       "safe_evacuated": 0,
+       "in_transit": 0,
+       "vulnerable_remaining": 25,
+       "vulnerable_saved": 0,
+       "water_depth_cm": 0,
+       "road_flooded": false,
+       "evacuation_ordered": false,
+       "warning_level": 1,
+       "boats_assigned": 0,
+       "vehicles_assigned": 0,
+       "max_depth_cm": 0,
+       "returned": 0,
+       "in_shelter": 0,
+       "road_blocked": false,
+       "surveyed": false,
+       "households": 30,
+       "damaged_houses": 0,
+       "drain_blocked": false,
+       "underpass": false,
+       "lost": 0,
+       "elevation_cm": 360
+      }
+     }
+    },
+    "events": [
+     {
+      "type": "wait_tick",
+      "tick": 8,
+      "zone": null,
+      "target": "system",
+      "caused_by": "Action wait",
+      "description": "Status quo maintained; observation period elapsed.",
+      "details": {
+       "zone": null,
+       "target": "system",
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "water_level_advanced",
+      "tick": 8,
+      "zone": null,
+      "target": "river",
+      "caused_by": "Hydrological Forecast Curve",
+      "description": "River water level reached 305 cm.",
+      "details": {
+       "zone": null,
+       "target": "river",
+       "water_level_cm": 305,
+       "tick": 8,
+       "phase": "flood"
+      },
+      "event_type": null
+     },
+     {
+      "type": "road_inundated",
+      "tick": 8,
+      "zone": "west-char",
+      "target": "west-char",
+      "caused_by": "Flood depth exceeding road clearance threshold",
+      "description": "Access road to West Char (Weavers' Para) submerged beneath 35 cm of water. Wheeled transport blocked.",
+      "details": {
+       "zone": "west-char",
+       "target": "west-char",
+       "water_depth_cm": 35,
+       "phase": "flood"
+      },
+      "event_type": null
+     }
+    ],
+    "narration": {
+     "text": "Hydrology monitor: the river is at 305 cm. URGENT: Access road to West Char (Weavers' Para) submerged beneath 35 cm of water. Wheeled transport blocked.",
+     "source": "template"
+    },
+    "npc_messages": [],
+    "guardrail": {
+     "status": "passed",
+     "retries": 0,
+     "fallback_reason": null
+    },
+    "source": "template",
+    "llm_mode": "template",
+    "disclaimer": "FloodGuard is an educational simulation. For real-life flood emergencies in India, call 112.",
+    "cited_rulecards": [
+     {
+      "id": "RC-01",
+      "title": "Early Public Warning Protocol",
+      "category": "Alerts",
+      "guidance": "Broadcast official evacuation advisories promptly when river forecasts suggest imminent bank overtopping. Early warnings give vulnerable families critical lead time to assemble emergency kits and move to higher ground.",
+      "keywords": [
+       "warning",
+       "alert",
+       "broadcast",
+       "early",
+       "evacuation"
+      ],
+      "source_reference": "General Community Disaster Preparedness Practice"
+     }
+    ]
+   }
+  }
+ ]
+}

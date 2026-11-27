@@ -87,10 +87,32 @@ EXPERT = {
         28: A("return_residents", zone="fishing-hamlet"), 29: A("distribute_supplies"),
     },
 }
-EXPERT_MIN = {"village-river-01": 85, "dam-release-01": 75, "urban-flash-flood-01": 65, "cyclone-surge-01": 60}
+EXPERT["river-island-01"] = {
+    1: A("issue_warning"), 2: A("open_shelter", shelter_id="raised-platform"), 3: A("open_shelter", shelter_id="mainland-school"),
+    4: A("order_evacuation", zone="east-char"), 5: A("prioritize_vulnerable", zone="east-char"),
+    6: A("assign_transport", zone="east-char", transport_type="boat", count=3), 7: A("order_evacuation", zone="west-char"),
+    8: A("reinforce_embankment", sandbags=100), 9: A("reinforce_embankment", sandbags=100), 10: A("order_evacuation", zone="ghat-bank"),
+    11: A("request_external_support"), 12: A("distribute_supplies"), 15: A("distribute_supplies"), 18: A("provide_clean_water"),
+    19: A("run_medical_camp"), 20: A("damage_survey", zone="west-char"), 21: A("restore_power"), 22: A("clear_roads", zone="west-char"),
+    23: A("return_residents", zone="west-char"), 24: A("damage_survey", zone="east-char"), 25: A("clear_roads", zone="east-char"),
+    26: A("return_residents", zone="east-char"), 27: A("return_residents", zone="east-char"), 28: A("return_residents", zone="ghat-bank"),
+    29: A("return_residents", zone="west-char"),
+}
+EXPERT["glacial-lake-01"] = {
+    1: A("issue_warning"), 2: A("open_shelter", shelter_id="ridge-camp"), 3: A("order_evacuation", zone="river-bazaar"),
+    4: A("prioritize_vulnerable", zone="river-bazaar"), 5: A("assign_transport", zone="river-bazaar", transport_type="vehicle", count=3),
+    6: A("open_shelter", shelter_id="monastery-hall"), 7: A("order_evacuation", zone="hydro-camp"), 8: A("order_evacuation", zone="monastery-hamlet"),
+    9: A("request_external_support"), 11: A("distribute_supplies"), 14: A("distribute_supplies"), 15: A("provide_clean_water"),
+    16: A("run_medical_camp"), 17: A("damage_survey", zone="river-bazaar"), 18: A("clear_roads", zone="river-bazaar"), 19: A("restore_power"),
+    20: A("return_residents", zone="river-bazaar"), 21: A("return_residents", zone="river-bazaar"), 22: A("damage_survey", zone="hydro-camp"),
+    23: A("clear_roads", zone="hydro-camp"), 24: A("return_residents", zone="hydro-camp"), 25: A("return_residents", zone="monastery-hamlet"),
+    26: A("return_residents", zone="river-bazaar"),
+}
+EXPERT_MIN = {"village-river-01": 85, "dam-release-01": 75, "urban-flash-flood-01": 65, "cyclone-surge-01": 60,
+              "river-island-01": 55, "glacial-lake-01": 60}
 
 
-def test_all_four_packs_present():
+def test_all_six_packs_present():
     assert set(PACKS) >= set(EXPERT)
 
 

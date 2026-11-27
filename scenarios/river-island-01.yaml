@@ -1,0 +1,219 @@
+id: "river-island-01"
+name: "Kamalpur Char: Island in the River"
+version: "1.0.0"
+description: "A monsoon flood on a great braided river surrounds a sandbar island (a char). There are no roads to the mainland: every crossing needs a boat. Move the island families early, keep the ring bund standing, then bring everyone home."
+total_ticks: 30
+tick_duration_minutes: 30
+
+# Scenario-select card
+hazard_type: "river_island_flood"
+hazard_label: "River island flood"
+difficulty_label: "Hard"
+illustration: "island"
+hook: "Two hamlets sit on a sandbar in a swelling river. There is no road off the island, only boats, and the river rises every hour."
+languages: ["en", "hi", "gu", "mr", "bn", "ta", "te", "kn"]
+
+difficulty:
+  easy:
+    resources_pct: 130
+    forecast_offset_cm: -20
+    support_delay_delta: -1
+  hard:
+    resources_pct: 75
+    forecast_offset_cm: 15
+    support_delay_delta: 2
+
+resources:
+  boats: 3
+  boat_capacity: 15
+  vehicles: 2
+  vehicle_capacity: 20
+  sandbags: 300
+
+embankment:
+  initial_height_cm: 330
+  initial_integrity: 100
+  sandbags_per_reinforce: 100
+  height_gain_per_reinforce_cm: 25
+  max_reinforced_height_cm: 400
+
+# Ground above this stays dry while the ring bund holds.
+contained_safe_elevation_cm: 330
+
+# River level at the island gauge (cm). The monsoon crest arrives around tick 13.
+water_forecast_cm: [150, 165, 180, 200, 225, 250, 278, 305, 335, 362, 385, 402, 410, 405, 390, 368, 342, 318, 296, 275, 255, 238, 222, 208, 196, 186, 178, 170, 164, 158]
+
+external_support:
+  uses: 1
+  delay_ticks: 4
+  boats: 2
+  vehicles: 1
+  sandbags: 150
+  supply_units: 50
+
+phases:
+  flood_starts_at_cm: 250
+  recovery_below_cm: 320
+
+recovery:
+  shelter_supplies_initial: 25
+  people_per_supply_unit: 60
+  supply_deliveries: 3
+  units_per_delivery: 40
+  supplies_low_threshold: 10
+  clean_water_kits: 1
+  medical_teams: 1
+  return_batch_per_turn: 90
+  treat_per_tick: 6
+  road_debris_depth_cm: 30
+  disease:
+    base: 25
+    per_flooded_zone: 10
+    breach_bonus: 10
+    rise_per_tick: 5
+    crowding_pct: 90
+    crowding_rise: 3
+    no_supplies_rise: 4
+    clean_water_drop: 8
+    medical_camp_drop: 6
+    high_threshold: 60
+  trust:
+    initial: 55
+    early_warning_bonus: 10
+    early_warning_by_tick: 5
+    losses_penalty: 10
+    breach_penalty: 10
+    supplies_ran_out_penalty: 10
+
+zones:
+  - id: "east-char"
+    name: "East Char (Fisher Para)"
+    elevation_cm: 210
+    population: 160
+    vulnerable: 40
+    road_cutoff_depth_cm: 20
+  - id: "west-char"
+    name: "West Char (Weavers' Para)"
+    elevation_cm: 270
+    population: 130
+    vulnerable: 30
+    road_cutoff_depth_cm: 25
+  - id: "ghat-bank"
+    name: "Mainland Ghat Village"
+    elevation_cm: 360
+    population: 150
+    vulnerable: 25
+    road_cutoff_depth_cm: 40
+
+shelters:
+  - id: "raised-platform"
+    name: "Raised Flood Platform"
+    elevation_cm: 460
+    capacity: 150
+    is_open: false
+  - id: "mainland-school"
+    name: "Mainland Higher Secondary School"
+    elevation_cm: 520
+    capacity: 260
+    is_open: false
+
+npcs:
+  - id: "village_head"
+    name: "Gaon Burha Hemanta"
+    role: "Village elder of the char"
+    location: "west-char"
+    initial_dialogue: "Every monsoon the river eats a little more of our island. People will not leave their cattle and looms unless someone they trust asks them early."
+  - id: "rescue_worker"
+    name: "Boatman Rafiq"
+    role: "SDRF boat volunteer"
+    location: "east-char"
+    initial_dialogue: "Three country boats with engines are tied at the ghat. Each crossing takes time, and the current gets stronger as the river rises."
+  - id: "family_member"
+    name: "Jonali"
+    role: "Mother of three, East Char"
+    location: "east-char"
+    initial_dialogue: "My youngest has a fever and my mother-in-law cannot walk far. If the water reaches the courtyard we will be trapped."
+  - id: "health_worker"
+    name: "ASHA worker Mamoni"
+    role: "Community health worker"
+    location: "west-char"
+    initial_dialogue: "After the water goes down, people drink from flooded hand pumps. We need chlorine tablets and a medical camp on the platform."
+  - id: "district_official"
+    name: "Mr. Bora"
+    role: "Circle officer, revenue circle"
+    location: "mainland-school"
+    initial_dialogue: "The district can send more boats and relief, but they come by road to the ghat first and then by water."
+
+layout:
+  canvas: { width: 1000, height: 600 }
+  levels: { normal_level_cm: 150, warning_level_cm: 250, danger_level_cm: 320, crest_level_cm: 410 }
+  water_body: "river"
+  river:
+    name: "Great River"
+    flow_direction: "left-to-right"
+    center_path: [[0, 250], [200, 240], [420, 255], [640, 238], [840, 252], [1000, 244]]
+    north_bank: [[0, 205], [180, 198], [360, 212], [560, 196], [760, 210], [1000, 200]]
+    south_bank: [[0, 600], [250, 600], [500, 600], [750, 600], [1000, 600]]
+  embankment:
+    name: "Ring bund"
+    crest_height_cm: 330
+    segments:
+      - { id: "bund-west", start: [190, 318], end: [400, 292], label: "West ring bund" }
+      - { id: "bund-central", start: [400, 292], end: [600, 290], label: "Central ring bund" }
+      - { id: "bund-east", start: [600, 290], end: [810, 316], label: "East ring bund" }
+  zones:
+    - id: "east-char"
+      name: "East Char (Fisher Para)"
+      x: 590
+      y: 340
+      width: 200
+      height: 100
+      elevation_cm: 210
+      house_points: [[605, 358], [645, 372], [690, 355], [735, 370], [770, 356], [630, 412], [715, 410]]
+    - id: "west-char"
+      name: "West Char (Weavers' Para)"
+      x: 210
+      y: 345
+      width: 190
+      height: 95
+      elevation_cm: 270
+      house_points: [[225, 362], [265, 377], [310, 360], [355, 374], [250, 412], [335, 410]]
+    - id: "ghat-bank"
+      name: "Mainland Ghat Village"
+      x: 120
+      y: 62
+      width: 200
+      height: 100
+      elevation_cm: 360
+      house_points: [[135, 80], [175, 95], [220, 78], [265, 92], [300, 80], [160, 132], [250, 130]]
+  shelters:
+    - { id: "raised-platform", name: "Raised Platform", x: 440, y: 330, width: 110, height: 62, elevation_cm: 460 }
+    - { id: "mainland-school", name: "Mainland School", x: 780, y: 40, width: 125, height: 75, elevation_cm: 520 }
+  routes:
+    - zone_id: "east-char"
+      shelter_id: "mainland-school"
+      transport_modes: ["boat"]
+      road_cutoff_depth_cm: 20
+      waypoints: [[690, 360], [720, 300], [760, 230], [810, 150], [840, 100]]
+    - zone_id: "west-char"
+      shelter_id: "raised-platform"
+      transport_modes: ["boat", "foot"]
+      road_cutoff_depth_cm: 25
+      waypoints: [[310, 365], [380, 352], [440, 360], [495, 360]]
+    - zone_id: "ghat-bank"
+      shelter_id: "mainland-school"
+      transport_modes: ["vehicle", "foot"]
+      road_cutoff_depth_cm: 40
+      waypoints: [[220, 95], [420, 120], [620, 100], [780, 80]]
+  decor:
+    islands: [[500, 395, 360, 120], [880, 520, 70, 22], [110, 540, 60, 18]]
+    trees: [[60, 90], [380, 60], [470, 160], [680, 150], [960, 130], [235, 450], [520, 460], [760, 455], [430, 440]]
+    hills: [[600, 20], [940, 30]]
+    jetty: { x: 420, y: 180, label: "Mainland ghat" }
+    bridges: []
+  recovery_sites:
+    water_point: { x: 560, y: 120, label: "Chlorination point" }
+    medical_camp: { x: 495, y: 470, label: "Medical camp on the platform" }
+    substation: { x: 370, y: 160, label: "Solar micro-grid" }
+    health_centre: { x: 680, y: 60, label: "Sub-centre" }
+    supply_depot: { x: 950, y: 90, label: "Relief depot" }

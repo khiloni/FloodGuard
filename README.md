@@ -13,7 +13,7 @@
 
 You lead the response to a flood, from the hours **before** it (warnings, shelters, evacuation), through
 **the flood itself** (boats, trucks, sandbags, protecting vulnerable people) to **recovery** (search and rescue,
-clean water, medical camp, roads, power, damage surveys and a safe return home). Four stories each have their
+clean water, medical camp, roads, power, damage surveys and a safe return home). Six stories each have their
 own map, characters and one special mechanic:
 
 | Story | Hazard | Special mechanic |
@@ -22,6 +22,8 @@ own map, characters and one special mechanic:
 | Ward 14 Flash Flood | Urban flash flood | Blocked drains, an underpass that floods first, 15-minute turns |
 | Below Kalindi Dam | Dam release | A scheduled release you can ask to stagger |
 | Cyclone at Machhiwada | Cyclone storm surge | Fishing boats at sea, landfall cuts power |
+| Kamalpur Char: Island in the River | River island flood | No road off the island: every evacuation is a boat crossing |
+| Glacial Lake Burst above Tsomo Valley | Glacial lake outburst | 15-minute turns and a sudden surge after a short warning |
 
 Each story has easy, standard and hard difficulty. The app fits one screen: page 1 (**Act**) is the live
 animated map and your orders, page 2 (**Village**) is status, the event log and the people you can talk to.
@@ -36,6 +38,11 @@ animated map and your orders, page 2 (**Village**) is status, the event log and 
 | API | `backend/app/main.py` | FastAPI `/api/v1/*`, frozen contract in `docs/openapi.json` |
 | LLM (optional) | `backend/app/llm/` | Narration, NPC dialogue, Help phrasing and a fallback parser through an OpenAI-compatible API (Sarvam, Cloudflare Workers AI, Hugging Face or a local Ollama); every output is validated, retried twice, then replaced by templates |
 | Frontend | `frontend/` | React + TypeScript + Vite; one-screen two-page UI, inline SVG maps, per-event animations, timeline, replay and report |
+
+**New in v3:** a living, weather-driven map; the Flood Academy (lessons, water-depth explorer, go-bag builder,
+family plan, quiz); medals and stars; eight languages (English, Hindi, Gujarati, Marathi, Bengali, Tamil, Telugu,
+Kannada); a voice assistant (read aloud, speak an order); and an ambient soundscape. Backup and roadmap:
+[FLOODGUARD_BACKUP_AND_VISION](docs/FLOODGUARD_BACKUP_AND_VISION.md).
 
 Docs: [ARCHITECTURE](docs/ARCHITECTURE.md) · [POST_FLOOD_DESIGN](docs/POST_FLOOD_DESIGN.md) ·
 [MODEL_CARD](docs/MODEL_CARD.md) · [LICENSES](docs/LICENSES.md) · [PROGRESS](docs/PROGRESS.md) ·

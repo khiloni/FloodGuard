@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useLang } from '../lib/i18n';
 import { Siren, Phone } from './icons';
 
 /** Full disclaimer gate. Must be acknowledged with a checkbox before anything else is shown. */
@@ -31,12 +32,15 @@ export const DisclaimerGate: React.FC<{ onAcknowledge: () => void; serverDisclai
 };
 
 /** Persistent footer, shown on every screen. */
-export const EmergencyFooter: React.FC = () => (
-  <footer className="emergency-footer" role="contentinfo" data-testid="emergency-footer">
-    <Phone aria-hidden="true" />
-    <span>Educational simulation only. In a real emergency in India call <strong>112</strong> or the disaster helpline <strong>1078</strong>.</span>
-  </footer>
-);
+export const EmergencyFooter: React.FC = () => {
+  const { t } = useLang();
+  return (
+    <footer className="emergency-footer" role="contentinfo" data-testid="emergency-footer">
+      <Phone aria-hidden="true" />
+      <span>{t('footer')} <strong>112</strong> {t('footerOr')} <strong>1078</strong>.</span>
+    </footer>
+  );
+};
 
 /** Shown when the server's real-emergency detector fires. The simulation is paused behind it. */
 export const RealEmergencyScreen: React.FC<{ message: string; onReturn: () => void }> = ({ message, onReturn }) => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import type { Report } from '../api/types';
-import { Siren, RotateCcw, Play } from './icons';
+import { Siren, RotateCcw, Play, Star } from './icons';
+import type { Medal } from '../lib/progress';
 
 const COMPONENT_LABELS: Record<string, string> = {
   response_time_score: 'Early warning and evacuation timing',
@@ -19,7 +20,7 @@ const EVENT_LABELS: Record<string, string> = {
 };
 const label = (t: string) => EVENT_LABELS[t] || t.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 
-export const ReportScreen: React.FC<{ report: Report; onReplay: () => void; onRetry: () => void; onRestart: () => void }> = ({ report, onReplay, onRetry, onRestart }) => {
+export const ReportScreen: React.FC<{ report: Report; earned?: { stars: number; medals: Medal[]; best: boolean } | null; onReplay: () => void; onRetry: () => void; onRestart: () => void }> = ({ report, earned, onReplay, onRetry, onRestart }) => {
   const cards = Object.fromEntries((report.rule_cards || []).map((c) => [c.id, c]));
   const ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => { ref.current?.focus(); }, []);
@@ -31,8 +32,17 @@ export const ReportScreen: React.FC<{ report: Report; onReplay: () => void; onRe
         {report.seed !== undefined && <span className="muted small"> Seed {report.seed} · {report.difficulty || 'standard'}</span>}</p>
 
       <div className="report-hero">
-        <div className="score-ring" aria-label={`Final score ${report.score.total_score} out of 100`} data-testid="report-score">
-          <span className="score-num">{report.score.total_score}</span><span className="score-max">/ 100</span>
+        <div className="score-col">
+          <div className="score-ring" aria-label={`Final score ${report.score.total_score} out of 100`} data-testid="report-score"
+            style={{ ['--pct' as any]: `${report.score.total_score}` }}>
+            <span className="score-num">{report.score.total_score}</span><span className="score-max">/ 100</span>
+          </div>
+          {earned && (
+            <p className="report-stars" aria-label={`${earned.stars} of 3 stars`} data-testid="report-stars">
+              {[1, 2, 3].map((k) => <Star key={k} aria-hidden="true" className={k <= earned.stars ? 'star on' : 'star'} />)}
+            </p>
+          )}
+          {earned?.best && <p className="muted small new-best">New personal best</p>}
         </div>
         <ul className="report-facts">
           <li><strong>{d.total_safe ?? '-'}</strong> people brought to shelter</li>
@@ -43,6 +53,18 @@ export const ReportScreen: React.FC<{ report: Report; onReplay: () => void; onRe
           <li>Community trust <strong>{d.community_trust ?? 0}</strong>/100</li>
         </ul>
       </div>
+
+      {earned && earned.medals.length > 0 && (
+        <section aria-labelledby="medals-h" className="new-medals" data-testid="new-medals">
+          <h2 id="medals-h">Medals earned</h2>
+          <ul>
+            {earned.medals.map((m) => (
+              <li key={m.id} className="medal-card"><span className="medal-emoji" aria-hidden="true">{m.emoji}</span>
+                <span><strong>{m.title}</strong><br /><span className="muted small">{m.detail}</span></span></li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section aria-labelledby="phases-h">
         <h2 id="phases-h">Three phases</h2>

@@ -23,8 +23,13 @@ import { People, type ChatLine } from './components/village/People';
 import { Lightbulb, Map as MapIcon, Landmark } from './components/icons';
 import { useReducedMotion } from './lib/useReducedMotion';
 import { describeAction, setActiveNpcs } from './lib/actions';
+import { Academy } from './components/academy/Academy';
+import { useSoundscape } from './lib/soundscape';
+import { recordReport, type Medal } from './lib/progress';
+import { useLang } from './lib/i18n';
+import { useVoice } from './lib/voice';
 
-type Screen = 'boot' | 'gate' | 'select' | 'play' | 'report';
+type Screen = 'boot' | 'gate' | 'select' | 'academy' | 'play' | 'report';
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 export const App: React.FC = () => {
@@ -32,6 +37,8 @@ export const App: React.FC = () => {
   const [meta, setMeta] = useState<Meta | null>(null);
   const [waking, setWaking] = useState({ active: false, seconds: 0, failed: false });
   const [reduced, setReduced] = useReducedMotion();
+  const { lang, t, speech } = useLang();
+  const voice = useVoice(speech);
 
   const [scenarios, setScenarios] = useState<ScenarioInfo[]>([]);
   const [scenario, setScenario] = useState<ScenarioInfo | null>(null);
@@ -54,6 +61,8 @@ export const App: React.FC = () => {
   const [helpOpen, setHelpOpen] = useState(false);
   const [helpLoading, setHelpLoading] = useState(false);
   const [pending, setPending] = useState<{ action: Action; from?: string } | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+  const [earned, setEarned] = useState<{ stars: number; medals: Medal[]; best: boolean } | null>(null);
 
   const [frames, setFrames] = useState<ReplayFrame[] | null>(null);
   const [logEvents, setLogEvents] = useState<SimEvent[]>([]);
@@ -62,6 +71,10 @@ export const App: React.FC = () => {
 
   const msgId = useRef(0);
   const fxTimer = useRef<number | undefined>(undefined);
+  const showToast = useCallback((t: string) => {
+    setToast(t);
+    window.setTimeout(() => setToast((cur) => (cur === t ? null : cur)), 4200);
+  }, []);
   const addMsg = useCallback((m: Omit<Message, 'id'>) => setMessages((all) => [...all, { ...m, id: ++msgId.current }]), []);
 
   // ---- Boot: health check with cold-start "waking up" screen ----
@@ -111,7 +124,7 @@ export const App: React.FC = () => {
   const startSession = useCallback(async (o: StartOptions & { seed?: number }) => {
     setBusy(true);
     try {
-      const s = await api.createSession(o);
+      const s = await api.createSession({ ...o, language: lang });
       const info = scenarios.find((x) => x.id === o.scenario_id) || null;
       setActiveNpcs(info?.npcs || []);
       setScenario(info); setOpts(o);
@@ -127,7 +140,7 @@ export const App: React.FC = () => {
     } finally {
       setBusy(false);
     }
-  }, [addMsg, scenarios]);
+  }, [addMsg, scenarios, lang]);
 
   const names = useMemo(() => Object.fromEntries([
     ...(layout?.zones || []).map((z) => [z.id, z.name]),
@@ -245,12 +258,15 @@ export const App: React.FC = () => {
   const openReport = useCallback(async () => {
     if (!sid) return;
     try {
-      setReport(await api.report(sid));
+      const r = await api.report(sid);
+      const res = recordReport({ ...r, scenario_id: r.scenario_id || scenario?.id, difficulty: r.difficulty || opts?.difficulty }, scenarios.length);
+      setEarned({ stars: res.stars, medals: res.newMedals, best: res.best });
+      setReport(r);
       setScreen('report');
     } catch (e) {
       addMsg({ kind: 'reject', text: `Could not load the report: ${(e as Error).message}` });
     }
-  }, [sid, addMsg]);
+  }, [sid, addMsg, scenario, opts, scenarios.length]);
 
   // ---- Render ----
   const frameSummary = replayTick !== null && frames ? frames.find((f) => f.tick === replayTick)?.summary : null;
@@ -270,7 +286,27 @@ export const App: React.FC = () => {
   }, [layout, scenario, summary?.phase, metaExamples]);
   const minutes = scenario?.tick_duration_minutes ?? 30;
   const llmOn = meta?.llm_mode === 'openai_compat';
+  const mood = useMemo(() => (screen === 'play' && shown ? {
+    phase: shown.phase,
+    intensity: Math.max(0, Math.min(1, (shown.water_level_cm - shown.normal_level_cm) / Math.max(1, shown.crest_level_cm - shown.normal_level_cm))),
+  } : null), [screen, shown]);
+  const [soundOn, setSoundOn] = useSoundscape(mood, events);
   const lastNarration = [...messages].reverse().find((m) => m.kind === 'narration' || m.kind === 'reject' || m.kind === 'hint' || m.kind === 'system');
+  // Voice assistant: read each new narration line aloud when the player turned it on.
+  const spokenId = useRef(0);
+  useEffect(() => {
+    const m = lastNarration;
+    if (!m || m.id === spokenId.current || screen !== 'play') return;
+    spokenId.current = m.id;
+    if (m.kind !== 'system' || m.tick === 0) voice.speak(m.text);
+  }, [lastNarration, screen, voice]);
+  const onMic = useCallback(() => {
+    const ok = voice.listen((heard) => {
+      addMsg({ kind: 'hint', text: `${t('heard')}: “${heard}”` });
+      submit({ type: 'text', text: heard });
+    }, (err) => addMsg({ kind: 'reject', text: `Voice input stopped (${err}).` }));
+    if (!ok) addMsg({ kind: 'hint', text: t('voiceUnsupported') });
+  }, [voice, addMsg, submit, t]);
 
   const actPage = layout && shown && (
     <div className="act">
@@ -302,13 +338,14 @@ export const App: React.FC = () => {
           )}
           <div className="orders-top">
             <button className="btn help-btn" onClick={askHelp} disabled={!sid || finished || helpLoading} data-testid="help-button">
-              <Lightbulb aria-hidden="true" /> What should I do?
+              <Lightbulb aria-hidden="true" /> {t('whatToDo')}
             </button>
           </div>
           <ActionPanel layout={layout} phase={summary?.phase ?? 'before'} busy={!canAct} mechanic={scenario?.mechanic_type}
             onSubmit={(a) => submit({ type: 'button', action: a })} onHint={(t) => addMsg({ kind: 'hint', text: t })} />
           <CommandBox examples={finished ? [] : examples.slice(0, 3)} busy={!canAct} clarify={clarify} zoneNames={names}
-            onText={(t) => submit({ type: 'text', text: t })} onOption={(a) => submit({ type: 'button', action: a })} />
+            onText={(txt) => submit({ type: 'text', text: txt })} onOption={(a) => submit({ type: 'button', action: a })}
+            onMic={onMic} listening={voice.listening} micLabel={voice.listening ? t('listening') : t('speakOrder')} />
         </div>
         <Timeline maxTicks={summary?.max_ticks ?? 30} currentTick={summary?.tick ?? 0} minutesPerTick={minutes}
           floodStart={summary?.flood_start_tick ?? null} recoveryStart={summary?.recovery_start_tick ?? null}
@@ -340,32 +377,35 @@ export const App: React.FC = () => {
       <a className="skip-link" href="#main">Skip to the main content</a>
       <Header meta={meta} phase={screen === 'play' ? phase : undefined} tick={shown?.tick} maxTicks={shown?.max_ticks}
         scenarioName={screen === 'play' ? scenario?.name : undefined}
-        onHome={screen === 'play' || screen === 'report' ? () => setScreen('select') : undefined}
-        reduced={reduced} onToggleReduced={setReduced} />
+        onHome={screen === 'play' || screen === 'report' || screen === 'academy' ? () => setScreen('select') : undefined}
+        reduced={reduced} onToggleReduced={setReduced} soundOn={soundOn} onToggleSound={setSoundOn}
+        readAloud={voice.readAloud} onToggleReadAloud={(v) => { voice.setReadAloud(v); if (v && lastNarration) voice.speak(lastNarration.text, true); }} />
 
       {screen === 'boot' && waking.active && <WakingUp seconds={waking.seconds} failed={waking.failed} onRetry={boot} />}
       {screen === 'boot' && !waking.active && <div className="boot" role="status">Loading…</div>}
       {screen === 'gate' && <DisclaimerGate serverDisclaimer={meta?.disclaimer} onAcknowledge={() => setScreen('select')} />}
-      {screen === 'select' && <ScenarioSelect scenarios={scenarios} busy={busy} onStart={startSession} />}
+      {screen === 'select' && <ScenarioSelect scenarios={scenarios} busy={busy} onStart={startSession} onAcademy={() => setScreen('academy')} />}
+      {screen === 'academy' && <Academy reduced={reduced} onBack={() => setScreen('select')} onToast={showToast} />}
 
       {screen === 'play' && layout && shown && (
         <main id="main" className="play">
           <Hud s={shown} minutesPerTick={minutes} />
           <Pager index={page} onIndex={setPage} reduced={reduced} pages={[
-            { id: 'act', label: 'Act', icon: <MapIcon aria-hidden="true" />, content: actPage },
-            { id: 'village', label: 'Village', icon: <Landmark aria-hidden="true" />, content: villagePage },
+            { id: 'act', label: t('act'), icon: <MapIcon aria-hidden="true" />, content: actPage },
+            { id: 'village', label: t('village'), icon: <Landmark aria-hidden="true" />, content: villagePage },
           ]} />
           {introOpen && <Intro scenario={scenario} onDone={() => setIntroOpen(false)} />}
         </main>
       )}
 
       {screen === 'report' && report && (
-        <ReportScreen report={report}
+        <ReportScreen report={report} earned={earned}
           onReplay={() => { setScreen('play'); enterReplay(); }}
           onRetry={() => opts && startSession({ ...opts, seed: report.seed })}
           onRestart={() => setScreen('select')} />
       )}
 
+      {toast && <div className="toast" role="status" data-testid="toast">{toast}</div>}
       {emergency && <RealEmergencyScreen message={emergency} onReturn={() => setEmergency(null)} />}
       <EmergencyFooter />
     </div>

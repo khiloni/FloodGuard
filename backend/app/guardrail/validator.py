@@ -6,6 +6,17 @@ import yaml
 
 from ..engine.models import Event, EventType
 
+# Indian languages accepted for narration: Unicode script name prefix and display name.
+SCRIPT_FOR_LANGUAGE = {
+    "hi": ("DEVANAGARI", "Hindi"),
+    "mr": ("DEVANAGARI", "Marathi"),
+    "gu": ("GUJARATI", "Gujarati"),
+    "bn": ("BENGALI", "Bengali"),
+    "ta": ("TAMIL", "Tamil"),
+    "te": ("TELUGU", "Telugu"),
+    "kn": ("KANNADA", "Kannada"),
+}
+
 CURR_DIR = os.path.dirname(os.path.abspath(__file__))
 TONE_FILE = os.path.join(CURR_DIR, "tone.yaml")
 
@@ -251,17 +262,19 @@ class GuardrailValidator:
                     if len(tokens & stopwords) >= 2:
                         violations.append(f"Wrong-language output detected ({foreign_lang}) when English ('en') was requested.")
                         break
-        elif lang == "hi":
-            has_devanagari = any(unicodedata.name(ch, "").startswith("DEVANAGARI ") for ch in alpha_chars)
+        elif lang in SCRIPT_FOR_LANGUAGE:
+            script, lang_name = SCRIPT_FOR_LANGUAGE[lang]
+            has_script = any(unicodedata.name(ch, "").startswith(script + " ") for ch in alpha_chars)
             has_other_script = any(
                 not (
-                    unicodedata.name(ch, "").startswith("DEVANAGARI ")
+                    unicodedata.name(ch, "").startswith(script + " ")
                     or unicodedata.name(ch, "").startswith("LATIN ")
                 )
                 for ch in alpha_chars
             )
-            if has_other_script or not has_devanagari:
-                violations.append("Wrong-language output: Hindi ('hi') output must contain Devanagari script.")
+            if has_other_script or not has_script:
+                violations.append(
+                    f"Wrong-language output: {lang_name} ('{lang}') output must contain {script.title()} script.")
 
         passed = len(violations) == 0
         return passed, violations

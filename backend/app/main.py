@@ -96,7 +96,8 @@ EXAMPLE_COMMANDS_BY_PHASE = {
 }
 
 API_VERSION = "2.1.0"
-SUPPORTED_LANGUAGES = ["en", "hi"]
+# English plus Indian languages for AI narration (template text stays English).
+SUPPORTED_LANGUAGES = ["en", "hi", "gu", "mr", "bn", "ta", "te", "kn"]
 
 
 def get_scenario_layout(scenario_id: str) -> Dict[str, Any]:
