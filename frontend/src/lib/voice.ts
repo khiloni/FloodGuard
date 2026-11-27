@@ -12,15 +12,28 @@ const Recognition = (): any => (typeof window !== 'undefined' ? (window as any).
 export const canListen = () => !!Recognition();
 export const canSpeak = () => !!synth();
 
-/** Pick a voice: the text's own script decides, so English template text is read by an English voice. */
-function pickVoice(text: string, speechLang: string): { voice: SpeechSynthesisVoice | null; lang: string } {
+export type VoiceRole = 'narrator' | 'command';
+
+// Common female and male system voice names, so the two roles get clearly different voices.
+const FEMALE = /heera|zira|swara|kalpana|neerja|dhwani|pallavi|shruti|vani|sapna|female|woman/i;
+const MALE = /ravi|madhur|hemant|prabhat|niranjan|valluvar|mohan|david|mark|male/i;
+
+/** Pick a voice: the text's own script decides the language; the role picks a different voice. */
+function pickVoice(text: string, speechLang: string, role: VoiceRole) {
   const s = synth();
   const latinOnly = !/[^\u0000-ɏ\s\p{P}\p{S}\p{N}]/u.test(text);
   const lang = latinOnly ? 'en-IN' : speechLang;
-  const voices = s?.getVoices() || [];
+  const all = s?.getVoices() || [];
   const base = lang.split('-')[0];
-  const voice = voices.find((v) => v.lang === lang) || voices.find((v) => v.lang.startsWith(base)) || null;
-  return { voice, lang };
+  const exact = all.filter((v) => v.lang === lang);
+  const pool = exact.length ? exact : all.filter((v) => v.lang.startsWith(base));
+  const narrator = pool.find((v) => FEMALE.test(v.name)) || pool[0] || null;
+  const command = pool.find((v) => MALE.test(v.name) && v !== narrator) || pool.find((v) => v !== narrator) || narrator;
+  if (role === 'command') {
+    // Only one voice for this language? Make orders sound different with a lower pitch and quicker pace.
+    return { voice: command, lang, pitch: command === narrator ? 0.7 : 0.95, rate: 1.08 };
+  }
+  return { voice: narrator, lang, pitch: 1.05, rate: 0.97 };
 }
 
 export function useVoice(speechLang: string) {
@@ -38,15 +51,17 @@ export function useVoice(speechLang: string) {
     if (!v) synth()?.cancel();
   };
 
-  const speak = useCallback((text: string, force = false) => {
+  /** Queue a line in the narrator or command voice (spoken in order, never cut off). */
+  const speak = useCallback((text: string, role: VoiceRole = 'narrator', force = false) => {
     const s = synth();
     if (!s || (!readAloud && !force) || !text) return;
-    s.cancel();
+    if (force) s.cancel();
     const u = new SpeechSynthesisUtterance(text.replace(/\s+/g, ' ').slice(0, 600));
-    const { voice, lang } = pickVoice(text, speechLang);
+    const { voice, lang, pitch, rate } = pickVoice(text, speechLang, role);
     u.lang = lang;
     if (voice) u.voice = voice;
-    u.rate = 1;
+    u.pitch = pitch;
+    u.rate = rate;
     s.speak(u);
   }, [readAloud, speechLang]);
 

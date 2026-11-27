@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { HazardArt } from '../Logo';
 import { BookOpen, Backpack, ListChecks, CircleHelp, WavesHorizontal, Check, X, Printer, ChevronRight, RotateCcw, Award } from '../icons';
 import { DEPTHS, KIT, LESSONS, PLAN, QUIZ } from './content';
-import { awardMedal, loadProgress, MEDALS } from '../../lib/progress';
 import { useLang } from '../../lib/i18n';
 
 type Tab = 'learn' | 'depth' | 'kit' | 'plan' | 'quiz';
@@ -21,12 +20,6 @@ export const Academy: React.FC<{ reduced: boolean; onBack: () => void; onToast: 
   const { t } = useLang();
   const ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => { ref.current?.focus(); }, []);
-  const award = (id: string) => {
-    if (awardMedal(id)) {
-      const m = MEDALS.find((x) => x.id === id);
-      if (m) onToast(`${m.emoji} Medal earned: ${m.title}`);
-    }
-  };
   return (
     <main className="academy" id="main" data-testid="academy">
       <div className="academy-head">
@@ -46,9 +39,9 @@ export const Academy: React.FC<{ reduced: boolean; onBack: () => void; onToast: 
       <div className="academy-body" role="tabpanel">
         {tab === 'learn' && <Lessons />}
         {tab === 'depth' && <DepthExplorer reduced={reduced} />}
-        {tab === 'kit' && <KitBuilder onComplete={() => award('kit-ready')} />}
-        {tab === 'plan' && <FamilyPlan onComplete={() => award('plan-made')} />}
-        {tab === 'quiz' && <Quiz onPass={() => award('academy')} />}
+        {tab === 'kit' && <KitBuilder onComplete={() => onToast('🎒 Go-bag ready')} />}
+        {tab === 'plan' && <FamilyPlan onComplete={() => onToast('📋 Family plan complete')} />}
+        {tab === 'quiz' && <Quiz onPass={() => onToast('🎓 Quiz passed')} />}
       </div>
     </main>
   );
@@ -248,7 +241,7 @@ const Quiz: React.FC<{ onPass: () => void }> = ({ onPass }) => {
     return (
       <section className="quiz-done" data-testid="quiz-done">
         <div className="quiz-score"><Award aria-hidden="true" /> {score} / {QUIZ.length}</div>
-        <p>{pass ? 'Excellent. You know the key safety rules.' : 'Good start. Read the lessons and try again: 8 or more earns the Academy medal.'}</p>
+        <p>{pass ? 'Excellent. You know the key safety rules.' : 'Good start. Read the lessons and try again: aim for 8 or more.'}</p>
         <button className="btn primary" onClick={() => { setI(0); setChoice(null); setScore(0); setDone(false); }}><RotateCcw aria-hidden="true" /> Try again</button>
       </section>
     );
@@ -277,23 +270,5 @@ const Quiz: React.FC<{ onPass: () => void }> = ({ onPass }) => {
         </div>
       )}
     </section>
-  );
-};
-
-/** Medal shelf for the story list. */
-export const MedalShelf: React.FC = () => {
-  const p = loadProgress();
-  return (
-    <ul className="medal-shelf" aria-label={`Medals: ${p.medals.length} of ${MEDALS.length} earned`} data-testid="medal-shelf">
-      {MEDALS.map((m) => {
-        const got = p.medals.includes(m.id);
-        return (
-          <li key={m.id} className={got ? 'medal got' : 'medal'} title={`${m.title}: ${m.detail}${got ? '' : ' (not yet earned)'}`}>
-            <span aria-hidden="true">{got ? m.emoji : '·'}</span>
-            <span className="sr-only">{m.title}{got ? ' earned' : ' not yet earned'}</span>
-          </li>
-        );
-      })}
-    </ul>
   );
 };

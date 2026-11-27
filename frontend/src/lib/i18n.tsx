@@ -35,6 +35,19 @@ const en: Dict = {
   heard: 'Heard',
   academyTitle: 'Learn to stay safe, then lead',
   back: 'Back to the stories',
+  conversation: 'Conversation', talkTo: 'Talk to', command: 'Command', giveOrders: 'Give orders',
+  you: 'You', narrator: 'Narrator', notPossible: 'Not possible', tip: 'Tip', suggests: 'Suggests',
+  useSuggestion: 'Use this suggestion', to: 'To', orderPlaceholder: 'Type an order, e.g. evacuate ward 1',
+  askPlaceholder: 'Ask', send: 'Send', ask: 'Ask', oneTurn: '1 turn', outsideSupport: 'Outside support',
+  arrivingAt: 'arriving at tick', sandbags: 'sandbags', supplies: 'supply units', alreadyUsed: 'already used',
+  request: 'Request', arrivesIn: 'arrives in', ticks: 'ticks', status: 'Status',
+  lensLoading: 'Looking into both futures…', lensSafe: 'safe in shelter', lensAtHome: 'still at home', lensLost: 'lost',
+  lensBreach: 'Embankment breaks', lensWatch: 'Watch on map', lensScrub: 'Move through this future', lensNext: 'next',
+  lensClose: 'Close the future view', lensIf: 'If you order', lensIfWait: 'If you wait',
+  lensBetter: 'This order leads to a better future.', lensWorse: 'Waiting would turn out better than this order.',
+  lensSame: 'Both futures look the same for now: the effect may come later.',
+  lensNote: 'Played by the same simulation engine, so this is exactly what happens if nothing else changes. Nothing has happened yet.',
+  lensToggle: 'Future Lens', lensToggleHint: 'Preview both futures before every order', futureView: 'Future view',
 };
 
 const hi: Dict = {

@@ -2,7 +2,9 @@ import { readFileSync } from 'node:fs';
 import { expect, type Page } from '@playwright/test';
 
 /** Open the app and pass the disclaimer gate (lands on the story list). */
-export async function pastGate(page: Page, query = '') {
+export async function pastGate(page: Page, query = '', lens = false) {
+  // Future Lens is on by default for players; most tests send orders directly.
+  await page.addInitScript((on) => { window.localStorage.setItem('floodguard.lens', on ? '1' : '0'); }, lens);
   await page.goto(`/${query}`);
   const gate = page.getByTestId('disclaimer-gate');
   await expect(gate).toBeVisible();
@@ -13,8 +15,8 @@ export async function pastGate(page: Page, query = '') {
 }
 
 /** Open the app, pass the gate, start a story and close the intro. */
-export async function enter(page: Page, query = '', scenario = 'village-river-01') {
-  await pastGate(page, query);
+export async function enter(page: Page, query = '', scenario = 'village-river-01', lens = false) {
+  await pastGate(page, query, lens);
   await page.getByTestId(`start-${scenario}`).click();
   await expect(page.getByTestId('intro')).toBeVisible();
   await page.getByTestId('intro-skip').click();

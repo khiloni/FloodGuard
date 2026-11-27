@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import type { Report } from '../api/types';
 import { Siren, RotateCcw, Play, Star } from './icons';
-import type { Medal } from '../lib/progress';
 
 const COMPONENT_LABELS: Record<string, string> = {
   response_time_score: 'Early warning and evacuation timing',
@@ -20,7 +19,7 @@ const EVENT_LABELS: Record<string, string> = {
 };
 const label = (t: string) => EVENT_LABELS[t] || t.replace(/_/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
 
-export const ReportScreen: React.FC<{ report: Report; earned?: { stars: number; medals: Medal[]; best: boolean } | null; onReplay: () => void; onRetry: () => void; onRestart: () => void }> = ({ report, earned, onReplay, onRetry, onRestart }) => {
+export const ReportScreen: React.FC<{ report: Report; earned?: { stars: number; best: boolean } | null; onReplay: () => void; onRetry: () => void; onRestart: () => void }> = ({ report, earned, onReplay, onRetry, onRestart }) => {
   const cards = Object.fromEntries((report.rule_cards || []).map((c) => [c.id, c]));
   const ref = useRef<HTMLHeadingElement>(null);
   useEffect(() => { ref.current?.focus(); }, []);
@@ -53,18 +52,6 @@ export const ReportScreen: React.FC<{ report: Report; earned?: { stars: number; 
           <li>Community trust <strong>{d.community_trust ?? 0}</strong>/100</li>
         </ul>
       </div>
-
-      {earned && earned.medals.length > 0 && (
-        <section aria-labelledby="medals-h" className="new-medals" data-testid="new-medals">
-          <h2 id="medals-h">Medals earned</h2>
-          <ul>
-            {earned.medals.map((m) => (
-              <li key={m.id} className="medal-card"><span className="medal-emoji" aria-hidden="true">{m.emoji}</span>
-                <span><strong>{m.title}</strong><br /><span className="muted small">{m.detail}</span></span></li>
-            ))}
-          </ul>
-        </section>
-      )}
 
       <section aria-labelledby="phases-h">
         <h2 id="phases-h">Three phases</h2>

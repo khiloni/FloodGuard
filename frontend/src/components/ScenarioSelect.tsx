@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import type { ScenarioInfo } from '../api/types';
 import { HazardArt } from './Logo';
 import { ChevronRight, Languages, Gauge, GraduationCap, Star } from './icons';
-import { MedalShelf } from './academy/Academy';
 import { loadProgress } from '../lib/progress';
 import { LANGS, useLang, type Lang } from '../lib/i18n';
 
@@ -64,8 +63,6 @@ export const ScenarioSelect: React.FC<{
           </label>
         </div>
         <div className="journey">
-          <span className="muted small">{t('medals')}</span>
-          <MedalShelf />
           <span className="muted small">{progress.finished.length} / {scenarios.length} {t('finished')}</span>
         </div>
         {language !== 'en' && <p className="muted small">{t('langNote')}</p>}
@@ -77,7 +74,6 @@ export const ScenarioSelect: React.FC<{
             <div className="scenario-body">
               <p className="scenario-meta">
                 <span className="chip-hazard">{s.hazard_label}</span>
-                <span className={`chip-diff diff-${s.difficulty_label.toLowerCase()}`}>{s.difficulty_label}</span>
               </p>
               <h2>{s.name}</h2>
               {progress.best[s.id] && (

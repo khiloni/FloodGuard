@@ -1,15 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import { npcs } from '../lib/actions';
+import type { Suggestion } from '../api/types';
 import { Bot, FileText, Shield, Info } from './icons';
 
 export interface Message {
   id: number;
-  kind: 'narration' | 'npc' | 'system' | 'reject' | 'hint';
+  kind: 'narration' | 'npc' | 'system' | 'reject' | 'hint' | 'you';
   text: string;
   source?: string;
   tick?: number;
   npcId?: string;
   cards?: { id: string; title: string }[];
+  /** For your own lines: 'command' or the character you spoke to. */
+  to?: string;
+  suggestion?: Suggestion | null;
 }
 
 export const SourceBadge: React.FC<{ source?: string }> = ({ source }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Phase } from '../api/types';
-import { Bot, FileText, Eye, EyeOff, ArrowLeft, Volume2, VolumeX, MessagesSquare } from './icons';
+import { Bot, FileText, Eye, EyeOff, ArrowLeft, MessagesSquare } from './icons';
 import { useLang } from '../lib/i18n';
 import { canSpeak } from '../lib/voice';
 import { Logo } from './Logo';
@@ -20,11 +20,9 @@ export const Header: React.FC<{
   scenarioName?: string;
   onHome?: () => void;
   onToggleReduced: (v: boolean) => void;
-  soundOn?: boolean;
-  onToggleSound?: (v: boolean) => void;
   readAloud?: boolean;
   onToggleReadAloud?: (v: boolean) => void;
-}> = ({ meta, phase, tick, maxTicks, reduced, scenarioName, onHome, onToggleReduced, soundOn, onToggleSound, readAloud, onToggleReadAloud }) => {
+}> = ({ meta, phase, tick, maxTicks, reduced, scenarioName, onHome, onToggleReduced, readAloud, onToggleReadAloud }) => {
   const { t } = useLang();
   const llmOn = meta?.llm_mode === 'openai_compat';
   return (
@@ -47,13 +45,6 @@ export const Header: React.FC<{
           {llmOn ? <Bot aria-hidden="true" /> : <FileText aria-hidden="true" />}
           <span>{llmOn ? `${t('aiOn')}${meta?.llm_status && meta.llm_status !== 'online' ? ` (${meta.llm_status})` : ''}` : t('aiOff')}</span>
         </span>
-        {onToggleSound && (
-          <button className="btn ghost small" aria-pressed={!!soundOn} onClick={() => onToggleSound(!soundOn)} data-testid="sound-toggle"
-            title="Ambient rain, wind and event sounds, made in your browser">
-            {soundOn ? <Volume2 aria-hidden="true" /> : <VolumeX aria-hidden="true" />}
-            <span className="hide-sm">{soundOn ? t('soundOn') : t('sound')}</span>
-          </button>
-        )}
         {onToggleReadAloud && canSpeak() && (
           <button className="btn ghost small" aria-pressed={!!readAloud} onClick={() => onToggleReadAloud(!readAloud)} data-testid="read-aloud-toggle"
             title="Voice assistant: read the story aloud">

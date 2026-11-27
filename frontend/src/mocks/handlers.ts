@@ -16,6 +16,7 @@ import allEvents from './fixtures/all_events.json';
 import help from './fixtures/help.json';
 import helpRecovery from './fixtures/help_recovery.json';
 import npc from './fixtures/npc.json';
+import preview from './fixtures/preview.json';
 import urban from './fixtures/packs/urban-flash-flood-01.json';
 import dam from './fixtures/packs/dam-release-01.json';
 import cyclone from './fixtures/packs/cyclone-surge-01.json';
@@ -73,6 +74,7 @@ export const handlers = [
   }),
   http.get('/api/v1/meta', () => HttpResponse.json(llmMeta(meta))),
   http.get('/api/v1/scenarios', () => HttpResponse.json(scenarios)),
+  http.post('/api/v1/sessions/:sid/preview', async () => { await delay(150); return HttpResponse.json(preview); }),
   http.post('/api/v1/sessions', async ({ request }) => {
     const body = (await request.json().catch(() => ({}))) as { scenario_id?: string; seed?: number };
     pack = body.scenario_id || 'village-river-01';

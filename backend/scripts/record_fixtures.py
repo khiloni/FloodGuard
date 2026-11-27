@@ -132,6 +132,10 @@ def main():
     for _ in range(17):
         client.post(f"/api/v1/sessions/{rec_sid}/turns", json={"input": B("wait")})
     write("help_recovery.json", client.post(f"/api/v1/sessions/{rec_sid}/help").json())
+    # Future Lens: both futures for opening the shelter at the start of the river story
+    lens_sid = new_session(13)["session_id"]
+    write("preview.json", client.post(f"/api/v1/sessions/{lens_sid}/preview",
+                                      json={"action": {"name": "open_shelter", "params": {"shelter_id": "school"}}}).json())
 
     # Every pack: its session and the first turns of an expert run (scenario select + map tests)
     extra_steps = []

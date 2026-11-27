@@ -992,6 +992,70 @@ def build_replay_frames(scenario_id: str, actions: List[Dict[str, Any]], difficu
     return frames
 
 
+class PreviewRequest(BaseModel):
+    action: Dict[str, Any]
+    horizon: int = Field(default=4, ge=1, le=8)
+
+
+def _future(state: State, first: Action, horizon: int, layout: Dict[str, Any]) -> Dict[str, Any]:
+    """Run the deterministic engine forward on a copy: `first`, then waits. Nothing is saved."""
+    from .engine.step import step as engine_step
+    rng = random.Random(0)  # the engine does not draw from the RNG
+    frames, events = [], []
+    s = state
+    for i in range(horizon):
+        if s.is_finished:
+            break
+        act = first if i == 0 else Action(name=ActionName.WAIT, params={})
+        s, evs = engine_step(s, act, rng)
+        events += [e for e in evs if e.type.value not in ("water_level_advanced", "wait_tick")]
+        summ = build_state_summary(s.model_dump(), layout)
+        frames.append({"tick": s.tick, "water_level_cm": s.water_level_cm, "phase": s.phase,
+                       "zones": {zid: {"at_home": z.population_remaining, "vulnerable": z.vulnerable_remaining,
+                                       "water_depth_cm": z.water_depth_cm, "lost": z.lost}
+                                 for zid, z in s.zones.items()},
+                       "summary": summ})
+    zones = list(s.zones.values())
+    return {
+        "frames": frames,
+        "end_tick": s.tick,
+        "safe": sum(z.safe_evacuated for z in zones),
+        "at_home": sum(z.population_remaining for z in zones),
+        "vulnerable_at_home": sum(z.vulnerable_remaining for z in zones),
+        "lost": sum(z.lost for z in zones),
+        "embankment_breached": bool(s.embankment.breached),
+        "score": int(s.score.total_score) if s.score else None,
+        "events": [{"tick": e.tick, "type": e.type.value, "description": e.description} for e in events][:12],
+    }
+
+
+@app.post("/api/v1/sessions/{session_id}/preview")
+def preview_future(session_id: str, req: PreviewRequest):
+    """Future Lens: play the next few hours twice on copies of the engine state, once with the
+    proposed order and once doing nothing, so the player can compare both futures before acting.
+    The engine is deterministic, so a preview is exactly what will happen if nothing else changes.
+    Nothing is saved and no time passes."""
+    sess = store.get_session(session_id)
+    if not sess:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail={"code": "SESSION_NOT_FOUND", "message": f"Session '{session_id}' not found."})
+    enforce_rate_limit(session_id)
+    state = State.model_validate(sess["state"])
+    try:
+        action = Action(name=ActionName(req.action.get("name")), params=req.action.get("params") or {})
+    except Exception:
+        raise HTTPException(status_code=400, detail={"code": "BAD_ACTION", "message": "Unknown order."})
+    from .engine.rules import validate_action_preconditions
+    ok, reason = validate_action_preconditions(state, action)
+    if not ok:
+        return {"status": "rejected", "reject_reason": reason}
+    layout = get_scenario_layout(sess["scenario_id"])
+    with_order = _future(state, action, req.horizon, layout)
+    without = _future(state, Action(name=ActionName.WAIT, params={}), req.horizon, layout)
+    return {"status": "ok", "horizon": req.horizon, "from_tick": state.tick,
+            "with_order": with_order, "without_order": without}
+
+
 @app.get("/api/v1/sessions/{session_id}/log", response_model=SessionLogResponse)
 def get_session_log(session_id: str, frames: bool = False):
     sess = store.get_session(session_id)

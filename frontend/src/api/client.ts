@@ -47,4 +47,5 @@ export const api = {
   log: (sid: string, frames = false) => request<SessionLog>(`/sessions/${sid}/log${frames ? '?frames=true' : ''}`),
   report: (sid: string) => request<Report>(`/sessions/${sid}/report`),
   end: (sid: string) => post<{ status: string }>(`/sessions/${sid}/end`, {}),
+  preview: (sid: string, action: Action, horizon = 4) => post<any>(`/sessions/${sid}/preview`, { action, horizon }),
 };

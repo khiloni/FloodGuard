@@ -18,14 +18,14 @@ import { Pager } from './components/Pager';
 import { Hud } from './components/Hud';
 import { HelpPanel, PendingOrder } from './components/HelpPanel';
 import { StatusBoard } from './components/village/StatusBoard';
-import { Briefing, Logs } from './components/village/Briefing';
-import { People, type ChatLine } from './components/village/People';
+import { Briefing } from './components/village/Briefing';
+import { Conversation } from './components/village/Conversation';
+import { FutureLens, type Peek, type Preview } from './components/FutureLens';
 import { Lightbulb, Map as MapIcon, Landmark } from './components/icons';
 import { useReducedMotion } from './lib/useReducedMotion';
 import { describeAction, setActiveNpcs } from './lib/actions';
 import { Academy } from './components/academy/Academy';
-import { useSoundscape } from './lib/soundscape';
-import { recordReport, type Medal } from './lib/progress';
+import { recordReport } from './lib/progress';
 import { useLang } from './lib/i18n';
 import { useVoice } from './lib/voice';
 
@@ -54,7 +54,6 @@ export const App: React.FC = () => {
   const [clarify, setClarify] = useState<{ question: string; options: Action[] } | null>(null);
   const [emergency, setEmergency] = useState<string | null>(null);
   const [introOpen, setIntroOpen] = useState(false);
-  const [chat, setChat] = useState<ChatLine[]>([]);
   const [report, setReport] = useState<Report | null>(null);
   const [page, setPage] = useState(0);
   const [help, setHelp] = useState<HelpResponse | null>(null);
@@ -62,7 +61,11 @@ export const App: React.FC = () => {
   const [helpLoading, setHelpLoading] = useState(false);
   const [pending, setPending] = useState<{ action: Action; from?: string } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
-  const [earned, setEarned] = useState<{ stars: number; medals: Medal[]; best: boolean } | null>(null);
+  const [lensOn, setLensOn] = useState<boolean>(() => { try { return localStorage.getItem('floodguard.lens') !== '0'; } catch { return true; } });
+  const [preview, setPreview] = useState<Preview | null>(null);
+  const [previewLoading, setPreviewLoading] = useState(false);
+  const [peek, setPeek] = useState<Peek>(null);
+  const [earned, setEarned] = useState<{ stars: number; best: boolean } | null>(null);
 
   const [frames, setFrames] = useState<ReplayFrame[] | null>(null);
   const [logEvents, setLogEvents] = useState<SimEvent[]>([]);
@@ -129,7 +132,7 @@ export const App: React.FC = () => {
       setActiveNpcs(info?.npcs || []);
       setScenario(info); setOpts(o);
       setSid(s.session_id); setLayout(s.layout); setSummary(s.summary); setState(s.state);
-      setMessages([]); setEvents([]); setFx([]); setClarify(null); setChat([]); setReport(null);
+      setMessages([]); setEvents([]); setFx([]); setClarify(null); setReport(null);
       setHelp(null); setHelpOpen(false); setPending(null); setPage(0);
       setFrames(null); setReplayTick(null); setReplayPlaying(false);
       addMsg({ kind: 'system', text: info?.hook || 'You are in charge of the response. Give your first order.', tick: 0 });
@@ -173,12 +176,9 @@ export const App: React.FC = () => {
     addMsg({ kind: 'narration', text: res.narration.text, source: res.narration.source, tick,
       cards: (res.cited_rulecards || []).map((c) => ({ id: c.id, title: c.title })) });
     for (const m of res.npc_messages || []) {
-      addMsg({ kind: 'npc', text: m.text, source: m.source, npcId: m.npc_id, tick });
-      setChat((all) => [...all, { npcId: m.npc_id, from: 'npc', text: m.text, source: m.source, tick, suggestion: m.suggestion || null }]);
+      addMsg({ kind: 'npc', text: m.text, source: m.source, npcId: m.npc_id, tick, suggestion: m.suggestion || null });
     }
-    if (chatNpc && !(res.npc_messages || []).length) {
-      setChat((all) => [...all, { npcId: chatNpc, from: 'npc', text: res.narration.text, source: res.narration.source, tick }]);
-    }
+    void chatNpc;
     setEvents((all) => [...all, ...res.events]);
     playFx(res.events, tick);
   }, [addMsg, playFx, names]);
@@ -188,6 +188,7 @@ export const App: React.FC = () => {
   const submit = useCallback(async (input: TurnInput) => {
     if (!canAct || !sid) return;
     setReplayTick(null); setReplayPlaying(false); setPending(null);
+    if (input.type === 'text') addMsg({ kind: 'you', text: input.text, to: 'command' });
     setBusy(true);
     try {
       handle(await api.turn(sid, input));
@@ -201,7 +202,7 @@ export const App: React.FC = () => {
   const askNpc = useCallback(async (npcId: string, message: string) => {
     if (!canAct || !sid) return;
     const text = message || 'What should we do now?';
-    setChat((all) => [...all, { npcId, from: 'you', text }]);
+    addMsg({ kind: 'you', text, to: npcId });
     setBusy(true);
     try {
       handle(await api.npc(sid, npcId, text), npcId);
@@ -224,6 +225,20 @@ export const App: React.FC = () => {
       setHelpLoading(false);
     }
   }, [sid, addMsg]);
+
+  // ---- Future Lens: preview both futures for the pending order ----
+  useEffect(() => {
+    setPeek(null);
+    setPreview(null);
+    if (!pending || !sid || !lensOn) return;
+    let live = true;
+    setPreviewLoading(true);
+    api.preview(sid, pending.action)
+      .then((p) => { if (live) setPreview(p as Preview); })
+      .catch(() => { if (live) setPreview(null); })
+      .finally(() => { if (live) setPreviewLoading(false); });
+    return () => { live = false; };
+  }, [pending, sid, lensOn]);
 
   // ---- Replay (frames are computed by the server from /log) ----
   const enterReplay = useCallback(async () => {
@@ -259,17 +274,17 @@ export const App: React.FC = () => {
     if (!sid) return;
     try {
       const r = await api.report(sid);
-      const res = recordReport({ ...r, scenario_id: r.scenario_id || scenario?.id, difficulty: r.difficulty || opts?.difficulty }, scenarios.length);
-      setEarned({ stars: res.stars, medals: res.newMedals, best: res.best });
+      setEarned(recordReport({ ...r, scenario_id: r.scenario_id || scenario?.id, difficulty: r.difficulty || opts?.difficulty }));
       setReport(r);
       setScreen('report');
     } catch (e) {
       addMsg({ kind: 'reject', text: `Could not load the report: ${(e as Error).message}` });
     }
-  }, [sid, addMsg, scenario, opts, scenarios.length]);
+  }, [sid, addMsg, scenario, opts]);
 
   // ---- Render ----
-  const frameSummary = replayTick !== null && frames ? frames.find((f) => f.tick === replayTick)?.summary : null;
+  const peekSummary = peek && preview?.status === 'ok' ? preview[peek.branch].frames[peek.frame]?.summary : null;
+  const frameSummary = peekSummary || (replayTick !== null && frames ? frames.find((f) => f.tick === replayTick)?.summary : null);
   const shown = frameSummary || summary;
   const forecast = state?.forecast_cm || [];
   const peakTick = forecast.length ? forecast.indexOf(Math.max(...forecast)) + 1 : null;
@@ -286,32 +301,35 @@ export const App: React.FC = () => {
   }, [layout, scenario, summary?.phase, metaExamples]);
   const minutes = scenario?.tick_duration_minutes ?? 30;
   const llmOn = meta?.llm_mode === 'openai_compat';
-  const mood = useMemo(() => (screen === 'play' && shown ? {
-    phase: shown.phase,
-    intensity: Math.max(0, Math.min(1, (shown.water_level_cm - shown.normal_level_cm) / Math.max(1, shown.crest_level_cm - shown.normal_level_cm))),
-  } : null), [screen, shown]);
-  const [soundOn, setSoundOn] = useSoundscape(mood, events);
   const lastNarration = [...messages].reverse().find((m) => m.kind === 'narration' || m.kind === 'reject' || m.kind === 'hint' || m.kind === 'system');
-  // Voice assistant: read each new narration line aloud when the player turned it on.
+  // Voice assistant: two voices. The command voice reads back your orders; the narrator voice
+  // tells the story and speaks for the characters. New lines are queued, never cut off.
   const spokenId = useRef(0);
   useEffect(() => {
-    const m = lastNarration;
-    if (!m || m.id === spokenId.current || screen !== 'play') return;
-    spokenId.current = m.id;
-    if (m.kind !== 'system' || m.tick === 0) voice.speak(m.text);
-  }, [lastNarration, screen, voice]);
-  const onMic = useCallback(() => {
+    if (screen !== 'play') return;
+    const fresh = messages.filter((m) => m.id > spokenId.current);
+    if (!fresh.length) return;
+    spokenId.current = fresh[fresh.length - 1].id;
+    for (const m of fresh) {
+      if (m.kind === 'system' && m.text.startsWith('Order:')) voice.speak(m.text, 'command');
+      else if (m.kind !== 'you' && (m.kind !== 'system' || m.tick === 0)) voice.speak(m.text, 'narrator');
+    }
+  }, [messages, screen, voice]);
+  // Voice: speak an order (to Command) or a question (to a character).
+  const onMicTo = useCallback((to: string) => {
     const ok = voice.listen((heard) => {
-      addMsg({ kind: 'hint', text: `${t('heard')}: “${heard}”` });
-      submit({ type: 'text', text: heard });
+      if (to === 'command') submit({ type: 'text', text: heard });
+      else askNpc(to, heard);
     }, (err) => addMsg({ kind: 'reject', text: `Voice input stopped (${err}).` }));
     if (!ok) addMsg({ kind: 'hint', text: t('voiceUnsupported') });
-  }, [voice, addMsg, submit, t]);
+  }, [voice, addMsg, submit, askNpc, t]);
+  const onMic = useCallback(() => onMicTo('command'), [onMicTo]);
 
   const actPage = layout && shown && (
     <div className="act">
       <div className="stage" data-noswipe>
-        <VillageScene layout={layout} summary={shown} state={state} fx={fx} reduced={reduced} replaying={replayTick !== null} />
+        <VillageScene layout={layout} summary={shown} state={state} fx={fx} reduced={reduced} replaying={replayTick !== null && !peekSummary} />
+        {peekSummary && <div className={`future-badge ${peek?.branch}`} role="status" data-testid="future-badge">{t('futureView')}: {peek?.branch === 'with_order' ? t('lensIf') : t('lensIfWait')} · T{peekSummary.tick}</div>}
         <p className="model-label">Stylized teaching model, not a flood forecast</p>
         {finished && replayTick === null && !introOpen && (
           <div className="story-complete" role="status" data-testid="story-complete">
@@ -332,17 +350,24 @@ export const App: React.FC = () => {
             <PendingOrder action={pending.action} names={names} busy={!canAct} from={pending.from}
               onCancel={() => setPending(null)} onConfirm={() => submit({ type: 'button', action: pending.action })} />
           )}
+          {pending && lensOn && (
+            <FutureLens preview={preview} loading={previewLoading} orderLabel={describeAction(pending.action, names)} peek={peek} onPeek={setPeek} />
+          )}
           {helpOpen && (
             <HelpPanel help={help} loading={helpLoading} names={names}
               onUse={(a) => { setPending({ action: a }); setHelpOpen(false); }} onClose={() => setHelpOpen(false)} />
           )}
+          <label className="lens-toggle" title={t('lensToggleHint')}>
+            <input type="checkbox" checked={lensOn} onChange={(e) => { setLensOn(e.target.checked); try { localStorage.setItem('floodguard.lens', e.target.checked ? '1' : '0'); } catch { /* storage unavailable */ } }} data-testid="lens-toggle" />
+            <span>🔮 {t('lensToggle')}</span> <span className="muted small">{t('lensToggleHint')}</span>
+          </label>
           <div className="orders-top">
             <button className="btn help-btn" onClick={askHelp} disabled={!sid || finished || helpLoading} data-testid="help-button">
               <Lightbulb aria-hidden="true" /> {t('whatToDo')}
             </button>
           </div>
           <ActionPanel layout={layout} phase={summary?.phase ?? 'before'} busy={!canAct} mechanic={scenario?.mechanic_type}
-            onSubmit={(a) => submit({ type: 'button', action: a })} onHint={(t) => addMsg({ kind: 'hint', text: t })} />
+            onSubmit={(a) => (lensOn && a.name !== 'wait' ? setPending({ action: a }) : submit({ type: 'button', action: a }))} onHint={(h) => addMsg({ kind: 'hint', text: h })} />
           <CommandBox examples={finished ? [] : examples.slice(0, 3)} busy={!canAct} clarify={clarify} zoneNames={names}
             onText={(txt) => submit({ type: 'text', text: txt })} onOption={(a) => submit({ type: 'button', action: a })}
             onMic={onMic} listening={voice.listening} micLabel={voice.listening ? t('listening') : t('speakOrder')} />
@@ -357,17 +382,17 @@ export const App: React.FC = () => {
   );
 
   const villagePage = layout && shown && (
-    <div className="village">
-      <div className="village-col">
+    <div className="village village-v3">
+      <div className="village-chat">
+        <Conversation messages={messages} busy={!canAct} finished={finished} names={names} s={shown}
+          onAsk={askNpc} onOrder={(txt) => submit({ type: 'text', text: txt })}
+          onAdopt={(a, from) => { setPending({ action: a, from }); setPage(0); }}
+          onRequestSupport={() => submit({ type: 'button', action: { name: 'request_external_support', params: {} } })}
+          onMic={onMicTo} listening={voice.listening} />
+      </div>
+      <div className="village-col village-side">
         <Briefing scenario={scenario} s={shown} />
         <StatusBoard s={shown} state={state} layout={layout} />
-      </div>
-      <div className="village-col">
-        <People chat={chat} busy={!canAct} finished={finished} names={names} s={shown}
-          onAsk={askNpc}
-          onAdopt={(a, from) => { setPending({ action: a, from }); setPage(0); }}
-          onRequestSupport={() => submit({ type: 'button', action: { name: 'request_external_support', params: {} } })} />
-        <Logs messages={messages} events={events} llmOn={llmOn} />
       </div>
     </div>
   );
@@ -378,8 +403,8 @@ export const App: React.FC = () => {
       <Header meta={meta} phase={screen === 'play' ? phase : undefined} tick={shown?.tick} maxTicks={shown?.max_ticks}
         scenarioName={screen === 'play' ? scenario?.name : undefined}
         onHome={screen === 'play' || screen === 'report' || screen === 'academy' ? () => setScreen('select') : undefined}
-        reduced={reduced} onToggleReduced={setReduced} soundOn={soundOn} onToggleSound={setSoundOn}
-        readAloud={voice.readAloud} onToggleReadAloud={(v) => { voice.setReadAloud(v); if (v && lastNarration) voice.speak(lastNarration.text, true); }} />
+        reduced={reduced} onToggleReduced={setReduced}
+        readAloud={voice.readAloud} onToggleReadAloud={(v) => { voice.setReadAloud(v); if (v && lastNarration) voice.speak(lastNarration.text, 'narrator', true); }} />
 
       {screen === 'boot' && waking.active && <WakingUp seconds={waking.seconds} failed={waking.failed} onRetry={boot} />}
       {screen === 'boot' && !waking.active && <div className="boot" role="status">Loading…</div>}
