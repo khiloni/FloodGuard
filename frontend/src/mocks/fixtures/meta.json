@@ -60,5 +60,6 @@
    "send ward 2 residents back home",
    "send relief supplies to the shelter"
   ]
- }
+ },
+ "voice_provider": "browser"
 }

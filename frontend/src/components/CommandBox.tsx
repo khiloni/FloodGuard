@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { tr } from '../lib/i18n';
 import type { Action } from '../api/types';
 import { describeAction } from '../lib/actions';
 import { Send, Mic } from './icons';
@@ -24,10 +25,10 @@ export const CommandBox: React.FC<Props> = ({ examples, busy, clarify, zoneNames
     setText('');
   };
   return (
-    <section className="command" aria-label="Type a command">
+    <section className="command" aria-label={tr('Type a command')}>
       {clarify && (
         <div className="clarify" role="group" aria-labelledby="clarify-q" data-testid="clarify">
-          <p id="clarify-q"><strong>Which did you mean?</strong> {clarify.question}</p>
+          <p id="clarify-q"><strong>{tr('Which did you mean?')}</strong> {clarify.question}</p>
           <div className="chips">
             {clarify.options.map((o, i) => (
               <button key={i} className="chip option" onClick={() => onOption(o)} disabled={busy} data-testid="clarify-option">
@@ -35,13 +36,13 @@ export const CommandBox: React.FC<Props> = ({ examples, busy, clarify, zoneNames
               </button>
             ))}
           </div>
-          <p className="muted small">Time does not pass until you choose.</p>
+          <p className="muted small">{tr('Time does not pass until you choose.')}</p>
         </div>
       )}
       <form className="command-form" onSubmit={(e) => { e.preventDefault(); send(text); }}>
-        <label htmlFor="cmd" className="sr-only">Command</label>
+        <label htmlFor="cmd" className="sr-only">{tr('Command')}</label>
         <input id="cmd" type="text" value={text} maxLength={400} onChange={(e) => setText(e.target.value)}
-          placeholder="Type an order, e.g. evacuate ward 1" autoComplete="off" data-testid="command-input" />
+          placeholder={tr('Type an order, e.g. evacuate ward 1')} autoComplete="off" data-testid="command-input" />
         {onMic && (
           <button type="button" className={`btn icon mic${listening ? ' listening' : ''}`} onClick={onMic} disabled={busy}
             aria-pressed={!!listening} aria-label={micLabel || 'Speak an order'} title={micLabel || 'Speak an order'} data-testid="mic">
@@ -49,10 +50,10 @@ export const CommandBox: React.FC<Props> = ({ examples, busy, clarify, zoneNames
           </button>
         )}
         <button type="submit" className="btn primary" disabled={busy || !text.trim()} data-testid="command-send">
-          <Send aria-hidden="true" /> Send
+          <Send aria-hidden="true" /> {tr('Send')}
         </button>
       </form>
-      <div className="chips" aria-label="Example commands">
+      <div className="chips" aria-label={tr('Example commands')}>
         {examples.map((ex) => (
           <button key={ex} className="chip" onClick={() => send(ex)} disabled={busy} data-testid="example-chip">{ex}</button>
         ))}

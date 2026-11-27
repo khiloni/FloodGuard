@@ -1,5 +1,6 @@
 {
  "status": "ok",
+ "reject_reason": null,
  "horizon": 4,
  "from_tick": 0,
  "with_order": {

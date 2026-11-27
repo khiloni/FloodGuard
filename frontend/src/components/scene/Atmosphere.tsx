@@ -4,6 +4,7 @@
 // Purely presentational: nothing here changes what the engine decides.
 import React, { useMemo } from 'react';
 import type { Layout, Summary } from '../../api/types';
+import { tr } from '../../lib/i18n';
 
 const clamp01 = (v: number) => Math.max(0, Math.min(1, v));
 
@@ -76,8 +77,8 @@ export const Landforms: React.FC<{ layout: Layout; s: Summary; layer: 'back' | '
             <ellipse rx="64" ry="24" fill="url(#fg-water)" stroke="#e0f4ff" strokeWidth="3" />
             <ellipse rx="64" ry="24" fill="url(#fg-shimmer)" />
             <path d="M48 12 q14 10 26 30" stroke="#7a6a58" strokeWidth="9" strokeLinecap="round" fill="none" opacity="0.85" />
-            <text y="44" textAnchor="middle" className="svg-label tiny">{d.lake.label || 'Glacial lake'}</text>
-            {s.phase !== 'before' && <text y="-52" textAnchor="middle" className="svg-label tiny danger">Outburst</text>}
+            <text y="44" textAnchor="middle" className="svg-label tiny">{d.lake.label || tr('Glacial lake')}</text>
+            {s.phase !== 'before' && <text y="-52" textAnchor="middle" className="svg-label tiny danger">{tr('Outburst')}</text>}
           </g>
         )}
       </g>

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { tr } from '../../lib/i18n';
 import { HazardArt } from '../Logo';
 import { BookOpen, Backpack, ListChecks, CircleHelp, WavesHorizontal, Check, X, Printer, ChevronRight, RotateCcw, Award } from '../icons';
 import { DEPTHS, KIT, LESSONS, PLAN, QUIZ } from './content';
@@ -26,11 +27,11 @@ export const Academy: React.FC<{ reduced: boolean; onBack: () => void; onToast: 
         <div>
           <p className="eyebrow">{t('academy')}</p>
           <h1 tabIndex={-1} ref={ref}>{t('academyTitle')}</h1>
-          <p className="muted">Short lessons, hands-on tools and a quiz. General knowledge for learning only: in a real emergency follow your local authorities.</p>
+          <p className="muted">{tr('Short lessons, hands-on tools and a quiz. General knowledge for learning only: in a real emergency follow your local authorities.')}</p>
         </div>
         <button className="btn" onClick={onBack} data-testid="academy-back">{t('back')}</button>
       </div>
-      <div className="academy-tabs" role="tablist" aria-label="Academy sections">
+      <div className="academy-tabs" role="tablist" aria-label={tr('Academy sections')}>
         {TABS.map((t) => (
           <button key={t.id} role="tab" aria-selected={tab === t.id} className={tab === t.id ? 'on' : ''}
             onClick={() => setTab(t.id)} data-testid={`academy-tab-${t.id}`}>{t.icon}<span>{t.label}</span></button>
@@ -55,13 +56,13 @@ const Lessons: React.FC = () => {
         <li key={l.id} className={`lesson${open === l.id ? ' open' : ''}`}>
           <button className="lesson-head" aria-expanded={open === l.id} onClick={() => setOpen(open === l.id ? null : l.id)}>
             <HazardArt kind={l.art} />
-            <span className="lesson-title">{l.title}</span>
+            <span className="lesson-title">{tr(l.title)}</span>
           </button>
           {open === l.id && (
             <div className="lesson-body">
-              <p>{l.summary}</p>
-              <ul>{l.points.map((p) => <li key={p}>{p}</li>)}</ul>
-              <p className="lesson-do"><strong>Do this:</strong> {l.doThis}</p>
+              <p>{tr(l.summary)}</p>
+              <ul>{l.points.map((p) => <li key={p}>{tr(p)}</li>)}</ul>
+              <p className="lesson-do"><strong>{tr('Do this:')}</strong> {tr(l.doThis)}</p>
             </div>
           )}
         </li>
@@ -79,10 +80,10 @@ const DepthExplorer: React.FC<{ reduced: boolean }> = ({ reduced }) => {
   const danger = cm >= 60 ? 'danger' : cm >= 15 ? 'warn' : 'ok';
   return (
     <section className="depth" aria-labelledby="depth-h" data-testid="depth-explorer">
-      <h2 id="depth-h">How deep is too deep?</h2>
-      <p className="muted">Moving water is far stronger than it looks. Slide the water level and watch what happens.</p>
+      <h2 id="depth-h">{tr('How deep is too deep?')}</h2>
+      <p className="muted">{tr('Moving water is far stronger than it looks. Slide the water level and watch what happens.')}</p>
       <div className="depth-grid">
-        <svg viewBox="0 0 520 330" className="depth-art" role="img" aria-label={`Water ${cm} centimetres deep. ${level.text}`}>
+        <svg viewBox="0 0 520 330" className="depth-art" role="img" aria-label={`${cm} cm. ${tr(level.text)}`}>
           <defs>
             <linearGradient id="dw" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#5fb8ec" stopOpacity="0.85" /><stop offset="1" stopColor="#0b4f7c" stopOpacity="0.95" /></linearGradient>
             <linearGradient id="dsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#3d5a80" /><stop offset="1" stopColor="#98c1d9" /></linearGradient>
@@ -101,18 +102,18 @@ const DepthExplorer: React.FC<{ reduced: boolean }> = ({ reduced }) => {
           <g transform={`translate(130 ${ground})`} className={cm >= 15 && !reduced ? 'sway' : ''}>
             <circle cy="-160" r="14" fill="#f2c79a" /><rect x="-14" y="-145" width="28" height="70" rx="10" fill="#e76f51" />
             <rect x="-13" y="-78" width="11" height="78" rx="5" fill="#264653" /><rect x="2" y="-78" width="11" height="78" rx="5" fill="#264653" />
-            <text y="22" textAnchor="middle" className="depth-tick">Adult</text>
+            <text y="22" textAnchor="middle" className="depth-tick">{tr('Adult')}</text>
           </g>
           <g transform={`translate(210 ${ground})`} className={cm >= 15 && !reduced ? 'sway' : ''}>
             <circle cy="-100" r="11" fill="#f2c79a" /><rect x="-10" y="-88" width="20" height="44" rx="8" fill="#2a9d8f" />
             <rect x="-9" y="-46" width="8" height="46" rx="4" fill="#264653" /><rect x="1" y="-46" width="8" height="46" rx="4" fill="#264653" />
-            <text y="22" textAnchor="middle" className="depth-tick">Child</text>
+            <text y="22" textAnchor="middle" className="depth-tick">{tr('Child')}</text>
           </g>
           <g transform={`translate(360 ${ground - (cm >= 30 ? Math.min(40, (cm - 30) * 0.8) : 0)}) rotate(${cm >= 60 ? -6 : 0})`}>
             <path d="M-80 -20 L-60 -50 H30 L60 -22 H80 V-6 H-80Z" fill="#f4a261" stroke="#7a4b1f" strokeWidth="2" />
             <rect x="-52" y="-46" width="36" height="20" fill="#cde7f5" /><rect x="-8" y="-46" width="34" height="20" fill="#cde7f5" />
             <circle cx="-48" cy="-4" r="13" fill="#222" /><circle cx="48" cy="-4" r="13" fill="#222" />
-            <text y="22" textAnchor="middle" className="depth-tick">Car</text>
+            <text y="22" textAnchor="middle" className="depth-tick">{tr('Car')}</text>
           </g>
           {cm > 0 && (
             <g>
@@ -126,12 +127,12 @@ const DepthExplorer: React.FC<{ reduced: boolean }> = ({ reduced }) => {
         </svg>
         <div className={`depth-card tone-${danger}`} aria-live="polite">
           <label className="depth-slider">
-            <span>Water depth: <strong>{cm} cm</strong></span>
+            <span>{tr('Water depth:')} <strong>{cm} cm</strong></span>
             <input type="range" min="0" max="150" step="5" value={cm} onChange={(e) => setCm(Number(e.target.value))} data-testid="depth-slider" />
           </label>
-          <h3>{level.title}</h3>
-          <p>{level.text}</p>
-          <p className="muted small">Rule of thumb taught worldwide: <strong>turn around, don't drown.</strong> Never walk, swim or drive through floodwater.</p>
+          <h3>{tr(level.title)}</h3>
+          <p>{tr(level.text)}</p>
+          <p className="muted small">{tr('Rule of thumb taught worldwide:')} <strong>{tr("turn around, don't drown.")}</strong> {tr('Never walk, swim or drive through floodwater.')}</p>
         </div>
       </div>
     </section>
@@ -150,8 +151,8 @@ const KitBuilder: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const toggle = (id: string) => { setChecked(false); setPicked((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id])); };
   return (
     <section aria-labelledby="kit-h" data-testid="kit-builder">
-      <h2 id="kit-h">Pack a go-bag</h2>
-      <p className="muted">You may have minutes to leave. Pick what belongs in an emergency bag, then check your packing.</p>
+      <h2 id="kit-h">{tr('Pack a go-bag')}</h2>
+      <p className="muted">{tr('You may have minutes to leave. Pick what belongs in an emergency bag, then check your packing.')}</p>
       <div className="kit-bag" aria-live="polite"><span className="kit-bag-icon" aria-hidden="true">🎒</span> {picked.length} item{picked.length === 1 ? '' : 's'} packed</div>
       <ul className="kit-grid">
         {items.map((k) => {
@@ -161,24 +162,24 @@ const KitBuilder: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
             <li key={k.id}>
               <button className={`kit-item${on ? ' on' : ''} ${verdict}`} aria-pressed={on} onClick={() => toggle(k.id)} data-testid={`kit-${k.id}`}>
                 <span className="kit-emoji" aria-hidden="true">{k.emoji}</span>
-                <span>{k.label}</span>
-                {verdict === 'good' && <Check aria-label="Good choice" />}
-                {verdict === 'bad' && <X aria-label="Leave this out" />}
-                {verdict === 'missed' && <span className="kit-missed">missing</span>}
+                <span>{tr(k.label)}</span>
+                {verdict === 'good' && <Check aria-label={tr('Good choice')} />}
+                {verdict === 'bad' && <X aria-label={tr('Leave this out')} />}
+                {verdict === 'missed' && <span className="kit-missed">{tr('missing')}</span>}
               </button>
-              {checked && (verdict === 'bad' || verdict === 'missed') && <p className="kit-why small">{k.why}</p>}
+              {checked && (verdict === 'bad' || verdict === 'missed') && <p className="kit-why small">{tr(k.why)}</p>}
             </li>
           );
         })}
       </ul>
       <div className="row-actions">
-        <button className="btn primary" onClick={() => setChecked(true)} data-testid="kit-check">Check my bag</button>
-        <button className="btn ghost" onClick={() => { setPicked([]); setChecked(false); }}><RotateCcw aria-hidden="true" /> Start again</button>
+        <button className="btn primary" onClick={() => setChecked(true)} data-testid="kit-check">{tr('Check my bag')}</button>
+        <button className="btn ghost" onClick={() => { setPicked([]); setChecked(false); }}><RotateCcw aria-hidden="true" /> {tr('Start again')}</button>
       </div>
       {checked && (
         <p className={`result ${perfect ? 'ok' : 'warn'}`} role="status" data-testid="kit-result">
-          {perfect ? 'Perfect bag: light, complete and ready to grab.'
-            : `${missing.length ? `${missing.length} essential item${missing.length > 1 ? 's' : ''} missing. ` : ''}${wrong.length ? `${wrong.length} item${wrong.length > 1 ? 's' : ''} would slow you down.` : ''}`}
+          {perfect ? tr('Perfect bag: light, complete and ready to grab.')
+            : `${missing.length ? `${tr('Essential items missing: {n}.', { n: missing.length })} ` : ''}${wrong.length ? tr('Items that would slow you down: {n}.', { n: wrong.length }) : ''}`}
         </p>
       )}
     </section>
@@ -196,23 +197,23 @@ const FamilyPlan: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const pct = Math.round((done.length / PLAN.length) * 100);
   return (
     <section aria-labelledby="plan-h" className="plan" data-testid="family-plan">
-      <h2 id="plan-h">Make a family flood plan</h2>
-      <p className="muted">Talk these through with your family. Your ticks stay on this device only.</p>
-      <div className="plan-meter" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label="Plan complete"><span style={{ width: `${pct}%` }} /></div>
+      <h2 id="plan-h">{tr('Make a family flood plan')}</h2>
+      <p className="muted">{tr('Talk these through with your family. Your ticks stay on this device only.')}</p>
+      <div className="plan-meter" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label={tr('Plan complete')}><span style={{ width: `${pct}%` }} /></div>
       <ol className="plan-list">
         {PLAN.map((p, i) => (
           <li key={p}>
             <label className="check">
               <input type="checkbox" checked={done.includes(i)} onChange={() => setDone((d) => (d.includes(i) ? d.filter((x) => x !== i) : [...d, i]))} />
-              <span>{p}</span>
+              <span>{tr(p)}</span>
             </label>
           </li>
         ))}
       </ol>
       <div className="row-actions">
-        <button className="btn" onClick={() => window.print()}><Printer aria-hidden="true" /> Print this plan</button>
+        <button className="btn" onClick={() => window.print()}><Printer aria-hidden="true" /> {tr('Print this plan')}</button>
       </div>
-      <p className="muted small">Emergency: <strong>112</strong> · Disaster helpline: <strong>1078</strong> (India). Add your district control room number too.</p>
+      <p className="muted small">{tr('Emergency:')} <strong>112</strong> · {tr('Disaster helpline:')} <strong>1078</strong> {tr('(India). Add your district control room number too.')}</p>
     </section>
   );
 };
@@ -241,8 +242,8 @@ const Quiz: React.FC<{ onPass: () => void }> = ({ onPass }) => {
     return (
       <section className="quiz-done" data-testid="quiz-done">
         <div className="quiz-score"><Award aria-hidden="true" /> {score} / {QUIZ.length}</div>
-        <p>{pass ? 'Excellent. You know the key safety rules.' : 'Good start. Read the lessons and try again: aim for 8 or more.'}</p>
-        <button className="btn primary" onClick={() => { setI(0); setChoice(null); setScore(0); setDone(false); }}><RotateCcw aria-hidden="true" /> Try again</button>
+        <p>{pass ? tr('Excellent. You know the key safety rules.') : tr('Good start. Read the lessons and try again: aim for 8 or more.')}</p>
+        <button className="btn primary" onClick={() => { setI(0); setChoice(null); setScore(0); setDone(false); }}><RotateCcw aria-hidden="true" /> {tr('Try again')}</button>
       </section>
     );
   }
@@ -250,14 +251,14 @@ const Quiz: React.FC<{ onPass: () => void }> = ({ onPass }) => {
     <section className="quiz" aria-labelledby="quiz-q" data-testid="quiz">
       <p className="quiz-progress">Question {i + 1} of {QUIZ.length} · score {score}</p>
       <div className="quiz-bar"><span style={{ width: `${(i / QUIZ.length) * 100}%` }} /></div>
-      <h2 id="quiz-q">{q.q}</h2>
+      <h2 id="quiz-q">{tr(q.q)}</h2>
       <ul className="quiz-options">
         {q.options.map((o, k) => {
           const state = choice === null ? '' : k === q.answer ? 'right' : k === choice ? 'wrong' : 'dim';
           return (
             <li key={o}>
               <button className={`quiz-option ${state}`} onClick={() => answer(k)} disabled={choice !== null && state === 'dim'} data-testid={`quiz-option-${k}`}>
-                {o} {state === 'right' && <Check aria-label="Correct" />}{state === 'wrong' && <X aria-label="Not correct" />}
+                {tr(o)} {state === 'right' && <Check aria-label={tr('Correct')} />}{state === 'wrong' && <X aria-label={tr('Not correct')} />}
               </button>
             </li>
           );
@@ -265,8 +266,8 @@ const Quiz: React.FC<{ onPass: () => void }> = ({ onPass }) => {
       </ul>
       {choice !== null && (
         <div className={`quiz-why ${choice === q.answer ? 'ok' : 'warn'}`} role="status">
-          <p><strong>{choice === q.answer ? 'Correct.' : 'Not quite.'}</strong> {q.why}</p>
-          <button className="btn primary small" onClick={next} data-testid="quiz-next">{i === QUIZ.length - 1 ? 'See my score' : 'Next question'} <ChevronRight aria-hidden="true" /></button>
+          <p><strong>{choice === q.answer ? tr('Correct.') : tr('Not quite.')}</strong> {tr(q.why)}</p>
+          <button className="btn primary small" onClick={next} data-testid="quiz-next">{i === QUIZ.length - 1 ? tr('See my score') : tr('Next question')} <ChevronRight aria-hidden="true" /></button>
         </div>
       )}
     </section>

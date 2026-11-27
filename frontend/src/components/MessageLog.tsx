@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { tr } from '../lib/i18n';
 import { npcs } from '../lib/actions';
 import type { Suggestion } from '../api/types';
 import { Bot, FileText, Shield, Info } from './icons';
@@ -18,13 +19,13 @@ export interface Message {
 
 export const SourceBadge: React.FC<{ source?: string }> = ({ source }) => {
   if (source === 'llm') {
-    return <span className="badge badge-ai" data-testid="source-llm" title="Written by an open-source language model and checked by guardrails"><Bot aria-hidden="true" />AI · may be wrong</span>;
+    return <span className="badge badge-ai" data-testid="source-llm" title={tr('Written by an open-source language model and checked by guardrails')}><Bot aria-hidden="true" />{tr('AI · may be wrong')}</span>;
   }
   if (source === 'emergency_override') {
-    return <span className="badge badge-safety"><Shield aria-hidden="true" />Safety notice</span>;
+    return <span className="badge badge-safety"><Shield aria-hidden="true" />{tr('Safety notice')}</span>;
   }
   if (source === 'template') {
-    return <span className="badge badge-template" data-testid="source-template" title="Fixed template text"><FileText aria-hidden="true" />Template</span>;
+    return <span className="badge badge-template" data-testid="source-template" title={tr('Fixed template text')}><FileText aria-hidden="true" />{tr('Template')}</span>;
   }
   return null;
 };
@@ -37,9 +38,9 @@ export const MessageLog: React.FC<{ messages: Message[]; llmOn: boolean }> = ({ 
   }, [messages.length]);
   const lastNarration = [...messages].reverse().find((m) => m.kind === 'narration');
   return (
-    <section className="messages" aria-label="What is happening">
-      <h2 className="panel-title">What is happening</h2>
-      {llmOn && <p className="ai-note" data-testid="ai-label"><Bot aria-hidden="true" /> AI-generated text may be wrong. The simulation engine, not the AI, decides outcomes.</p>}
+    <section className="messages" aria-label={tr('What is happening')}>
+      <h2 className="panel-title">{tr('What is happening')}</h2>
+      {llmOn && <p className="ai-note" data-testid="ai-label"><Bot aria-hidden="true" /> {tr('AI-generated text may be wrong. The simulation engine, not the AI, decides outcomes.')}</p>}
       <ol className="message-list" data-testid="message-list" ref={list}>
         {messages.map((m) => (
           <li key={m.id} className={`msg msg-${m.kind}`} data-testid={`msg-${m.kind}`}>
@@ -58,7 +59,7 @@ export const MessageLog: React.FC<{ messages: Message[]; llmOn: boolean }> = ({ 
       </ol>
       {/* Screen readers hear each new narration once. */}
       <div className="sr-only" aria-live="polite" aria-atomic="true" data-testid="live-narration">
-        {lastNarration ? `${lastNarration.source === 'llm' ? 'AI narration: ' : ''}${lastNarration.text}` : ''}
+        {lastNarration ? `${lastNarration.source === 'llm' ? `${tr('AI narration')}: ` : ''}${lastNarration.text}` : ''}
       </div>
     </section>
   );

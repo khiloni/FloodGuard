@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { tr } from '../../lib/i18n';
 import type { EngineState, Layout, Point, Summary } from '../../api/types';
 import { dotGrid, pathFrom, pointAt, reversePath, routeFor } from '../../lib/geometry';
 import { EventEffects, type FxItem } from './EventEffects';
@@ -36,14 +37,14 @@ function nightLevel(s: Summary, state: EngineState | null): number {
 }
 
 function sceneDescription(s: Summary, layout: Layout): string {
-  const parts = [`Tick ${s.tick} of ${s.max_ticks}, ${s.phase === 'before' ? 'before the flood' : s.phase === 'flood' ? 'during the flood' : 'after the flood'}.`,
-    `River at ${s.water_level_cm} cm (${waterStatus(s)}).`,
+  const parts = [`${tr('Tick')} ${s.tick} / ${s.max_ticks}, ${s.phase === 'before' ? tr('Before the flood') : s.phase === 'flood' ? tr('During the flood') : tr('After the flood')}.`,
+    `${tr('Water')} ${s.water_level_cm} cm (${tr(waterStatus(s))}).`,
     `Embankment ${s.embankment_breached ? 'breached' : `${s.embankment_integrity}% intact`}.`,
-    `Shelter ${s.shelter.is_open ? 'open' : 'closed'}, ${s.shelter.occupancy} of ${s.shelter.capacity} places used.`];
+    `${tr('Shelter')}: ${s.shelter.is_open ? tr('open') : tr('closed')}, ${s.shelter.occupancy}/${s.shelter.capacity}.`];
   for (const z of layout.zones) {
     const zs = s.zones[z.id];
     if (!zs) continue;
-    parts.push(`${z.name}: ${zs.population_remaining} at home, ${zs.vulnerable_remaining} of them vulnerable, water ${zs.water_depth_cm} cm${zs.road_flooded ? ', road flooded' : ''}${zs.road_blocked ? ', road blocked by debris' : ''}.`);
+    parts.push(`${z.name}: ${tr('At home')} ${zs.population_remaining}, ${tr('Vulnerable')} ${zs.vulnerable_remaining}, ${tr('Water')} ${zs.water_depth_cm} cm${zs.road_flooded ? `, ${tr('Road flooded')}` : ''}${zs.road_blocked ? `, ${tr('Debris')}` : ''}.`);
   }
   return parts.join(' ');
 }
@@ -73,7 +74,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
   return (
     <div className={`scene-wrap phase-${s.phase} status-${status}${reduced ? ' reduced' : ''}`} data-testid="scene" style={{ background: landDark }}>
       <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby="scene-title scene-desc" className="scene" preserveAspectRatio="xMidYMid meet">
-        <title id="scene-title">Village map</title>
+        <title id="scene-title">{tr('Village map')}</title>
         <desc id="scene-desc">{sceneDescription(s, layout)}</desc>
         <defs>
           <SceneDefs reduced={reduced} land={land} landDark={landDark} />
@@ -172,7 +173,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
                   <path d={pathFrom([a, m1])} stroke="#8a5a2b" strokeWidth="10" strokeLinecap="round" />
                   <path d={pathFrom([m2, b])} stroke="#8a5a2b" strokeWidth="10" strokeLinecap="round" />
                   <path d={`M${m1[0]} ${m1[1]} Q${(m1[0] + m2[0]) / 2} ${m1[1] - 70} ${m2[0]} ${m2[1]} Z`} fill="#56B4E9" opacity="0.8" />
-                  <text x={(m1[0] + m2[0]) / 2} y={m1[1] - 22} className="svg-label danger" textAnchor="middle">BREACH</text>
+                  <text x={(m1[0] + m2[0]) / 2} y={m1[1] - 22} className="svg-label danger" textAnchor="middle">{tr('BREACH')}</text>
                 </g>
               );
             }
@@ -235,7 +236,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
                 <text x={z.x + z.width - 6} y={z.y + 20} textAnchor="end" className="svg-label water">{zs.water_depth_cm} cm</text>
               )}
               {zs.evacuation_ordered && <Flag at={[z.x + z.width - 14, z.y + 4]} />}
-              {zs.surveyed && <text x={z.x + z.width - 8} y={z.y + z.height - 8} textAnchor="end" className="svg-label small">surveyed</text>}
+              {zs.surveyed && <text x={z.x + z.width - 8} y={z.y + z.height - 8} textAnchor="end" className="svg-label small">{tr('surveyed')}</text>}
               {(lostByZone[z.id] || 0) > 0 && (
                 <text x={z.x + 8} y={z.y + z.height + 20} className="svg-label small muted" data-testid={`lost-${z.id}`}>
                   {lostByZone[z.id]} people lost
@@ -258,7 +259,7 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
                 <rect x={sh.x} y={sh.y + sh.height + 18} width={sh.width} height="8" rx="4" fill="#e6e1d3" />
                 <rect x={sh.x} y={sh.y + sh.height + 18} width={sh.width * clamp01(occ / Math.max(1, s.shelter.capacity))} height="8" rx="4" fill="#009E73" />
                 <text x={sh.x + sh.width / 2} y={sh.y + sh.height + 44} textAnchor="middle" className="svg-label small">
-                  {s.shelter.is_open ? `${layout.shelters.length > 1 ? 'Shelters' : 'Shelter'} ${occ}/${s.shelter.capacity}` : 'Shelter closed'}
+                  {s.shelter.is_open ? `${tr('Shelter')} ${occ}/${s.shelter.capacity}` : tr('Shelter closed')}
                 </text></>) : (
                 <text x={sh.x + sh.width / 2} y={sh.y + sh.height + 34} textAnchor="middle" className="svg-label tiny">{sh.name}</text>)}
             </g>
@@ -313,12 +314,12 @@ export const VillageScene: React.FC<Props> = ({ layout, summary: s, state, fx, r
         </g>
 
         {/* River gauge */}
-        <Gauge s={s} status={status} label={layout.water_body === 'sea' ? 'Sea' : layout.water_body === 'canal' ? 'Canal' : 'River'} />
+        <Gauge s={s} status={status} label={layout.water_body === 'sea' ? tr('Sea') : layout.water_body === 'canal' ? tr('Canal') : tr('River')} />
         <ResourceCluster layout={layout} s={s} />
 
         <EventEffects layout={layout} items={fx} reduced={reduced} />
       </svg>
-      {replaying && <div className="replay-badge" role="status">Replay</div>}
+      {replaying && <div className="replay-badge" role="status">{tr('Replay')}</div>}
     </div>
   );
 };
@@ -356,8 +357,8 @@ const Gauge: React.FC<{ s: Summary; status: string; label: string }> = ({ s, sta
       )}
       <line x1="-4" x2="30" y1={y(s.warning_level_cm)} y2={y(s.warning_level_cm)} stroke="#E69F00" strokeWidth="3" strokeDasharray="4 3" />
       <line x1="-4" x2="30" y1={y(s.danger_level_cm)} y2={y(s.danger_level_cm)} stroke="#D55E00" strokeWidth="3" />
-      <text x="34" y={y(s.danger_level_cm) + 5} className="svg-label tiny">danger</text>
-      <text x="34" y={y(s.warning_level_cm) + 5} className="svg-label tiny">warning</text>
+      <text x="34" y={y(s.danger_level_cm) + 5} className="svg-label tiny">{tr('danger')}</text>
+      <text x="34" y={y(s.warning_level_cm) + 5} className="svg-label tiny">{tr('warning')}</text>
       <text x="13" y={bottom + 24} textAnchor="middle" className="svg-label small">{s.water_level_cm} cm</text>
       <text x="13" y={top - 10} textAnchor="middle" className="svg-label tiny">{label}</text>
     </g>
@@ -374,28 +375,28 @@ const RecoverySites: React.FC<{ layout: Layout; s: Summary }> = ({ layout, s }) 
         <g transform={`translate(${wp.x} ${wp.y})`} data-testid="site-water_point" className={rec.clean_water_active ? 'site on' : 'site off'}>
           <circle r="18" fill={rec.clean_water_active ? '#56B4E9' : '#eeeeee'} stroke="#0072B2" strokeWidth="2" strokeDasharray={rec.clean_water_active ? undefined : '4 3'} />
           <path d="M0 -10 C6 -2 8 2 8 5 A8 8 0 0 1 -8 5 C-8 2 -6 -2 0 -10Z" fill={rec.clean_water_active ? '#ffffff' : '#9ca3af'} />
-          <text y="34" textAnchor="middle" className="svg-label tiny">{rec.clean_water_active ? 'Clean water' : 'No clean water'}</text>
+          <text y="34" textAnchor="middle" className="svg-label tiny">{rec.clean_water_active ? tr('Clean water') : tr('No clean water')}</text>
         </g>
       )}
       {mc && (
         <g transform={`translate(${mc.x} ${mc.y})`} data-testid="site-medical_camp" className={rec.medical_camp_active ? 'site on' : 'site off'}>
           <path d="M-22 14 L0 -16 L22 14 Z" fill={rec.medical_camp_active ? '#009E73' : '#eeeeee'} stroke="#04634a" strokeWidth="2" strokeDasharray={rec.medical_camp_active ? undefined : '4 3'} />
           {rec.medical_camp_active && <path d="M-9 4 h5 l3 -7 l4 12 l3 -5 h5" fill="none" stroke="#ffffff" strokeWidth="2.5" />}
-          <text y="30" textAnchor="middle" className="svg-label tiny">{rec.medical_camp_active ? 'Medical camp' : 'No camp yet'}</text>
+          <text y="30" textAnchor="middle" className="svg-label tiny">{rec.medical_camp_active ? tr('Medical camp') : tr('No camp yet')}</text>
         </g>
       )}
       {ss && (
         <g transform={`translate(${ss.x} ${ss.y})`} data-testid="site-substation" className={rec.power_on ? 'site on' : 'site off'}>
           <rect x="-18" y="-16" width="36" height="32" rx="4" fill={rec.power_on ? '#F0E442' : '#6b7280'} stroke="#333" strokeWidth="2" />
           <path d="M3 -12 L-7 2 H0 L-3 12 L8 -3 H1 Z" fill={rec.power_on ? '#333' : '#d1d5db'} />
-          <text y="32" textAnchor="middle" className="svg-label tiny">{rec.power_on ? 'Power on' : 'Power off'}</text>
+          <text y="32" textAnchor="middle" className="svg-label tiny">{rec.power_on ? tr('Power on') : tr('Power off')}</text>
         </g>
       )}
       {hc && (
         <g transform={`translate(${hc.x} ${hc.y})`} data-testid="site-health_centre" className={rec.health_centre_open ? 'site on' : 'site off'}>
           <rect x="-20" y="-14" width="40" height="28" fill="#f7f3ea" stroke="#5b4636" strokeWidth="2" />
           {[-12, 0, 12].map((x) => <rect key={x} x={x - 3} y="-7" width="6" height="7" fill={rec.health_centre_open ? '#F0E442' : '#4b5563'} />)}
-          <text y="30" textAnchor="middle" className="svg-label tiny">{rec.health_centre_open ? 'Health centre open' : 'Health centre closed'}</text>
+          <text y="30" textAnchor="middle" className="svg-label tiny">{rec.health_centre_open ? tr('Health centre open') : tr('Health centre closed')}</text>
         </g>
       )}
       {sd && (
@@ -403,7 +404,7 @@ const RecoverySites: React.FC<{ layout: Layout; s: Summary }> = ({ layout, s }) 
           {Array.from({ length: rec.supply_deliveries_left }, (_, i) => (
             <rect key={i} x={-20 + i * 14} y="-10" width="12" height="12" fill="#c8a165" stroke="#5b3a1e" />
           ))}
-          <text y="22" textAnchor="middle" className="svg-label tiny">Depot</text>
+          <text y="22" textAnchor="middle" className="svg-label tiny">{tr('Depot')}</text>
         </g>
       )}
     </g>
@@ -466,7 +467,7 @@ const Decor: React.FC<{ layout: Layout; s: Summary; reduced: boolean; layer: 'un
               <path d="M-12 0 h24 l-6 7 h-12z" fill="#E69F00" stroke="#5b3a00" /><line x1="0" y1="0" x2="0" y2="-12" stroke="#333" strokeWidth="1.5" />
             </g>
           ))}
-          <text y="34" textAnchor="middle" className="svg-label tiny">{mech.boats_at_sea} boats at sea</text>
+          <text y="34" textAnchor="middle" className="svg-label tiny">{mech.boats_at_sea} {tr('boats at sea')}</text>
         </g>
       )}
     </g>

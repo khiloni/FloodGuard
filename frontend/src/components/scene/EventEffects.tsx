@@ -1,5 +1,6 @@
 import React from 'react';
 import type { SimEvent, Layout, Point } from '../../api/types';
+import { tr } from '../../lib/i18n';
 import {
   decorAt, depot, embankmentMid, mapEdgeEntry, pathFrom, pointAt, routeFor, shelterCenter, site, zoneCenter,
 } from '../../lib/geometry';
@@ -86,7 +87,7 @@ function renderFx(ev: SimEvent, ctx: Ctx): React.ReactNode {
       return <Pop ctx={ctx} at={zc}><Label text="Evacuate!" tone="warn" /><path d="M-6 -6 L6 0 L-6 6 Z" fill="#D55E00" /></Pop>;
     case 'transport_assigned':
       return <g><Mover ctx={ctx} pts={[depot(L), ...(route.length ? [route[0]] : [zc])]}>{d.transport_type === 'vehicle' ? <Truck /> : <Boat />}</Mover>
-        <Pop ctx={ctx} at={route[0] || zc}><Label text={`${d.count ?? 1} ${d.transport_type === 'vehicle' ? 'truck' : 'boat'}${Number(d.count) > 1 ? 's' : ''} on the way`} y={-34} /></Pop></g>;
+        <Pop ctx={ctx} at={route[0] || zc}><Label text={`${d.count ?? 1} ${d.transport_type === 'vehicle' ? tr('truck(s)') : tr('boat(s)')} ${tr('on the way')}`} y={-34} /></Pop></g>;
     case 'vulnerable_prioritized':
       return <Pop ctx={ctx} at={zc}><circle r="16" fill="#CC79A7" /><path d="M0 7 L-8 -1 A4.5 4.5 0 0 1 0 -7 A4.5 4.5 0 0 1 8 -1 Z" fill="#fff" /><Label text="Vulnerable first" y={-28} /></Pop>;
     case 'shelter_opened':
@@ -143,7 +144,7 @@ function renderFx(ev: SimEvent, ctx: Ctx): React.ReactNode {
     case 'phase_changed':
       return <Pop ctx={ctx} at={[500, 300]}>
         <rect x="-260" y="-36" width="520" height="64" rx="14" fill="#1f2937" opacity="0.9" />
-        <text y="8" textAnchor="middle" className="svg-banner">{d.to_phase === 'recovery' ? 'After the flood: recovery begins' : 'The flood has begun'}</text>
+        <text y="8" textAnchor="middle" className="svg-banner">{d.to_phase === 'recovery' ? tr('After the flood: recovery begins') : tr('The flood has begun')}</text>
       </Pop>;
     case 'water_receded': {
       const z = L.zones.find((zz) => zz.id === ev.zone);
@@ -198,7 +199,7 @@ function renderFx(ev: SimEvent, ctx: Ctx): React.ReactNode {
     case 'residents_returned':
       return <Mover ctx={ctx} pts={route.length ? [...route].reverse() : [sc, zc]}><People n={Math.ceil((d.returned || 10) / 20)} color="#009E73" /></Mover>;
     case 'support_requested':
-      return <Pop ctx={ctx} at={[ (L.canvas?.width ?? 1000) - 120, 40]}><Label text={`Help requested · ETA tick ${d.eta_tick ?? '?'}`} y={0} /></Pop>;
+      return <Pop ctx={ctx} at={[ (L.canvas?.width ?? 1000) - 120, 40]}><Label text={`${tr('Help requested')} · ${tr('ETA tick')} ${d.eta_tick ?? '?'}`} y={0} /></Pop>;
     case 'support_arrived': {
       const sc2 = shelterCenter(L);
       const edge = mapEdgeEntry(L);
@@ -216,16 +217,16 @@ function renderFx(ev: SimEvent, ctx: Ctx): React.ReactNode {
         <circle r="18" fill="none" stroke="#009E73" strokeWidth="3" /></g><Label text="Drains cleared" y={-28} /></Pop>;
     case 'drain_overflow':
       return <g><Rings ctx={ctx} at={zc} color="#0072B2" />
-        <Pop ctx={ctx} at={zc}><Label text={`Drains overflow +${d.extra_cm ?? ''} cm`} tone="warn" y={-34} /></Pop></g>;
+        <Pop ctx={ctx} at={zc}><Label text={`${tr('Drains overflow')} +${d.extra_cm ?? ''} cm`} tone="warn" y={-34} /></Pop></g>;
     case 'dam_release_notice': {
       const at = decorAt(L, 'dam', [80, 300]);
-      return <g><Rings ctx={ctx} at={at} color="#E69F00" /><Pop ctx={ctx} at={at}><Label text={`Dam release at tick ${d.release_tick ?? '?'}`} tone="warn" y={-40} /></Pop></g>;
+      return <g><Rings ctx={ctx} at={at} color="#E69F00" /><Pop ctx={ctx} at={at}><Label text={`${tr('Dam release at tick')} ${d.release_tick ?? '?'}`} tone="warn" y={-40} /></Pop></g>;
     }
     case 'dam_release_started': {
       const at = decorAt(L, 'dam', [80, 300]);
       const c = L.river?.center_path || [at, [500, 300]];
       return <g><path d={pathFrom(c)} fill="none" stroke="#56B4E9" strokeWidth="22" opacity="0.7" className={ctx.reduced ? 'fx-static' : 'fx-flash'} style={style(ctx)} />
-        <Pop ctx={ctx} at={at}><Label text={`Dam releasing +${d.added_cm ?? ''} cm`} tone="danger" y={-40} /></Pop></g>;
+        <Pop ctx={ctx} at={at}><Label text={`${tr('Dam releasing')} +${d.added_cm ?? ''} cm`} tone="danger" y={-40} /></Pop></g>;
     }
     case 'release_staggered': {
       const at = decorAt(L, 'dam', [80, 300]);
@@ -239,7 +240,7 @@ function renderFx(ev: SimEvent, ctx: Ctx): React.ReactNode {
       const at = decorAt(L, 'sea_boats', [800, 560]);
       return <g>{[0, 1, 2].map((i) => (
         <Mover key={i} ctx={{ ...ctx, delay: ctx.delay + i * 250 }} pts={[[at[0] + i * 30, at[1]], depot(L)]}><Boat /></Mover>))}
-        <Pop ctx={ctx} at={depot(L)}><Label text={`${d.boats ?? ''} boats safe in harbour`} y={-30} /></Pop></g>;
+        <Pop ctx={ctx} at={depot(L)}><Label text={`${d.boats ?? ''} ${tr('boats safe in harbour')}`} y={-30} /></Pop></g>;
     }
     case 'cyclone_landfall':
       return <Pop ctx={ctx} at={[(L.canvas?.width ?? 1000) / 2, 120]}>

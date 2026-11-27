@@ -1,0 +1,499 @@
+# Hindi (हिन्दी). Drafted for FloodGuard; native-speaker review welcome.
+# {n1}, {n2}... are numbers; {p1}, {p2}... are names, filled in from the "names" table.
+names:
+  ASHA worker Mamoni: आशा कार्यकर्ता ममोनी
+  ASHA worker Meena: आशा कार्यकर्ता मीना
+  Anita: अनीता
+  Army Transit Camp on the Ridge: पहाड़ी पर सेना ट्रांज़िट कैंप
+  Bay of Bengal: बंगाल की खाड़ी
+  Below Kalindi Dam: कालिंदी बाँध के नीचे
+  Boatman Rafiq: नाविक रफ़ीक़
+  Canal bridge: नहर पुल
+  Canal retaining wall: नहर की सुरक्षा दीवार
+  Central Bund: मध्य बाँध
+  Central bund: मध्य बाँध
+  Central ring bund: मध्य घेरा बाँध
+  Central sea wall: मध्य समुद्री दीवार
+  Central wall: मध्य दीवार
+  Chlorination point: क्लोरीनीकरण केंद्र
+  Circle officer, revenue circle: सर्कल अधिकारी, राजस्व मंडल
+  Civil Defence Volunteer: नागरिक सुरक्षा स्वयंसेवक
+  Coast Guard Petty Officer Joseph: तटरक्षक पेटी ऑफ़िसर जोसेफ़
+  Coast guard liaison: तटरक्षक संपर्क अधिकारी
+  Community Hall: सामुदायिक भवन
+  Community health worker: सामुदायिक स्वास्थ्य कार्यकर्ता
+  Constable Imran: सिपाही इमरान
+  Councillor Fatima: पार्षद फ़ातिमा
+  Cyclone Shelter: चक्रवात आश्रय
+  Cyclone at Machhiwada: मछीवाड़ा में चक्रवात
+  Dam control room liaison: बाँध नियंत्रण कक्ष संपर्क अधिकारी
+  District collector's emergency officer: ज़िला कलेक्टर के आपातकालीन अधिकारी
+  District disaster management officer: ज़िला आपदा प्रबंधन अधिकारी
+  District emergency operations centre: ज़िला आपातकालीन संचालन केंद्र
+  Dr. Chettri: डॉ. छेत्री
+  Dr. Mehta: डॉ. मेहता
+  East Bund: पूर्वी बाँध
+  East Char: पूर्वी चर
+  East Char (Fisher Para): पूर्वी चर (मछुआरा पाड़ा)
+  East bund: पूर्वी बाँध
+  East ring bund: पूर्वी घेरा बाँध
+  East sea wall: पूर्वी समुद्री दीवार
+  East wall: पूर्वी दीवार
+  Elected Village Representative: निर्वाचित ग्राम प्रतिनिधि
+  Elected panchayat president: निर्वाचित पंचायत अध्यक्ष
+  Electricity substation: बिजली सबस्टेशन
+  Fire Officer Raju: अग्निशमन अधिकारी राजू
+  Fire and emergency services: अग्निशमन और आपातकालीन सेवाएँ
+  Fire station: अग्निशमन केंद्र
+  Fisher's wife, Fishing Hamlet: मछुआरे की पत्नी, मछुआरा बस्ती
+  Fishing Hamlet: मछुआरा बस्ती
+  Fishing boats at sea: समुद्र में मछली पकड़ने वाली नावें
+  Fishing harbour: मछली बंदरगाह
+  Gabion river wall: गेबियन नदी दीवार
+  Gaon Burha Hemanta: गाँव बूढ़ा हेमंत
+  Ghat Village: घाट गाँव
+  Ghat Village farmer: घाट गाँव का किसान
+  Ghat boats: घाट की नावें
+  Glacial Lake Burst above Tsomo Valley: त्सोमो घाटी के ऊपर हिमनद झील का फटना
+  Glacial lake: हिमनद झील
+  Gopal: गोपाल
+  Government High School Shelter: सरकारी हाई स्कूल आश्रय
+  Great River: महानदी
+  Health Centre: स्वास्थ्य केंद्र
+  Hill Road Colony: हिल रोड कॉलोनी
+  Hill School: पहाड़ी स्कूल
+  Hilltop School: पहाड़ी की चोटी वाला स्कूल
+  Hydropower Workers' Camp: जलविद्युत मज़दूर शिविर
+  Inspector Lhamu: इंस्पेक्टर ल्हामू
+  Jonali: जोनाली
+  Kalindi Dam: कालिंदी बाँध
+  Kalindi River: कालिंदी नदी
+  'Kamalpur Char: Island in the River': 'कमलपुर चर: नदी में एक द्वीप'
+  Lake View Apartments: लेक व्यू अपार्टमेंट
+  Low Causeway: नीचा पुलिया-मार्ग
+  Low bridge: नीचा पुल
+  Lower gabion wall: निचली गेबियन दीवार
+  Mainland Ghat Village: मुख्य भूमि घाट गाँव
+  Mainland Higher Secondary School: मुख्य भूमि उच्चतर माध्यमिक विद्यालय
+  Mainland School: मुख्य भूमि स्कूल
+  Mainland ghat: मुख्य भूमि घाट
+  Medical Camp: चिकित्सा शिविर
+  Medical camp: चिकित्सा शिविर
+  Medical camp on the platform: चबूतरे पर चिकित्सा शिविर
+  Micro-hydel station: सूक्ष्म जलविद्युत केंद्र
+  Middle gabion wall: बीच की गेबियन दीवार
+  Mohan: मोहन
+  Monastery Hamlet: मठ बस्ती
+  Monastery Prayer Hall: मठ प्रार्थना कक्ष
+  Mother of three, East Char: तीन बच्चों की माँ, पूर्वी चर
+  Mr. Bora: श्री बोरा
+  Mr. Kulkarni: श्री कुलकर्णी
+  Mr. Rao: श्री राव
+  Ms. Desai: सुश्री देसाई
+  Ms. Iyer: सुश्री अय्यर
+  Ms. Rai: सुश्री राय
+  Multi-purpose Cyclone Shelter: बहुउद्देशीय चक्रवात आश्रय
+  Municipal School: नगरपालिका स्कूल
+  Municipal disaster cell officer: नगरपालिका आपदा प्रकोष्ठ अधिकारी
+  Nurse Kavita: नर्स कविता
+  Nurse Thomas: नर्स थॉमस
+  Officer Sunita: अधिकारी सुनीता
+  Panchayat President Dorjee: पंचायत अध्यक्ष दोरजी
+  Pemba: पेम्बा
+  Police and rescue volunteer: पुलिस और बचाव स्वयंसेवक
+  Power Substation: बिजली सबस्टेशन
+  Power substation: बिजली सबस्टेशन
+  Prayer Hall: प्रार्थना कक्ष
+  Primary health centre: प्राथमिक स्वास्थ्य केंद्र
+  Primary health centre doctor: प्राथमिक स्वास्थ्य केंद्र के डॉक्टर
+  Primary health centre nurse: प्राथमिक स्वास्थ्य केंद्र की नर्स
+  Railway underpass: रेलवे अंडरपास
+  Raised Flood Platform: ऊँचा बाढ़ चबूतरा
+  Raised Platform: ऊँचा चबूतरा
+  Relief Supply Depot: राहत आपूर्ति डिपो
+  Relief depot: राहत डिपो
+  Rescue Boat Depot: बचाव नाव डिपो
+  Resident caring for elderly parents: बुज़ुर्ग माता-पिता की देखभाल करने वाले निवासी
+  Ridge Camp: पहाड़ी कैंप
+  Ring bund: घेरा बाँध
+  River Protection Bund: नदी सुरक्षा बाँध
+  River bund: नदी बाँध
+  Riverbank Village Flood Response: नदी किनारे गाँव में बाढ़ राहत
+  Riverside Bazaar: नदी किनारे बाज़ार
+  Road depot: सड़क डिपो
+  SDRF boat volunteer: एसडीआरएफ़ नाव स्वयंसेवक
+  Salt Pan Settlement: नमक क्यारी बस्ती
+  Sarpanch Ganesh: सरपंच गणेश
+  Sarpanch Lakshmi: सरपंच लक्ष्मी
+  Sarpanch Ramesh: सरपंच रमेश
+  Savita: सविता
+  Sea wall: समुद्री दीवार
+  Shopkeeper caring for his grandmother: अपनी दादी की देखभाल करने वाला दुकानदार
+  Solar micro-grid: सौर माइक्रो-ग्रिड
+  State disaster response force: राज्य आपदा प्रतिक्रिया बल
+  Station Market: स्टेशन बाज़ार
+  Storm-water canal: बरसाती पानी की नहर
+  Sub-centre: उप-स्वास्थ्य केंद्र
+  Suspension bridge: झूला पुल
+  Temple Hamlet: मंदिर बस्ती
+  Tributary River: सहायक नदी
+  Tsomo Chu: त्सोमो चू
+  Underpass Colony: अंडरपास कॉलोनी
+  Underpass Colony resident: अंडरपास कॉलोनी निवासी
+  Upper Farms: ऊपरी खेत
+  Upper gabion wall: ऊपरी गेबियन दीवार
+  Urban health centre: शहरी स्वास्थ्य केंद्र
+  Urban health centre doctor: शहरी स्वास्थ्य केंद्र के डॉक्टर
+  Village elder of the char: चर के ग्राम बुज़ुर्ग
+  Village head: ग्राम प्रधान
+  Village head of Ghat Village: घाट गाँव के ग्राम प्रधान
+  Ward 1: वार्ड 1
+  Ward 1 (Lowland Riverside): वार्ड 1 (निचला नदी तट)
+  Ward 14 Flash Flood: वार्ड 14 की अचानक बाढ़
+  Ward 2: वार्ड 2
+  Ward 2 (Market Settlement): वार्ड 2 (बाज़ार बस्ती)
+  Ward 3: वार्ड 3
+  Ward 3 (Highland Ridge): वार्ड 3 (ऊँची पहाड़ी)
+  Ward councillor: वार्ड पार्षद
+  Water Purification Point: जल शुद्धिकरण केंद्र
+  Water filter point: पानी फ़िल्टर केंद्र
+  Water purification point: जल शुद्धिकरण केंद्र
+  Water tanker point: पानी टैंकर केंद्र
+  West Bund: पश्चिमी बाँध
+  West Char: पश्चिमी चर
+  West Char (Weavers' Para): पश्चिमी चर (बुनकर पाड़ा)
+  West bund: पश्चिमी बाँध
+  West ring bund: पश्चिमी घेरा बाँध
+  West sea wall: पश्चिमी समुद्री दीवार
+  West wall: पश्चिमी दीवार
+
+sentences:
+  A cleared road let repair crews reach the substation.: साफ़ की गई सड़क से मरम्मत दल सबस्टेशन तक पहुँच सके।
+  A delivery after the low-stock warning kept the shelter supplied.: कम भंडार की चेतावनी के बाद की गई आपूर्ति से आश्रय में सामान बना रहा।
+  A district convoy arrived with {n1} boats, {n2} trucks, {n3} sandbags and {n4} supply units.: ज़िले का काफ़िला {n1} नावें, {n2} ट्रक, {n3} रेत की बोरियाँ और {n4} आपूर्ति इकाइयाँ लेकर पहुँचा।
+  A medical camp opened beside the shelter to check residents and treat illness.: निवासियों की जाँच और बीमारी के इलाज के लिए आश्रय के पास चिकित्सा शिविर खुला।
+  A medical camp would help them.: चिकित्सा शिविर से उन्हें मदद मिलेगी।
+  A medical camp would let us treat them.: चिकित्सा शिविर से हम उनका इलाज कर सकेंगे।
+  A recall message reached {n1} fishing boats at sea.: वापसी का संदेश समुद्र में {n1} मछली पकड़ने वाली नावों तक पहुँचा।
+  A relief delivery of {n1} supply units reached the shelter.: '{n1} आपूर्ति इकाइयों की राहत खेप आश्रय पहुँची।'
+  A road is open now, so the crews can reach the substation and restore power.: अब एक सड़क खुली है, इसलिए दल सबस्टेशन पहुँचकर बिजली बहाल कर सकते हैं।
+  A slower release added less water at a time, so the river stayed lower.: धीमी निकासी से एक बार में कम पानी आया, इसलिए नदी नीची रही।
+  A water purification point started supplying safe drinking water to the shelter and wards.: जल शुद्धिकरण केंद्र ने आश्रय और वार्डों को सुरक्षित पेयजल देना शुरू किया।
+  Access road to {p1} submerged beneath {n1} cm of water.: '{p1} जाने वाली सड़क {n1} सेमी पानी में डूब गई।'
+  After the flood: बाढ़ के बाद
+  All our teams are deployed.: हमारी सभी टीमें तैनात हैं।
+  Assigned boats and trucks moved people out of this ward.: भेजी गई नावों और ट्रकों ने लोगों को इस वार्ड से बाहर निकाला।
+  Assigned {n1} motorized rescue boat(s) to {p1}.: '{p1} के लिए {n1} मोटर बचाव नाव(ें) भेजी गईं।'
+  Before the flood: बाढ़ से पहले
+  Blocked drains overflowed in {p1}; streets are filling with water.: '{p1} में बंद नालियाँ उफन गईं; गलियों में पानी भर रहा है।'
+  Boats carry {n1} each from {p1}; they stay committed there.: 'हर नाव {p1} से {n1} लोगों को ले जाती है; नावें वहीं लगी रहती हैं।'
+  Boats need time to reach the harbour; recalling them early keeps crews safe.: नावों को बंदरगाह पहुँचने में समय लगता है; जल्दी वापस बुलाने से दल सुरक्षित रहते हैं।
+  Boats, trucks and relief arrive after {n1} ticks; it can be requested only once.: 'नावें, ट्रक और राहत {n1} टर्न बाद पहुँचते हैं; यह केवल एक बार माँगी जा सकती है।'
+  Brings the health centre and water pumps back; needs one cleared road.: 'स्वास्थ्य केंद्र और पानी के पंप फिर चालू होते हैं; एक साफ़ सड़क चाहिए।'
+  'CASUALTIES REPORTED: Severe flooding ({n1} cm) stranded residents in {p1}! {n2} casualties reported.': 'हताहतों की सूचना: भीषण बाढ़ ({n1} सेमी) में {p1} के निवासी फँस गए! {n2} लोग हताहत हुए।'
+  'CRITICAL BREACH: Embankment barrier collapsed under intense hydraulic pressure!': 'गंभीर दरार: पानी के भारी दबाव से तटबंध टूट गया!'
+  Check the After-Action Report.: कार्य-पश्चात रिपोर्ट देखें।
+  'Civil authorities activated evacuation protocols: Mandatory evacuation ordered for {p1}.': 'प्रशासन ने निकासी प्रक्रिया शुरू की: {p1} के लिए अनिवार्य निकासी का आदेश दिया गया।'
+  Clean water is already being provided.: साफ़ पानी पहले से दिया जा रहा है।
+  Clean water removed the main source of illness.: साफ़ पानी से बीमारी का मुख्य स्रोत हट गया।
+  Clear at least one road first.: पहले कम से कम एक सड़क साफ़ करें।
+  Clear drains let rainwater run off instead of filling the streets.: साफ़ नालियों से बारिश का पानी गलियों में भरने के बजाय बह गया।
+  Clear it first.: पहले इसे साफ़ करें।
+  Consultation held with character '{p1}'.: '{p1} से बातचीत हुई।'
+  Could not determine action from '{q1}'.: '"{q1}" से कौन-सा आदेश है, यह समझ नहीं आया।'
+  Crews cleared debris from the road to {p1}.: '{p1} जाने वाली सड़क से दलों ने मलबा हटाया।'
+  Crews laid {n1} sandbags.: दलों ने {n1} रेत की बोरियाँ लगाईं।
+  Crews still at sea when the cyclone hits cannot be reached.: चक्रवात आने पर समुद्र में मौजूद दलों तक पहुँचा नहीं जा सकता।
+  'Damage survey: Engineers surveyed {p1}: {n1} of {n2} houses damaged; the water had reached {n3} cm.': 'नुकसान सर्वे: इंजीनियरों ने {p1} का सर्वे किया: {n2} में से {n1} घर क्षतिग्रस्त; पानी {n3} सेमी तक पहुँचा था।'
+  Debris blocks the road to {p1}.: '{p1} जाने वाली सड़क मलबे से बंद है।'
+  'Defensive engineering: Crews laid {n1} sandbags.': 'सुरक्षा कार्य: दलों ने {n1} रेत की बोरियाँ लगाईं।'
+  Depth reached {n1} cm.: गहराई {n1} सेमी तक पहुँची।
+  Disease risk is down to {n1}.: बीमारी का ख़तरा घटकर {n1} रह गया है।
+  Disease risk is {n1} out of {n2} and rises each tick without clean water.: बीमारी का ख़तरा {n2} में से {n1} है और साफ़ पानी के बिना हर टर्न बढ़ता है।
+  Disease risk is {n1} out of {n2}; clean water comes first.: 'बीमारी का ख़तरा {n2} में से {n1} है; पहले साफ़ पानी ज़रूरी है।'
+  Disease risk started to fall.: बीमारी का ख़तरा घटने लगा।
+  Disease risk stayed below the high mark (peak {n1}).: बीमारी का ख़तरा ऊँचे स्तर से नीचे रहा (अधिकतम {n1})।
+  Dispatched {n1} transport truck(s) to {p1}.: '{p1} के लिए {n1} परिवहन ट्रक भेजे गए।'
+  During the flood: बाढ़ के दौरान
+  Electricity let the health centre reopen.: बिजली आने से स्वास्थ्य केंद्र फिर खुल गया।
+  Embankment barrier collapsed under intense hydraulic pressure!: पानी के भारी दबाव से तटबंध टूट गया!
+  Embankment has already suffered a catastrophic breach.: तटबंध पहले ही बुरी तरह टूट चुका है।
+  Embankment height raised to {n1} cm (integrity {n2}%).: तटबंध की ऊँचाई {n1} सेमी की गई (मज़बूती {n2}%)।
+  'Engineers surveyed {p1}: {n1} of {n2} houses damaged; the water had reached {n3} cm.': 'इंजीनियरों ने {p1} का सर्वे किया: {n2} में से {n1} घर क्षतिग्रस्त; पानी {n3} सेमी तक पहुँचा था।'
+  Evacuated {n1} residents from {p1} to safety.: '{p1} से {n1} निवासियों को सुरक्षित निकाला गया।'
+  'Evacuation progress: Evacuated {n1} residents from {p1} to safety.': 'निकासी की प्रगति: {p1} से {n1} निवासियों को सुरक्षित निकाला गया।'
+  'FLOOD WARNING: Water breached into {p1}.': 'बाढ़ चेतावनी: पानी {p1} में घुस गया।'
+  Families are still stranded in {p1}.: '{p1} में परिवार अभी भी फँसे हैं।'
+  Families from {p1} cannot return until houses are checked.: '{p1} के परिवार घरों की जाँच होने तक लौट नहीं सकते।'
+  'Final Community Resilience Score: {n1}/{n2}.': 'अंतिम सामुदायिक लचीलापन अंक: {n1}/{n2}।'
+  'Final Outcome: Simulation ended.': 'अंतिम परिणाम: सिमुलेशन समाप्त हुआ।'
+  Flood depth above the road cut-off blocks trucks.: सड़क की सीमा से अधिक बाढ़ का पानी ट्रकों को रोक देता है।
+  Floodwater has drained from {p1}.: '{p1} से बाढ़ का पानी उतर गया है।'
+  Floodwaters overtopped embankment crest by {n1} cm!: बाढ़ का पानी तटबंध के ऊपर से {n1} सेमी बह गया!
+  Gives {n1} places; nobody can be evacuated until a shelter is open.: '{n1} जगहें मिलती हैं; आश्रय खुलने तक किसी को निकाला नहीं जा सकता।'
+  'HAZARD: Floodwaters overtopped embankment crest by {n1} cm!': 'ख़तरा: बाढ़ का पानी तटबंध के ऊपर से {n1} सेमी बह गया!'
+  'Health alert: Waterborne disease risk rose to {n1} out of {n2}.': 'स्वास्थ्य चेतावनी: जलजनित बीमारी का ख़तरा {n2} में से {n1} तक बढ़ा।'
+  'Health alert: {n1} residents reported stomach illness linked to unsafe water.': 'स्वास्थ्य चेतावनी: {n1} निवासियों को असुरक्षित पानी से पेट की बीमारी हुई।'
+  Health checks at the camp stopped illness from taking hold.: शिविर की स्वास्थ्य जाँच से बीमारी फैलने से रुकी।
+  High disease risk with no medical camp led to reported illness.: चिकित्सा शिविर न होने और बीमारी के ऊँचे ख़तरे से लोग बीमार पड़े।
+  Houses were checked before families moved back.: परिवारों के लौटने से पहले घरों की जाँच हुई।
+  'Hydrology monitor: the river is at {n1} cm.': 'जल-स्तर निगरानी: नदी {n1} सेमी पर है।'
+  I can send a convoy with boats, trucks and relief.: मैं नावों, ट्रकों और राहत के साथ काफ़िला भेज सकती हूँ।
+  Insufficient boats available.: पर्याप्त नावें उपलब्ध नहीं हैं।
+  Insufficient sandbags.: पर्याप्त रेत की बोरियाँ नहीं हैं।
+  Insufficient vehicles available.: पर्याप्त वाहन उपलब्ध नहीं हैं।
+  Integrity down to {n1}%.: मज़बूती घटकर {n1}% रह गई।
+  It takes {n1} ticks to arrive, so ask early.: 'पहुँचने में {n1} टर्न लगते हैं, इसलिए जल्दी माँगें।'
+  Keep the water point and the camp running.: पानी केंद्र और शिविर चालू रखें।
+  Less street water collected in {p1}.: '{p1} में गलियों में कम पानी भरा।'
+  'Logistics update: Assigned {n1} motorized rescue boat(s) to {p1}.': 'रसद अपडेट: {p1} के लिए {n1} मोटर बचाव नाव(ें) भेजी गईं।'
+  'Logistics update: Dispatched {n1} transport truck(s) to {p1}.': 'रसद अपडेट: {p1} के लिए {n1} परिवहन ट्रक भेजे गए।'
+  Lowers the extra water from the release at tick {n1} but keeps the river high for longer.: टर्न {n1} की निकासी का अतिरिक्त पानी कम होता है, पर नदी ज़्यादा देर ऊँची रहती है।
+  Mandatory evacuation ordered for {p1}.: '{p1} के लिए अनिवार्य निकासी का आदेश दिया गया।'
+  Municipal crews cleared blocked drains in {p1}.: '{p1} में नगरपालिका दलों ने बंद नालियाँ साफ़ कीं।'
+  'New phase: The river fell to {n1} cm after the peak.': 'नया चरण: चरम के बाद नदी {n1} सेमी तक उतर गई।'
+  'New phase: The river reached {n1} cm and water is entering homes.': 'नया चरण: नदी {n1} सेमी तक पहुँची और पानी घरों में घुस रहा है।'
+  No boats are left in reserve.: कोई नाव आरक्षित नहीं बची।
+  No boats were assigned to {p1} while water there was {n1} cm or deeper.: '{p1} में पानी {n1} सेमी या उससे गहरा था, फिर भी वहाँ कोई नाव नहीं भेजी गई।'
+  No new illness was reported while the camp was running.: शिविर चलते समय कोई नई बीमारी नहीं हुई।
+  No open shelter has space for rescued residents.: बचाए गए निवासियों के लिए किसी खुले आश्रय में जगह नहीं है।
+  No residents from {p1} are waiting in the shelter.: '{p1} का कोई निवासी आश्रय में प्रतीक्षा नहीं कर रहा।'
+  No shelter is open to receive supplies.: आपूर्ति लेने के लिए कोई आश्रय खुला नहीं है।
+  No stranded residents remain in {p1}.: '{p1} में कोई फँसा हुआ निवासी नहीं बचा।'
+  No supply deliveries are left in reserve.: कोई आपूर्ति खेप आरक्षित नहीं बची।
+  No vehicles are left in reserve.: कोई वाहन आरक्षित नहीं बचा।
+  Once the water is shallow my crews can clear it.: पानी उथला होते ही मेरे दल इसे साफ़ कर देंगे।
+  Open the shelter first.: पहले आश्रय खोलें।
+  Opens {p1} for repair crews and for residents going home.: '{p1} मरम्मत दलों और घर लौटते निवासियों के लिए खुलता है।'
+  Outside help takes time; asking early means it arrives while it is still useful.: 'बाहरी मदद में समय लगता है; जल्दी माँगने से वह तब पहुँचती है जब उसकी ज़रूरत हो।'
+  People in the shelter are worried about the drinking water.: आश्रय में लोग पीने के पानी को लेकर चिंतित हैं।
+  'Please choose one of the available operations:': 'कृपया उपलब्ध कार्यों में से एक चुनें:'
+  Please order an evacuation before the water rises further.: कृपया पानी और बढ़ने से पहले निकासी का आदेश दें।
+  Please send help for them first.: कृपया पहले उनके लिए मदद भेजें।
+  Power is already on.: बिजली पहले से चालू है।
+  'Priority evacuation: {n1} vulnerable individuals from {p1} reached secure shelter.': 'प्राथमिकता निकासी: {p1} के {n1} कमज़ोर लोग सुरक्षित आश्रय पहुँचे।'
+  Providing clean water early kept illness from spreading.: जल्दी साफ़ पानी देने से बीमारी नहीं फैली।
+  Public flood warning broadcast to all community zones.: सभी इलाक़ों में बाढ़ की सार्वजनिक चेतावनी प्रसारित की गई।
+  'Public health: A medical camp opened beside the shelter to check residents and treat illness.': 'जन स्वास्थ्य: निवासियों की जाँच और इलाज के लिए आश्रय के पास चिकित्सा शिविर खुला।'
+  'Public health: A water purification point started supplying safe drinking water to the shelter and wards.': 'जन स्वास्थ्य: जल शुद्धिकरण केंद्र ने आश्रय और वार्डों को सुरक्षित पेयजल देना शुरू किया।'
+  Raises the bund by about {n1} cm (forecast peak {n2} cm); {n3} sandbags in stock.: 'बाँध लगभग {n1} सेमी ऊँचा होता है (अनुमानित चरम {n2} सेमी); भंडार में {n3} रेत की बोरियाँ।'
+  Recovery actions become available once the floodwater recedes below the danger level after the peak.: चरम के बाद पानी ख़तरे के स्तर से नीचे आने पर ही पुनर्वास कार्य उपलब्ध होते हैं।
+  'Recovery: Floodwater has drained from {p1}.': 'पुनर्वास: {p1} से बाढ़ का पानी उतर गया है।'
+  Reduces street water in {p1}; {n1} crew(s) left.: '{p1} में गलियों का पानी घटता है; {n1} दल बचे हैं।'
+  'Relief infrastructure online: Shelter ''{p1}'' officially opened with intake capacity of {n1}.': 'राहत व्यवस्था चालू: आश्रय "{p1}" {n1} लोगों की क्षमता के साथ खुला।'
+  'Relief logistics: A relief delivery of {n1} supply units reached the shelter.': 'राहत रसद: {n1} आपूर्ति इकाइयों की खेप आश्रय पहुँची।'
+  Repair crews cannot reach the substation yet.: मरम्मत दल अभी सबस्टेशन तक नहीं पहुँच सकते।
+  Repair crews restored electricity from the substation.: मरम्मत दलों ने सबस्टेशन से बिजली बहाल की।
+  'Repairs: Crews cleared debris from the road to {p1}.': 'मरम्मत: {p1} जाने वाली सड़क से मलबा हटाया गया।'
+  'Repairs: Repair crews restored electricity from the substation.': 'मरम्मत: मरम्मत दलों ने सबस्टेशन से बिजली बहाल की।'
+  'Repairs: With power back, the village health centre reopened.': 'मरम्मत: बिजली लौटने पर गाँव का स्वास्थ्य केंद्र फिर खुला।'
+  Requested {n1}, available {n2}.: 'माँगे {n1}, उपलब्ध {n2}।'
+  Rescue priority activated for vulnerable residents in {p1}.: '{p1} के कमज़ोर निवासियों के लिए बचाव प्राथमिकता चालू की गई।'
+  Residents left in deep water without boats were at risk.: बिना नावों के गहरे पानी में छोड़े गए निवासी ख़तरे में थे।
+  'Returning home: {n1} residents of {p1} returned home from the shelter.': 'घर वापसी: {p1} के {n1} निवासी आश्रय से घर लौटे।'
+  River water level reached {n1} cm.: नदी का जल-स्तर {n1} सेमी तक पहुँचा।
+  Road to {p1} is submerged.: '{p1} जाने वाली सड़क डूबी हुई है।'
+  Roads and power are in order.: सड़कें और बिजली ठीक हैं।
+  Roads into low areas are dangerous now.: निचले इलाक़ों की सड़कें अब ख़तरनाक हैं।
+  Running out of supplies during the flood lowered community trust going into recovery.: बाढ़ के दौरान आपूर्ति ख़त्म होने से पुनर्वास के समय समुदाय का भरोसा घटा।
+  Sandbags cannot contain this flood volume.: रेत की बोरियाँ इतना पानी नहीं रोक सकतीं।
+  Sandbags laid before the peak raised the bund and kept it from collapsing.: चरम से पहले लगाई गई बोरियों ने बाँध ऊँचा किया और उसे टूटने से बचाया।
+  'Search and rescue: Search teams rescued {n1} stranded residents from {p1} and brought them to the shelter.': 'खोज और बचाव: दलों ने {p1} से {n1} फँसे निवासियों को बचाकर आश्रय पहुँचाया।'
+  Search teams reached people the evacuation had missed.: खोज दल उन लोगों तक पहुँचे जो निकासी में छूट गए थे।
+  Search teams rescued {n1} stranded residents from {p1} and brought them to the shelter.: 'खोज दलों ने {p1} से {n1} फँसे निवासियों को बचाकर आश्रय पहुँचाया।'
+  Send search and rescue teams before anything else.: सबसे पहले खोज और बचाव दल भेजें।
+  Send them to {p1}, where trucks can no longer get through.: 'उन्हें {p1} भेजें, जहाँ ट्रक अब नहीं जा सकते।'
+  'Severe flooding ({n1} cm) stranded residents in {p1}! {n2} casualties reported.': 'भीषण बाढ़ ({n1} सेमी) में {p1} के निवासी फँस गए! {n2} लोग हताहत हुए।'
+  Shelter '{p1}' is already open and receiving evacuees.: 'आश्रय "{p1}" पहले से खुला है और लोगों को ले रहा है।'
+  Shelter '{p1}' officially opened with intake capacity of {n1}.: 'आश्रय "{p1}" {n1} लोगों की क्षमता के साथ खुला।'
+  'Shelter notice: Shelter supplies are running low: {n1} units left.': 'आश्रय सूचना: आश्रय में सामान कम हो रहा है: {n1} इकाइयाँ बचीं।'
+  'Shelter notice: The shelter ran out of food and essentials for its {n1} residents.': 'आश्रय सूचना: आश्रय में {n1} लोगों के लिए खाना और ज़रूरी सामान ख़त्म हो गया।'
+  Shelter stock is {n1} units for {n2} people; {n3} deliveries left.: 'आश्रय में {n2} लोगों के लिए {n1} इकाइयाँ हैं; {n3} खेपें बचीं।'
+  'Shelter supplies are running low: {n1} units left.': 'आश्रय में सामान कम हो रहा है: {n1} इकाइयाँ बचीं।'
+  Simulation ended.: सिमुलेशन समाप्त हुआ।
+  Simulation finished.: सिमुलेशन पूरा हुआ।
+  Sirens and loudspeaker broadcasts echoed across the riverbank.: नदी किनारे सायरन और लाउडस्पीकर की घोषणाएँ गूँजीं।
+  Some neighbours have stomach illness.: कुछ पड़ोसियों को पेट की बीमारी है।
+  Standing floodwater set the starting disease risk to {n1} out of {n2}.: रुके हुए बाढ़ के पानी से बीमारी का शुरुआती ख़तरा {n2} में से {n1} हुआ।
+  Status quo maintained; observation period elapsed.: 'स्थिति जस की तस; निगरानी का समय बीता।'
+  Stock is now {n1} units.: भंडार अब {n1} इकाइयाँ है।
+  Strong winds cut power across the village.: तेज़ हवाओं से पूरे गाँव की बिजली कट गई।
+  Support is already on its way and should arrive at tick {n1}.: मदद रास्ते में है और टर्न {n1} पर पहुँचनी चाहिए।
+  Survey {p1} before anyone returns.: 'किसी के लौटने से पहले {p1} का सर्वे करें।'
+  That order does not apply in this scenario.: यह आदेश इस कहानी में लागू नहीं होता।
+  The breach flooded more homes and left the village without power when recovery began.: दरार से और घर डूबे और पुनर्वास शुरू होने पर गाँव में बिजली नहीं थी।
+  The clean water point is helping.: साफ़ पानी केंद्र मदद कर रहा है।
+  The convoy had not arrived when the story ended.: कहानी ख़त्म होने तक काफ़िला नहीं पहुँचा था।
+  The convoy is on its way and should arrive at tick {n1}.: काफ़िला रास्ते में है और टर्न {n1} पर पहुँचना चाहिए।
+  The cyclone made landfall.: चक्रवात तट से टकराया।
+  The dam authority agreed to release water more slowly over a longer period.: बाँध प्राधिकरण ने लंबे समय में धीरे-धीरे पानी छोड़ने पर सहमति दी।
+  The dam authority announced a water release starting at tick {n1}.: बाँध प्राधिकरण ने टर्न {n1} से पानी छोड़ने की घोषणा की।
+  The dam release began, adding {n1} cm to the river.: बाँध से पानी छोड़ना शुरू हुआ, नदी {n1} सेमी बढ़ी।
+  The disease risk is {n1} out of {n2}.: बीमारी का ख़तरा {n2} में से {n1} है।
+  The district has no more support to send.: ज़िले के पास भेजने को और मदद नहीं है।
+  The district promised outside help; it should arrive in {n1} ticks.: 'ज़िले ने बाहरी मदद का वादा किया; यह {n1} टर्न में पहुँचनी चाहिए।'
+  The early warning made residents more willing to leave when transport arrived.: जल्दी दी गई चेतावनी से वाहन आने पर लोग जाने को ज़्यादा तैयार थे।
+  The elderly people here cannot walk through it.: यहाँ के बुज़ुर्ग इसमें से चलकर नहीं जा सकते।
+  The embankment held (integrity {n1}%).: तटबंध टिका रहा (मज़बूती {n1}%)।
+  The fishing boats have already been recalled.: मछली पकड़ने वाली नावें पहले ही वापस बुला ली गई हैं।
+  The fishing boats were not recalled before landfall.: चक्रवात टकराने से पहले नावें वापस नहीं बुलाई गईं।
+  The flood phase has begun.: बाढ़ का चरण शुरू हो गया है।
+  The flood response phase is over; the water is receding.: 'बाढ़ राहत का चरण ख़त्म; पानी उतर रहा है।'
+  The full release arrived at once on top of a river that was already high.: पहले से ऊँची नदी पर पूरा पानी एक साथ आ गया।
+  The medical camp is already running.: चिकित्सा शिविर पहले से चल रहा है।
+  The medical camp treated cases before they spread.: चिकित्सा शिविर ने बीमारी फैलने से पहले इलाज किया।
+  The medical camp treated {n1} residents.: चिकित्सा शिविर ने {n1} निवासियों का इलाज किया।
+  The recovery phase has begun; power is out and roads are blocked by debris.: 'पुनर्वास चरण शुरू हुआ; बिजली गुल है और सड़कें मलबे से बंद हैं।'
+  The river fell to {n1} cm after the peak.: चरम के बाद नदी {n1} सेमी तक उतर गई।
+  The river reached {n1} cm and water is entering homes.: नदी {n1} सेमी तक पहुँची और पानी घरों में घुस रहा है।
+  The road to {p1} is blocked by debris.: '{p1} जाने वाली सड़क मलबे से बंद है।'
+  The road to {p1} is not blocked.: '{p1} जाने वाली सड़क बंद नहीं है।'
+  The road to {p1} is still under {n1} cm of water.: '{p1} जाने वाली सड़क अभी भी {n1} सेमी पानी में है।'
+  The shelter ran out of food and essentials for its {n1} residents.: आश्रय में {n1} लोगों के लिए खाना और ज़रूरी सामान ख़त्म हो गया।
+  The water is already at {n1} cm and families in {p1} are exposed.: 'पानी पहले ही {n1} सेमी पर है और {p1} के परिवार ख़तरे में हैं।'
+  The water is still climbing.: पानी अब भी बढ़ रहा है।
+  They should be moved early, before roads close.: सड़कें बंद होने से पहले उन्हें जल्दी हटाना चाहिए।
+  This simulation session has already completed.: यह सिमुलेशन पहले ही पूरा हो चुका है।
+  'URGENT: Access road to {p1} submerged beneath {n1} cm of water.': 'तत्काल: {p1} जाने वाली सड़क {n1} सेमी पानी में डूब गई।'
+  Uncontrolled inundation.: अनियंत्रित जलभराव।
+  Use recovery actions such as search and rescue, clean water or clearing roads.: खोज और बचाव, साफ़ पानी या सड़क साफ़ करने जैसे पुनर्वास कार्य करें।
+  Use the resources wisely.: संसाधनों का समझदारी से उपयोग करें।
+  Warned residents are far more willing to leave; it uses this turn only.: 'चेतावनी पाए लोग जाने को कहीं ज़्यादा तैयार होते हैं; इसमें केवल यह टर्न लगता है।'
+  Water breached into {p1}.: '{p1} में पानी घुस गया।'
+  Water is coming into our homes in {p1}.: '{p1} में हमारे घरों में पानी आ रहा है।'
+  Waterborne disease risk rose to {n1} out of {n2}.: जलजनित बीमारी का ख़तरा {n2} में से {n1} तक बढ़ा।
+  We are packing our documents and waiting for instructions.: हम अपने दस्तावेज़ बाँध रहे हैं और निर्देशों का इंतज़ार कर रहे हैं।
+  We have sent everything we can.: हमने जो कुछ भेज सकते थे, भेज दिया है।
+  We have {n1} boat(s) ready.: हमारे पास {n1} नाव(ें) तैयार हैं।
+  We just want to go home safely when our area is ready.: हम बस इतना चाहते हैं कि इलाक़ा तैयार होने पर सुरक्षित घर लौटें।
+  We must open {p1} now.: 'हमें अभी {p1} खोलना होगा।'
+  We need enough food and clean water there, and the vulnerable must be checked first.: वहाँ पर्याप्त खाना और साफ़ पानी चाहिए, और कमज़ोर लोगों की पहले जाँच होनी चाहिए।
+  We need the damage figures for compensation.: मुआवज़े के लिए हमें नुकसान के आँकड़े चाहिए।
+  We should lay sandbags; we have {n1} ready.: 'हमें रेत की बोरियाँ लगानी चाहिए; हमारे पास {n1} तैयार हैं।'
+  We still have {n1} supply deliveries at the depot.: डिपो में अभी {n1} आपूर्ति खेपें बची हैं।
+  Wells and pipes are contaminated.: कुएँ और पाइप दूषित हैं।
+  Wheeled transport blocked.: पहियों वाले वाहन रुके।
+  Wheeled vehicles cannot safely traverse.: पहियों वाले वाहन सुरक्षित नहीं गुज़र सकते।
+  Wheeled vehicles could no longer reach {p1}; only boats could.: 'पहियों वाले वाहन अब {p1} नहीं पहुँच सकते थे; केवल नावें पहुँच सकती थीं।'
+  Which area's drains should be cleared?: किस इलाक़े की नालियाँ साफ़ करनी हैं?
+  Which ward should engineers survey?: इंजीनियर किस वार्ड का सर्वे करें?
+  Which ward should receive the mandatory evacuation order?: किस वार्ड को अनिवार्य निकासी का आदेश दिया जाए?
+  Which ward should the search and rescue teams go to?: खोज और बचाव दल किस वार्ड में जाएँ?
+  Which ward's residents should return home?: किस वार्ड के निवासी घर लौटें?
+  Which ward's road should be cleared?: किस वार्ड की सड़क साफ़ की जाए?
+  Which zone should the boat(s) be dispatched to?: नाव(ें) किस इलाक़े में भेजी जाएँ?
+  With power back, the village health centre reopened.: बिजली लौटने पर गाँव का स्वास्थ्य केंद्र फिर खुला।
+  With the shelter open, evacuees had a safe place to go.: आश्रय खुला होने से निकाले गए लोगों के पास जाने की सुरक्षित जगह थी।
+  Without clean water, waterborne disease risk kept rising.: साफ़ पानी के बिना जलजनित बीमारी का ख़तरा बढ़ता रहा।
+  Zone '{p1}' has no remaining population to evacuate.: '"{p1}" में निकालने के लिए कोई नहीं बचा।'
+  Zone '{p1}' has no residents awaiting transport.: '"{p1}" में कोई निवासी वाहन का इंतज़ार नहीं कर रहा।'
+  Zone '{p1}' has no vulnerable individuals awaiting evacuation.: '"{p1}" में कोई कमज़ोर व्यक्ति निकासी का इंतज़ार नहीं कर रहा।'
+  '{n1} boats need about {n2} ticks to return; landfall is at tick {n3}.': '{n1} नावों को लौटने में लगभग {n2} टर्न लगते हैं; चक्रवात टर्न {n3} पर टकराएगा।'
+  '{n1} fishers were still at sea when the cyclone hit and are missing.': 'चक्रवात टकराते समय {n1} मछुआरे समुद्र में थे और लापता हैं।'
+  '{n1} fishing boats reached the harbour safely.': '{n1} मछली पकड़ने वाली नावें सुरक्षित बंदरगाह पहुँचीं।'
+  '{n1} people are ill now; the camp also slows the spread of disease.': 'अभी {n1} लोग बीमार हैं; शिविर बीमारी का फैलाव भी धीमा करता है।'
+  '{n1} people are in shelters now.': 'अभी {n1} लोग आश्रयों में हैं।'
+  '{n1} people are stranded in {p1}.': '{p1} में {n1} लोग फँसे हैं।'
+  '{n1} people from {p1} can go home, easing the crowded shelter.': '{p1} के {n1} लोग घर जा सकते हैं, जिससे भीड़ भरे आश्रय को राहत मिलेगी।'
+  '{n1} people have untreated illness.': '{n1} लोगों की बीमारी का इलाज नहीं हुआ है।'
+  '{n1} people in {p1}; the water is forecast to reach {n2} cm against ground at {n3} cm.': '{p1} में {n1} लोग; ज़मीन {n3} सेमी पर है और पानी {n2} सेमी तक पहुँचने का अनुमान है।'
+  '{n1} residents of {p1} returned home from the shelter.': '{p1} के {n1} निवासी आश्रय से घर लौटे।'
+  '{n1} residents reported stomach illness linked to unsafe water.': '{n1} निवासियों को असुरक्षित पानी से पेट की बीमारी हुई।'
+  '{n1} stranded residents reached the shelter.': '{n1} फँसे निवासी आश्रय पहुँचे।'
+  '{n1} truck(s) are free while the roads are still open.': 'सड़कें खुली रहने तक {n1} ट्रक ख़ाली हैं।'
+  '{n1} truck(s) carry {n2} each while the road is dry; they stop once it floods.': 'सड़क सूखी रहने तक {n1} ट्रक, हर एक {n2} लोगों को ले जाता है; पानी भरते ही वे रुक जाते हैं।'
+  '{n1} vulnerable individuals from {p1} reached secure shelter.': '{p1} के {n1} कमज़ोर लोग सुरक्षित आश्रय पहुँचे।'
+  '{n1} vulnerable residents are still at home.': '{n1} कमज़ोर निवासी अभी भी घर पर हैं।'
+  '{n1} vulnerable residents in {p1} move first; others wait a little longer.': '{p1} के {n1} कमज़ोर निवासी पहले जाते हैं; बाक़ी थोड़ा और रुकते हैं।'
+  '{n1} ward(s) had been flooded.': '{n1} वार्ड डूब चुके थे।'
+  '{p1} has already been surveyed.': '{p1} का सर्वे पहले ही हो चुका है।'
+  '{p1} is still under {n1} cm of water.': '{p1} अभी भी {n1} सेमी पानी में है।'
+  '{p1} must have a damage survey before residents return.': 'निवासियों के लौटने से पहले {p1} का नुकसान सर्वे ज़रूरी है।'
+  '{p1} needs clear direction.': '{p1} को स्पष्ट निर्देश चाहिए।'
+  '{p1} stayed dry; its residents are safe at home and need no rescue.': '{p1} सूखा रहा; वहाँ के निवासी घर पर सुरक्षित हैं और उन्हें बचाव की ज़रूरत नहीं।'
+  '{p1} was not flooded; no damage survey is needed.': '{p1} में बाढ़ नहीं आई; नुकसान सर्वे की ज़रूरत नहीं।'
+  '{p1}: The medical camp treated {n1} residents.': '{p1}: चिकित्सा शिविर ने {n1} निवासियों का इलाज किया।'
+
+scenarios:
+  cyclone-surge-01:
+    name: मछीवाड़ा में चक्रवात
+    hazard_label: चक्रवाती तूफ़ानी लहर
+    hook: चक्रवात कुछ घंटों में टकराएगा, मछली पकड़ने वाली नावें अभी समुद्र में हैं और चक्रवात आश्रय में सबके लिए जगह नहीं है।
+    description: एक भीषण चक्रवात मछुआरों के गाँव की ओर बढ़ रहा है। तूफ़ानी लहर समुद्र को समुद्री दीवार के ऊपर धकेल देगी। चक्रवात टकराने से पहले लोगों को निकालें, नावों को वापस बुलाएँ और भीड़ भरे चक्रवात आश्रय को सँभालें।
+    npcs:
+      village_head: हमारी आठ नावें चेतावनी से पहले निकल गई थीं। उनके परिवार किनारे पर पूछ रहे हैं कि क्या करें।
+      rescue_worker: हम रेडियो से मछुआरों से संपर्क कर सकते हैं, पर उन्हें बंदरगाह लौटने में लगभग डेढ़ घंटा लगेगा।
+      family_member: मेरे पति अभी समुद्र में हैं और मेरे ससुर बिस्तर पर हैं। मैं दोनों को नहीं छोड़ सकती।
+      health_worker: चक्रवात आश्रय में बहुत भीड़ हो जाती है। हमें साफ़ पानी और चिकित्सा शिविर की योजना बनानी चाहिए।
+      district_official: राज्य नावें और राहत भेज सकता है, पर हवा तेज़ होते ही सड़कें कट जाएँगी।
+  dam-release-01:
+    name: कालिंदी बाँध के नीचे
+    hazard_label: बाँध से पानी की निकासी
+    hook: बाँध को कुछ घंटों में पानी छोड़ना होगा। क्या आप हर गाँव को समय पर चेता सकते हैं और निकासी धीमी करवा सकते हैं?
+    description: ऊपर भारी बारिश के कारण कालिंदी बाँध से तय निकासी होनी है। नीचे नदी पहले से ऊँची है। समय और हर गाँव तक संदेश पहुँचाना ही परिणाम तय करेगा।
+    npcs:
+      village_head: यहाँ कई परिवार नदी किनारे खेती करते हैं। अगर बाँध बिना सूचना खुला, तो वे खेतों में फँस जाएँगे।
+      rescue_worker: घाट पर हमारी तीन नावें और दो जीपें हैं। मंदिर बस्ती जाने वाला नीचा पुल जल्दी डूब जाता है।
+      family_member: मेरी माँ ज़्यादा दूर नहीं चल सकतीं। क्या पानी आने से पहले कोई हमें बताएगा?
+      health_worker: मुझे पता है किन घरों में बुज़ुर्ग और गर्भवती महिलाएँ हैं। उन्हें पहले हटाना होगा।
+      district_official: बाँध सुरक्षित रखने के लिए इंजीनियरों को पानी छोड़ना ही होगा। अगर हम जल्दी कहें तो वे धीरे-धीरे छोड़ने पर राज़ी हो सकते हैं।
+  glacial-lake-01:
+    name: त्सोमो घाटी के ऊपर हिमनद झील का फटना
+    hazard_label: हिमनद झील का फटना
+    hook: घाटी के ऊपर झील के सेंसर ने अभी अलार्म दिया है। पानी और पत्थरों की लहर आने में लगभग दो घंटे हैं।
+    description: पहाड़ी घाटी के ऊपर हिमनद झील के सेंसर चेता रहे हैं कि उसकी मोरेन दीवार टूट सकती है। अगर झील फटी, तो पानी और मलबे की दीवार कुछ घंटों में घाटी तक पहुँचेगी। कम समय में सबको ऊपर ले जाएँ, फिर घाटी को दोबारा खोलें।
+    npcs:
+      village_head: दुकानदार कह रहे हैं कि नदी बस थोड़ी ऊँची है। जब तक चेतावनी साफ़ और ज़ोरदार न हो, वे बाज़ार बंद नहीं करेंगे।
+      rescue_worker: चार ट्रक, एक रबर की नाव। मलबे की लहर में नाव बेकार है; सड़क रहने तक ट्रक ही हमारा सहारा हैं।
+      family_member: मेरी दादी नब्बे साल की हैं और मठ की सीढ़ियाँ नहीं चढ़ सकतीं। कृपया बुज़ुर्गों के लिए पहले गाड़ी भेजें।
+      health_worker: पहाड़ी पर ठंडी रातें बच्चों और बुज़ुर्गों के लिए कठिन होंगी। हमें कंबल, साफ़ पानी और चिकित्सा शिविर चाहिए।
+      district_official: झील के सेंसर ने अलार्म भेजा है। मोबाइल अलर्ट तैयार है, पर सायरन बजाने का फ़ैसला आपका है।
+  river-island-01:
+    name: 'कमलपुर चर: नदी में एक द्वीप'
+    hazard_label: नदी द्वीप बाढ़
+    hook: बढ़ती नदी के बीच रेत के टापू पर दो बस्तियाँ हैं। द्वीप से बाहर कोई सड़क नहीं, केवल नावें हैं, और नदी हर घंटे बढ़ रही है।
+    description: एक बड़ी नदी में मानसूनी बाढ़ रेत के टापू (चर) को घेर रही है। मुख्य भूमि तक कोई सड़क नहीं, हर बार पार जाने के लिए नाव चाहिए। द्वीप के परिवारों को जल्दी हटाएँ, घेरा बाँध को टिकाए रखें, फिर सबको घर वापस लाएँ।
+    npcs:
+      village_head: हर मानसून में नदी हमारे द्वीप का थोड़ा और हिस्सा खा जाती है। लोग अपने मवेशी और करघे तभी छोड़ेंगे जब कोई भरोसेमंद व्यक्ति उन्हें जल्दी कहे।
+      rescue_worker: घाट पर इंजन वाली तीन देसी नावें बँधी हैं। हर बार पार जाने में समय लगता है, और नदी बढ़ने के साथ धारा तेज़ होती जाती है।
+      family_member: मेरे सबसे छोटे बच्चे को बुख़ार है और मेरी सास ज़्यादा दूर नहीं चल सकतीं। अगर पानी आँगन तक आया तो हम फँस जाएँगे।
+      health_worker: पानी उतरने के बाद लोग डूबे हुए हैंडपंपों से पानी पीते हैं। हमें क्लोरीन की गोलियाँ और चबूतरे पर चिकित्सा शिविर चाहिए।
+      district_official: ज़िला और नावें व राहत भेज सकता है, पर वे पहले सड़क से घाट तक और फिर पानी से आती हैं।
+  urban-flash-flood-01:
+    name: वार्ड 14 की अचानक बाढ़
+    hazard_label: शहरी अचानक बाढ़
+    hook: एक घने शहरी वार्ड पर बादल फटा है। नालियाँ बंद हैं, अंडरपास सबसे पहले भरता है, और आपके पास घंटे नहीं, मिनट हैं।
+    description: शहर के एक वार्ड पर बादल फटा है। बंद नालियाँ और रेलवे अंडरपास कुछ ही मिनटों में गलियों को नालों में बदल देते हैं। तेज़ी से काम करें, फिर बिजली, सड़कें और साफ़ पानी बहाल करें।
+    npcs:
+      village_head: बाज़ार के पीछे की नालियाँ फिर प्लास्टिक से भरी हैं। अगर बारिश जारी रही, तो अंडरपास सबसे पहले भरेगा।
+      rescue_worker: हमारे पास दो बचाव डिंगी और चार ट्रक हैं। पानी फुटपाथ से ऊपर आते ही ट्रक अंडरपास से नहीं जा सकते।
+      family_member: हमारी गली में पहले ही टखनों तक पानी है और मेरा पड़ोसी व्हीलचेयर पर है।
+      health_worker: सीवेज मिला बाढ़ का पानी गंभीर ख़तरा है। बाद में हमें जल्दी साफ़ पानी चाहिए होगा।
+      district_official: राज्य आपदा बल नावें भेज सकता है, पर इस वार्ड तक पहुँचने में उन्हें कुछ घंटे लगेंगे।
+  village-river-01:
+    name: नदी किनारे गाँव में बाढ़ राहत
+    hazard_label: नदी की बाढ़
+    hook: एक मानसूनी सहायक नदी तीन वार्डों के पास बढ़ रही है। चेतावनी दें, लोगों को निकालें और बाँध बचाएँ, फिर पुनर्वास का नेतृत्व करें।
+    description: 'बढ़ती सहायक नदी तीन वार्डों को ख़तरे में डाल रही है। बाढ़ चरम पर पहुँचने से पहले चेतावनी दें और लोगों को निकालें, बाढ़ के दौरान लोगों की रक्षा करें, फिर पुनर्वास का नेतृत्व करें: साफ़ पानी, इलाज, बिजली, सड़कें और सुरक्षित घर वापसी।'
+    npcs:
+      village_head: वार्ड 1 के पास पानी तेज़ी से बढ़ रहा है। गाँव वाले हमसे साफ़ निर्देशों की उम्मीद कर रहे हैं। क्या हमें औपचारिक चेतावनी जारी करनी चाहिए?
+      rescue_worker: डिपो में हमारी दो मोटर बचाव नावें और तीन परिवहन ट्रक तैयार हैं। रेत की बोरियाँ भी तैयार हैं।
+      family_member: मेरे माता-पिता चल-फिर नहीं सकते। कृपया पुलिया डूबने से पहले हमारे बुज़ुर्गों के लिए वाहन भेजें।
+      health_worker: अगर लोग लंबे समय तक आश्रय में रहे, तो हमें पीने के पानी और दवाओं के बारे में सोचना होगा।
+      district_official: ज़िला नावों, ट्रकों और राहत के साथ काफ़िला भेज सकता है, पर पहुँचने में समय लगता है।
+
+rulecards:
+  RC-01: {title: जल्दी सार्वजनिक चेतावनी, category: चेतावनी, guidance: जब नदी का पूर्वानुमान किनारे के ऊपर बहने का संकेत दे, तो तुरंत आधिकारिक निकासी सूचना जारी करें। जल्दी चेतावनी से कमज़ोर परिवारों को आपातकालीन सामान जुटाने और ऊँची जगह जाने का समय मिलता है।}
+  RC-02: {title: सबसे कमज़ोर लोगों की मदद, category: निकासी, guidance: रास्ते डूबने से पहले बुज़ुर्गों, छोटे बच्चों, गर्भवती महिलाओं और चलने-फिरने में असमर्थ लोगों के लिए विशेष वाहन और सहायता को प्राथमिकता दें।}
+  RC-03: {title: बाढ़ के पानी में वाहन सुरक्षा, category: रसद, guidance: घुटने से गहरे बहते पानी वाली सड़कों पर सामान्य वाहन न भेजें। सड़कें डूबने पर नावों या ऊँचे विशेष वाहनों का उपयोग करें।}
+  RC-04: {title: तटबंध पर रेत की बोरियाँ लगाने के सही तरीके, category: बुनियादी ढाँचा, guidance: बाढ़ के चरम से पहले नीचे बाँधों पर रेत की बोरियाँ लगाएँ। बाँध जल्दी मज़बूत करने से दरारें धीमी होती हैं और निकासी के लिए क़ीमती घंटे मिलते हैं।}
+  RC-05: {title: सुरक्षित आश्रय संचालन, category: आश्रय, guidance: लोगों के पहुँचने से पहले ऊँची जगह पर बनी पक्की बहुमंज़िला सार्वजनिक इमारतों को राहत आश्रय के रूप में खोलें ताकि प्रवेश व्यवस्थित और सुरक्षित हो।}
+  RC-06: {title: बाढ़ के बाद सुरक्षित पेयजल, category: पुनर्वास, guidance: बाढ़ का पानी कुओं और पाइपों को दूषित करता है। पुनर्वास की शुरुआत में ही निगरानी वाला जल शुद्धिकरण केंद्र लगाने से आश्रय में रह रहे और लौटते परिवारों में जलजनित बीमारी का ख़तरा घटता है।}
+  RC-07: {title: स्वास्थ्य निगरानी और चिकित्सा शिविर, category: पुनर्वास, guidance: भीड़ भरे आश्रय और रुका हुआ पानी पेट और त्वचा की बीमारियों की संभावना बढ़ाते हैं। आश्रय के पास चिकित्सा शिविर बीमारी फैलने से पहले उसे पहचानने और इलाज करने में मदद करता है।}
+  RC-08: {title: जाँच के बाद ही घर लौटें, category: पुनर्वास, guidance: निवासी तभी लौटें जब इलाक़ा सूखा हो, रास्ता खुला हो और प्रशासन ने घरों की संरचना और बिजली की जाँच कर ली हो।}
+  RC-09: {title: आश्रयों में आपूर्ति बनाए रखना, category: पुनर्वास, guidance: आश्रय का भंडार ख़त्म होने से पहले राहत आपूर्ति की योजना बनाएँ। खाने और ज़रूरी सामान की कमी से स्वास्थ्य बिगड़ता है और राहत कार्य पर समुदाय का भरोसा घटता है।}
+  RC-10: {title: रास्ते साफ़ करना और सेवाएँ बहाल करना, category: पुनर्वास, guidance: पहले रास्तों से मलबा हटाएँ ताकि मरम्मत दल सबस्टेशन और स्वास्थ्य केंद्रों तक पहुँच सकें। बिजली लौटने से क्लिनिक और पानी के पंप फिर चलते हैं।}
+  RC-11: {title: शहरी नालियाँ साफ़ रखें, category: शहरी बाढ़, guidance: बंद नालियाँ भारी बारिश को मिनटों में गलियों की बाढ़ में बदल देती हैं। बादल फटने से पहले और दौरान रुकावटें हटाना और लोगों को अंडरपास से दूर रखना ख़तरा घटाता है।}
+  RC-12: {title: बाँध निकासी की सूचना, category: चेतावनी, guidance: नीचे के गाँवों को बाँध से पानी छोड़ने से पहले सूचना चाहिए। बाँध प्राधिकरण से जल्दी तालमेल करें; साफ़ चेतावनी के साथ धीमी, चरणबद्ध निकासी लोगों को हटने का समय देती है।}
+  RC-13: {title: मछुआरा समुदायों की चक्रवात तैयारी, category: चक्रवात, guidance: चक्रवात की चेतावनी मिलते ही, टकराने से बहुत पहले, मछली पकड़ने वाली नावें वापस बुलाएँ। तटीय परिवारों को जल्दी चक्रवात आश्रय में ले जाएँ क्योंकि हवा तेज़ होने पर सड़कें और बिजली बंद हो जाती हैं।}
+  RC-14: {title: जल्दी बाहरी मदद माँगना, category: समन्वय, guidance: ज़िला और राज्य दलों को गाँव तक पहुँचने में समय लगता है। स्थानीय संसाधन कम लगते ही बाहरी मदद माँगें, ख़त्म होने का इंतज़ार न करें।}

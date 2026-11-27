@@ -17,18 +17,25 @@ function walk(dir) {
 }
 
 let total = 0;
+let langMax = 0;
+const LANG_BUDGET = 40 * 1024;
+const tooBig = [];
 let leaked = [];
 let caniuse = [];
 for (const file of walk(dist)) {
   const buf = readFileSync(file);
   const gz = gzipSync(buf, { level: 9 }).length;
-  total += gz;
+  // Language packs (src/i18n/<lang>.json) load only when that language is chosen: budget them apart.
+  const isLangPack = /assets[\\/](hi|gu|mr|bn|ta|te|kn)-[\w-]+\.js$/.test(file);
+  if (isLangPack) { langMax = Math.max(langMax, gz); if (gz > LANG_BUDGET) tooBig.push(file); } else total += gz;
   const text = buf.toString('utf8');
   if (/mockServiceWorker|msw\/browser|setupWorker|fixtures\/script/.test(text) || file.includes('mockServiceWorker')) leaked.push(file);
   if (/caniuse/i.test(text)) caniuse.push(file);
   console.log(`${(gz / 1024).toFixed(1).padStart(7)} KB gz  dist/${relative(dist, file).replace(/\\/g, '/')}`);
 }
 console.log(`${(total / 1024).toFixed(1).padStart(7)} KB gz  TOTAL (budget ${BUDGET / 1024} KB)`);
+console.log(`${(langMax / 1024).toFixed(1).padStart(7)} KB gz  largest language pack, loaded on demand (budget ${LANG_BUDGET / 1024} KB each)`);
+if (total > BUDGET || tooBig.length) { console.error('Over budget', tooBig); process.exit(1); }
 if (leaked.length) {
   console.error('Mock code found in dist:', leaked);
   process.exit(1);

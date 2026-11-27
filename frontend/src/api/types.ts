@@ -236,6 +236,7 @@ export interface Meta {
   supported_languages?: string[];
   example_commands: string[];
   example_commands_by_phase?: Partial<Record<Phase, string[]>>;
+  voice_provider?: 'sarvam' | 'browser' | string;
 }
 
 export interface Health { status: string; llm_mode: string; llm_status: string; version: string }

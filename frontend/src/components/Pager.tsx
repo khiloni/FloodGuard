@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
+import { tr } from '../lib/i18n';
 import { ChevronLeft, ChevronRight } from './icons';
 
 export interface PageDef { id: string; label: string; icon?: React.ReactNode; content: React.ReactNode }
@@ -41,7 +42,7 @@ export const Pager: React.FC<{ pages: PageDef[]; index: number; onIndex: (i: num
 
   return (
     <div className="pager">
-      <div className="pager-nav" role="tablist" aria-label="Pages">
+      <div className="pager-nav" role="tablist" aria-label={tr('Pages')}>
         <span className="pill-glider" style={{ transform: `translateX(${index * 100}%)` }} aria-hidden="true" />
         {pages.map((p, i) => (
           <button key={p.id} role="tab" id={`tab-${p.id}`} aria-selected={index === i} aria-controls={`page-${p.id}`}
@@ -70,14 +71,14 @@ export const Pager: React.FC<{ pages: PageDef[]; index: number; onIndex: (i: num
         </div>
       </div>
       <div className="pager-foot">
-        <button className="btn icon ghost" onClick={() => go(index - 1)} disabled={index === 0} aria-label="Previous page" data-testid="page-prev">
+        <button className="btn icon ghost" onClick={() => go(index - 1)} disabled={index === 0} aria-label={tr('Previous page')} data-testid="page-prev">
           <ChevronLeft aria-hidden="true" />
         </button>
         <div className="dots" aria-hidden="true">
           {pages.map((p, i) => <span key={p.id} className={i === index ? 'dot on' : 'dot'} onClick={() => go(i)} />)}
         </div>
         <span className="sr-only" aria-live="polite">Page {index + 1} of {pages.length}: {pages[index].label}</span>
-        <button className="btn icon ghost" onClick={() => go(index + 1)} disabled={index === pages.length - 1} aria-label="Next page" data-testid="page-next">
+        <button className="btn icon ghost" onClick={() => go(index + 1)} disabled={index === pages.length - 1} aria-label={tr('Next page')} data-testid="page-next">
           <ChevronRight aria-hidden="true" />
         </button>
       </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { tr } from '../../lib/i18n';
 import type { Action, Suggestion, Summary } from '../../api/types';
 import { describeAction, npcs } from '../../lib/actions';
 import { SourceBadge } from '../MessageLog';
@@ -52,13 +53,13 @@ export const People: React.FC<{
   const sup = s.support;
   return (
     <div className="people" data-testid="people">
-      <ul className="npc-list" role="listbox" aria-label="People">
+      <ul className="npc-list" role="listbox" aria-label={tr('People')}>
         {ids.map((id) => (
           <li key={id}>
             <button role="option" aria-selected={active === id} className={`npc-row${active === id ? ' on' : ''}`} onClick={() => setActive(id)} data-testid={`npc-${id}`}>
               <Portrait id={id} size={36} />
               <span className="npc-who"><strong>{roster[id].name}</strong><span className="muted small">{roster[id].role}</span></span>
-              {latest(id) && <span className="npc-dot" aria-label="has replied" />}
+              {latest(id) && <span className="npc-dot" aria-label={tr('has replied')} />}
             </button>
           </li>
         ))}
@@ -73,8 +74,8 @@ export const People: React.FC<{
                 {c.from === 'npc' && <SourceBadge source={c.source} />}
                 {c.suggestion && (
                   <div className="npc-suggestion" data-testid="npc-suggestion">
-                    <p className="small"><strong>Suggests:</strong> {describeAction(c.suggestion.action, names)}. <span className="muted">{c.suggestion.tradeoff}</span></p>
-                    <button className="btn small" disabled={finished} onClick={() => onAdopt(c.suggestion!.action, roster[active]?.name || active)} data-testid="adopt-suggestion">Use this suggestion</button>
+                    <p className="small"><strong>{tr('Suggests:')}</strong> {describeAction(c.suggestion.action, names)}. <span className="muted">{c.suggestion.tradeoff}</span></p>
+                    <button className="btn small" disabled={finished} onClick={() => onAdopt(c.suggestion!.action, roster[active]?.name || active)} data-testid="adopt-suggestion">{tr('Use this suggestion')}</button>
                   </div>
                 )}
               </div>
@@ -84,15 +85,15 @@ export const People: React.FC<{
         <form className="chat-form" onSubmit={(e) => { e.preventDefault(); if (!busy && !finished) { onAsk(active, text.trim()); setText(''); } }}>
           <label className="sr-only" htmlFor="chat-input">Message to {roster[active]?.name}</label>
           <input id="chat-input" type="text" maxLength={300} value={text} onChange={(e) => setText(e.target.value)} placeholder={`Ask ${roster[active]?.name}…`} data-testid="chat-input" />
-          <button type="submit" className="btn primary small" disabled={busy || finished} data-testid="chat-send"><MessagesSquare aria-hidden="true" /> Ask <span className="muted small">(1 turn)</span></button>
+          <button type="submit" className="btn primary small" disabled={busy || finished} data-testid="chat-send"><MessagesSquare aria-hidden="true" /> {tr('Ask')} <span className="muted small">(1 turn)</span></button>
         </form>
       </div>
       {sup && (
         <div className="support-box" data-testid="support-box">
-          <p><Truck aria-hidden="true" /> <strong>Outside support</strong>{' '}
+          <p><Truck aria-hidden="true" /> <strong>{tr('Outside support')}</strong>{' '}
             {sup.eta_tick !== null ? <span>arriving at tick {sup.eta_tick} ({Math.max(0, sup.eta_tick - s.tick)} ticks)</span>
               : sup.available ? <span>{sup.boats} boat{sup.boats === 1 ? "" : "s"}, {sup.vehicles} truck{sup.vehicles === 1 ? "" : "s"}, {sup.sandbags} sandbags, {sup.supply_units} supply units</span>
-                : <span>already used</span>}
+                : <span>{tr('already used')}</span>}
           </p>
           {sup.available && (
             <button className="btn small" onClick={onRequestSupport} disabled={busy || finished} data-testid="request-support">

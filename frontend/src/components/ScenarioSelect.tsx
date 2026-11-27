@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { tr, N_ } from '../lib/i18n';
 import type { ScenarioInfo } from '../api/types';
 import { HazardArt } from './Logo';
 import { ChevronRight, Languages, Gauge, GraduationCap, Star } from './icons';
@@ -8,9 +9,9 @@ import { LANGS, useLang, type Lang } from '../lib/i18n';
 export interface StartOptions { scenario_id: string; difficulty: string; language: string }
 
 const DIFFICULTIES = [
-  { id: 'easy', label: 'Easy', hint: 'More resources, lower water' },
-  { id: 'standard', label: 'Standard', hint: 'As designed' },
-  { id: 'hard', label: 'Hard', hint: 'Fewer resources, higher water, slower help' },
+  { id: 'easy', label: N_('Easy'), hint: N_('More resources, lower water') },
+  { id: 'standard', label: N_('Standard'), hint: N_('As designed') },
+  { id: 'hard', label: N_('Hard'), hint: N_('Fewer resources, higher water, slower help') },
 ];
 
 export const ScenarioSelect: React.FC<{
@@ -45,10 +46,10 @@ export const ScenarioSelect: React.FC<{
         </div>
         <p className="muted">{t('chooseStoryLede')}</p>
         <div className="select-controls">
-          <fieldset className="seg" aria-label="Difficulty">
+          <fieldset className="seg" aria-label={tr('Difficulty')}>
             <legend><Gauge aria-hidden="true" /> {t('difficulty')}</legend>
             {DIFFICULTIES.map((d) => (
-              <label key={d.id} className={difficulty === d.id ? 'on' : ''} title={d.hint}>
+              <label key={d.id} className={difficulty === d.id ? 'on' : ''} title={tr(d.hint)}>
                 <input type="radio" name="difficulty" value={d.id} checked={difficulty === d.id}
                   onChange={() => setDifficulty(d.id)} data-testid={`difficulty-${d.id}`} />
                 {t(d.id as 'easy')}
@@ -67,7 +68,7 @@ export const ScenarioSelect: React.FC<{
         </div>
         {language !== 'en' && <p className="muted small">{t('langNote')}</p>}
       </div>
-      <ul className="scenario-cards" aria-label="Stories">
+      <ul className="scenario-cards" aria-label={tr('Stories')}>
         {scenarios.map((s, i) => (
           <li key={s.id} className={`scenario-card hazard-${s.illustration}`} data-testid={`scenario-${s.id}`}>
             <HazardArt kind={s.illustration} />

@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 import re
@@ -6,10 +7,10 @@ import random
 import time
 from collections import defaultdict
 from typing import Dict, Any, List, Optional
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 from pydantic import BaseModel, Field, ConfigDict
 
 from .engine.loader import load_scenario, load_scenario_config
@@ -25,6 +26,8 @@ from .services.narration import get_facts_allowed_from_state_and_events
 from .services.turn_pipeline import retriever as rulecard_retriever
 from .llm.openai_compat import phrase_advice, ADVICE_SEP
 from .store.sqlite import SessionStore
+from . import i18n
+from .services import voice as voice_service
 
 logger = logging.getLogger("floodguard.api")
 
@@ -259,6 +262,40 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.middleware("http")
+async def translate_responses(request, call_next):
+    """Sessions played in an Indian language get every prose field translated on the way out
+    (see backend/app/i18n). The engine, the stored log and the English API are unchanged."""
+    response = await call_next(request)
+    path = request.url.path
+    if not path.startswith("/api/v1/") or "application/json" not in response.headers.get("content-type", ""):
+        return response
+    lang = request.query_params.get("language")
+    m = re.match(r"^/api/v1/sessions/([^/]+)", path)
+    if m:
+        sess = store.get_session(m.group(1))
+        lang = (sess or {}).get("language", lang)
+    body = b"".join([chunk async for chunk in response.body_iterator])
+    headers = {k: v for k, v in response.headers.items() if k.lower() not in ("content-length", "content-type")}
+    try:
+        data = json.loads(body)
+        if path == "/api/v1/sessions" and request.method == "POST" and isinstance(data, dict) and data.get("session_id"):
+            lang = (store.get_session(data["session_id"]) or {}).get("language", lang)
+        if not lang or lang == "en" or lang not in i18n.LANGS:
+            return JSONResponse(data, status_code=response.status_code, headers=headers)
+        if path == "/api/v1/scenarios" and isinstance(data, dict):
+            data["scenarios"] = [i18n.localize_scenario(s, lang) for s in data.get("scenarios", [])]
+        else:
+            if isinstance(data, dict) and isinstance(data.get("layout"), dict):
+                data["layout"] = i18n.localize_layout(data["layout"], lang)
+            data = i18n.localize(data, lang)
+        return JSONResponse(data, status_code=response.status_code, headers=headers)
+    except Exception:  # never let translation break a response
+        logger.exception("translation failed for %s", path)
+        return Response(content=body, status_code=response.status_code, headers=headers, media_type="application/json")
+
+
 DISCLAIMER_FULL_TEXT = (
     "This is an educational simulation, not emergency guidance. "
     "FloodGuard is a simplified teaching simulation. Its water levels, outcomes and scores are invented "
@@ -309,6 +346,7 @@ class MetaResponse(BaseModel):
     llm_model_license: str = ""
     example_commands: List[str]
     example_commands_by_phase: Dict[str, List[str]] = Field(default_factory=dict)
+    voice_provider: str = "browser"
 
 
 class CanvasModel(BaseModel):
@@ -755,6 +793,7 @@ def get_meta():
         "llm_model_license": llm_providers.model_license(),
         "example_commands": EXAMPLE_COMMANDS,
         "example_commands_by_phase": EXAMPLE_COMMANDS_BY_PHASE,
+        "voice_provider": "sarvam" if voice_service.enabled() else "browser",
     }
 
 
@@ -992,6 +1031,69 @@ def build_replay_frames(scenario_id: str, actions: List[Dict[str, Any]], difficu
     return frames
 
 
+class SpeakResponse(BaseModel):
+    audio_b64: str
+    format: str = "wav"
+
+
+class ListenResponse(BaseModel):
+    transcript: str
+    language_code: str = ""
+
+
+class FutureBranchModel(BaseModel):
+    frames: List[Dict[str, Any]]
+    end_tick: int
+    safe: int
+    at_home: int
+    vulnerable_at_home: int
+    lost: int
+    embankment_breached: bool
+    score: Optional[int] = None
+    events: List[Dict[str, Any]]
+
+
+class PreviewResponse(BaseModel):
+    status: str
+    reject_reason: Optional[str] = None
+    horizon: Optional[int] = None
+    from_tick: Optional[int] = None
+    with_order: Optional[FutureBranchModel] = None
+    without_order: Optional[FutureBranchModel] = None
+
+
+class SpeakRequest(BaseModel):
+    text: str = Field(max_length=2000)
+    language: str = "en"
+    role: str = "narrator"
+
+
+class ListenRequest(BaseModel):
+    audio_b64: str = Field(max_length=3_000_000)
+    mime: str = "audio/webm"
+    language: str = "en"
+
+
+@app.post("/api/v1/voice/speak", response_model=SpeakResponse)
+def voice_speak(req: SpeakRequest, request: Request):
+    """Natural Indian-language speech (Sarvam, when configured). Narrator and command voices differ."""
+    enforce_rate_limit(f"voice:{request.client.host if request.client else 'local'}")
+    audio, err = voice_service.speak(req.text, req.language, "command" if req.role == "command" else "narrator")
+    if err:
+        raise HTTPException(status_code=503, detail={"code": "VOICE_UNAVAILABLE", "message": err})
+    return {"audio_b64": audio, "format": "wav"}
+
+
+@app.post("/api/v1/voice/listen", response_model=ListenResponse)
+def voice_listen(req: ListenRequest, request: Request):
+    """Speech in any supported Indian language -> English text for the order parser. Audio is not stored."""
+    enforce_rate_limit(f"voice:{request.client.host if request.client else 'local'}")
+    out, err = voice_service.listen(req.audio_b64, req.mime, req.language)
+    if err:
+        raise HTTPException(status_code=503, detail={"code": "VOICE_UNAVAILABLE", "message": err})
+    return out
+
+
 class PreviewRequest(BaseModel):
     action: Dict[str, Any]
     horizon: int = Field(default=4, ge=1, le=8)
@@ -1029,7 +1131,7 @@ def _future(state: State, first: Action, horizon: int, layout: Dict[str, Any]) -
     }
 
 
-@app.post("/api/v1/sessions/{session_id}/preview")
+@app.post("/api/v1/sessions/{session_id}/preview", response_model=PreviewResponse)
 def preview_future(session_id: str, req: PreviewRequest):
     """Future Lens: play the next few hours twice on copies of the engine state, once with the
     proposed order and once doing nothing, so the player can compare both futures before acting.

@@ -1,4 +1,5 @@
 import React from 'react';
+import { tr } from '../lib/i18n';
 import type { Meta, Phase } from '../api/types';
 import { Bot, FileText, Eye, EyeOff, ArrowLeft, MessagesSquare } from './icons';
 import { useLang } from '../lib/i18n';
@@ -28,26 +29,26 @@ export const Header: React.FC<{
   return (
     <header className="app-header">
       <div className="brand">
-        {onHome && <button className="btn icon ghost small" onClick={onHome} aria-label="Back to the story list" data-testid="home"><ArrowLeft aria-hidden="true" /></button>}
+        {onHome && <button className="btn icon ghost small" onClick={onHome} aria-label={tr('Back to the story list')} data-testid="home"><ArrowLeft aria-hidden="true" /></button>}
         <Logo size={26} />
-        <span className="brand-name">FloodGuard</span>
-        {scenarioName ? <span className="brand-sub scenario-name">{scenarioName}</span> : <span className="brand-sub">educational simulation</span>}
+        <span className="brand-name">{tr('FloodGuard')}</span>
+        {scenarioName ? <span className="brand-sub scenario-name">{scenarioName}</span> : <span className="brand-sub">{tr('educational simulation')}</span>}
       </div>
       {phase && (
         <div className={`phase-chip phase-${phase}`} data-testid="phase-chip">
           <span className="phase-dot" aria-hidden="true" />{t(phase)}
-          {typeof tick === 'number' && <span className="tick" data-testid="header-tick"> · tick {tick}/{maxTicks}</span>}
+          {typeof tick === 'number' && <span className="tick" data-testid="header-tick"> · {tr('tick')} {tick}/{maxTicks}</span>}
         </div>
       )}
       <div className="header-tools">
         <span className={`badge ${llmOn ? 'badge-ai' : 'badge-template'}`} data-testid="llm-badge"
-          title={llmOn ? `Open-source LLM narration (${meta?.llm_status})` : 'Narration from fixed templates'}>
+          title={llmOn ? `${tr('Open-source LLM narration')} (${meta?.llm_status})` : tr('Narration from fixed templates')}>
           {llmOn ? <Bot aria-hidden="true" /> : <FileText aria-hidden="true" />}
           <span>{llmOn ? `${t('aiOn')}${meta?.llm_status && meta.llm_status !== 'online' ? ` (${meta.llm_status})` : ''}` : t('aiOff')}</span>
         </span>
         {onToggleReadAloud && canSpeak() && (
           <button className="btn ghost small" aria-pressed={!!readAloud} onClick={() => onToggleReadAloud(!readAloud)} data-testid="read-aloud-toggle"
-            title="Voice assistant: read the story aloud">
+            title={tr('Voice assistant: read the story aloud')}>
             <MessagesSquare aria-hidden="true" /><span className="hide-sm">{readAloud ? t('reading') : t('readAloud')}</span>
           </button>
         )}

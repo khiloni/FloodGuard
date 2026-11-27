@@ -1,4 +1,5 @@
 import React from 'react';
+import { tr } from '../lib/i18n';
 import type { Summary } from '../api/types';
 import { Sparkles, Eye, X } from './icons';
 import { useLang } from '../lib/i18n';
@@ -56,9 +57,9 @@ export const FutureLens: React.FC<{
     </div>
   );
   return (
-    <section className="lens" data-testid="future-lens" aria-label="Future Lens">
+    <section className="lens" data-testid="future-lens" aria-label={tr('Future Lens')}>
       <div className="lens-head">
-        <p><Sparkles aria-hidden="true" /> <strong>Future Lens</strong> <span className="muted small">{t('lensNext')} {hours} {t('ticks')}</span></p>
+        <p><Sparkles aria-hidden="true" /> <strong>{tr('Future Lens')}</strong> <span className="muted small">{t('lensNext')} {hours} {t('ticks')}</span></p>
         {peek && <button className="btn icon ghost small" onClick={() => onPeek(null)} aria-label={t('lensClose')}><X aria-hidden="true" /></button>}
       </div>
       <div className="lens-cols">

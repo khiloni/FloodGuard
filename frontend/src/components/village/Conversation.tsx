@@ -3,8 +3,8 @@ import type { Action, Summary } from '../../api/types';
 import { describeAction, npcs } from '../../lib/actions';
 import { SourceBadge, type Message } from '../MessageLog';
 import { Portrait } from './People';
-import { Send, Truck, Mic, Megaphone, BookOpen } from '../icons';
-import { useLang } from '../../lib/i18n';
+import { Send, Truck, Mic, Megaphone, BookOpen, Bot } from '../icons';
+import { useLang, tr } from '../../lib/i18n';
 
 /** One conversation for the whole story, like a chat app: the narrator, every character and you.
  *  Pick who you are talking to: "Command" gives an order, a character answers your question. */
@@ -20,7 +20,8 @@ export const Conversation: React.FC<{
   onRequestSupport: () => void;
   onMic?: (to: string) => void;
   listening?: boolean;
-}> = ({ messages, busy, finished, names, s, onAsk, onOrder, onAdopt, onRequestSupport, onMic, listening }) => {
+  llmOn?: boolean;
+}> = ({ messages, busy, finished, names, s, onAsk, onOrder, onAdopt, onRequestSupport, onMic, listening, llmOn }) => {
   const { t } = useLang();
   const roster = npcs();
   const ids = Object.keys(roster);
@@ -37,6 +38,7 @@ export const Conversation: React.FC<{
   };
   const who = to === 'command' ? t('command') : roster[to]?.name;
   const sup = s.support;
+  const lastNarration = [...messages].reverse().find((m) => m.kind === 'narration');
 
   return (
     <section className="conversation" data-testid="people" aria-label={t('conversation')}>
@@ -60,7 +62,8 @@ export const Conversation: React.FC<{
         </ul>
       </div>
 
-      <ol className="convo-lines" ref={list} data-testid="chat-lines" aria-live="polite">
+      {llmOn && <p className="ai-note" data-testid="ai-label"><Bot aria-hidden="true" /> {tr('AI-generated text may be wrong. The simulation engine, not the AI, decides outcomes.')}</p>}
+      <ol className="convo-lines" ref={list} data-testid="chat-lines">
         {messages.map((m) => {
           if (m.kind === 'system') {
             return <li key={m.id} className="convo-note"><span>{typeof m.tick === 'number' && <b>T{m.tick}</b>} {m.text}</span></li>;
@@ -68,7 +71,7 @@ export const Conversation: React.FC<{
           const mine = m.kind === 'you';
           const npc = m.kind === 'npc' && m.npcId ? roster[m.npcId] : null;
           return (
-            <li key={m.id} className={`convo-line ${mine ? 'you' : 'them'} kind-${m.kind}`}>
+            <li key={m.id} className={`convo-line ${mine ? 'you' : 'them'} kind-${m.kind}`} data-testid={`msg-${m.kind}`}>
               {!mine && (npc ? <Portrait id={m.npcId!} size={34} /> : <span className="narrator-avatar" aria-hidden="true"><BookOpen /></span>)}
               <div className="convo-bubble">
                 <p className="convo-from">
@@ -90,6 +93,11 @@ export const Conversation: React.FC<{
         })}
         {busy && <li className="convo-line them typing" aria-hidden="true"><span className="narrator-avatar"><BookOpen /></span><div className="convo-bubble"><span className="dots3"><i /><i /><i /></span></div></li>}
       </ol>
+
+      {/* Screen readers hear each new narration once. */}
+      <div className="sr-only" aria-live="polite" aria-atomic="true" data-testid="live-narration">
+        {lastNarration ? `${lastNarration.source === 'llm' ? `${tr('AI narration')}: ` : ''}${lastNarration.text}` : ''}
+      </div>
 
       <form className="convo-form" onSubmit={(e) => { e.preventDefault(); send(); }}>
         <label className="sr-only" htmlFor="chat-input">{who}</label>

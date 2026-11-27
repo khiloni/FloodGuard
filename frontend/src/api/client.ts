@@ -38,7 +38,7 @@ export type TurnInput = { type: 'button'; action: Action } | { type: 'text'; tex
 export const api = {
   health: (timeoutMs?: number) => request<Health>('/health', undefined, timeoutMs),
   meta: () => request<Meta>('/meta'),
-  scenarios: () => request<{ scenarios: ScenarioInfo[] }>('/scenarios'),
+  scenarios: (language = 'en') => request<{ scenarios: ScenarioInfo[] }>(`/scenarios${language !== 'en' ? `?language=${language}` : ''}`),
   createSession: (opts: { scenario_id: string; seed?: number; difficulty?: string; language?: string }) =>
     post<SessionCreated>('/sessions', opts),
   help: (sid: string) => post<HelpResponse>(`/sessions/${sid}/help`, {}),

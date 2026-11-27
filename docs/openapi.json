@@ -244,6 +244,134 @@
         }
       }
     },
+    "/api/v1/voice/speak": {
+      "post": {
+        "summary": "Voice Speak",
+        "description": "Natural Indian-language speech (Sarvam, when configured). Narrator and command voices differ.",
+        "operationId": "voice_speak_api_v1_voice_speak_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeakRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeakResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/voice/listen": {
+      "post": {
+        "summary": "Voice Listen",
+        "description": "Speech in any supported Indian language -> English text for the order parser. Audio is not stored.",
+        "operationId": "voice_listen_api_v1_voice_listen_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListenResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions/{session_id}/preview": {
+      "post": {
+        "summary": "Preview Future",
+        "description": "Future Lens: play the next few hours twice on copies of the engine state, once with the\nproposed order and once doing nothing, so the player can compare both futures before acting.\nThe engine is deterministic, so a preview is exactly what will happen if nothing else changes.\nNothing is saved and no time passes.",
+        "operationId": "preview_future_api_v1_sessions__session_id__preview_post",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Session Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PreviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/sessions/{session_id}/log": {
       "get": {
         "summary": "Get Session Log",
@@ -871,6 +999,71 @@
         ],
         "title": "EventOut"
       },
+      "FutureBranchModel": {
+        "properties": {
+          "frames": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Frames"
+          },
+          "end_tick": {
+            "type": "integer",
+            "title": "End Tick"
+          },
+          "safe": {
+            "type": "integer",
+            "title": "Safe"
+          },
+          "at_home": {
+            "type": "integer",
+            "title": "At Home"
+          },
+          "vulnerable_at_home": {
+            "type": "integer",
+            "title": "Vulnerable At Home"
+          },
+          "lost": {
+            "type": "integer",
+            "title": "Lost"
+          },
+          "embankment_breached": {
+            "type": "boolean",
+            "title": "Embankment Breached"
+          },
+          "score": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Score"
+          },
+          "events": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Events"
+          }
+        },
+        "type": "object",
+        "required": [
+          "frames",
+          "end_tick",
+          "safe",
+          "at_home",
+          "vulnerable_at_home",
+          "lost",
+          "embankment_breached",
+          "events"
+        ],
+        "title": "FutureBranchModel"
+      },
       "GuardrailOut": {
         "properties": {
           "status": {
@@ -1130,6 +1323,48 @@
         "type": "object",
         "title": "LevelsModel"
       },
+      "ListenRequest": {
+        "properties": {
+          "audio_b64": {
+            "type": "string",
+            "maxLength": 3000000,
+            "title": "Audio B64"
+          },
+          "mime": {
+            "type": "string",
+            "title": "Mime",
+            "default": "audio/webm"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "default": "en"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio_b64"
+        ],
+        "title": "ListenRequest"
+      },
+      "ListenResponse": {
+        "properties": {
+          "transcript": {
+            "type": "string",
+            "title": "Transcript"
+          },
+          "language_code": {
+            "type": "string",
+            "title": "Language Code",
+            "default": ""
+          }
+        },
+        "type": "object",
+        "required": [
+          "transcript"
+        ],
+        "title": "ListenResponse"
+      },
       "MechanicConfig": {
         "properties": {
           "type": {
@@ -1276,6 +1511,11 @@
             },
             "type": "object",
             "title": "Example Commands By Phase"
+          },
+          "voice_provider": {
+            "type": "string",
+            "title": "Voice Provider",
+            "default": "browser"
           }
         },
         "type": "object",
@@ -1548,6 +1788,92 @@
           "priority"
         ],
         "title": "NpcSuggestionOut"
+      },
+      "PreviewRequest": {
+        "properties": {
+          "action": {
+            "type": "object",
+            "title": "Action"
+          },
+          "horizon": {
+            "type": "integer",
+            "maximum": 8.0,
+            "minimum": 1.0,
+            "title": "Horizon",
+            "default": 4
+          }
+        },
+        "type": "object",
+        "required": [
+          "action"
+        ],
+        "title": "PreviewRequest"
+      },
+      "PreviewResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "reject_reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reject Reason"
+          },
+          "horizon": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Horizon"
+          },
+          "from_tick": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "From Tick"
+          },
+          "with_order": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FutureBranchModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "without_order": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FutureBranchModel"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "PreviewResponse"
       },
       "RecoveryConfig": {
         "properties": {
@@ -2663,6 +2989,48 @@
           "is_open"
         ],
         "title": "ShelterSummary"
+      },
+      "SpeakRequest": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 2000,
+            "title": "Text"
+          },
+          "language": {
+            "type": "string",
+            "title": "Language",
+            "default": "en"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role",
+            "default": "narrator"
+          }
+        },
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "title": "SpeakRequest"
+      },
+      "SpeakResponse": {
+        "properties": {
+          "audio_b64": {
+            "type": "string",
+            "title": "Audio B64"
+          },
+          "format": {
+            "type": "string",
+            "title": "Format",
+            "default": "wav"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio_b64"
+        ],
+        "title": "SpeakResponse"
       },
       "State": {
         "properties": {

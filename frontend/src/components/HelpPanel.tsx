@@ -1,4 +1,5 @@
 import React from 'react';
+import { tr } from '../lib/i18n';
 import type { Action, HelpResponse } from '../api/types';
 import { describeAction } from '../lib/actions';
 import { SourceBadge } from './MessageLog';
@@ -12,13 +13,13 @@ export const HelpPanel: React.FC<{
   onUse: (a: Action) => void;
   onClose: () => void;
 }> = ({ help, loading, names, onUse, onClose }) => (
-  <div className="help-panel" role="region" aria-label="Suggestions" data-testid="help-panel">
+  <div className="help-panel" role="region" aria-label={tr('Suggestions')} data-testid="help-panel">
     <div className="help-head">
-      <h3><Lightbulb aria-hidden="true" /> Options right now</h3>
+      <h3><Lightbulb aria-hidden="true" /> {tr('Options right now')}</h3>
       {help && <SourceBadge source={help.source} />}
-      <button className="btn icon ghost" onClick={onClose} aria-label="Close suggestions"><X aria-hidden="true" /></button>
+      <button className="btn icon ghost" onClick={onClose} aria-label={tr('Close suggestions')}><X aria-hidden="true" /></button>
     </div>
-    {loading && <p className="muted">Looking at the situation…</p>}
+    {loading && <p className="muted">{tr('Looking at the situation…')}</p>}
     {help && (
       <>
         <ol className="help-list">
@@ -27,7 +28,7 @@ export const HelpPanel: React.FC<{
               <p className="help-title"><strong>{describeAction(o.action, names)}</strong></p>
               <p className="help-trade">{o.tradeoff}</p>
               {o.rule_card && <p className="help-card" title={o.rule_card.guidance}>Learn: {o.rule_card.id} {o.rule_card.title}</p>}
-              <button className="btn small" onClick={() => onUse(o.action)} data-testid="help-use">Use this order</button>
+              <button className="btn small" onClick={() => onUse(o.action)} data-testid="help-use">{tr('Use this order')}</button>
             </li>
           ))}
         </ol>
@@ -46,11 +47,11 @@ export const PendingOrder: React.FC<{
   onCancel: () => void;
   from?: string;
 }> = ({ action, names, busy, onConfirm, onCancel, from }) => (
-  <div className="pending" role="group" aria-label="Order ready to confirm" data-testid="pending-order">
-    <p><span className="muted small">{from ? `Suggested by ${from}` : 'Ready to send'}</span><br /><strong>{describeAction(action, names)}</strong></p>
+  <div className="pending" role="group" aria-label={tr('Order ready to confirm')} data-testid="pending-order">
+    <p><span className="muted small">{from ? `${tr('Suggested by')} ${from}` : tr('Ready to send')}</span><br /><strong>{describeAction(action, names)}</strong></p>
     <div className="pending-actions">
-      <button className="btn ghost small" onClick={onCancel}>Cancel</button>
-      <button className="btn primary small" onClick={onConfirm} disabled={busy} data-testid="pending-confirm">Give this order</button>
+      <button className="btn ghost small" onClick={onCancel}>{tr('Cancel')}</button>
+      <button className="btn primary small" onClick={onConfirm} disabled={busy} data-testid="pending-confirm">{tr('Give this order')}</button>
     </div>
   </div>
 );

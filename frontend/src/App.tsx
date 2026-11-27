@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { tr } from './lib/i18n';
 import { api, type TurnInput } from './api/client';
 import type {
   Action, EngineState, SimEvent, HelpResponse, Layout, Meta, ReplayFrame, Report, ScenarioInfo, Summary, TurnResponse,
@@ -38,7 +39,6 @@ export const App: React.FC = () => {
   const [waking, setWaking] = useState({ active: false, seconds: 0, failed: false });
   const [reduced, setReduced] = useReducedMotion();
   const { lang, t, speech } = useLang();
-  const voice = useVoice(speech);
 
   const [scenarios, setScenarios] = useState<ScenarioInfo[]>([]);
   const [scenario, setScenario] = useState<ScenarioInfo | null>(null);
@@ -94,7 +94,7 @@ export const App: React.FC = () => {
         try { await api.health(20000); ok = true; } catch { await sleep(2500); }
       }
       if (!ok) throw new Error('unreachable');
-      const [m, sc] = await Promise.all([api.meta(), api.scenarios()]);
+      const [m, sc] = await Promise.all([api.meta(), api.scenarios(langRef.current)]);
       setMeta(m);
       setScenarios(sc.scenarios);
       setWaking({ active: false, seconds: 0, failed: false });
@@ -111,6 +111,14 @@ export const App: React.FC = () => {
     booted.current = true;
     boot();
   }, [boot]);
+
+  // Story list in the chosen language (names, hooks, characters come translated from the server).
+  const langRef = useRef(lang);
+  langRef.current = lang;
+  useEffect(() => {
+    if (screen !== 'select' && screen !== 'gate') return;
+    api.scenarios(lang).then((sc) => setScenarios(sc.scenarios)).catch(() => { /* keep the current list */ });
+  }, [lang, screen]);
 
   // ---- Event animations: one short animation per engine event, staggered ----
   const playFx = useCallback((evs: SimEvent[], tick: number) => {
@@ -135,11 +143,11 @@ export const App: React.FC = () => {
       setMessages([]); setEvents([]); setFx([]); setClarify(null); setReport(null);
       setHelp(null); setHelpOpen(false); setPending(null); setPage(0);
       setFrames(null); setReplayTick(null); setReplayPlaying(false);
-      addMsg({ kind: 'system', text: info?.hook || 'You are in charge of the response. Give your first order.', tick: 0 });
+      addMsg({ kind: 'system', text: info?.hook || tr('You are in charge of the response. Give your first order.'), tick: 0 });
       setIntroOpen(true);
       setScreen('play');
     } catch (e) {
-      addMsg({ kind: 'reject', text: `Could not start a session: ${(e as Error).message}` });
+      addMsg({ kind: 'reject', text: tr('Could not start a session: {e}', { e: (e as Error).message }) });
     } finally {
       setBusy(false);
     }
@@ -159,12 +167,12 @@ export const App: React.FC = () => {
     if (res.status === 'clarify') {
       setClarify(res.clarify);
       setPage(0);
-      addMsg({ kind: 'hint', text: res.clarify?.question || 'Please choose one option.' });
+      addMsg({ kind: 'hint', text: res.clarify?.question || tr('Please choose one option.') });
       return;
     }
     if (res.status === 'rejected') {
       setClarify(null);
-      addMsg({ kind: 'reject', text: res.reject_reason || 'That order cannot be carried out right now.' });
+      addMsg({ kind: 'reject', text: res.reject_reason || tr('That order cannot be carried out right now.') });
       return;
     }
     setClarify(null);
@@ -172,7 +180,7 @@ export const App: React.FC = () => {
     if (res.summary) setSummary(res.summary);
     if (res.state) setState(res.state);
     const tick = res.state?.tick ?? 0;
-    if (res.parsed_action) addMsg({ kind: 'system', text: `Order: ${describeAction(res.parsed_action, names)}`, tick });
+    if (res.parsed_action) addMsg({ kind: 'system', text: `${tr('Order')}: ${describeAction(res.parsed_action, names)}`, tick, to: 'order' });
     addMsg({ kind: 'narration', text: res.narration.text, source: res.narration.source, tick,
       cards: (res.cited_rulecards || []).map((c) => ({ id: c.id, title: c.title })) });
     for (const m of res.npc_messages || []) {
@@ -193,7 +201,7 @@ export const App: React.FC = () => {
     try {
       handle(await api.turn(sid, input));
     } catch (e) {
-      addMsg({ kind: 'reject', text: `The server did not respond: ${(e as Error).message}. Please try again.` });
+      addMsg({ kind: 'reject', text: tr('The server did not respond: {e}. Please try again.', { e: (e as Error).message }) });
     } finally {
       setBusy(false);
     }
@@ -201,13 +209,13 @@ export const App: React.FC = () => {
 
   const askNpc = useCallback(async (npcId: string, message: string) => {
     if (!canAct || !sid) return;
-    const text = message || 'What should we do now?';
+    const text = message || tr('What should we do now?');
     addMsg({ kind: 'you', text, to: npcId });
     setBusy(true);
     try {
       handle(await api.npc(sid, npcId, text), npcId);
     } catch (e) {
-      addMsg({ kind: 'reject', text: `The server did not respond: ${(e as Error).message}.` });
+      addMsg({ kind: 'reject', text: tr('The server did not respond: {e}.', { e: (e as Error).message }) });
     } finally {
       setBusy(false);
     }
@@ -219,7 +227,7 @@ export const App: React.FC = () => {
     try {
       setHelp(await api.help(sid));
     } catch (e) {
-      addMsg({ kind: 'reject', text: `Suggestions are not available: ${(e as Error).message}` });
+      addMsg({ kind: 'reject', text: tr('Suggestions are not available: {e}', { e: (e as Error).message }) });
       setHelpOpen(false);
     } finally {
       setHelpLoading(false);
@@ -251,7 +259,7 @@ export const App: React.FC = () => {
       setReplayPlaying(true);
       setPage(0);
     } catch (e) {
-      addMsg({ kind: 'reject', text: `Replay is not available: ${(e as Error).message}` });
+      addMsg({ kind: 'reject', text: tr('Replay is not available: {e}', { e: (e as Error).message }) });
     }
   }, [sid, addMsg]);
 
@@ -278,7 +286,7 @@ export const App: React.FC = () => {
       setReport(r);
       setScreen('report');
     } catch (e) {
-      addMsg({ kind: 'reject', text: `Could not load the report: ${(e as Error).message}` });
+      addMsg({ kind: 'reject', text: tr('Could not load the report: {e}', { e: (e as Error).message }) });
     }
   }, [sid, addMsg, scenario, opts]);
 
@@ -301,6 +309,7 @@ export const App: React.FC = () => {
   }, [layout, scenario, summary?.phase, metaExamples]);
   const minutes = scenario?.tick_duration_minutes ?? 30;
   const llmOn = meta?.llm_mode === 'openai_compat';
+  const voice = useVoice(speech, lang, meta?.voice_provider);
   const lastNarration = [...messages].reverse().find((m) => m.kind === 'narration' || m.kind === 'reject' || m.kind === 'hint' || m.kind === 'system');
   // Voice assistant: two voices. The command voice reads back your orders; the narrator voice
   // tells the story and speaks for the characters. New lines are queued, never cut off.
@@ -311,7 +320,7 @@ export const App: React.FC = () => {
     if (!fresh.length) return;
     spokenId.current = fresh[fresh.length - 1].id;
     for (const m of fresh) {
-      if (m.kind === 'system' && m.text.startsWith('Order:')) voice.speak(m.text, 'command');
+      if (m.kind === 'system' && m.to === 'order') voice.speak(m.text, 'command');
       else if (m.kind !== 'you' && (m.kind !== 'system' || m.tick === 0)) voice.speak(m.text, 'narrator');
     }
   }, [messages, screen, voice]);
@@ -320,7 +329,7 @@ export const App: React.FC = () => {
     const ok = voice.listen((heard) => {
       if (to === 'command') submit({ type: 'text', text: heard });
       else askNpc(to, heard);
-    }, (err) => addMsg({ kind: 'reject', text: `Voice input stopped (${err}).` }));
+    }, (err) => addMsg({ kind: 'reject', text: tr('Voice input stopped ({e}).', { e: err }) }));
     if (!ok) addMsg({ kind: 'hint', text: t('voiceUnsupported') });
   }, [voice, addMsg, submit, askNpc, t]);
   const onMic = useCallback(() => onMicTo('command'), [onMicTo]);
@@ -330,14 +339,14 @@ export const App: React.FC = () => {
       <div className="stage" data-noswipe>
         <VillageScene layout={layout} summary={shown} state={state} fx={fx} reduced={reduced} replaying={replayTick !== null && !peekSummary} />
         {peekSummary && <div className={`future-badge ${peek?.branch}`} role="status" data-testid="future-badge">{t('futureView')}: {peek?.branch === 'with_order' ? t('lensIf') : t('lensIfWait')} · T{peekSummary.tick}</div>}
-        <p className="model-label">Stylized teaching model, not a flood forecast</p>
+        <p className="model-label">{tr('Stylized teaching model, not a flood forecast')}</p>
         {finished && replayTick === null && !introOpen && (
           <div className="story-complete" role="status" data-testid="story-complete">
-            <p><strong>The story is complete.</strong></p>
-            <button className="btn primary small" onClick={openReport} data-testid="open-report">See what happened</button>
+            <p><strong>{tr('The story is complete.')}</strong></p>
+            <button className="btn primary small" onClick={openReport} data-testid="open-report">{tr('See what happened')}</button>
           </div>
         )}
-        {busy && <div className="busy" role="status" aria-live="polite">Responding…</div>}
+        {busy && <div className="busy" role="status" aria-live="polite">{tr('Responding…')}</div>}
       </div>
       {lastNarration && (
         <p className={`caption msg-${lastNarration.kind}`} data-testid="caption" aria-live="polite">
@@ -388,7 +397,7 @@ export const App: React.FC = () => {
           onAsk={askNpc} onOrder={(txt) => submit({ type: 'text', text: txt })}
           onAdopt={(a, from) => { setPending({ action: a, from }); setPage(0); }}
           onRequestSupport={() => submit({ type: 'button', action: { name: 'request_external_support', params: {} } })}
-          onMic={onMicTo} listening={voice.listening} />
+          onMic={onMicTo} listening={voice.listening} llmOn={llmOn} />
       </div>
       <div className="village-col village-side">
         <Briefing scenario={scenario} s={shown} />
@@ -399,7 +408,7 @@ export const App: React.FC = () => {
 
   return (
     <div className={`app screen-${screen}${reduced ? ' reduced' : ''}`}>
-      <a className="skip-link" href="#main">Skip to the main content</a>
+      <a className="skip-link" href="#main">{tr('Skip to the main content')}</a>
       <Header meta={meta} phase={screen === 'play' ? phase : undefined} tick={shown?.tick} maxTicks={shown?.max_ticks}
         scenarioName={screen === 'play' ? scenario?.name : undefined}
         onHome={screen === 'play' || screen === 'report' || screen === 'academy' ? () => setScreen('select') : undefined}
@@ -407,7 +416,7 @@ export const App: React.FC = () => {
         readAloud={voice.readAloud} onToggleReadAloud={(v) => { voice.setReadAloud(v); if (v && lastNarration) voice.speak(lastNarration.text, 'narrator', true); }} />
 
       {screen === 'boot' && waking.active && <WakingUp seconds={waking.seconds} failed={waking.failed} onRetry={boot} />}
-      {screen === 'boot' && !waking.active && <div className="boot" role="status">Loading…</div>}
+      {screen === 'boot' && !waking.active && <div className="boot" role="status">{tr('Loading…')}</div>}
       {screen === 'gate' && <DisclaimerGate serverDisclaimer={meta?.disclaimer} onAcknowledge={() => setScreen('select')} />}
       {screen === 'select' && <ScenarioSelect scenarios={scenarios} busy={busy} onStart={startSession} onAcademy={() => setScreen('academy')} />}
       {screen === 'academy' && <Academy reduced={reduced} onBack={() => setScreen('select')} onToast={showToast} />}
