@@ -1,0 +1,537 @@
+# ta: built by backend/scripts/i18n_build.py. Drafted for FloodGuard; native-speaker review welcome.
+names:
+  ASHA worker Mamoni: ஆஷா பணியாளர் மமோனி
+  ASHA worker Meena: ஆஷா பணியாளர் மீனா
+  Anita: அனிதா
+  Army Transit Camp on the Ridge: மலைமுகட்டில் இராணுவ இடைத்தங்கல் முகாம்
+  Bay of Bengal: வங்காள விரிகுடா
+  Below Kalindi Dam: காளிந்தி அணைக்குக் கீழே
+  Boatman Rafiq: படகோட்டி ரஃபீக்
+  Canal bridge: கால்வாய்ப் பாலம்
+  Canal retaining wall: கால்வாய்த் தடுப்புச் சுவர்
+  Central Bund: நடுக் கரை
+  Central bund: நடுக் கரை
+  Central ring bund: நடு வளையக் கரை
+  Central sea wall: நடுக் கடல் சுவர்
+  Central wall: நடுச் சுவர்
+  Chlorination point: குளோரினேற்ற மையம்
+  Circle officer, revenue circle: வட்ட அலுவலர், வருவாய் வட்டம்
+  Civil Defence Volunteer: குடிமைப் பாதுகாப்புத் தன்னார்வலர்
+  Coast Guard Petty Officer Joseph: கடலோரக் காவல்படை பெட்டி ஆபீசர் ஜோசப்
+  Coast guard liaison: கடலோரக் காவல்படை தொடர்பு அலுவலர்
+  Community Hall: சமுதாயக் கூடம்
+  Community health worker: சமூக சுகாதாரப் பணியாளர்
+  Constable Imran: காவலர் இம்ரான்
+  Councillor Fatima: மாமன்ற உறுப்பினர் ஃபாத்திமா
+  Cyclone Shelter: புயல் புகலிடம்
+  Cyclone at Machhiwada: மச்சிவாடாவில் புயல்
+  Dam control room liaison: அணைக் கட்டுப்பாட்டு அறைத் தொடர்பு அலுவலர்
+  District collector's emergency officer: மாவட்ட ஆட்சியரின் அவசரகால அலுவலர்
+  District disaster management officer: மாவட்டப் பேரிடர் மேலாண்மை அலுவலர்
+  District emergency operations centre: மாவட்ட அவசரகால செயல்பாட்டு மையம்
+  Dr. Chettri: டாக்டர் சேத்ரி
+  Dr. Mehta: டாக்டர் மேத்தா
+  East Bund: கிழக்குக் கரை
+  East Char: கிழக்குத் திட்டு
+  East Char (Fisher Para): கிழக்குத் திட்டு (மீனவர் பகுதி)
+  East bund: கிழக்குக் கரை
+  East ring bund: கிழக்கு வளையக் கரை
+  East sea wall: கிழக்குக் கடல் சுவர்
+  East wall: கிழக்குச் சுவர்
+  Elected Village Representative: தேர்ந்தெடுக்கப்பட்ட கிராமப் பிரதிநிதி
+  Elected panchayat president: தேர்ந்தெடுக்கப்பட்ட ஊராட்சித் தலைவர்
+  Electricity substation: மின் துணை நிலையம்
+  Fire Officer Raju: தீயணைப்பு அலுவலர் ராஜு
+  Fire and emergency services: தீயணைப்பு மற்றும் அவசர சேவைகள்
+  Fire station: தீயணைப்பு நிலையம்
+  Fisher's wife, Fishing Hamlet: மீனவரின் மனைவி, மீனவர் குடியிருப்பு
+  Fishing Hamlet: மீனவர் குடியிருப்பு
+  Fishing boats at sea: கடலில் மீன்பிடிப் படகுகள்
+  Fishing harbour: மீன்பிடித் துறைமுகம்
+  Gabion river wall: கேபியன் ஆற்றுச் சுவர்
+  Gaon Burha Hemanta: ஊர்ப் பெரியவர் ஹேமந்தா
+  Ghat Village: படித்துறை கிராமம்
+  Ghat Village farmer: படித்துறை கிராம விவசாயி
+  Ghat boats: படித்துறைப் படகுகள்
+  Glacial Lake Burst above Tsomo Valley: த்சோமோ பள்ளத்தாக்கின் மேல் பனிப்பாறை ஏரி உடைப்பு
+  Glacial lake: பனிப்பாறை ஏரி
+  Gopal: கோபால்
+  Government High School Shelter: அரசு உயர்நிலைப் பள்ளிப் புகலிடம்
+  Great River: பேராறு
+  Health Centre: சுகாதார நிலையம்
+  Hill Road Colony: ஹில் ரோடு குடியிருப்பு
+  Hill School: மலைப் பள்ளி
+  Hilltop School: மலை உச்சிப் பள்ளி
+  Hydropower Workers' Camp: நீர்மின் தொழிலாளர் முகாம்
+  Inspector Lhamu: ஆய்வாளர் லாமு
+  Jonali: ஜோனாலி
+  Kalindi Dam: காளிந்தி அணை
+  Kalindi River: காளிந்தி ஆறு
+  'Kamalpur Char: Island in the River': 'கமல்பூர் திட்டு: ஆற்றில் ஒரு தீவு'
+  Lake View Apartments: லேக் வியூ குடியிருப்புகள்
+  Low Causeway: தாழ்வான தரைப்பாலம்
+  Low bridge: தாழ்வான பாலம்
+  Lower gabion wall: கீழ்க் கேபியன் சுவர்
+  Mainland Ghat Village: நிலப்பகுதி படித்துறை கிராமம்
+  Mainland Higher Secondary School: நிலப்பகுதி மேல்நிலைப் பள்ளி
+  Mainland School: நிலப்பகுதிப் பள்ளி
+  Mainland ghat: நிலப்பகுதிப் படித்துறை
+  Medical Camp: மருத்துவ முகாம்
+  Medical camp: மருத்துவ முகாம்
+  Medical camp on the platform: மேடையில் மருத்துவ முகாம்
+  Micro-hydel station: நுண் நீர்மின் நிலையம்
+  Middle gabion wall: நடுக் கேபியன் சுவர்
+  Mohan: மோகன்
+  Monastery Hamlet: மடாலயக் குடியிருப்பு
+  Monastery Prayer Hall: மடாலயப் பிரார்த்தனைக் கூடம்
+  Mother of three, East Char: மூன்று குழந்தைகளின் தாய், கிழக்குத் திட்டு
+  Mr. Bora: திரு. போரா
+  Mr. Kulkarni: திரு. குல்கர்னி
+  Mr. Rao: திரு. ராவ்
+  Ms. Desai: திருமதி தேசாய்
+  Ms. Iyer: திருமதி ஐயர்
+  Ms. Rai: திருமதி ராய்
+  Multi-purpose Cyclone Shelter: பல்நோக்குப் புயல் புகலிடம்
+  Municipal School: நகராட்சிப் பள்ளி
+  Municipal disaster cell officer: நகராட்சிப் பேரிடர் பிரிவு அலுவலர்
+  Nurse Kavita: செவிலியர் கவிதா
+  Nurse Thomas: செவிலியர் தாமஸ்
+  Officer Sunita: அலுவலர் சுனிதா
+  Panchayat President Dorjee: ஊராட்சித் தலைவர் டோர்ஜி
+  Pemba: பெம்பா
+  Police and rescue volunteer: காவல் மற்றும் மீட்புத் தன்னார்வலர்
+  Power Substation: மின் துணை நிலையம்
+  Power substation: மின் துணை நிலையம்
+  Prayer Hall: பிரார்த்தனைக் கூடம்
+  Primary health centre: ஆரம்ப சுகாதார நிலையம்
+  Primary health centre doctor: ஆரம்ப சுகாதார நிலைய மருத்துவர்
+  Primary health centre nurse: ஆரம்ப சுகாதார நிலையச் செவிலியர்
+  Railway underpass: ரயில்வே சுரங்கப்பாதை
+  Raised Flood Platform: உயர்த்தப்பட்ட வெள்ள மேடை
+  Raised Platform: உயர்த்தப்பட்ட மேடை
+  Relief Supply Depot: நிவாரண விநியோகக் கிடங்கு
+  Relief depot: நிவாரணக் கிடங்கு
+  Rescue Boat Depot: மீட்புப் படகுக் கிடங்கு
+  Resident caring for elderly parents: வயதான பெற்றோரைப் பராமரிக்கும் குடியிருப்பாளர்
+  Ridge Camp: மலைமுகட்டு முகாம்
+  Ring bund: வளையக் கரை
+  River Protection Bund: ஆற்றுப் பாதுகாப்புக் கரை
+  River bund: ஆற்றுக் கரை
+  Riverbank Village Flood Response: ஆற்றங்கரை கிராமத்தில் வெள்ள நிவாரணம்
+  Riverside Bazaar: ஆற்றங்கரைச் சந்தை
+  Road depot: சாலைக் கிடங்கு
+  SDRF boat volunteer: எஸ்டிஆர்எஃப் படகுத் தன்னார்வலர்
+  Salt Pan Settlement: உப்பளக் குடியிருப்பு
+  Sarpanch Ganesh: ஊர்த் தலைவர் கணேஷ்
+  Sarpanch Lakshmi: ஊர்த் தலைவர் லட்சுமி
+  Sarpanch Ramesh: ஊர்த் தலைவர் ரமேஷ்
+  Savita: சவிதா
+  Sea wall: கடல் சுவர்
+  Shopkeeper caring for his grandmother: பாட்டியைப் பராமரிக்கும் கடைக்காரர்
+  Solar micro-grid: சூரிய நுண் மின்கட்டமைப்பு
+  State disaster response force: மாநிலப் பேரிடர் மீட்புப் படை
+  Station Market: ஸ்டேஷன் சந்தை
+  Storm-water canal: மழைநீர்க் கால்வாய்
+  Sub-centre: துணை சுகாதார நிலையம்
+  Suspension bridge: தொங்கு பாலம்
+  Temple Hamlet: கோயில் குடியிருப்பு
+  Tributary River: கிளை ஆறு
+  Tsomo Chu: த்சோமோ சூ
+  Underpass Colony: சுரங்கப்பாதைக் குடியிருப்பு
+  Underpass Colony resident: சுரங்கப்பாதைக் குடியிருப்பாளர்
+  Upper Farms: மேல் வயல்கள்
+  Upper gabion wall: மேல் கேபியன் சுவர்
+  Urban health centre: நகர்ப்புற சுகாதார நிலையம்
+  Urban health centre doctor: நகர்ப்புற சுகாதார நிலைய மருத்துவர்
+  Village elder of the char: திட்டின் ஊர்ப் பெரியவர்
+  Village head: ஊர்த் தலைவர்
+  Village head of Ghat Village: படித்துறை கிராமத் தலைவர்
+  Ward 1: வார்டு 1
+  Ward 1 (Lowland Riverside): வார்டு 1 (தாழ்வான ஆற்றங்கரை)
+  Ward 14 Flash Flood: வார்டு 14 திடீர் வெள்ளம்
+  Ward 2: வார்டு 2
+  Ward 2 (Market Settlement): வார்டு 2 (சந்தைக் குடியிருப்பு)
+  Ward 3: வார்டு 3
+  Ward 3 (Highland Ridge): வார்டு 3 (மேட்டு முகடு)
+  Ward councillor: வார்டு உறுப்பினர்
+  Water Purification Point: நீர் சுத்திகரிப்பு மையம்
+  Water filter point: நீர் வடிகட்டும் மையம்
+  Water purification point: நீர் சுத்திகரிப்பு மையம்
+  Water tanker point: தண்ணீர் லாரி மையம்
+  West Bund: மேற்குக் கரை
+  West Char: மேற்குத் திட்டு
+  West Char (Weavers' Para): மேற்குத் திட்டு (நெசவாளர் பகுதி)
+  West bund: மேற்குக் கரை
+  West ring bund: மேற்கு வளையக் கரை
+  West sea wall: மேற்குக் கடல் சுவர்
+  West wall: மேற்குச் சுவர்
+sentences:
+  A cleared road let repair crews reach the substation.: சுத்தம் செய்த சாலையால் பழுதுபார்ப்புக் குழுக்கள் துணை நிலையத்தை அடைந்தன.
+  A delivery after the low-stock warning kept the shelter supplied.: குறைந்த இருப்பு எச்சரிக்கைக்குப் பின் வந்த விநியோகத்தால் புகலிடத்தில் பொருட்கள் இருந்தன.
+  A district convoy arrived with {n1} boats, {n2} trucks, {n3} sandbags and {n4} supply units.: மாவட்ட வாகன அணி {n1} படகுகள், {n2} லாரிகள், {n3} மணல் மூட்டைகள், {n4} விநியோக அலகுகளுடன் வந்தது.
+  A medical camp opened beside the shelter to check residents and treat illness.: குடியிருப்பாளர்களைப் பரிசோதித்து நோய்க்குச் சிகிச்சையளிக்க புகலிடத்தின் அருகே மருத்துவ முகாம் திறக்கப்பட்டது.
+  A medical camp would help them.: மருத்துவ முகாம் அவர்களுக்கு உதவும்.
+  A medical camp would let us treat them.: மருத்துவ முகாம் இருந்தால் நாம் அவர்களுக்குச் சிகிச்சையளிக்கலாம்.
+  A recall message reached {n1} fishing boats at sea.: திரும்பி வரும் செய்தி கடலில் உள்ள {n1} மீன்பிடிப் படகுகளை அடைந்தது.
+  A relief delivery of {n1} supply units reached the shelter.: '{n1} விநியோக அலகுகள் கொண்ட நிவாரணம் புகலிடத்தை அடைந்தது.'
+  A road is open now, so the crews can reach the substation and restore power.: இப்போது ஒரு சாலை திறந்துள்ளது, எனவே குழுக்கள் துணை நிலையத்தை அடைந்து மின்சாரத்தை மீட்கலாம்.
+  A slower release added less water at a time, so the river stayed lower.: மெதுவாகத் திறந்ததால் ஒரு நேரத்தில் குறைந்த நீர் வந்தது, அதனால் ஆறு தாழ்வாக இருந்தது.
+  A water purification point started supplying safe drinking water to the shelter and wards.: நீர் சுத்திகரிப்பு மையம் புகலிடத்துக்கும் வார்டுகளுக்கும் பாதுகாப்பான குடிநீர் வழங்கத் தொடங்கியது.
+  Access road to {p1} submerged beneath {n1} cm of water.: '{p1} செல்லும் சாலை {n1} செ.மீ. நீரில் மூழ்கியது.'
+  After the flood: வெள்ளத்துக்குப் பின்
+  All our teams are deployed.: எங்கள் எல்லாக் குழுக்களும் பணியில் உள்ளன.
+  Assigned boats and trucks moved people out of this ward.: அனுப்பிய படகுகளும் லாரிகளும் மக்களை இந்த வார்டிலிருந்து வெளியேற்றின.
+  Assigned {n1} motorized rescue boat(s) to {p1}.: '{p1} பகுதிக்கு {n1} இயந்திர மீட்புப் படகுகள் அனுப்பப்பட்டன.'
+  Before the flood: வெள்ளத்துக்கு முன்
+  Blocked drains overflowed in {p1}; streets are filling with water.: '{p1} பகுதியில் அடைபட்ட வடிகால்கள் நிரம்பி வழிந்தன; தெருக்களில் நீர் நிரம்புகிறது.'
+  Boats carry {n1} each from {p1}; they stay committed there.: ஒவ்வொரு படகும் {p1} பகுதியிலிருந்து {n1} பேரை ஏற்றிச் செல்கிறது; படகுகள் அங்கேயே இருக்கும்.
+  Boats need time to reach the harbour; recalling them early keeps crews safe.: படகுகள் துறைமுகத்தை அடைய நேரமாகும்; முன்கூட்டியே அழைத்தால் குழுவினர் பாதுகாப்பாக இருப்பர்.
+  Boats, trucks and relief arrive after {n1} ticks; it can be requested only once.: படகுகள், லாரிகள், நிவாரணம் {n1} சுற்றுகளுக்குப் பின் வரும்; இதை ஒருமுறை மட்டுமே கேட்க முடியும்.
+  Brings the health centre and water pumps back; needs one cleared road.: சுகாதார நிலையமும் தண்ணீர்ப் பம்புகளும் மீண்டும் இயங்கும்; ஒரு சுத்தமான சாலை தேவை.
+  'CASUALTIES REPORTED: Severe flooding ({n1} cm) stranded residents in {p1}! {n2} casualties reported.': 'உயிரிழப்பு அறிக்கை: கடும் வெள்ளத்தில் ({n1} செ.மீ.) {p1} குடியிருப்பாளர்கள் சிக்கினர்! {n2} உயிரிழப்புகள்.'
+  'CRITICAL BREACH: Embankment barrier collapsed under intense hydraulic pressure!': 'கடும் உடைப்பு: பெரும் நீர் அழுத்தத்தால் கரை உடைந்தது!'
+  Check the After-Action Report.: செயலுக்குப் பிந்தைய அறிக்கையைப் பாருங்கள்.
+  'Civil authorities activated evacuation protocols: Mandatory evacuation ordered for {p1}.': 'நிர்வாகம் வெளியேற்ற நடைமுறையைத் தொடங்கியது: {p1} பகுதிக்குக் கட்டாய வெளியேற்ற உத்தரவு.'
+  Clean water is already being provided.: சுத்தமான நீர் ஏற்கனவே வழங்கப்படுகிறது.
+  Clean water removed the main source of illness.: சுத்தமான நீரால் நோயின் முக்கியக் காரணம் நீங்கியது.
+  Clear at least one road first.: முதலில் குறைந்தது ஒரு சாலையைச் சுத்தம் செய்யுங்கள்.
+  Clear drains let rainwater run off instead of filling the streets.: சுத்தமான வடிகால்களால் மழைநீர் தெருக்களில் தேங்காமல் வடிந்தது.
+  Clear it first.: முதலில் அதைச் சுத்தம் செய்யுங்கள்.
+  Consultation held with character '{p1}'.: '{p1} உடன் கலந்துரையாடல் நடந்தது.'
+  Could not determine action from '{q1}'.: '''{q1}'' என்பதிலிருந்து எந்த உத்தரவு என்று புரியவில்லை.'
+  Crews cleared debris from the road to {p1}.: குழுக்கள் {p1} செல்லும் சாலையிலிருந்து இடிபாடுகளை அகற்றின.
+  Crews laid {n1} sandbags.: குழுக்கள் {n1} மணல் மூட்டைகளை அடுக்கின.
+  Crews still at sea when the cyclone hits cannot be reached.: புயல் தாக்கும்போது கடலில் உள்ள குழுவினரை அடைய முடியாது.
+  'Damage survey: Engineers surveyed {p1}: {n1} of {n2} houses damaged; the water had reached {n3} cm.': 'சேத ஆய்வு: பொறியாளர்கள் {p1} பகுதியை ஆய்வு செய்தனர்: {n2} வீடுகளில் {n1} சேதம்; நீர் {n3} செ.மீ. வரை உயர்ந்திருந்தது.'
+  Debris blocks the road to {p1}.: '{p1} செல்லும் சாலை இடிபாடுகளால் அடைபட்டுள்ளது.'
+  'Defensive engineering: Crews laid {n1} sandbags.': 'பாதுகாப்புப் பணி: குழுக்கள் {n1} மணல் மூட்டைகளை அடுக்கின.'
+  Depth reached {n1} cm.: ஆழம் {n1} செ.மீ. ஆனது.
+  Disease risk is down to {n1}.: நோய் அபாயம் குறைந்து {n1} ஆனது.
+  Disease risk is {n1} out of {n2} and rises each tick without clean water.: நோய் அபாயம் {n2} இல் {n1}; சுத்தமான நீர் இன்றி ஒவ்வொரு சுற்றிலும் அதிகரிக்கும்.
+  Disease risk is {n1} out of {n2}; clean water comes first.: நோய் அபாயம் {n2} இல் {n1}; முதலில் சுத்தமான நீர் தேவை.
+  Disease risk started to fall.: நோய் அபாயம் குறையத் தொடங்கியது.
+  Disease risk stayed below the high mark (peak {n1}).: நோய் அபாயம் உயர் அளவுக்குக் கீழே இருந்தது (உச்சம் {n1}).
+  Dispatched {n1} transport truck(s) to {p1}.: '{p1} பகுதிக்கு {n1} போக்குவரத்து லாரிகள் அனுப்பப்பட்டன.'
+  During the flood: வெள்ளத்தின் போது
+  Electricity let the health centre reopen.: மின்சாரம் வந்ததால் சுகாதார நிலையம் மீண்டும் திறந்தது.
+  Embankment barrier collapsed under intense hydraulic pressure!: பெரும் நீர் அழுத்தத்தால் கரை உடைந்தது!
+  Embankment has already suffered a catastrophic breach.: கரை ஏற்கனவே மோசமாக உடைந்துவிட்டது.
+  Embankment height raised to {n1} cm (integrity {n2}%).: கரையின் உயரம் {n1} செ.மீ. ஆக்கப்பட்டது (வலிமை {n2}%).
+  'Engineers surveyed {p1}: {n1} of {n2} houses damaged; the water had reached {n3} cm.': 'பொறியாளர்கள் {p1} பகுதியை ஆய்வு செய்தனர்: {n2} வீடுகளில் {n1} சேதம்; நீர் {n3} செ.மீ. வரை உயர்ந்திருந்தது.'
+  Evacuated {n1} residents from {p1} to safety.: '{p1} பகுதியிலிருந்து {n1} குடியிருப்பாளர்கள் பாதுகாப்பாக வெளியேற்றப்பட்டனர்.'
+  'Evacuation progress: Evacuated {n1} residents from {p1} to safety.': 'வெளியேற்ற முன்னேற்றம்: {p1} பகுதியிலிருந்து {n1} குடியிருப்பாளர்கள் பாதுகாப்பாக வெளியேற்றப்பட்டனர்.'
+  'FLOOD WARNING: Water breached into {p1}.': 'வெள்ள எச்சரிக்கை: நீர் {p1} பகுதிக்குள் புகுந்தது.'
+  Families are still stranded in {p1}.: '{p1} பகுதியில் குடும்பங்கள் இன்னும் சிக்கியுள்ளன.'
+  Families from {p1} cannot return until houses are checked.: வீடுகள் சரிபார்க்கப்படும் வரை {p1} குடும்பங்கள் திரும்ப முடியாது.
+  'Final Community Resilience Score: {n1}/{n2}.': 'இறுதி சமூக மீள்திறன் மதிப்பெண்: {n1}/{n2}.'
+  'Final Outcome: Simulation ended.': 'இறுதி முடிவு: உருவகப்படுத்தல் முடிந்தது.'
+  Flood depth above the road cut-off blocks trucks.: சாலை வரம்பைத் தாண்டிய வெள்ளநீர் லாரிகளைத் தடுக்கிறது.
+  Floodwater has drained from {p1}.: '{p1} பகுதியிலிருந்து வெள்ளநீர் வடிந்துவிட்டது.'
+  Floodwaters overtopped embankment crest by {n1} cm!: வெள்ளநீர் கரையின் உச்சியைத் தாண்டி {n1} செ.மீ. வழிந்தது!
+  Gives {n1} places; nobody can be evacuated until a shelter is open.: '{n1} இடங்கள் கிடைக்கும்; புகலிடம் திறக்கும் வரை யாரையும் வெளியேற்ற முடியாது.'
+  'HAZARD: Floodwaters overtopped embankment crest by {n1} cm!': 'அபாயம்: வெள்ளநீர் கரையின் உச்சியைத் தாண்டி {n1} செ.மீ. வழிந்தது!'
+  'Health alert: Waterborne disease risk rose to {n1} out of {n2}.': 'சுகாதார எச்சரிக்கை: நீர்வழி நோய் அபாயம் {n2} இல் {n1} ஆக உயர்ந்தது.'
+  'Health alert: {n1} residents reported stomach illness linked to unsafe water.': 'சுகாதார எச்சரிக்கை: {n1} குடியிருப்பாளர்களுக்குப் பாதுகாப்பற்ற நீரால் வயிற்று நோய்.'
+  Health checks at the camp stopped illness from taking hold.: முகாமின் சுகாதாரப் பரிசோதனையால் நோய் பரவவில்லை.
+  High disease risk with no medical camp led to reported illness.: மருத்துவ முகாம் இல்லாததாலும் நோய் அபாயம் அதிகமாக இருந்ததாலும் மக்கள் நோயுற்றனர்.
+  Houses were checked before families moved back.: குடும்பங்கள் திரும்புவதற்கு முன் வீடுகள் சரிபார்க்கப்பட்டன.
+  'Hydrology monitor: the river is at {n1} cm.': 'நீர்மட்டக் கண்காணிப்பு: ஆறு {n1} செ.மீ.-இல் உள்ளது.'
+  I can send a convoy with boats, trucks and relief.: படகுகள், லாரிகள், நிவாரணத்துடன் வாகன அணியை என்னால் அனுப்ப முடியும்.
+  Insufficient boats available.: போதுமான படகுகள் இல்லை.
+  Insufficient sandbags.: போதுமான மணல் மூட்டைகள் இல்லை.
+  Insufficient vehicles available.: போதுமான வாகனங்கள் இல்லை.
+  Integrity down to {n1}%.: வலிமை குறைந்து {n1}% ஆனது.
+  It takes {n1} ticks to arrive, so ask early.: வந்தடைய {n1} சுற்றுகள் ஆகும், எனவே முன்கூட்டியே கேளுங்கள்.
+  Keep the water point and the camp running.: நீர் மையத்தையும் முகாமையும் இயக்கத்தில் வைத்திருங்கள்.
+  Less street water collected in {p1}.: '{p1} தெருக்களில் குறைந்த நீர் தேங்கியது.'
+  'Logistics update: Assigned {n1} motorized rescue boat(s) to {p1}.': 'தளவாட நிலை: {p1} பகுதிக்கு {n1} இயந்திர மீட்புப் படகுகள் அனுப்பப்பட்டன.'
+  'Logistics update: Dispatched {n1} transport truck(s) to {p1}.': 'தளவாட நிலை: {p1} பகுதிக்கு {n1} போக்குவரத்து லாரிகள் அனுப்பப்பட்டன.'
+  Lowers the extra water from the release at tick {n1} but keeps the river high for longer.: சுற்று {n1} திறப்பின் கூடுதல் நீர் குறையும், ஆனால் ஆறு நீண்ட நேரம் உயரமாக இருக்கும்.
+  Mandatory evacuation ordered for {p1}.: '{p1} பகுதிக்குக் கட்டாய வெளியேற்ற உத்தரவு பிறப்பிக்கப்பட்டது.'
+  Municipal crews cleared blocked drains in {p1}.: நகராட்சிக் குழுக்கள் {p1} பகுதியின் அடைபட்ட வடிகால்களைச் சுத்தம் செய்தன.
+  'New phase: The river fell to {n1} cm after the peak.': 'புதிய கட்டம்: உச்சத்துக்குப் பின் ஆறு {n1} செ.மீ.-க்கு இறங்கியது.'
+  'New phase: The river reached {n1} cm and water is entering homes.': 'புதிய கட்டம்: ஆறு {n1} செ.மீ.-ஐ அடைந்து நீர் வீடுகளுக்குள் புகுகிறது.'
+  No boats are left in reserve.: கையிருப்பில் படகுகள் இல்லை.
+  No boats were assigned to {p1} while water there was {n1} cm or deeper.: '{p1} பகுதியில் நீர் {n1} செ.மீ. அல்லது அதிக ஆழம் இருந்தும் அங்கு படகு அனுப்பப்படவில்லை.'
+  No new illness was reported while the camp was running.: முகாம் இயங்கியபோது புதிய நோய் எதுவும் பதிவாகவில்லை.
+  No open shelter has space for rescued residents.: மீட்கப்பட்டவர்களுக்கு எந்தத் திறந்த புகலிடத்திலும் இடமில்லை.
+  No residents from {p1} are waiting in the shelter.: '{p1} குடியிருப்பாளர் யாரும் புகலிடத்தில் காத்திருக்கவில்லை.'
+  No shelter is open to receive supplies.: பொருட்களைப் பெற எந்தப் புகலிடமும் திறந்திருக்கவில்லை.
+  No stranded residents remain in {p1}.: '{p1} பகுதியில் சிக்கிய குடியிருப்பாளர் யாரும் இல்லை.'
+  No supply deliveries are left in reserve.: கையிருப்பில் விநியோகம் இல்லை.
+  No vehicles are left in reserve.: கையிருப்பில் வாகனங்கள் இல்லை.
+  Once the water is shallow my crews can clear it.: நீர் ஆழம் குறைந்தவுடன் என் குழுவினர் அதைச் சுத்தம் செய்வார்கள்.
+  Open the shelter first.: முதலில் புகலிடத்தைத் திறங்கள்.
+  Opens {p1} for repair crews and for residents going home.: '{p1} பழுதுபார்ப்புக் குழுக்களுக்கும் வீடு திரும்பும் குடியிருப்பாளர்களுக்கும் திறக்கிறது.'
+  Outside help takes time; asking early means it arrives while it is still useful.: வெளி உதவிக்கு நேரமாகும்; முன்கூட்டியே கேட்டால் தேவைப்படும்போதே வந்துசேரும்.
+  People in the shelter are worried about the drinking water.: புகலிடத்தில் உள்ளவர்கள் குடிநீர் பற்றிக் கவலைப்படுகிறார்கள்.
+  'Please choose one of the available operations:': 'கிடைக்கும் செயல்களில் ஒன்றைத் தேர்ந்தெடுக்கவும்:'
+  Please order an evacuation before the water rises further.: நீர் மேலும் உயரும் முன் வெளியேற்ற உத்தரவிடுங்கள்.
+  Please send help for them first.: முதலில் அவர்களுக்கு உதவி அனுப்புங்கள்.
+  Power is already on.: மின்சாரம் ஏற்கனவே இயங்குகிறது.
+  'Priority evacuation: {n1} vulnerable individuals from {p1} reached secure shelter.': 'முன்னுரிமை வெளியேற்றம்: {p1} பகுதியின் {n1} பாதிக்கப்படக்கூடிய நபர்கள் பாதுகாப்பான புகலிடம் அடைந்தனர்.'
+  Providing clean water early kept illness from spreading.: முன்கூட்டியே சுத்தமான நீர் வழங்கியதால் நோய் பரவவில்லை.
+  Public flood warning broadcast to all community zones.: எல்லாப் பகுதிகளுக்கும் பொது வெள்ள எச்சரிக்கை ஒலிபரப்பப்பட்டது.
+  'Public health: A medical camp opened beside the shelter to check residents and treat illness.': 'பொது சுகாதாரம்: குடியிருப்பாளர்களைப் பரிசோதித்துச் சிகிச்சையளிக்க புகலிடத்தின் அருகே மருத்துவ முகாம் திறக்கப்பட்டது.'
+  'Public health: A water purification point started supplying safe drinking water to the shelter and wards.': 'பொது சுகாதாரம்: நீர் சுத்திகரிப்பு மையம் புகலிடத்துக்கும் வார்டுகளுக்கும் பாதுகாப்பான குடிநீர் வழங்கத் தொடங்கியது.'
+  Raises the bund by about {n1} cm (forecast peak {n2} cm); {n3} sandbags in stock.: கரை சுமார் {n1} செ.மீ. உயரும் (முன்னறிவிப்பு உச்சம் {n2} செ.மீ.); இருப்பில் {n3} மணல் மூட்டைகள்.
+  Recovery actions become available once the floodwater recedes below the danger level after the peak.: உச்சத்துக்குப் பின் நீர் அபாய அளவுக்குக் கீழே இறங்கிய பிறகே மீட்புப் பணிகள் கிடைக்கும்.
+  'Recovery: Floodwater has drained from {p1}.': 'மீட்பு: {p1} பகுதியிலிருந்து வெள்ளநீர் வடிந்துவிட்டது.'
+  Reduces street water in {p1}; {n1} crew(s) left.: '{p1} தெருக்களில் நீர் குறையும்; {n1} குழு மீதம்.'
+  'Relief infrastructure online: Shelter ''{p1}'' officially opened with intake capacity of {n1}.': 'நிவாரண ஏற்பாடு தொடக்கம்: ''{p1}'' புகலிடம் {n1} பேர் கொள்ளளவுடன் திறக்கப்பட்டது.'
+  'Relief logistics: A relief delivery of {n1} supply units reached the shelter.': 'நிவாரணத் தளவாடம்: {n1} விநியோக அலகுகள் புகலிடத்தை அடைந்தன.'
+  Repair crews cannot reach the substation yet.: பழுதுபார்ப்புக் குழுக்கள் இன்னும் துணை நிலையத்தை அடைய முடியவில்லை.
+  Repair crews restored electricity from the substation.: பழுதுபார்ப்புக் குழுக்கள் துணை நிலையத்திலிருந்து மின்சாரத்தை மீட்டன.
+  'Repairs: Crews cleared debris from the road to {p1}.': 'பழுதுபார்ப்பு: குழுக்கள் {p1} செல்லும் சாலையிலிருந்து இடிபாடுகளை அகற்றின.'
+  'Repairs: Repair crews restored electricity from the substation.': 'பழுதுபார்ப்பு: பழுதுபார்ப்புக் குழுக்கள் துணை நிலையத்திலிருந்து மின்சாரத்தை மீட்டன.'
+  'Repairs: With power back, the village health centre reopened.': 'பழுதுபார்ப்பு: மின்சாரம் திரும்பியதும் கிராம சுகாதார நிலையம் மீண்டும் திறந்தது.'
+  Requested {n1}, available {n2}.: கோரியது {n1}, இருப்பது {n2}.
+  Rescue priority activated for vulnerable residents in {p1}.: '{p1} பகுதியின் பாதிக்கப்படக்கூடியவர்களுக்கு மீட்பு முன்னுரிமை செயல்படுத்தப்பட்டது.'
+  Residents left in deep water without boats were at risk.: படகுகள் இன்றி ஆழமான நீரில் இருந்த குடியிருப்பாளர்கள் ஆபத்தில் இருந்தனர்.
+  'Returning home: {n1} residents of {p1} returned home from the shelter.': 'வீடு திரும்புதல்: {p1} பகுதியின் {n1} குடியிருப்பாளர்கள் புகலிடத்திலிருந்து வீடு திரும்பினர்.'
+  River water level reached {n1} cm.: ஆற்றின் நீர்மட்டம் {n1} செ.மீ.-ஐ அடைந்தது.
+  Road to {p1} is submerged.: '{p1} செல்லும் சாலை நீரில் மூழ்கியுள்ளது.'
+  Roads and power are in order.: சாலைகளும் மின்சாரமும் சரியாக உள்ளன.
+  Roads into low areas are dangerous now.: தாழ்வான பகுதிகளுக்குச் செல்லும் சாலைகள் இப்போது ஆபத்தானவை.
+  Running out of supplies during the flood lowered community trust going into recovery.: வெள்ளத்தின்போது பொருட்கள் தீர்ந்ததால் மீட்புக் காலத்தில் சமூக நம்பிக்கை குறைந்தது.
+  Sandbags cannot contain this flood volume.: மணல் மூட்டைகளால் இவ்வளவு நீரைத் தடுக்க முடியாது.
+  Sandbags laid before the peak raised the bund and kept it from collapsing.: உச்சத்துக்கு முன் அடுக்கிய மூட்டைகள் கரையை உயர்த்தி உடையாமல் காத்தன.
+  'Search and rescue: Search teams rescued {n1} stranded residents from {p1} and brought them to the shelter.': 'தேடல் மற்றும் மீட்பு: குழுக்கள் {p1} பகுதியிலிருந்து {n1} சிக்கிய குடியிருப்பாளர்களை மீட்டுப் புகலிடம் கொண்டுவந்தன.'
+  Search teams reached people the evacuation had missed.: வெளியேற்றத்தில் விடுபட்டவர்களைத் தேடல் குழுக்கள் அடைந்தன.
+  Search teams rescued {n1} stranded residents from {p1} and brought them to the shelter.: தேடல் குழுக்கள் {p1} பகுதியிலிருந்து {n1} சிக்கிய குடியிருப்பாளர்களை மீட்டுப் புகலிடம் கொண்டுவந்தன.
+  Send search and rescue teams before anything else.: முதலில் தேடல் மற்றும் மீட்புக் குழுக்களை அனுப்புங்கள்.
+  Send them to {p1}, where trucks can no longer get through.: லாரிகள் இனி செல்ல முடியாத {p1} பகுதிக்கு அவற்றை அனுப்புங்கள்.
+  Severe flooding ({n1} cm) stranded residents in {p1}! {n2} casualties reported.: கடும் வெள்ளத்தில் ({n1} செ.மீ.) {p1} குடியிருப்பாளர்கள் சிக்கினர்! {n2} உயிரிழப்புகள்.
+  Shelter '{p1}' is already open and receiving evacuees.: '''{p1}'' புகலிடம் ஏற்கனவே திறந்து மக்களை ஏற்கிறது.'
+  Shelter '{p1}' officially opened with intake capacity of {n1}.: '''{p1}'' புகலிடம் {n1} பேர் கொள்ளளவுடன் திறக்கப்பட்டது.'
+  'Shelter notice: Shelter supplies are running low: {n1} units left.': 'புகலிட அறிவிப்பு: புகலிடப் பொருட்கள் குறைகின்றன: {n1} அலகுகள் மீதம்.'
+  'Shelter notice: The shelter ran out of food and essentials for its {n1} residents.': 'புகலிட அறிவிப்பு: புகலிடத்தில் உள்ள {n1} பேருக்கு உணவும் அத்தியாவசியப் பொருட்களும் தீர்ந்தன.'
+  Shelter stock is {n1} units for {n2} people; {n3} deliveries left.: புகலிடத்தில் {n2} பேருக்கு {n1} அலகுகள் உள்ளன; {n3} விநியோகங்கள் மீதம்.
+  'Shelter supplies are running low: {n1} units left.': 'புகலிடப் பொருட்கள் குறைகின்றன: {n1} அலகுகள் மீதம்.'
+  Simulation ended.: உருவகப்படுத்தல் முடிந்தது.
+  Simulation finished.: உருவகப்படுத்தல் நிறைவடைந்தது.
+  Sirens and loudspeaker broadcasts echoed across the riverbank.: ஆற்றங்கரை எங்கும் சைரன்களும் ஒலிபெருக்கி அறிவிப்புகளும் ஒலித்தன.
+  Some neighbours have stomach illness.: சில அண்டை வீட்டாருக்கு வயிற்று நோய் உள்ளது.
+  Standing floodwater set the starting disease risk to {n1} out of {n2}.: தேங்கிய வெள்ளநீரால் தொடக்க நோய் அபாயம் {n2} இல் {n1} ஆனது.
+  Status quo maintained; observation period elapsed.: நிலை மாறவில்லை; கண்காணிப்பு நேரம் கடந்தது.
+  Stock is now {n1} units.: இருப்பு இப்போது {n1} அலகுகள்.
+  Strong winds cut power across the village.: பலத்த காற்றால் கிராமம் முழுவதும் மின்சாரம் துண்டிக்கப்பட்டது.
+  Support is already on its way and should arrive at tick {n1}.: உதவி வழியில் உள்ளது, சுற்று {n1}-இல் வந்துசேரும்.
+  Survey {p1} before anyone returns.: யாரும் திரும்பும் முன் {p1} பகுதியை ஆய்வு செய்யுங்கள்.
+  That order does not apply in this scenario.: இந்த உத்தரவு இந்தக் கதைக்குப் பொருந்தாது.
+  The breach flooded more homes and left the village without power when recovery began.: உடைப்பால் மேலும் வீடுகள் மூழ்கின; மீட்பு தொடங்கியபோது கிராமத்தில் மின்சாரம் இல்லை.
+  The clean water point is helping.: சுத்தமான நீர் மையம் உதவுகிறது.
+  The convoy had not arrived when the story ended.: கதை முடியும் வரை வாகன அணி வந்துசேரவில்லை.
+  The convoy is on its way and should arrive at tick {n1}.: வாகன அணி வழியில் உள்ளது, சுற்று {n1}-இல் வந்துசேரும்.
+  The cyclone made landfall.: புயல் கரையைக் கடந்தது.
+  The dam authority agreed to release water more slowly over a longer period.: அணை நிர்வாகம் நீண்ட நேரத்தில் மெதுவாக நீர் திறக்க ஒப்புக்கொண்டது.
+  The dam authority announced a water release starting at tick {n1}.: அணை நிர்வாகம் சுற்று {n1} முதல் நீர் திறப்பதாக அறிவித்தது.
+  The dam release began, adding {n1} cm to the river.: அணையிலிருந்து நீர் திறப்பு தொடங்கியது, ஆறு {n1} செ.மீ. உயர்ந்தது.
+  The disease risk is {n1} out of {n2}.: நோய் அபாயம் {n2} இல் {n1}.
+  The district has no more support to send.: மாவட்டத்திடம் அனுப்ப இனி உதவி இல்லை.
+  The district promised outside help; it should arrive in {n1} ticks.: மாவட்டம் வெளி உதவியை உறுதியளித்தது; அது {n1} சுற்றுகளில் வந்துசேரும்.
+  The early warning made residents more willing to leave when transport arrived.: முன்கூட்டிய எச்சரிக்கையால் வாகனங்கள் வந்தபோது மக்கள் செல்ல அதிகம் தயாராக இருந்தனர்.
+  The elderly people here cannot walk through it.: இங்குள்ள முதியவர்களால் அதன் வழியே நடக்க முடியாது.
+  The embankment held (integrity {n1}%).: கரை தாக்குப்பிடித்தது (வலிமை {n1}%).
+  The fishing boats have already been recalled.: மீன்பிடிப் படகுகள் ஏற்கனவே திரும்ப அழைக்கப்பட்டன.
+  The fishing boats were not recalled before landfall.: புயல் கரையைக் கடக்கும் முன் படகுகள் திரும்ப அழைக்கப்படவில்லை.
+  The flood phase has begun.: வெள்ளக் கட்டம் தொடங்கிவிட்டது.
+  The flood response phase is over; the water is receding.: வெள்ள நிவாரணக் கட்டம் முடிந்தது; நீர் வடிகிறது.
+  The full release arrived at once on top of a river that was already high.: ஏற்கனவே உயர்ந்திருந்த ஆற்றின் மேல் முழு நீரும் ஒரே நேரத்தில் வந்தது.
+  The medical camp is already running.: மருத்துவ முகாம் ஏற்கனவே இயங்குகிறது.
+  The medical camp treated cases before they spread.: மருத்துவ முகாம் நோய் பரவும் முன் சிகிச்சையளித்தது.
+  The medical camp treated {n1} residents.: மருத்துவ முகாம் {n1} குடியிருப்பாளர்களுக்குச் சிகிச்சையளித்தது.
+  The recovery phase has begun; power is out and roads are blocked by debris.: மீட்புக் கட்டம் தொடங்கியது; மின்சாரம் இல்லை, சாலைகள் இடிபாடுகளால் அடைபட்டுள்ளன.
+  The river fell to {n1} cm after the peak.: உச்சத்துக்குப் பின் ஆறு {n1} செ.மீ.-க்கு இறங்கியது.
+  The river reached {n1} cm and water is entering homes.: ஆறு {n1} செ.மீ.-ஐ அடைந்து நீர் வீடுகளுக்குள் புகுகிறது.
+  The road to {p1} is blocked by debris.: '{p1} செல்லும் சாலை இடிபாடுகளால் அடைபட்டுள்ளது.'
+  The road to {p1} is not blocked.: '{p1} செல்லும் சாலை அடைபடவில்லை.'
+  The road to {p1} is still under {n1} cm of water.: '{p1} செல்லும் சாலை இன்னும் {n1} செ.மீ. நீரில் உள்ளது.'
+  The shelter ran out of food and essentials for its {n1} residents.: புகலிடத்தில் உள்ள {n1} பேருக்கு உணவும் அத்தியாவசியப் பொருட்களும் தீர்ந்தன.
+  The water is already at {n1} cm and families in {p1} are exposed.: நீர் ஏற்கனவே {n1} செ.மீ.-இல் உள்ளது; {p1} குடும்பங்கள் ஆபத்தில் உள்ளன.
+  The water is still climbing.: நீர் இன்னும் உயர்கிறது.
+  They should be moved early, before roads close.: சாலைகள் மூடும் முன் அவர்களை முன்கூட்டியே இடம் மாற்ற வேண்டும்.
+  This simulation session has already completed.: இந்த உருவகப்படுத்தல் ஏற்கனவே முடிந்துவிட்டது.
+  'URGENT: Access road to {p1} submerged beneath {n1} cm of water.': 'அவசரம்: {p1} செல்லும் சாலை {n1} செ.மீ. நீரில் மூழ்கியது.'
+  Uncontrolled inundation.: கட்டுப்பாடற்ற நீர்ப்பெருக்கு.
+  Use recovery actions such as search and rescue, clean water or clearing roads.: தேடல் மற்றும் மீட்பு, சுத்தமான நீர், சாலை சுத்தம் போன்ற மீட்புப் பணிகளைச் செய்யுங்கள்.
+  Use the resources wisely.: வளங்களை விவேகமாகப் பயன்படுத்துங்கள்.
+  Warned residents are far more willing to leave; it uses this turn only.: எச்சரிக்கப்பட்டவர்கள் வெளியேற அதிகம் தயாராக இருப்பர்; இதற்கு இந்தச் சுற்று மட்டுமே செலவாகும்.
+  Water breached into {p1}.: நீர் {p1} பகுதிக்குள் புகுந்தது.
+  Water is coming into our homes in {p1}.: '{p1} பகுதியில் எங்கள் வீடுகளுக்குள் நீர் வருகிறது.'
+  Waterborne disease risk rose to {n1} out of {n2}.: நீர்வழி நோய் அபாயம் {n2} இல் {n1} ஆக உயர்ந்தது.
+  We are packing our documents and waiting for instructions.: நாங்கள் ஆவணங்களைக் கட்டிக்கொண்டு அறிவுறுத்தலுக்காகக் காத்திருக்கிறோம்.
+  We have sent everything we can.: எங்களால் அனுப்ப முடிந்த அனைத்தையும் அனுப்பிவிட்டோம்.
+  We have {n1} boat(s) ready.: எங்களிடம் {n1} படகுகள் தயாராக உள்ளன.
+  We just want to go home safely when our area is ready.: எங்கள் பகுதி தயாரானதும் பாதுகாப்பாக வீடு திரும்பவே விரும்புகிறோம்.
+  We must open {p1} now.: நாம் இப்போதே {p1} ஐத் திறக்க வேண்டும்.
+  We need enough food and clean water there, and the vulnerable must be checked first.: அங்கு போதுமான உணவும் சுத்தமான நீரும் வேண்டும்; பாதிக்கப்படக்கூடியவர்கள் முதலில் பரிசோதிக்கப்பட வேண்டும்.
+  We need the damage figures for compensation.: இழப்பீட்டுக்குச் சேத விவரங்கள் எங்களுக்குத் தேவை.
+  We should lay sandbags; we have {n1} ready.: நாம் மணல் மூட்டைகளை அடுக்க வேண்டும்; எங்களிடம் {n1} தயாராக உள்ளன.
+  We still have {n1} supply deliveries at the depot.: கிடங்கில் இன்னும் {n1} விநியோகங்கள் உள்ளன.
+  Wells and pipes are contaminated.: கிணறுகளும் குழாய்களும் மாசடைந்துள்ளன.
+  Wheeled transport blocked.: சக்கர வாகனங்கள் தடைபட்டன.
+  Wheeled vehicles cannot safely traverse.: சக்கர வாகனங்கள் பாதுகாப்பாகக் கடக்க முடியாது.
+  Wheeled vehicles could no longer reach {p1}; only boats could.: சக்கர வாகனங்கள் இனி {p1} பகுதியை அடைய முடியவில்லை; படகுகள் மட்டுமே முடிந்தன.
+  Which area's drains should be cleared?: எந்தப் பகுதியின் வடிகால்களைச் சுத்தம் செய்ய வேண்டும்?
+  Which ward should engineers survey?: பொறியாளர்கள் எந்த வார்டை ஆய்வு செய்ய வேண்டும்?
+  Which ward should receive the mandatory evacuation order?: எந்த வார்டுக்குக் கட்டாய வெளியேற்ற உத்தரவு?
+  Which ward should the search and rescue teams go to?: தேடல் மற்றும் மீட்புக் குழுக்கள் எந்த வார்டுக்குச் செல்ல வேண்டும்?
+  Which ward's residents should return home?: எந்த வார்டின் குடியிருப்பாளர்கள் வீடு திரும்ப வேண்டும்?
+  Which ward's road should be cleared?: எந்த வார்டின் சாலையைச் சுத்தம் செய்ய வேண்டும்?
+  Which zone should the boat(s) be dispatched to?: படகுகளை எந்தப் பகுதிக்கு அனுப்ப வேண்டும்?
+  With power back, the village health centre reopened.: மின்சாரம் திரும்பியதும் கிராம சுகாதார நிலையம் மீண்டும் திறந்தது.
+  With the shelter open, evacuees had a safe place to go.: புகலிடம் திறந்திருந்ததால் வெளியேற்றப்பட்டவர்களுக்குச் செல்லப் பாதுகாப்பான இடம் இருந்தது.
+  Without clean water, waterborne disease risk kept rising.: சுத்தமான நீர் இல்லாமல் நீர்வழி நோய் அபாயம் உயர்ந்துகொண்டே இருந்தது.
+  Zone '{p1}' has no remaining population to evacuate.: '''{p1}'' பகுதியில் வெளியேற்ற யாரும் மீதமில்லை.'
+  Zone '{p1}' has no residents awaiting transport.: '''{p1}'' பகுதியில் வாகனத்துக்காகக் காத்திருப்பவர் யாருமில்லை.'
+  Zone '{p1}' has no vulnerable individuals awaiting evacuation.: '''{p1}'' பகுதியில் வெளியேற்றத்துக்காகக் காத்திருக்கும் பாதிக்கப்படக்கூடியவர் யாருமில்லை.'
+  '{n1} boats need about {n2} ticks to return; landfall is at tick {n3}.': '{n1} படகுகள் திரும்பச் சுமார் {n2} சுற்றுகள் ஆகும்; புயல் சுற்று {n3}-இல் கரையைக் கடக்கும்.'
+  '{n1} fishers were still at sea when the cyclone hit and are missing.': புயல் தாக்கியபோது {n1} மீனவர்கள் கடலில் இருந்தனர், அவர்களைக் காணவில்லை.
+  '{n1} fishing boats reached the harbour safely.': '{n1} மீன்பிடிப் படகுகள் பாதுகாப்பாகத் துறைமுகத்தை அடைந்தன.'
+  '{n1} people are ill now; the camp also slows the spread of disease.': இப்போது {n1} பேர் நோயுற்றுள்ளனர்; முகாம் நோய் பரவலையும் குறைக்கும்.
+  '{n1} people are in shelters now.': இப்போது {n1} பேர் புகலிடங்களில் உள்ளனர்.
+  '{n1} people are stranded in {p1}.': '{p1} பகுதியில் {n1} பேர் சிக்கியுள்ளனர்.'
+  '{n1} people from {p1} can go home, easing the crowded shelter.': '{p1} பகுதியின் {n1} பேர் வீடு செல்லலாம்; நெரிசலான புகலிடத்துக்கு இது நிம்மதி.'
+  '{n1} people have untreated illness.': '{n1} பேரின் நோய்க்குச் சிகிச்சை இல்லை.'
+  '{n1} people in {p1}; the water is forecast to reach {n2} cm against ground at {n3} cm.': '{p1} பகுதியில் {n1} பேர்; நிலம் {n3} செ.மீ.-இல், நீர் {n2} செ.மீ. வரை உயரும் என முன்னறிவிப்பு.'
+  '{n1} residents of {p1} returned home from the shelter.': '{p1} பகுதியின் {n1} குடியிருப்பாளர்கள் புகலிடத்திலிருந்து வீடு திரும்பினர்.'
+  '{n1} residents reported stomach illness linked to unsafe water.': '{n1} குடியிருப்பாளர்களுக்குப் பாதுகாப்பற்ற நீரால் வயிற்று நோய்.'
+  '{n1} stranded residents reached the shelter.': '{n1} சிக்கிய குடியிருப்பாளர்கள் புகலிடத்தை அடைந்தனர்.'
+  '{n1} truck(s) are free while the roads are still open.': சாலைகள் திறந்திருக்கும் வரை {n1} லாரிகள் காலியாக உள்ளன.
+  '{n1} truck(s) carry {n2} each while the road is dry; they stop once it floods.': சாலை உலர்ந்திருக்கும் வரை {n1} லாரிகள், ஒவ்வொன்றும் {n2} பேரை ஏற்றிச் செல்லும்; நீர் தேங்கியதும் நின்றுவிடும்.
+  '{n1} vulnerable individuals from {p1} reached secure shelter.': '{p1} பகுதியின் {n1} பாதிக்கப்படக்கூடிய நபர்கள் பாதுகாப்பான புகலிடம் அடைந்தனர்.'
+  '{n1} vulnerable residents are still at home.': '{n1} பாதிக்கப்படக்கூடிய குடியிருப்பாளர்கள் இன்னும் வீட்டில் உள்ளனர்.'
+  '{n1} vulnerable residents in {p1} move first; others wait a little longer.': '{p1} பகுதியின் {n1} பாதிக்கப்படக்கூடிய குடியிருப்பாளர்கள் முதலில் செல்வர்; மற்றவர்கள் சற்றுக் காத்திருப்பர்.'
+  '{n1} ward(s) had been flooded.': '{n1} வார்டுகள் மூழ்கியிருந்தன.'
+  '{p1} has already been surveyed.': '{p1} ஏற்கனவே ஆய்வு செய்யப்பட்டது.'
+  '{p1} is still under {n1} cm of water.': '{p1} இன்னும் {n1} செ.மீ. நீரில் உள்ளது.'
+  '{p1} must have a damage survey before residents return.': குடியிருப்பாளர்கள் திரும்பும் முன் {p1} சேத ஆய்வு அவசியம்.
+  '{p1} needs clear direction.': '{p1} க்குத் தெளிவான வழிகாட்டல் தேவை.'
+  '{p1} stayed dry; its residents are safe at home and need no rescue.': '{p1} உலர்ந்தே இருந்தது; அதன் குடியிருப்பாளர்கள் வீட்டில் பாதுகாப்பாக உள்ளனர், மீட்பு தேவையில்லை.'
+  '{p1} was not flooded; no damage survey is needed.': '{p1} பகுதியில் வெள்ளம் இல்லை; சேத ஆய்வு தேவையில்லை.'
+  '{p1}: The medical camp treated {n1} residents.': '{p1}: மருத்துவ முகாம் {n1} குடியிருப்பாளர்களுக்குச் சிகிச்சையளித்தது.'
+scenarios:
+  cyclone-surge-01:
+    name: மச்சிவாடாவில் புயல்
+    hazard_label: புயல் கடல் எழுச்சி
+    hook: புயல் சில மணி நேரத்தில் கரையைக் கடக்கும்; மீன்பிடிப் படகுகள் இன்னும் கடலில் உள்ளன; புயல் புகலிடத்தில் எல்லோருக்கும் இடமில்லை.
+    description: கடுமையான புயல் ஒரு மீனவக் கிராமத்தை நோக்கி வருகிறது. கடல் எழுச்சி கடலைக் கடல் சுவருக்கு மேல் தள்ளும். புயல் கரையைக் கடக்கும் முன் மக்களை வெளியேற்றுங்கள், படகுகளைத் திரும்ப அழையுங்கள், நெரிசலான புயல் புகலிடத்தை நிர்வகியுங்கள்.
+    npcs:
+      village_head: எச்சரிக்கைக்கு முன்பே எங்கள் எட்டுப் படகுகள் கடலுக்குச் சென்றுவிட்டன. அவர்களின் குடும்பங்கள் கடற்கரையில் என்ன செய்வது என்று கேட்கிறார்கள்.
+      rescue_worker: வானொலி மூலம் மீனவர்களைத் தொடர்புகொள்ளலாம், ஆனால் அவர்கள் துறைமுகம் திரும்ப சுமார் ஒன்றரை மணி நேரம் ஆகும்.
+      family_member: என் கணவர் இன்னும் கடலில் இருக்கிறார், என் மாமனார் படுக்கையில் இருக்கிறார். இருவரையும் விட்டு என்னால் போக முடியாது.
+      health_worker: புயல் புகலிடம் மிகவும் நெரிசலாகும். சுத்தமான நீருக்கும் மருத்துவ முகாமுக்கும் திட்டமிட வேண்டும்.
+      district_official: மாநிலம் படகுகளையும் நிவாரணத்தையும் அனுப்பலாம், ஆனால் காற்று வலுத்தவுடன் சாலைகள் துண்டிக்கப்படும்.
+  dam-release-01:
+    name: காளிந்தி அணைக்குக் கீழே
+    hazard_label: அணை நீர் திறப்பு
+    hook: சில மணி நேரத்தில் அணை நீரைத் திறக்க வேண்டும். ஒவ்வொரு கிராமத்தையும் சரியான நேரத்தில் எச்சரித்து, திறப்பை மெதுவாக்க முடியுமா?
+    description: மேற்பகுதியில் கனமழையால் காளிந்தி அணையிலிருந்து திட்டமிட்ட நீர் திறப்பு நடக்கவிருக்கிறது. கீழே ஆறு ஏற்கனவே உயர்ந்துள்ளது. நேரமும் ஒவ்வொரு கிராமத்துக்கும் செய்தி சேர்வதுமே முடிவைத் தீர்மானிக்கும்.
+    npcs:
+      village_head: இங்கு பல குடும்பங்கள் ஆற்றங்கரையில் விவசாயம் செய்கின்றன. அறிவிப்பின்றி அணை திறந்தால் அவர்கள் வயல்களில் சிக்குவார்கள்.
+      rescue_worker: படித்துறையில் எங்களிடம் மூன்று படகுகளும் இரண்டு ஜீப்புகளும் உள்ளன. கோயில் குடியிருப்புக்குச் செல்லும் தாழ்வான பாலம் விரைவில் மூழ்கும்.
+      family_member: என் அம்மாவால் தூரம் நடக்க முடியாது. நீர் வரும் முன் யாராவது எங்களுக்குச் சொல்வார்களா?
+      health_worker: எந்த வீடுகளில் முதியவர்களும் கர்ப்பிணிகளும் உள்ளனர் என்று எனக்குத் தெரியும். அவர்களை முதலில் இடம் மாற்ற வேண்டும்.
+      district_official: அணையைப் பாதுகாக்க பொறியாளர்கள் நீரைத் திறக்கவே வேண்டும். முன்கூட்டியே கேட்டால் மெதுவாகத் திறக்க ஒப்புக்கொள்ளலாம்.
+  glacial-lake-01:
+    name: த்சோமோ பள்ளத்தாக்கின் மேல் பனிப்பாறை ஏரி உடைப்பு
+    hazard_label: பனிப்பாறை ஏரி உடைப்பு
+    hook: பள்ளத்தாக்கின் மேலுள்ள ஏரியின் உணரிகள் இப்போதுதான் எச்சரிக்கை ஒலித்தன. நீரும் பாறைகளும் கொண்ட பெருக்கு வர சுமார் இரண்டு மணி நேரம் உள்ளது.
+    description: மலைப் பள்ளத்தாக்கின் மேலுள்ள பனிப்பாறை ஏரியின் உணரிகள் அதன் மொரைன் சுவர் சரியக்கூடும் என எச்சரிக்கின்றன. ஏரி உடைந்தால் நீரும் இடிபாடுகளும் கொண்ட சுவர் சில மணி நேரத்தில் பள்ளத்தாக்கை அடையும். குறுகிய நேரத்தில் எல்லோரையும் மேலே கொண்டுசெல்லுங்கள், பின் பள்ளத்தாக்கை மீண்டும் திறங்கள்.
+    npcs:
+      village_head: ஆறு கொஞ்சம்தான் உயர்ந்திருக்கிறது என்று கடைக்காரர்கள் சொல்கிறார்கள். எச்சரிக்கை தெளிவாகவும் உரக்கவும் இல்லையென்றால் சந்தையை மூட மாட்டார்கள்.
+      rescue_worker: நான்கு லாரிகள், ஒரு ரப்பர் படகு. இடிபாட்டுப் பெருக்கில் படகு பயனற்றது; சாலை இருக்கும் வரை லாரிகளே நமக்குத் துணை.
+      family_member: என் பாட்டிக்குத் தொண்ணூறு வயது, மடாலயப் படிகளில் ஏற முடியாது. முதியவர்களுக்கு முதலில் வாகனம் அனுப்புங்கள்.
+      health_worker: மலைமுகட்டின் குளிர் இரவுகள் குழந்தைகளுக்கும் முதியவர்களுக்கும் கடினமாக இருக்கும். போர்வைகள், சுத்தமான நீர், மருத்துவ முகாம் தேவை.
+      district_official: ஏரி உணரிகள் எச்சரிக்கை அனுப்பியுள்ளன. கைபேசி எச்சரிக்கை தயார், ஆனால் சைரன் ஒலிக்கும் முடிவு உங்களுடையது.
+  river-island-01:
+    name: 'கமல்பூர் திட்டு: ஆற்றில் ஒரு தீவு'
+    hazard_label: ஆற்றுத் தீவு வெள்ளம்
+    hook: பெருகும் ஆற்றின் நடுவே மணல் திட்டில் இரண்டு குடியிருப்புகள் உள்ளன. தீவிலிருந்து சாலை இல்லை, படகுகள் மட்டுமே, ஆறு ஒவ்வொரு மணி நேரமும் உயர்கிறது.
+    description: 'பெரிய ஆற்றின் பருவமழை வெள்ளம் மணல் திட்டைச் சூழ்கிறது. நிலப்பகுதிக்குச் சாலை இல்லை: ஒவ்வொரு முறை கடக்கவும் படகு தேவை. தீவுக் குடும்பங்களை முன்கூட்டியே இடம் மாற்றுங்கள், வளையக் கரையைத் தாங்க வையுங்கள், பின் எல்லோரையும் வீட்டுக்குத் திருப்புங்கள்.'
+    npcs:
+      village_head: ஒவ்வொரு பருவமழையிலும் ஆறு எங்கள் தீவின் இன்னும் கொஞ்சத்தைத் தின்கிறது. நம்பிக்கையானவர் முன்கூட்டியே சொன்னால்தான் மக்கள் மாடுகளையும் தறிகளையும் விட்டு வருவார்கள்.
+      rescue_worker: படித்துறையில் இயந்திரம் பொருத்திய மூன்று நாட்டுப் படகுகள் கட்டப்பட்டுள்ளன. ஒவ்வொரு முறை கடக்கவும் நேரமாகும், ஆறு உயர உயர நீரோட்டம் வலுக்கும்.
+      family_member: என் கடைசிக் குழந்தைக்குக் காய்ச்சல், என் மாமியாரால் தூரம் நடக்க முடியாது. நீர் முற்றம் வரை வந்தால் நாங்கள் சிக்கிவிடுவோம்.
+      health_worker: நீர் வடிந்த பிறகு மக்கள் மூழ்கிய கைப்பம்புகளின் நீரைக் குடிக்கிறார்கள். குளோரின் மாத்திரைகளும் மேடையில் மருத்துவ முகாமும் தேவை.
+      district_official: மாவட்டம் மேலும் படகுகளையும் நிவாரணத்தையும் அனுப்பலாம், ஆனால் அவை முதலில் சாலை வழியே படித்துறைக்கு, பின் நீர் வழியே வரும்.
+  urban-flash-flood-01:
+    name: வார்டு 14 திடீர் வெள்ளம்
+    hazard_label: நகர்ப்புற திடீர் வெள்ளம்
+    hook: நெரிசலான நகர வார்டில் மேகவெடிப்பு. வடிகால்கள் அடைபட்டுள்ளன, சுரங்கப்பாதை முதலில் நிரம்பும்; உங்களுக்கு மணி நேரங்கள் அல்ல, நிமிடங்களே உள்ளன.
+    description: நகரின் ஒரு வார்டில் மேகவெடிப்பு. அடைபட்ட வடிகால்களும் ரயில்வே சுரங்கப்பாதையும் சில நிமிடங்களில் தெருக்களை வாய்க்கால்களாக்குகின்றன. விரைந்து செயல்படுங்கள், பின் மின்சாரம், சாலைகள், பாதுகாப்பான நீரை மீட்டெடுங்கள்.
+    npcs:
+      village_head: சந்தைக்குப் பின்னுள்ள வடிகால்கள் மீண்டும் பிளாஸ்டிக்கால் அடைபட்டுள்ளன. மழை தொடர்ந்தால் சுரங்கப்பாதை முதலில் நிரம்பும்.
+      rescue_worker: எங்களிடம் இரண்டு மீட்புப் படகுகளும் நான்கு லாரிகளும் உள்ளன. நடைபாதைக்கு மேல் நீர் வந்தால் லாரிகள் சுரங்கப்பாதை வழியே செல்ல முடியாது.
+      family_member: எங்கள் தெருவில் ஏற்கனவே கணுக்கால் அளவு நீர், என் அண்டை வீட்டார் சக்கர நாற்காலி பயன்படுத்துகிறார்.
+      health_worker: சாக்கடை கலந்த வெள்ளநீர் கடும் ஆபத்து. பிறகு விரைவாகச் சுத்தமான நீர் தேவைப்படும்.
+      district_official: மாநில மீட்புப் படை படகுகளை அனுப்பலாம், ஆனால் இந்த வார்டை அடைய சில மணி நேரம் ஆகும்.
+  village-river-01:
+    name: ஆற்றங்கரை கிராமத்தில் வெள்ள நிவாரணம்
+    hazard_label: ஆற்று வெள்ளம்
+    hook: பருவமழைக் கிளை ஆறு மூன்று வார்டுகளுக்கு அருகே உயர்கிறது. எச்சரியுங்கள், வெளியேற்றுங்கள், கரையைக் காப்பாற்றுங்கள், பின் மீட்பை வழிநடத்துங்கள்.
+    description: 'உயரும் கிளை ஆறு மூன்று வார்டுகளை அச்சுறுத்துகிறது. வெள்ளம் உச்சமடையும் முன் எச்சரித்து வெளியேற்றுங்கள், வெள்ளத்தின்போது மக்களைக் காப்பாற்றுங்கள், பின் மீட்பை வழிநடத்துங்கள்: சுத்தமான நீர், மருத்துவம், மின்சாரம், சாலைகள், பாதுகாப்பாக வீடு திரும்புதல்.'
+    npcs:
+      village_head: வார்டு 1 அருகே நீர் வேகமாக உயர்கிறது. கிராம மக்கள் தெளிவான வழிகாட்டலுக்காக எங்களைப் பார்க்கிறார்கள். முறையான எச்சரிக்கை விடலாமா?
+      rescue_worker: கிடங்கில் இரண்டு இயந்திர மீட்புப் படகுகளும் மூன்று போக்குவரத்து லாரிகளும் தயாராக உள்ளன. மணல் மூட்டைகளும் தயார்.
+      family_member: என் பெற்றோரால் நடமாட முடியாது. தரைப்பாலம் மூழ்கும் முன் எங்கள் முதியவர்களுக்கு வாகனம் அனுப்புங்கள்.
+      health_worker: மக்கள் நீண்ட நாள் புகலிடத்தில் இருந்தால் குடிநீர், மருந்துகள் பற்றி யோசிக்க வேண்டும்.
+      district_official: மாவட்டம் படகுகள், லாரிகள், நிவாரணத்துடன் வாகன அணியை அனுப்பலாம், ஆனால் வந்துசேர நேரமாகும்.
+rulecards:
+  RC-01:
+    title: முன்கூட்டிய பொது எச்சரிக்கை
+    category: எச்சரிக்கைகள்
+    guidance: ஆற்றின் முன்னறிவிப்பு கரை தாண்டும் அபாயத்தைக் காட்டினால் உடனே அதிகாரப்பூர்வ வெளியேற்ற அறிவிப்பை வெளியிடுங்கள். முன்கூட்டிய எச்சரிக்கை பாதிக்கப்படக்கூடிய குடும்பங்களுக்கு அவசரப் பொருட்களைச் சேகரித்து மேடான இடத்துக்குச் செல்ல நேரம் தரும்.
+  RC-02:
+    title: மிகவும் பாதிக்கப்படக்கூடியவர்களுக்கு உதவி
+    category: வெளியேற்றம்
+    guidance: சாலைகள் மூழ்கும் முன் முதியவர்கள், சிறு குழந்தைகள், கர்ப்பிணிகள், நடமாட முடியாதவர்களுக்குச் சிறப்பு வாகனங்களுக்கும் உதவிக்கும் முன்னுரிமை கொடுங்கள்.
+  RC-03:
+    title: வெள்ளநீரில் வாகனப் பாதுகாப்பு
+    category: போக்குவரத்து
+    guidance: முழங்காலுக்கு மேல் ஓடும் நீர் உள்ள சாலைகளில் சாதாரண வாகனங்களை அனுப்ப வேண்டாம். சாலைகள் மூழ்கினால் படகுகள் அல்லது உயரமான சிறப்பு வாகனங்களைப் பயன்படுத்துங்கள்.
+  RC-04:
+    title: கரையில் மணல் மூட்டை அடுக்கும் சரியான முறை
+    category: உள்கட்டமைப்பு
+    guidance: வெள்ள உச்சத்துக்கு முன் தாழ்வான கரைகளில் மணல் மூட்டைகளை அடுக்குங்கள். கரையை முன்கூட்டியே வலுப்படுத்தினால் உடைப்பு தாமதமாகி வெளியேற்றத்துக்கு மதிப்புமிக்க மணி நேரங்கள் கிடைக்கும்.
+  RC-05:
+    title: பாதுகாப்பான புகலிட நிர்வாகம்
+    category: புகலிடம்
+    guidance: மக்கள் வரும் முன் மேடான இடத்தில் உள்ள உறுதியான பல மாடிப் பொதுக் கட்டடங்களை நிவாரணப் புகலிடங்களாகத் திறங்கள்; இதனால் நுழைவு ஒழுங்காகவும் பாதுகாப்பாகவும் இருக்கும்.
+  RC-06:
+    title: வெள்ளத்துக்குப் பின் பாதுகாப்பான குடிநீர்
+    category: மீட்பு
+    guidance: வெள்ளநீர் கிணறுகளையும் குழாய்களையும் மாசுபடுத்துகிறது. மீட்பின் தொடக்கத்திலேயே மேற்பார்வையுடன் நீர் சுத்திகரிப்பு மையம் அமைத்தால் புகலிடத்திலும் திரும்பும் குடும்பங்களிலும் நீர்வழி நோய் அபாயம் குறையும்.
+  RC-07:
+    title: சுகாதாரக் கண்காணிப்பும் மருத்துவ முகாம்களும்
+    category: மீட்பு
+    guidance: நெரிசலான புகலிடங்களும் தேங்கிய நீரும் வயிறு, தோல் நோய்களை அதிகரிக்கின்றன. புகலிடம் அருகேயுள்ள மருத்துவ முகாம் நோய் பரவும் முன் கண்டறிந்து சிகிச்சையளிக்க உதவுகிறது.
+  RC-08:
+    title: சோதனைக்குப் பின்பே வீடு திரும்புங்கள்
+    category: மீட்பு
+    guidance: பகுதி உலர்ந்து, சாலை திறந்து, வீடுகளின் கட்டமைப்பும் மின்சாரமும் அதிகாரிகளால் சோதிக்கப்பட்ட பின்பே குடியிருப்பாளர்கள் திரும்ப வேண்டும்.
+  RC-09:
+    title: புகலிடங்களில் பொருட்களைத் தொடர்ந்து வழங்குதல்
+    category: மீட்பு
+    guidance: புகலிட இருப்பு தீரும் முன் நிவாரண விநியோகத்தைத் திட்டமிடுங்கள். உணவு, அத்தியாவசியப் பொருட்கள் பற்றாக்குறை உடல்நலத்தைக் கெடுத்து, நிவாரணப் பணியில் சமூக நம்பிக்கையைக் குறைக்கிறது.
+  RC-10:
+    title: சாலைகளைச் சுத்தம் செய்து சேவைகளை மீட்டல்
+    category: மீட்பு
+    guidance: முதலில் சாலைகளிலிருந்து இடிபாடுகளை அகற்றுங்கள்; அப்போதுதான் பழுதுபார்ப்புக் குழுக்கள் துணை நிலையங்களையும் சுகாதார நிலையங்களையும் அடையும். மின்சாரம் வந்தால் மருத்துவமனைகளும் தண்ணீர்ப் பம்புகளும் மீண்டும் இயங்கும்.
+  RC-11:
+    title: நகர வடிகால்களைச் சுத்தமாக வையுங்கள்
+    category: நகர்ப்புற வெள்ளம்
+    guidance: அடைபட்ட வடிகால்கள் கனமழையைச் சில நிமிடங்களில் தெரு வெள்ளமாக்குகின்றன. மேகவெடிப்புக்கு முன்னும் போதும் அடைப்புகளை நீக்கி, மக்களைச் சுரங்கப்பாதைகளிலிருந்து விலக்கி வைத்தால் ஆபத்து குறையும்.
+  RC-12:
+    title: அணை நீர் திறப்புத் தகவல்
+    category: எச்சரிக்கைகள்
+    guidance: அணை நீர் திறக்கும் முன் கீழ்ப்பகுதி கிராமங்களுக்கு அறிவிப்பு தேவை. அணை நிர்வாகத்துடன் முன்கூட்டியே ஒருங்கிணையுங்கள்; தெளிவான எச்சரிக்கையுடன் மெதுவான, படிப்படியான திறப்பு மக்களுக்கு இடம் பெயர நேரம் தரும்.
+  RC-13:
+    title: மீனவச் சமூகங்களின் புயல் தயார்நிலை
+    category: புயல்
+    guidance: புயல் எச்சரிக்கை வந்தவுடனே, கரையைக் கடப்பதற்கு வெகு முன்பே, மீன்பிடிப் படகுகளைத் திரும்ப அழையுங்கள். காற்று வலுத்தால் சாலைகளும் மின்சாரமும் துண்டிக்கப்படுவதால் கடலோரக் குடும்பங்களை முன்கூட்டியே புயல் புகலிடங்களுக்குக் கொண்டுசெல்லுங்கள்.
+  RC-14:
+    title: வெளி உதவியை முன்கூட்டியே கேட்டல்
+    category: ஒருங்கிணைப்பு
+    guidance: மாவட்ட, மாநிலக் குழுக்கள் கிராமத்தை அடைய நேரமாகும். உள்ளூர் வளங்கள் போதாது எனத் தோன்றியவுடன் வெளி உதவி கேளுங்கள்; அவை தீரும் வரை காத்திருக்க வேண்டாம்.
