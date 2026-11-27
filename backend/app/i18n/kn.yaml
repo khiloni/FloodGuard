@@ -1,0 +1,537 @@
+# kn: built by backend/scripts/i18n_build.py. Drafted for FloodGuard; native-speaker review welcome.
+names:
+  ASHA worker Mamoni: ಆಶಾ ಕಾರ್ಯಕರ್ತೆ ಮಮೋನಿ
+  ASHA worker Meena: ಆಶಾ ಕಾರ್ಯಕರ್ತೆ ಮೀನಾ
+  Anita: ಅನಿತಾ
+  Army Transit Camp on the Ridge: ಬೆಟ್ಟದ ಮೇಲಿನ ಸೇನಾ ಸಾರಿಗೆ ಶಿಬಿರ
+  Bay of Bengal: ಬಂಗಾಳ ಕೊಲ್ಲಿ
+  Below Kalindi Dam: ಕಾಳಿಂದಿ ಅಣೆಕಟ್ಟಿನ ಕೆಳಗೆ
+  Boatman Rafiq: ದೋಣಿಗಾರ ರಫೀಕ್
+  Canal bridge: ಕಾಲುವೆ ಸೇತುವೆ
+  Canal retaining wall: ಕಾಲುವೆ ತಡೆಗೋಡೆ
+  Central Bund: ಮಧ್ಯ ಒಡ್ಡು
+  Central bund: ಮಧ್ಯ ಒಡ್ಡು
+  Central ring bund: ಮಧ್ಯ ಸುತ್ತು ಒಡ್ಡು
+  Central sea wall: ಮಧ್ಯ ಸಮುದ್ರ ಗೋಡೆ
+  Central wall: ಮಧ್ಯ ಗೋಡೆ
+  Chlorination point: ಕ್ಲೋರಿನೀಕರಣ ಕೇಂದ್ರ
+  Circle officer, revenue circle: ವೃತ್ತ ಅಧಿಕಾರಿ, ಕಂದಾಯ ವೃತ್ತ
+  Civil Defence Volunteer: ನಾಗರಿಕ ರಕ್ಷಣಾ ಸ್ವಯಂಸೇವಕ
+  Coast Guard Petty Officer Joseph: ಕರಾವಳಿ ರಕ್ಷಣಾ ಪೆಟ್ಟಿ ಆಫೀಸರ್ ಜೋಸೆಫ್
+  Coast guard liaison: ಕರಾವಳಿ ರಕ್ಷಣಾ ಸಂಪರ್ಕ ಅಧಿಕಾರಿ
+  Community Hall: ಸಮುದಾಯ ಭವನ
+  Community health worker: ಸಮುದಾಯ ಆರೋಗ್ಯ ಕಾರ್ಯಕರ್ತೆ
+  Constable Imran: ಕಾನ್‌ಸ್ಟೆಬಲ್ ಇಮ್ರಾನ್
+  Councillor Fatima: ಪಾಲಿಕೆ ಸದಸ್ಯೆ ಫಾತಿಮಾ
+  Cyclone Shelter: ಚಂಡಮಾರುತ ಆಶ್ರಯ
+  Cyclone at Machhiwada: ಮಚ್ಛಿವಾಡದಲ್ಲಿ ಚಂಡಮಾರುತ
+  Dam control room liaison: ಅಣೆಕಟ್ಟು ನಿಯಂತ್ರಣ ಕೊಠಡಿ ಸಂಪರ್ಕ ಅಧಿಕಾರಿ
+  District collector's emergency officer: ಜಿಲ್ಲಾಧಿಕಾರಿಯ ತುರ್ತು ಅಧಿಕಾರಿ
+  District disaster management officer: ಜಿಲ್ಲಾ ವಿಪತ್ತು ನಿರ್ವಹಣಾ ಅಧಿಕಾರಿ
+  District emergency operations centre: ಜಿಲ್ಲಾ ತುರ್ತು ಕಾರ್ಯಾಚರಣೆ ಕೇಂದ್ರ
+  Dr. Chettri: ಡಾ. ಛೇತ್ರಿ
+  Dr. Mehta: ಡಾ. ಮೆಹ್ತಾ
+  East Bund: ಪೂರ್ವ ಒಡ್ಡು
+  East Char: ಪೂರ್ವ ದಿಬ್ಬ
+  East Char (Fisher Para): ಪೂರ್ವ ದಿಬ್ಬ (ಮೀನುಗಾರರ ಪಾಡ)
+  East bund: ಪೂರ್ವ ಒಡ್ಡು
+  East ring bund: ಪೂರ್ವ ಸುತ್ತು ಒಡ್ಡು
+  East sea wall: ಪೂರ್ವ ಸಮುದ್ರ ಗೋಡೆ
+  East wall: ಪೂರ್ವ ಗೋಡೆ
+  Elected Village Representative: ಚುನಾಯಿತ ಗ್ರಾಮ ಪ್ರತಿನಿಧಿ
+  Elected panchayat president: ಚುನಾಯಿತ ಪಂಚಾಯತ್ ಅಧ್ಯಕ್ಷ
+  Electricity substation: ವಿದ್ಯುತ್ ಉಪಕೇಂದ್ರ
+  Fire Officer Raju: ಅಗ್ನಿಶಾಮಕ ಅಧಿಕಾರಿ ರಾಜು
+  Fire and emergency services: ಅಗ್ನಿಶಾಮಕ ಮತ್ತು ತುರ್ತು ಸೇವೆಗಳು
+  Fire station: ಅಗ್ನಿಶಾಮಕ ಠಾಣೆ
+  Fisher's wife, Fishing Hamlet: ಮೀನುಗಾರನ ಹೆಂಡತಿ, ಮೀನುಗಾರರ ಹಳ್ಳಿ
+  Fishing Hamlet: ಮೀನುಗಾರರ ಹಳ್ಳಿ
+  Fishing boats at sea: ಸಮುದ್ರದಲ್ಲಿರುವ ಮೀನುಗಾರಿಕೆ ದೋಣಿಗಳು
+  Fishing harbour: ಮೀನುಗಾರಿಕೆ ಬಂದರು
+  Gabion river wall: ಗೇಬಿಯನ್ ನದಿ ಗೋಡೆ
+  Gaon Burha Hemanta: ಊರ ಹಿರಿಯ ಹೇಮಂತ
+  Ghat Village: ಘಾಟ್ ಗ್ರಾಮ
+  Ghat Village farmer: ಘಾಟ್ ಗ್ರಾಮದ ರೈತ
+  Ghat boats: ಘಾಟ್ ದೋಣಿಗಳು
+  Glacial Lake Burst above Tsomo Valley: ತ್ಸೋಮೋ ಕಣಿವೆಯ ಮೇಲೆ ಹಿಮನದಿ ಸರೋವರ ಸ್ಫೋಟ
+  Glacial lake: ಹಿಮನದಿ ಸರೋವರ
+  Gopal: ಗೋಪಾಲ್
+  Government High School Shelter: ಸರ್ಕಾರಿ ಪ್ರೌಢಶಾಲೆ ಆಶ್ರಯ
+  Great River: ಮಹಾನದಿ
+  Health Centre: ಆರೋಗ್ಯ ಕೇಂದ್ರ
+  Hill Road Colony: ಹಿಲ್ ರೋಡ್ ಕಾಲೋನಿ
+  Hill School: ಬೆಟ್ಟದ ಶಾಲೆ
+  Hilltop School: ಬೆಟ್ಟದ ತುದಿಯ ಶಾಲೆ
+  Hydropower Workers' Camp: ಜಲವಿದ್ಯುತ್ ಕಾರ್ಮಿಕರ ಶಿಬಿರ
+  Inspector Lhamu: ಇನ್‌ಸ್ಪೆಕ್ಟರ್ ಲ್ಹಾಮು
+  Jonali: ಜೋನಾಲಿ
+  Kalindi Dam: ಕಾಳಿಂದಿ ಅಣೆಕಟ್ಟು
+  Kalindi River: ಕಾಳಿಂದಿ ನದಿ
+  'Kamalpur Char: Island in the River': 'ಕಮಲ್‌ಪುರ ದಿಬ್ಬ: ನದಿಯ ನಡುವಿನ ದ್ವೀಪ'
+  Lake View Apartments: ಲೇಕ್ ವ್ಯೂ ಅಪಾರ್ಟ್‌ಮೆಂಟ್ಸ್
+  Low Causeway: ತಗ್ಗಿನ ಕಾಸ್‌ವೇ
+  Low bridge: ತಗ್ಗಿನ ಸೇತುವೆ
+  Lower gabion wall: ಕೆಳಗಿನ ಗೇಬಿಯನ್ ಗೋಡೆ
+  Mainland Ghat Village: ಮುಖ್ಯಭೂಮಿಯ ಘಾಟ್ ಗ್ರಾಮ
+  Mainland Higher Secondary School: ಮುಖ್ಯಭೂಮಿಯ ಪದವಿಪೂರ್ವ ಕಾಲೇಜು
+  Mainland School: ಮುಖ್ಯಭೂಮಿಯ ಶಾಲೆ
+  Mainland ghat: ಮುಖ್ಯಭೂಮಿಯ ಘಾಟ್
+  Medical Camp: ವೈದ್ಯಕೀಯ ಶಿಬಿರ
+  Medical camp: ವೈದ್ಯಕೀಯ ಶಿಬಿರ
+  Medical camp on the platform: ವೇದಿಕೆಯ ಮೇಲೆ ವೈದ್ಯಕೀಯ ಶಿಬಿರ
+  Micro-hydel station: ಸೂಕ್ಷ್ಮ ಜಲವಿದ್ಯುತ್ ಕೇಂದ್ರ
+  Middle gabion wall: ಮಧ್ಯದ ಗೇಬಿಯನ್ ಗೋಡೆ
+  Mohan: ಮೋಹನ್
+  Monastery Hamlet: ಮಠದ ಹಳ್ಳಿ
+  Monastery Prayer Hall: ಮಠದ ಪ್ರಾರ್ಥನಾ ಮಂದಿರ
+  Mother of three, East Char: ಮೂರು ಮಕ್ಕಳ ತಾಯಿ, ಪೂರ್ವ ದಿಬ್ಬ
+  Mr. Bora: ಶ್ರೀ ಬೋರಾ
+  Mr. Kulkarni: ಶ್ರೀ ಕುಲಕರ್ಣಿ
+  Mr. Rao: ಶ್ರೀ ರಾವ್
+  Ms. Desai: ಶ್ರೀಮತಿ ದೇಸಾಯಿ
+  Ms. Iyer: ಶ್ರೀಮತಿ ಅಯ್ಯರ್
+  Ms. Rai: ಶ್ರೀಮತಿ ರೈ
+  Multi-purpose Cyclone Shelter: ಬಹುಉದ್ದೇಶ ಚಂಡಮಾರುತ ಆಶ್ರಯ
+  Municipal School: ನಗರಸಭೆ ಶಾಲೆ
+  Municipal disaster cell officer: ನಗರಸಭೆ ವಿಪತ್ತು ಘಟಕ ಅಧಿಕಾರಿ
+  Nurse Kavita: ದಾದಿ ಕವಿತಾ
+  Nurse Thomas: ದಾದಿ ಥಾಮಸ್
+  Officer Sunita: ಅಧಿಕಾರಿ ಸುನೀತಾ
+  Panchayat President Dorjee: ಪಂಚಾಯತ್ ಅಧ್ಯಕ್ಷ ದೋರ್ಜಿ
+  Pemba: ಪೆಂಬಾ
+  Police and rescue volunteer: ಪೊಲೀಸ್ ಮತ್ತು ರಕ್ಷಣಾ ಸ್ವಯಂಸೇವಕ
+  Power Substation: ವಿದ್ಯುತ್ ಉಪಕೇಂದ್ರ
+  Power substation: ವಿದ್ಯುತ್ ಉಪಕೇಂದ್ರ
+  Prayer Hall: ಪ್ರಾರ್ಥನಾ ಮಂದಿರ
+  Primary health centre: ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಕೇಂದ್ರ
+  Primary health centre doctor: ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಕೇಂದ್ರದ ವೈದ್ಯರು
+  Primary health centre nurse: ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಕೇಂದ್ರದ ದಾದಿ
+  Railway underpass: ರೈಲ್ವೆ ಕೆಳಸೇತುವೆ
+  Raised Flood Platform: ಎತ್ತರಿಸಿದ ಪ್ರವಾಹ ವೇದಿಕೆ
+  Raised Platform: ಎತ್ತರಿಸಿದ ವೇದಿಕೆ
+  Relief Supply Depot: ಪರಿಹಾರ ಸರಬರಾಜು ಡಿಪೋ
+  Relief depot: ಪರಿಹಾರ ಡಿಪೋ
+  Rescue Boat Depot: ರಕ್ಷಣಾ ದೋಣಿ ಡಿಪೋ
+  Resident caring for elderly parents: ವಯಸ್ಸಾದ ಪೋಷಕರನ್ನು ನೋಡಿಕೊಳ್ಳುವ ನಿವಾಸಿ
+  Ridge Camp: ಬೆಟ್ಟದ ಶಿಬಿರ
+  Ring bund: ಸುತ್ತು ಒಡ್ಡು
+  River Protection Bund: ನದಿ ರಕ್ಷಣಾ ಒಡ್ಡು
+  River bund: ನದಿ ಒಡ್ಡು
+  Riverbank Village Flood Response: ನದಿತೀರದ ಗ್ರಾಮದಲ್ಲಿ ಪ್ರವಾಹ ಪರಿಹಾರ
+  Riverside Bazaar: ನದಿತೀರದ ಪೇಟೆ
+  Road depot: ರಸ್ತೆ ಡಿಪೋ
+  SDRF boat volunteer: ಎಸ್‌ಡಿಆರ್‌ಎಫ್ ದೋಣಿ ಸ್ವಯಂಸೇವಕ
+  Salt Pan Settlement: ಉಪ್ಪಿನ ಆಗರದ ವಸತಿ
+  Sarpanch Ganesh: ಗ್ರಾಮ ಮುಖ್ಯಸ್ಥ ಗಣೇಶ್
+  Sarpanch Lakshmi: ಗ್ರಾಮ ಮುಖ್ಯಸ್ಥೆ ಲಕ್ಷ್ಮಿ
+  Sarpanch Ramesh: ಗ್ರಾಮ ಮುಖ್ಯಸ್ಥ ರಮೇಶ್
+  Savita: ಸವಿತಾ
+  Sea wall: ಸಮುದ್ರ ಗೋಡೆ
+  Shopkeeper caring for his grandmother: ಅಜ್ಜಿಯನ್ನು ನೋಡಿಕೊಳ್ಳುವ ಅಂಗಡಿಯವನು
+  Solar micro-grid: ಸೌರ ಮೈಕ್ರೋ-ಗ್ರಿಡ್
+  State disaster response force: ರಾಜ್ಯ ವಿಪತ್ತು ಸ್ಪಂದನಾ ಪಡೆ
+  Station Market: ಸ್ಟೇಷನ್ ಮಾರುಕಟ್ಟೆ
+  Storm-water canal: ಮಳೆನೀರಿನ ಕಾಲುವೆ
+  Sub-centre: ಉಪ ಆರೋಗ್ಯ ಕೇಂದ್ರ
+  Suspension bridge: ತೂಗು ಸೇತುವೆ
+  Temple Hamlet: ದೇವಾಲಯದ ಹಳ್ಳಿ
+  Tributary River: ಉಪನದಿ
+  Tsomo Chu: ತ್ಸೋಮೋ ಚು
+  Underpass Colony: ಕೆಳಸೇತುವೆ ಕಾಲೋನಿ
+  Underpass Colony resident: ಕೆಳಸೇತುವೆ ಕಾಲೋನಿ ನಿವಾಸಿ
+  Upper Farms: ಮೇಲಿನ ಹೊಲಗಳು
+  Upper gabion wall: ಮೇಲಿನ ಗೇಬಿಯನ್ ಗೋಡೆ
+  Urban health centre: ನಗರ ಆರೋಗ್ಯ ಕೇಂದ್ರ
+  Urban health centre doctor: ನಗರ ಆರೋಗ್ಯ ಕೇಂದ್ರದ ವೈದ್ಯರು
+  Village elder of the char: ದಿಬ್ಬದ ಊರ ಹಿರಿಯ
+  Village head: ಗ್ರಾಮ ಮುಖ್ಯಸ್ಥ
+  Village head of Ghat Village: ಘಾಟ್ ಗ್ರಾಮದ ಮುಖ್ಯಸ್ಥ
+  Ward 1: ವಾರ್ಡ್ 1
+  Ward 1 (Lowland Riverside): ವಾರ್ಡ್ 1 (ತಗ್ಗಿನ ನದಿತೀರ)
+  Ward 14 Flash Flood: ವಾರ್ಡ್ 14 ದಿಢೀರ್ ಪ್ರವಾಹ
+  Ward 2: ವಾರ್ಡ್ 2
+  Ward 2 (Market Settlement): ವಾರ್ಡ್ 2 (ಮಾರುಕಟ್ಟೆ ವಸತಿ)
+  Ward 3: ವಾರ್ಡ್ 3
+  Ward 3 (Highland Ridge): ವಾರ್ಡ್ 3 (ಎತ್ತರದ ಬೆಟ್ಟ)
+  Ward councillor: ವಾರ್ಡ್ ಸದಸ್ಯೆ
+  Water Purification Point: ನೀರು ಶುದ್ಧೀಕರಣ ಕೇಂದ್ರ
+  Water filter point: ನೀರು ಶೋಧಕ ಕೇಂದ್ರ
+  Water purification point: ನೀರು ಶುದ್ಧೀಕರಣ ಕೇಂದ್ರ
+  Water tanker point: ನೀರಿನ ಟ್ಯಾಂಕರ್ ಕೇಂದ್ರ
+  West Bund: ಪಶ್ಚಿಮ ಒಡ್ಡು
+  West Char: ಪಶ್ಚಿಮ ದಿಬ್ಬ
+  West Char (Weavers' Para): ಪಶ್ಚಿಮ ದಿಬ್ಬ (ನೇಕಾರರ ಪಾಡ)
+  West bund: ಪಶ್ಚಿಮ ಒಡ್ಡು
+  West ring bund: ಪಶ್ಚಿಮ ಸುತ್ತು ಒಡ್ಡು
+  West sea wall: ಪಶ್ಚಿಮ ಸಮುದ್ರ ಗೋಡೆ
+  West wall: ಪಶ್ಚಿಮ ಗೋಡೆ
+sentences:
+  A cleared road let repair crews reach the substation.: ತೆರವುಗೊಳಿಸಿದ ರಸ್ತೆಯಿಂದ ದುರಸ್ತಿ ತಂಡಗಳು ಉಪಕೇಂದ್ರವನ್ನು ತಲುಪಿದವು.
+  A delivery after the low-stock warning kept the shelter supplied.: ಕಡಿಮೆ ದಾಸ್ತಾನು ಎಚ್ಚರಿಕೆಯ ನಂತರದ ಸರಬರಾಜಿನಿಂದ ಆಶ್ರಯದಲ್ಲಿ ಸಾಮಗ್ರಿ ಉಳಿಯಿತು.
+  A district convoy arrived with {n1} boats, {n2} trucks, {n3} sandbags and {n4} supply units.: ಜಿಲ್ಲಾ ವಾಹನ ಪಡೆ {n1} ದೋಣಿಗಳು, {n2} ಲಾರಿಗಳು, {n3} ಮರಳು ಚೀಲಗಳು ಮತ್ತು {n4} ಸರಬರಾಜು ಘಟಕಗಳೊಂದಿಗೆ ಬಂದಿತು.
+  A medical camp opened beside the shelter to check residents and treat illness.: ನಿವಾಸಿಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ ಕಾಯಿಲೆಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಲು ಆಶ್ರಯದ ಪಕ್ಕ ವೈದ್ಯಕೀಯ ಶಿಬಿರ ತೆರೆಯಲಾಯಿತು.
+  A medical camp would help them.: ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಅವರಿಗೆ ನೆರವಾಗುತ್ತದೆ.
+  A medical camp would let us treat them.: ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಇದ್ದರೆ ನಾವು ಅವರಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಬಹುದು.
+  A recall message reached {n1} fishing boats at sea.: ಹಿಂತಿರುಗುವ ಸಂದೇಶ ಸಮುದ್ರದಲ್ಲಿರುವ {n1} ಮೀನುಗಾರಿಕೆ ದೋಣಿಗಳನ್ನು ತಲುಪಿತು.
+  A relief delivery of {n1} supply units reached the shelter.: '{n1} ಸರಬರಾಜು ಘಟಕಗಳ ಪರಿಹಾರ ಆಶ್ರಯವನ್ನು ತಲುಪಿತು.'
+  A road is open now, so the crews can reach the substation and restore power.: ಈಗ ಒಂದು ರಸ್ತೆ ತೆರೆದಿದೆ, ಆದ್ದರಿಂದ ತಂಡಗಳು ಉಪಕೇಂದ್ರ ತಲುಪಿ ವಿದ್ಯುತ್ ಮರುಸ್ಥಾಪಿಸಬಹುದು.
+  A slower release added less water at a time, so the river stayed lower.: ನಿಧಾನವಾಗಿ ಬಿಟ್ಟಿದ್ದರಿಂದ ಒಮ್ಮೆಗೆ ಕಡಿಮೆ ನೀರು ಬಂತು, ಹಾಗಾಗಿ ನದಿ ತಗ್ಗಿನಲ್ಲೇ ಇತ್ತು.
+  A water purification point started supplying safe drinking water to the shelter and wards.: ನೀರು ಶುದ್ಧೀಕರಣ ಕೇಂದ್ರ ಆಶ್ರಯ ಮತ್ತು ವಾರ್ಡ್‌ಗಳಿಗೆ ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರು ಒದಗಿಸಲು ಆರಂಭಿಸಿತು.
+  Access road to {p1} submerged beneath {n1} cm of water.: '{p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ {n1} ಸೆಂ.ಮೀ. ನೀರಿನಲ್ಲಿ ಮುಳುಗಿತು.'
+  After the flood: ಪ್ರವಾಹದ ನಂತರ
+  All our teams are deployed.: ನಮ್ಮ ಎಲ್ಲ ತಂಡಗಳು ಕಾರ್ಯದಲ್ಲಿವೆ.
+  Assigned boats and trucks moved people out of this ward.: ಕಳುಹಿಸಿದ ದೋಣಿಗಳು ಮತ್ತು ಲಾರಿಗಳು ಜನರನ್ನು ಈ ವಾರ್ಡ್‌ನಿಂದ ಹೊರಗೆ ಕರೆದೊಯ್ದವು.
+  Assigned {n1} motorized rescue boat(s) to {p1}.: '{p1}ಗೆ {n1} ಯಾಂತ್ರಿಕ ರಕ್ಷಣಾ ದೋಣಿಗಳನ್ನು ಕಳುಹಿಸಲಾಯಿತು.'
+  Before the flood: ಪ್ರವಾಹದ ಮೊದಲು
+  Blocked drains overflowed in {p1}; streets are filling with water.: '{p1}ನಲ್ಲಿ ಕಟ್ಟಿಕೊಂಡ ಚರಂಡಿಗಳು ಉಕ್ಕಿ ಹರಿದವು; ಬೀದಿಗಳಲ್ಲಿ ನೀರು ತುಂಬುತ್ತಿದೆ.'
+  Boats carry {n1} each from {p1}; they stay committed there.: ಪ್ರತಿ ದೋಣಿ {p1}ನಿಂದ {n1} ಜನರನ್ನು ಸಾಗಿಸುತ್ತದೆ; ದೋಣಿಗಳು ಅಲ್ಲೇ ಇರುತ್ತವೆ.
+  Boats need time to reach the harbour; recalling them early keeps crews safe.: ದೋಣಿಗಳು ಬಂದರು ತಲುಪಲು ಸಮಯ ಬೇಕು; ಬೇಗ ಕರೆಸಿದರೆ ಸಿಬ್ಬಂದಿ ಸುರಕ್ಷಿತವಾಗಿರುತ್ತಾರೆ.
+  Boats, trucks and relief arrive after {n1} ticks; it can be requested only once.: ದೋಣಿಗಳು, ಲಾರಿಗಳು ಮತ್ತು ಪರಿಹಾರ {n1} ಸರದಿಗಳ ನಂತರ ಬರುತ್ತವೆ; ಇದನ್ನು ಒಮ್ಮೆ ಮಾತ್ರ ಕೇಳಬಹುದು.
+  Brings the health centre and water pumps back; needs one cleared road.: ಆರೋಗ್ಯ ಕೇಂದ್ರ ಮತ್ತು ನೀರಿನ ಪಂಪುಗಳು ಮತ್ತೆ ಕೆಲಸ ಮಾಡುತ್ತವೆ; ಒಂದು ತೆರವಾದ ರಸ್ತೆ ಬೇಕು.
+  'CASUALTIES REPORTED: Severe flooding ({n1} cm) stranded residents in {p1}! {n2} casualties reported.': 'ಸಾವುನೋವು ವರದಿ: ತೀವ್ರ ಪ್ರವಾಹದಲ್ಲಿ ({n1} ಸೆಂ.ಮೀ.) {p1} ನಿವಾಸಿಗಳು ಸಿಲುಕಿದರು! {n2} ಸಾವುನೋವು.'
+  'CRITICAL BREACH: Embankment barrier collapsed under intense hydraulic pressure!': 'ಗಂಭೀರ ಬಿರುಕು: ಭಾರಿ ನೀರಿನ ಒತ್ತಡಕ್ಕೆ ಒಡ್ಡು ಒಡೆಯಿತು!'
+  Check the After-Action Report.: ಕಾರ್ಯಾನಂತರದ ವರದಿ ನೋಡಿ.
+  'Civil authorities activated evacuation protocols: Mandatory evacuation ordered for {p1}.': 'ಆಡಳಿತ ಸ್ಥಳಾಂತರ ಪ್ರಕ್ರಿಯೆ ಆರಂಭಿಸಿತು: {p1}ಗೆ ಕಡ್ಡಾಯ ಸ್ಥಳಾಂತರ ಆದೇಶ ನೀಡಲಾಯಿತು.'
+  Clean water is already being provided.: ಶುದ್ಧ ನೀರು ಈಗಾಗಲೇ ಒದಗಿಸಲಾಗುತ್ತಿದೆ.
+  Clean water removed the main source of illness.: ಶುದ್ಧ ನೀರಿನಿಂದ ಕಾಯಿಲೆಯ ಮುಖ್ಯ ಮೂಲ ನಿವಾರಣೆಯಾಯಿತು.
+  Clear at least one road first.: ಮೊದಲು ಕನಿಷ್ಠ ಒಂದು ರಸ್ತೆಯನ್ನು ತೆರವುಗೊಳಿಸಿ.
+  Clear drains let rainwater run off instead of filling the streets.: ತೆರವಾದ ಚರಂಡಿಗಳಿಂದ ಮಳೆನೀರು ಬೀದಿಗಳಲ್ಲಿ ನಿಲ್ಲದೆ ಹರಿದುಹೋಯಿತು.
+  Clear it first.: ಮೊದಲು ಅದನ್ನು ತೆರವುಗೊಳಿಸಿ.
+  Consultation held with character '{p1}'.: '{p1} ಅವರೊಂದಿಗೆ ಚರ್ಚೆ ನಡೆಯಿತು.'
+  Could not determine action from '{q1}'.: '''{q1}'' ಇದರಿಂದ ಯಾವ ಆದೇಶ ಎಂದು ತಿಳಿಯಲಿಲ್ಲ.'
+  Crews cleared debris from the road to {p1}.: ತಂಡಗಳು {p1}ಗೆ ಹೋಗುವ ರಸ್ತೆಯ ಅವಶೇಷಗಳನ್ನು ತೆರವುಗೊಳಿಸಿದವು.
+  Crews laid {n1} sandbags.: ತಂಡಗಳು {n1} ಮರಳು ಚೀಲಗಳನ್ನು ಜೋಡಿಸಿದವು.
+  Crews still at sea when the cyclone hits cannot be reached.: ಚಂಡಮಾರುತ ಅಪ್ಪಳಿಸಿದಾಗ ಸಮುದ್ರದಲ್ಲಿರುವ ಸಿಬ್ಬಂದಿಯನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಿಲ್ಲ.
+  'Damage survey: Engineers surveyed {p1}: {n1} of {n2} houses damaged; the water had reached {n3} cm.': 'ಹಾನಿ ಸಮೀಕ್ಷೆ: ಎಂಜಿನಿಯರ್‌ಗಳು {p1} ಸಮೀಕ್ಷೆ ಮಾಡಿದರು: {n2} ಮನೆಗಳಲ್ಲಿ {n1} ಹಾನಿ; ನೀರು {n3} ಸೆಂ.ಮೀ. ತಲುಪಿತ್ತು.'
+  Debris blocks the road to {p1}.: '{p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ ಅವಶೇಷಗಳಿಂದ ಮುಚ್ಚಿದೆ.'
+  'Defensive engineering: Crews laid {n1} sandbags.': 'ರಕ್ಷಣಾ ಕಾರ್ಯ: ತಂಡಗಳು {n1} ಮರಳು ಚೀಲಗಳನ್ನು ಜೋಡಿಸಿದವು.'
+  Depth reached {n1} cm.: ಆಳ {n1} ಸೆಂ.ಮೀ. ತಲುಪಿತು.
+  Disease risk is down to {n1}.: ಕಾಯಿಲೆ ಅಪಾಯ ಇಳಿದು {n1} ಆಗಿದೆ.
+  Disease risk is {n1} out of {n2} and rises each tick without clean water.: ಕಾಯಿಲೆ ಅಪಾಯ {n2}ರಲ್ಲಿ {n1}; ಶುದ್ಧ ನೀರಿಲ್ಲದೆ ಪ್ರತಿ ಸರದಿಯಲ್ಲೂ ಏರುತ್ತದೆ.
+  Disease risk is {n1} out of {n2}; clean water comes first.: ಕಾಯಿಲೆ ಅಪಾಯ {n2}ರಲ್ಲಿ {n1}; ಮೊದಲು ಶುದ್ಧ ನೀರು ಬೇಕು.
+  Disease risk started to fall.: ಕಾಯಿಲೆ ಅಪಾಯ ಇಳಿಯಲು ಆರಂಭಿಸಿತು.
+  Disease risk stayed below the high mark (peak {n1}).: ಕಾಯಿಲೆ ಅಪಾಯ ಉನ್ನತ ಮಟ್ಟಕ್ಕಿಂತ ಕೆಳಗೇ ಇತ್ತು (ಗರಿಷ್ಠ {n1}).
+  Dispatched {n1} transport truck(s) to {p1}.: '{p1}ಗೆ {n1} ಸಾರಿಗೆ ಲಾರಿಗಳನ್ನು ಕಳುಹಿಸಲಾಯಿತು.'
+  During the flood: ಪ್ರವಾಹದ ಸಮಯದಲ್ಲಿ
+  Electricity let the health centre reopen.: ವಿದ್ಯುತ್ ಬಂದ ಕಾರಣ ಆರೋಗ್ಯ ಕೇಂದ್ರ ಮತ್ತೆ ತೆರೆಯಿತು.
+  Embankment barrier collapsed under intense hydraulic pressure!: ಭಾರಿ ನೀರಿನ ಒತ್ತಡಕ್ಕೆ ಒಡ್ಡು ಒಡೆಯಿತು!
+  Embankment has already suffered a catastrophic breach.: ಒಡ್ಡು ಈಗಾಗಲೇ ತೀವ್ರವಾಗಿ ಒಡೆದಿದೆ.
+  Embankment height raised to {n1} cm (integrity {n2}%).: ಒಡ್ಡಿನ ಎತ್ತರವನ್ನು {n1} ಸೆಂ.ಮೀ.ಗೆ ಏರಿಸಲಾಯಿತು (ಬಲ {n2}%).
+  'Engineers surveyed {p1}: {n1} of {n2} houses damaged; the water had reached {n3} cm.': 'ಎಂಜಿನಿಯರ್‌ಗಳು {p1} ಸಮೀಕ್ಷೆ ಮಾಡಿದರು: {n2} ಮನೆಗಳಲ್ಲಿ {n1} ಹಾನಿ; ನೀರು {n3} ಸೆಂ.ಮೀ. ತಲುಪಿತ್ತು.'
+  Evacuated {n1} residents from {p1} to safety.: '{p1}ನಿಂದ {n1} ನಿವಾಸಿಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಸ್ಥಳಾಂತರಿಸಲಾಯಿತು.'
+  'Evacuation progress: Evacuated {n1} residents from {p1} to safety.': 'ಸ್ಥಳಾಂತರ ಪ್ರಗತಿ: {p1}ನಿಂದ {n1} ನಿವಾಸಿಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಸ್ಥಳಾಂತರಿಸಲಾಯಿತು.'
+  'FLOOD WARNING: Water breached into {p1}.': 'ಪ್ರವಾಹ ಎಚ್ಚರಿಕೆ: ನೀರು {p1}ಗೆ ನುಗ್ಗಿತು.'
+  Families are still stranded in {p1}.: '{p1}ನಲ್ಲಿ ಕುಟುಂಬಗಳು ಇನ್ನೂ ಸಿಲುಕಿವೆ.'
+  Families from {p1} cannot return until houses are checked.: ಮನೆಗಳ ತಪಾಸಣೆ ಆಗುವವರೆಗೆ {p1} ಕುಟುಂಬಗಳು ಹಿಂತಿರುಗಲು ಸಾಧ್ಯವಿಲ್ಲ.
+  'Final Community Resilience Score: {n1}/{n2}.': 'ಅಂತಿಮ ಸಮುದಾಯ ಸ್ಥಿತಿಸ್ಥಾಪಕತೆ ಅಂಕ: {n1}/{n2}.'
+  'Final Outcome: Simulation ended.': 'ಅಂತಿಮ ಫಲಿತಾಂಶ: ಅನುಕರಣೆ ಮುಗಿಯಿತು.'
+  Flood depth above the road cut-off blocks trucks.: ರಸ್ತೆಯ ಮಿತಿ ಮೀರಿದ ಪ್ರವಾಹದ ನೀರು ಲಾರಿಗಳನ್ನು ತಡೆಯುತ್ತದೆ.
+  Floodwater has drained from {p1}.: '{p1}ನಿಂದ ಪ್ರವಾಹದ ನೀರು ಇಳಿದಿದೆ.'
+  Floodwaters overtopped embankment crest by {n1} cm!: ಪ್ರವಾಹದ ನೀರು ಒಡ್ಡಿನ ತುದಿ ದಾಟಿ {n1} ಸೆಂ.ಮೀ. ಹರಿಯಿತು!
+  Gives {n1} places; nobody can be evacuated until a shelter is open.: '{n1} ಸ್ಥಳಗಳು ಸಿಗುತ್ತವೆ; ಆಶ್ರಯ ತೆರೆಯುವವರೆಗೆ ಯಾರನ್ನೂ ಸ್ಥಳಾಂತರಿಸಲಾಗದು.'
+  'HAZARD: Floodwaters overtopped embankment crest by {n1} cm!': 'ಅಪಾಯ: ಪ್ರವಾಹದ ನೀರು ಒಡ್ಡಿನ ತುದಿ ದಾಟಿ {n1} ಸೆಂ.ಮೀ. ಹರಿಯಿತು!'
+  'Health alert: Waterborne disease risk rose to {n1} out of {n2}.': 'ಆರೋಗ್ಯ ಎಚ್ಚರಿಕೆ: ನೀರಿನಿಂದ ಹರಡುವ ಕಾಯಿಲೆ ಅಪಾಯ {n2}ರಲ್ಲಿ {n1}ಕ್ಕೆ ಏರಿತು.'
+  'Health alert: {n1} residents reported stomach illness linked to unsafe water.': 'ಆರೋಗ್ಯ ಎಚ್ಚರಿಕೆ: {n1} ನಿವಾಸಿಗಳಿಗೆ ಅಸುರಕ್ಷಿತ ನೀರಿನಿಂದ ಹೊಟ್ಟೆ ಕಾಯಿಲೆ.'
+  Health checks at the camp stopped illness from taking hold.: ಶಿಬಿರದ ಆರೋಗ್ಯ ತಪಾಸಣೆಯಿಂದ ಕಾಯಿಲೆ ಹರಡಲಿಲ್ಲ.
+  High disease risk with no medical camp led to reported illness.: ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಇಲ್ಲದ್ದರಿಂದ ಮತ್ತು ಕಾಯಿಲೆ ಅಪಾಯ ಹೆಚ್ಚಿದ್ದರಿಂದ ಜನ ಕಾಯಿಲೆ ಬಿದ್ದರು.
+  Houses were checked before families moved back.: ಕುಟುಂಬಗಳು ಹಿಂತಿರುಗುವ ಮೊದಲು ಮನೆಗಳ ತಪಾಸಣೆ ನಡೆಯಿತು.
+  'Hydrology monitor: the river is at {n1} cm.': 'ಜಲಮಟ್ಟ ನಿಗಾ: ನದಿ {n1} ಸೆಂ.ಮೀ.ನಲ್ಲಿದೆ.'
+  I can send a convoy with boats, trucks and relief.: ನಾನು ದೋಣಿಗಳು, ಲಾರಿಗಳು ಮತ್ತು ಪರಿಹಾರದೊಂದಿಗೆ ವಾಹನ ಪಡೆ ಕಳುಹಿಸಬಲ್ಲೆ.
+  Insufficient boats available.: ಸಾಕಷ್ಟು ದೋಣಿಗಳು ಲಭ್ಯವಿಲ್ಲ.
+  Insufficient sandbags.: ಸಾಕಷ್ಟು ಮರಳು ಚೀಲಗಳಿಲ್ಲ.
+  Insufficient vehicles available.: ಸಾಕಷ್ಟು ವಾಹನಗಳು ಲಭ್ಯವಿಲ್ಲ.
+  Integrity down to {n1}%.: ಬಲ ಇಳಿದು {n1}% ಆಯಿತು.
+  It takes {n1} ticks to arrive, so ask early.: ತಲುಪಲು {n1} ಸರದಿಗಳು ಬೇಕು, ಆದ್ದರಿಂದ ಬೇಗ ಕೇಳಿ.
+  Keep the water point and the camp running.: ನೀರಿನ ಕೇಂದ್ರ ಮತ್ತು ಶಿಬಿರವನ್ನು ನಡೆಸುತ್ತಲೇ ಇರಿ.
+  Less street water collected in {p1}.: '{p1}ನ ಬೀದಿಗಳಲ್ಲಿ ಕಡಿಮೆ ನೀರು ನಿಂತಿತು.'
+  'Logistics update: Assigned {n1} motorized rescue boat(s) to {p1}.': 'ಸರಬರಾಜು ಮಾಹಿತಿ: {p1}ಗೆ {n1} ಯಾಂತ್ರಿಕ ರಕ್ಷಣಾ ದೋಣಿಗಳನ್ನು ಕಳುಹಿಸಲಾಯಿತು.'
+  'Logistics update: Dispatched {n1} transport truck(s) to {p1}.': 'ಸರಬರಾಜು ಮಾಹಿತಿ: {p1}ಗೆ {n1} ಸಾರಿಗೆ ಲಾರಿಗಳನ್ನು ಕಳುಹಿಸಲಾಯಿತು.'
+  Lowers the extra water from the release at tick {n1} but keeps the river high for longer.: ಸರದಿ {n1}ರ ಬಿಡುಗಡೆಯ ಹೆಚ್ಚುವರಿ ನೀರು ಕಡಿಮೆಯಾಗುತ್ತದೆ, ಆದರೆ ನದಿ ಹೆಚ್ಚು ಹೊತ್ತು ಎತ್ತರದಲ್ಲಿರುತ್ತದೆ.
+  Mandatory evacuation ordered for {p1}.: '{p1}ಗೆ ಕಡ್ಡಾಯ ಸ್ಥಳಾಂತರ ಆದೇಶ ನೀಡಲಾಯಿತು.'
+  Municipal crews cleared blocked drains in {p1}.: ನಗರಸಭೆ ತಂಡಗಳು {p1}ನ ಕಟ್ಟಿಕೊಂಡ ಚರಂಡಿಗಳನ್ನು ತೆರವುಗೊಳಿಸಿದವು.
+  'New phase: The river fell to {n1} cm after the peak.': 'ಹೊಸ ಹಂತ: ಗರಿಷ್ಠದ ನಂತರ ನದಿ {n1} ಸೆಂ.ಮೀ.ಗೆ ಇಳಿಯಿತು.'
+  'New phase: The river reached {n1} cm and water is entering homes.': 'ಹೊಸ ಹಂತ: ನದಿ {n1} ಸೆಂ.ಮೀ. ತಲುಪಿ ನೀರು ಮನೆಗಳಿಗೆ ನುಗ್ಗುತ್ತಿದೆ.'
+  No boats are left in reserve.: ಮೀಸಲಿನಲ್ಲಿ ದೋಣಿಗಳು ಉಳಿದಿಲ್ಲ.
+  No boats were assigned to {p1} while water there was {n1} cm or deeper.: '{p1}ನಲ್ಲಿ ನೀರು {n1} ಸೆಂ.ಮೀ. ಅಥವಾ ಅದಕ್ಕಿಂತ ಆಳವಿದ್ದರೂ ಅಲ್ಲಿಗೆ ದೋಣಿ ಕಳುಹಿಸಲಿಲ್ಲ.'
+  No new illness was reported while the camp was running.: ಶಿಬಿರ ನಡೆಯುತ್ತಿದ್ದಾಗ ಹೊಸ ಕಾಯಿಲೆ ದಾಖಲಾಗಲಿಲ್ಲ.
+  No open shelter has space for rescued residents.: ರಕ್ಷಿಸಿದವರಿಗೆ ಯಾವ ತೆರೆದ ಆಶ್ರಯದಲ್ಲೂ ಸ್ಥಳವಿಲ್ಲ.
+  No residents from {p1} are waiting in the shelter.: '{p1}ನ ಯಾವ ನಿವಾಸಿಯೂ ಆಶ್ರಯದಲ್ಲಿ ಕಾಯುತ್ತಿಲ್ಲ.'
+  No shelter is open to receive supplies.: ಸಾಮಗ್ರಿ ಪಡೆಯಲು ಯಾವ ಆಶ್ರಯವೂ ತೆರೆದಿಲ್ಲ.
+  No stranded residents remain in {p1}.: '{p1}ನಲ್ಲಿ ಸಿಲುಕಿದ ನಿವಾಸಿ ಯಾರೂ ಉಳಿದಿಲ್ಲ.'
+  No supply deliveries are left in reserve.: ಮೀಸಲಿನಲ್ಲಿ ಸರಬರಾಜು ಉಳಿದಿಲ್ಲ.
+  No vehicles are left in reserve.: ಮೀಸಲಿನಲ್ಲಿ ವಾಹನಗಳು ಉಳಿದಿಲ್ಲ.
+  Once the water is shallow my crews can clear it.: ನೀರು ಆಳ ಕಡಿಮೆಯಾದ ಕೂಡಲೇ ನನ್ನ ತಂಡಗಳು ಅದನ್ನು ತೆರವುಗೊಳಿಸುತ್ತವೆ.
+  Open the shelter first.: ಮೊದಲು ಆಶ್ರಯ ತೆರೆಯಿರಿ.
+  Opens {p1} for repair crews and for residents going home.: '{p1} ದುರಸ್ತಿ ತಂಡಗಳಿಗೆ ಮತ್ತು ಮನೆಗೆ ಮರಳುವ ನಿವಾಸಿಗಳಿಗೆ ತೆರೆಯುತ್ತದೆ.'
+  Outside help takes time; asking early means it arrives while it is still useful.: ಹೊರಗಿನ ನೆರವಿಗೆ ಸಮಯ ಬೇಕು; ಬೇಗ ಕೇಳಿದರೆ ಅದು ಉಪಯುಕ್ತವಾಗಿರುವಾಗಲೇ ತಲುಪುತ್ತದೆ.
+  People in the shelter are worried about the drinking water.: ಆಶ್ರಯದಲ್ಲಿರುವವರು ಕುಡಿಯುವ ನೀರಿನ ಬಗ್ಗೆ ಚಿಂತಿತರಾಗಿದ್ದಾರೆ.
+  'Please choose one of the available operations:': 'ಲಭ್ಯವಿರುವ ಕಾರ್ಯಗಳಲ್ಲಿ ಒಂದನ್ನು ಆರಿಸಿ:'
+  Please order an evacuation before the water rises further.: ನೀರು ಇನ್ನಷ್ಟು ಏರುವ ಮೊದಲು ಸ್ಥಳಾಂತರ ಆದೇಶ ನೀಡಿ.
+  Please send help for them first.: ಮೊದಲು ಅವರಿಗೆ ನೆರವು ಕಳುಹಿಸಿ.
+  Power is already on.: ವಿದ್ಯುತ್ ಈಗಾಗಲೇ ಇದೆ.
+  'Priority evacuation: {n1} vulnerable individuals from {p1} reached secure shelter.': 'ಆದ್ಯತೆಯ ಸ್ಥಳಾಂತರ: {p1}ನ {n1} ದುರ್ಬಲ ವ್ಯಕ್ತಿಗಳು ಸುರಕ್ಷಿತ ಆಶ್ರಯ ತಲುಪಿದರು.'
+  Providing clean water early kept illness from spreading.: ಬೇಗ ಶುದ್ಧ ನೀರು ನೀಡಿದ್ದರಿಂದ ಕಾಯಿಲೆ ಹರಡಲಿಲ್ಲ.
+  Public flood warning broadcast to all community zones.: ಎಲ್ಲ ಪ್ರದೇಶಗಳಿಗೆ ಸಾರ್ವಜನಿಕ ಪ್ರವಾಹ ಎಚ್ಚರಿಕೆ ಪ್ರಸಾರ ಮಾಡಲಾಯಿತು.
+  'Public health: A medical camp opened beside the shelter to check residents and treat illness.': 'ಸಾರ್ವಜನಿಕ ಆರೋಗ್ಯ: ನಿವಾಸಿಗಳನ್ನು ಪರೀಕ್ಷಿಸಿ ಚಿಕಿತ್ಸೆ ನೀಡಲು ಆಶ್ರಯದ ಪಕ್ಕ ವೈದ್ಯಕೀಯ ಶಿಬಿರ ತೆರೆಯಲಾಯಿತು.'
+  'Public health: A water purification point started supplying safe drinking water to the shelter and wards.': 'ಸಾರ್ವಜನಿಕ ಆರೋಗ್ಯ: ನೀರು ಶುದ್ಧೀಕರಣ ಕೇಂದ್ರ ಆಶ್ರಯ ಮತ್ತು ವಾರ್ಡ್‌ಗಳಿಗೆ ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರು ಒದಗಿಸಲು ಆರಂಭಿಸಿತು.'
+  Raises the bund by about {n1} cm (forecast peak {n2} cm); {n3} sandbags in stock.: ಒಡ್ಡು ಸುಮಾರು {n1} ಸೆಂ.ಮೀ. ಏರುತ್ತದೆ (ಅಂದಾಜು ಗರಿಷ್ಠ {n2} ಸೆಂ.ಮೀ.); ದಾಸ್ತಾನಿನಲ್ಲಿ {n3} ಮರಳು ಚೀಲಗಳು.
+  Recovery actions become available once the floodwater recedes below the danger level after the peak.: ಗರಿಷ್ಠದ ನಂತರ ನೀರು ಅಪಾಯದ ಮಟ್ಟಕ್ಕಿಂತ ಕೆಳಗಿಳಿದ ಮೇಲೆಯೇ ಪುನರ್ವಸತಿ ಕಾರ್ಯಗಳು ಲಭ್ಯವಾಗುತ್ತವೆ.
+  'Recovery: Floodwater has drained from {p1}.': 'ಪುನರ್ವಸತಿ: {p1}ನಿಂದ ಪ್ರವಾಹದ ನೀರು ಇಳಿದಿದೆ.'
+  Reduces street water in {p1}; {n1} crew(s) left.: '{p1}ನ ಬೀದಿ ನೀರು ಕಡಿಮೆಯಾಗುತ್ತದೆ; {n1} ತಂಡ ಉಳಿದಿದೆ.'
+  'Relief infrastructure online: Shelter ''{p1}'' officially opened with intake capacity of {n1}.': 'ಪರಿಹಾರ ವ್ಯವಸ್ಥೆ ಆರಂಭ: ''{p1}'' ಆಶ್ರಯವನ್ನು {n1} ಜನರ ಸಾಮರ್ಥ್ಯದೊಂದಿಗೆ ತೆರೆಯಲಾಯಿತು.'
+  'Relief logistics: A relief delivery of {n1} supply units reached the shelter.': 'ಪರಿಹಾರ ಸರಬರಾಜು: {n1} ಸರಬರಾಜು ಘಟಕಗಳು ಆಶ್ರಯ ತಲುಪಿದವು.'
+  Repair crews cannot reach the substation yet.: ದುರಸ್ತಿ ತಂಡಗಳು ಇನ್ನೂ ಉಪಕೇಂದ್ರ ತಲುಪಲಾಗುತ್ತಿಲ್ಲ.
+  Repair crews restored electricity from the substation.: ದುರಸ್ತಿ ತಂಡಗಳು ಉಪಕೇಂದ್ರದಿಂದ ವಿದ್ಯುತ್ ಮರುಸ್ಥಾಪಿಸಿದವು.
+  'Repairs: Crews cleared debris from the road to {p1}.': 'ದುರಸ್ತಿ: ತಂಡಗಳು {p1}ಗೆ ಹೋಗುವ ರಸ್ತೆಯ ಅವಶೇಷಗಳನ್ನು ತೆರವುಗೊಳಿಸಿದವು.'
+  'Repairs: Repair crews restored electricity from the substation.': 'ದುರಸ್ತಿ: ದುರಸ್ತಿ ತಂಡಗಳು ಉಪಕೇಂದ್ರದಿಂದ ವಿದ್ಯುತ್ ಮರುಸ್ಥಾಪಿಸಿದವು.'
+  'Repairs: With power back, the village health centre reopened.': 'ದುರಸ್ತಿ: ವಿದ್ಯುತ್ ಮರಳಿದ ಮೇಲೆ ಗ್ರಾಮದ ಆರೋಗ್ಯ ಕೇಂದ್ರ ಮತ್ತೆ ತೆರೆಯಿತು.'
+  Requested {n1}, available {n2}.: ಕೇಳಿದ್ದು {n1}, ಲಭ್ಯ {n2}.
+  Rescue priority activated for vulnerable residents in {p1}.: '{p1}ನ ದುರ್ಬಲ ನಿವಾಸಿಗಳಿಗೆ ರಕ್ಷಣಾ ಆದ್ಯತೆ ಜಾರಿಯಾಯಿತು.'
+  Residents left in deep water without boats were at risk.: ದೋಣಿಗಳಿಲ್ಲದೆ ಆಳವಾದ ನೀರಿನಲ್ಲಿ ಉಳಿದ ನಿವಾಸಿಗಳು ಅಪಾಯದಲ್ಲಿದ್ದರು.
+  'Returning home: {n1} residents of {p1} returned home from the shelter.': 'ಮನೆಗೆ ಮರಳು: {p1}ನ {n1} ನಿವಾಸಿಗಳು ಆಶ್ರಯದಿಂದ ಮನೆಗೆ ಮರಳಿದರು.'
+  River water level reached {n1} cm.: ನದಿಯ ಜಲಮಟ್ಟ {n1} ಸೆಂ.ಮೀ. ತಲುಪಿತು.
+  Road to {p1} is submerged.: '{p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ ನೀರಿನಲ್ಲಿ ಮುಳುಗಿದೆ.'
+  Roads and power are in order.: ರಸ್ತೆಗಳು ಮತ್ತು ವಿದ್ಯುತ್ ಸರಿಯಾಗಿವೆ.
+  Roads into low areas are dangerous now.: ತಗ್ಗು ಪ್ರದೇಶಗಳಿಗೆ ಹೋಗುವ ರಸ್ತೆಗಳು ಈಗ ಅಪಾಯಕಾರಿ.
+  Running out of supplies during the flood lowered community trust going into recovery.: ಪ್ರವಾಹದ ಸಮಯದಲ್ಲಿ ಸಾಮಗ್ರಿ ಮುಗಿದದ್ದರಿಂದ ಪುನರ್ವಸತಿ ವೇಳೆ ಸಮುದಾಯದ ನಂಬಿಕೆ ಕುಸಿಯಿತು.
+  Sandbags cannot contain this flood volume.: ಮರಳು ಚೀಲಗಳು ಇಷ್ಟು ನೀರನ್ನು ತಡೆಯಲಾರವು.
+  Sandbags laid before the peak raised the bund and kept it from collapsing.: ಗರಿಷ್ಠಕ್ಕೂ ಮೊದಲು ಜೋಡಿಸಿದ ಚೀಲಗಳು ಒಡ್ಡನ್ನು ಎತ್ತರಿಸಿ ಒಡೆಯದಂತೆ ಕಾಪಾಡಿದವು.
+  'Search and rescue: Search teams rescued {n1} stranded residents from {p1} and brought them to the shelter.': 'ಶೋಧ ಮತ್ತು ರಕ್ಷಣೆ: ತಂಡಗಳು {p1}ನಿಂದ {n1} ಸಿಲುಕಿದ ನಿವಾಸಿಗಳನ್ನು ರಕ್ಷಿಸಿ ಆಶ್ರಯಕ್ಕೆ ತಂದವು.'
+  Search teams reached people the evacuation had missed.: ಸ್ಥಳಾಂತರದಲ್ಲಿ ಬಿಟ್ಟುಹೋದವರನ್ನು ಶೋಧ ತಂಡಗಳು ತಲುಪಿದವು.
+  Search teams rescued {n1} stranded residents from {p1} and brought them to the shelter.: ಶೋಧ ತಂಡಗಳು {p1}ನಿಂದ {n1} ಸಿಲುಕಿದ ನಿವಾಸಿಗಳನ್ನು ರಕ್ಷಿಸಿ ಆಶ್ರಯಕ್ಕೆ ತಂದವು.
+  Send search and rescue teams before anything else.: ಎಲ್ಲಕ್ಕಿಂತ ಮೊದಲು ಶೋಧ ಮತ್ತು ರಕ್ಷಣಾ ತಂಡಗಳನ್ನು ಕಳುಹಿಸಿ.
+  Send them to {p1}, where trucks can no longer get through.: ಲಾರಿಗಳು ಇನ್ನು ಹೋಗಲಾಗದ {p1}ಗೆ ಅವುಗಳನ್ನು ಕಳುಹಿಸಿ.
+  Severe flooding ({n1} cm) stranded residents in {p1}! {n2} casualties reported.: ತೀವ್ರ ಪ್ರವಾಹದಲ್ಲಿ ({n1} ಸೆಂ.ಮೀ.) {p1} ನಿವಾಸಿಗಳು ಸಿಲುಕಿದರು! {n2} ಸಾವುನೋವು.
+  Shelter '{p1}' is already open and receiving evacuees.: '''{p1}'' ಆಶ್ರಯ ಈಗಾಗಲೇ ತೆರೆದು ಜನರನ್ನು ಸ್ವೀಕರಿಸುತ್ತಿದೆ.'
+  Shelter '{p1}' officially opened with intake capacity of {n1}.: '''{p1}'' ಆಶ್ರಯವನ್ನು {n1} ಜನರ ಸಾಮರ್ಥ್ಯದೊಂದಿಗೆ ತೆರೆಯಲಾಯಿತು.'
+  'Shelter notice: Shelter supplies are running low: {n1} units left.': 'ಆಶ್ರಯ ಸೂಚನೆ: ಆಶ್ರಯದ ಸಾಮಗ್ರಿ ಕಡಿಮೆಯಾಗುತ್ತಿದೆ: {n1} ಘಟಕಗಳು ಉಳಿದಿವೆ.'
+  'Shelter notice: The shelter ran out of food and essentials for its {n1} residents.': 'ಆಶ್ರಯ ಸೂಚನೆ: ಆಶ್ರಯದಲ್ಲಿರುವ {n1} ಜನರಿಗೆ ಆಹಾರ ಮತ್ತು ಅಗತ್ಯ ವಸ್ತುಗಳು ಮುಗಿದವು.'
+  Shelter stock is {n1} units for {n2} people; {n3} deliveries left.: ಆಶ್ರಯದಲ್ಲಿ {n2} ಜನರಿಗೆ {n1} ಘಟಕಗಳಿವೆ; {n3} ಸರಬರಾಜುಗಳು ಉಳಿದಿವೆ.
+  'Shelter supplies are running low: {n1} units left.': 'ಆಶ್ರಯದ ಸಾಮಗ್ರಿ ಕಡಿಮೆಯಾಗುತ್ತಿದೆ: {n1} ಘಟಕಗಳು ಉಳಿದಿವೆ.'
+  Simulation ended.: ಅನುಕರಣೆ ಮುಗಿಯಿತು.
+  Simulation finished.: ಅನುಕರಣೆ ಪೂರ್ಣಗೊಂಡಿತು.
+  Sirens and loudspeaker broadcasts echoed across the riverbank.: ನದಿತೀರದಲ್ಲೆಲ್ಲ ಸೈರನ್ ಮತ್ತು ಧ್ವನಿವರ್ಧಕ ಘೋಷಣೆಗಳು ಮೊಳಗಿದವು.
+  Some neighbours have stomach illness.: ಕೆಲವು ನೆರೆಹೊರೆಯವರಿಗೆ ಹೊಟ್ಟೆ ಕಾಯಿಲೆ ಇದೆ.
+  Standing floodwater set the starting disease risk to {n1} out of {n2}.: ನಿಂತ ಪ್ರವಾಹದ ನೀರಿನಿಂದ ಆರಂಭಿಕ ಕಾಯಿಲೆ ಅಪಾಯ {n2}ರಲ್ಲಿ {n1} ಆಯಿತು.
+  Status quo maintained; observation period elapsed.: ಪರಿಸ್ಥಿತಿ ಯಥಾಸ್ಥಿತಿ; ನಿಗಾ ಸಮಯ ಕಳೆಯಿತು.
+  Stock is now {n1} units.: ದಾಸ್ತಾನು ಈಗ {n1} ಘಟಕಗಳು.
+  Strong winds cut power across the village.: ಬಲವಾದ ಗಾಳಿಯಿಂದ ಇಡೀ ಗ್ರಾಮದ ವಿದ್ಯುತ್ ಕಡಿತವಾಯಿತು.
+  Support is already on its way and should arrive at tick {n1}.: ನೆರವು ದಾರಿಯಲ್ಲಿದೆ, ಸರದಿ {n1}ರಲ್ಲಿ ತಲುಪಬೇಕು.
+  Survey {p1} before anyone returns.: ಯಾರಾದರೂ ಮರಳುವ ಮೊದಲು {p1} ಸಮೀಕ್ಷೆ ಮಾಡಿ.
+  That order does not apply in this scenario.: ಈ ಆದೇಶ ಈ ಕಥೆಗೆ ಅನ್ವಯಿಸುವುದಿಲ್ಲ.
+  The breach flooded more homes and left the village without power when recovery began.: ಬಿರುಕಿನಿಂದ ಇನ್ನಷ್ಟು ಮನೆಗಳು ಮುಳುಗಿದವು; ಪುನರ್ವಸತಿ ಆರಂಭವಾದಾಗ ಗ್ರಾಮದಲ್ಲಿ ವಿದ್ಯುತ್ ಇರಲಿಲ್ಲ.
+  The clean water point is helping.: ಶುದ್ಧ ನೀರಿನ ಕೇಂದ್ರ ನೆರವಾಗುತ್ತಿದೆ.
+  The convoy had not arrived when the story ended.: ಕಥೆ ಮುಗಿಯುವವರೆಗೂ ವಾಹನ ಪಡೆ ತಲುಪಿರಲಿಲ್ಲ.
+  The convoy is on its way and should arrive at tick {n1}.: ವಾಹನ ಪಡೆ ದಾರಿಯಲ್ಲಿದೆ, ಸರದಿ {n1}ರಲ್ಲಿ ತಲುಪಬೇಕು.
+  The cyclone made landfall.: ಚಂಡಮಾರುತ ತೀರಕ್ಕೆ ಅಪ್ಪಳಿಸಿತು.
+  The dam authority agreed to release water more slowly over a longer period.: ಅಣೆಕಟ್ಟು ಪ್ರಾಧಿಕಾರ ದೀರ್ಘ ಅವಧಿಯಲ್ಲಿ ನಿಧಾನವಾಗಿ ನೀರು ಬಿಡಲು ಒಪ್ಪಿತು.
+  The dam authority announced a water release starting at tick {n1}.: ಅಣೆಕಟ್ಟು ಪ್ರಾಧಿಕಾರ ಸರದಿ {n1}ರಿಂದ ನೀರು ಬಿಡುವುದಾಗಿ ಘೋಷಿಸಿತು.
+  The dam release began, adding {n1} cm to the river.: ಅಣೆಕಟ್ಟಿನಿಂದ ನೀರು ಬಿಡುಗಡೆ ಆರಂಭವಾಯಿತು, ನದಿ {n1} ಸೆಂ.ಮೀ. ಏರಿತು.
+  The disease risk is {n1} out of {n2}.: ಕಾಯಿಲೆ ಅಪಾಯ {n2}ರಲ್ಲಿ {n1}.
+  The district has no more support to send.: ಜಿಲ್ಲೆಯ ಬಳಿ ಕಳುಹಿಸಲು ಇನ್ನು ನೆರವಿಲ್ಲ.
+  The district promised outside help; it should arrive in {n1} ticks.: ಜಿಲ್ಲೆ ಹೊರಗಿನ ನೆರವಿನ ಭರವಸೆ ನೀಡಿತು; ಅದು {n1} ಸರದಿಗಳಲ್ಲಿ ತಲುಪಬೇಕು.
+  The early warning made residents more willing to leave when transport arrived.: ಮುಂಚಿತ ಎಚ್ಚರಿಕೆಯಿಂದ ವಾಹನಗಳು ಬಂದಾಗ ಜನ ಹೊರಡಲು ಹೆಚ್ಚು ಸಿದ್ಧರಿದ್ದರು.
+  The elderly people here cannot walk through it.: ಇಲ್ಲಿನ ವೃದ್ಧರು ಅದರ ಮೂಲಕ ನಡೆಯಲಾರರು.
+  The embankment held (integrity {n1}%).: ಒಡ್ಡು ತಡೆದು ನಿಂತಿತು (ಬಲ {n1}%).
+  The fishing boats have already been recalled.: ಮೀನುಗಾರಿಕೆ ದೋಣಿಗಳನ್ನು ಈಗಾಗಲೇ ಹಿಂದಕ್ಕೆ ಕರೆಸಲಾಗಿದೆ.
+  The fishing boats were not recalled before landfall.: ಚಂಡಮಾರುತ ಅಪ್ಪಳಿಸುವ ಮೊದಲು ದೋಣಿಗಳನ್ನು ಹಿಂದಕ್ಕೆ ಕರೆಸಲಿಲ್ಲ.
+  The flood phase has begun.: ಪ್ರವಾಹದ ಹಂತ ಆರಂಭವಾಗಿದೆ.
+  The flood response phase is over; the water is receding.: ಪ್ರವಾಹ ಪರಿಹಾರ ಹಂತ ಮುಗಿಯಿತು; ನೀರು ಇಳಿಯುತ್ತಿದೆ.
+  The full release arrived at once on top of a river that was already high.: ಈಗಾಗಲೇ ಎತ್ತರವಿದ್ದ ನದಿಯ ಮೇಲೆ ಪೂರ್ಣ ನೀರು ಒಮ್ಮೆಲೇ ಬಂತು.
+  The medical camp is already running.: ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಈಗಾಗಲೇ ನಡೆಯುತ್ತಿದೆ.
+  The medical camp treated cases before they spread.: ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಕಾಯಿಲೆ ಹರಡುವ ಮೊದಲೇ ಚಿಕಿತ್ಸೆ ನೀಡಿತು.
+  The medical camp treated {n1} residents.: ವೈದ್ಯಕೀಯ ಶಿಬಿರ {n1} ನಿವಾಸಿಗಳಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಿತು.
+  The recovery phase has begun; power is out and roads are blocked by debris.: ಪುನರ್ವಸತಿ ಹಂತ ಆರಂಭವಾಯಿತು; ವಿದ್ಯುತ್ ಇಲ್ಲ, ರಸ್ತೆಗಳು ಅವಶೇಷಗಳಿಂದ ಮುಚ್ಚಿವೆ.
+  The river fell to {n1} cm after the peak.: ಗರಿಷ್ಠದ ನಂತರ ನದಿ {n1} ಸೆಂ.ಮೀ.ಗೆ ಇಳಿಯಿತು.
+  The river reached {n1} cm and water is entering homes.: ನದಿ {n1} ಸೆಂ.ಮೀ. ತಲುಪಿ ನೀರು ಮನೆಗಳಿಗೆ ನುಗ್ಗುತ್ತಿದೆ.
+  The road to {p1} is blocked by debris.: '{p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ ಅವಶೇಷಗಳಿಂದ ಮುಚ್ಚಿದೆ.'
+  The road to {p1} is not blocked.: '{p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ ಮುಚ್ಚಿಲ್ಲ.'
+  The road to {p1} is still under {n1} cm of water.: '{p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ ಇನ್ನೂ {n1} ಸೆಂ.ಮೀ. ನೀರಿನಲ್ಲಿದೆ.'
+  The shelter ran out of food and essentials for its {n1} residents.: ಆಶ್ರಯದಲ್ಲಿರುವ {n1} ಜನರಿಗೆ ಆಹಾರ ಮತ್ತು ಅಗತ್ಯ ವಸ್ತುಗಳು ಮುಗಿದವು.
+  The water is already at {n1} cm and families in {p1} are exposed.: ನೀರು ಈಗಾಗಲೇ {n1} ಸೆಂ.ಮೀ.ನಲ್ಲಿದೆ; {p1} ಕುಟುಂಬಗಳು ಅಪಾಯದಲ್ಲಿವೆ.
+  The water is still climbing.: ನೀರು ಇನ್ನೂ ಏರುತ್ತಿದೆ.
+  They should be moved early, before roads close.: ರಸ್ತೆಗಳು ಮುಚ್ಚುವ ಮೊದಲೇ ಅವರನ್ನು ಬೇಗ ಸ್ಥಳಾಂತರಿಸಬೇಕು.
+  This simulation session has already completed.: ಈ ಅನುಕರಣೆ ಈಗಾಗಲೇ ಪೂರ್ಣಗೊಂಡಿದೆ.
+  'URGENT: Access road to {p1} submerged beneath {n1} cm of water.': 'ತುರ್ತು: {p1}ಗೆ ಹೋಗುವ ರಸ್ತೆ {n1} ಸೆಂ.ಮೀ. ನೀರಿನಲ್ಲಿ ಮುಳುಗಿತು.'
+  Uncontrolled inundation.: ನಿಯಂತ್ರಣವಿಲ್ಲದ ಜಲಾವೃತ.
+  Use recovery actions such as search and rescue, clean water or clearing roads.: ಶೋಧ ಮತ್ತು ರಕ್ಷಣೆ, ಶುದ್ಧ ನೀರು ಅಥವಾ ರಸ್ತೆ ತೆರವಿನಂತಹ ಪುನರ್ವಸತಿ ಕಾರ್ಯಗಳನ್ನು ಮಾಡಿ.
+  Use the resources wisely.: ಸಂಪನ್ಮೂಲಗಳನ್ನು ವಿವೇಕದಿಂದ ಬಳಸಿ.
+  Warned residents are far more willing to leave; it uses this turn only.: ಎಚ್ಚರಿಕೆ ಪಡೆದವರು ಹೊರಡಲು ಹೆಚ್ಚು ಸಿದ್ಧರಿರುತ್ತಾರೆ; ಇದಕ್ಕೆ ಈ ಸರದಿ ಮಾತ್ರ ಖರ್ಚಾಗುತ್ತದೆ.
+  Water breached into {p1}.: ನೀರು {p1}ಗೆ ನುಗ್ಗಿತು.
+  Water is coming into our homes in {p1}.: '{p1}ನಲ್ಲಿ ನಮ್ಮ ಮನೆಗಳಿಗೆ ನೀರು ಬರುತ್ತಿದೆ.'
+  Waterborne disease risk rose to {n1} out of {n2}.: ನೀರಿನಿಂದ ಹರಡುವ ಕಾಯಿಲೆ ಅಪಾಯ {n2}ರಲ್ಲಿ {n1}ಕ್ಕೆ ಏರಿತು.
+  We are packing our documents and waiting for instructions.: ನಾವು ದಾಖಲೆಗಳನ್ನು ಕಟ್ಟಿಕೊಂಡು ಸೂಚನೆಗಳಿಗಾಗಿ ಕಾಯುತ್ತಿದ್ದೇವೆ.
+  We have sent everything we can.: ನಾವು ಕಳುಹಿಸಬಹುದಾದ ಎಲ್ಲವನ್ನೂ ಕಳುಹಿಸಿದ್ದೇವೆ.
+  We have {n1} boat(s) ready.: ನಮ್ಮಲ್ಲಿ {n1} ದೋಣಿಗಳು ಸಿದ್ಧವಿವೆ.
+  We just want to go home safely when our area is ready.: ನಮ್ಮ ಪ್ರದೇಶ ಸಿದ್ಧವಾದಾಗ ಸುರಕ್ಷಿತವಾಗಿ ಮನೆಗೆ ಹೋಗಬೇಕೆಂಬುದೇ ನಮ್ಮ ಆಸೆ.
+  We must open {p1} now.: ನಾವು ಈಗಲೇ {p1} ತೆರೆಯಬೇಕು.
+  We need enough food and clean water there, and the vulnerable must be checked first.: ಅಲ್ಲಿ ಸಾಕಷ್ಟು ಆಹಾರ ಮತ್ತು ಶುದ್ಧ ನೀರು ಬೇಕು; ದುರ್ಬಲರನ್ನು ಮೊದಲು ತಪಾಸಣೆ ಮಾಡಬೇಕು.
+  We need the damage figures for compensation.: ಪರಿಹಾರಧನಕ್ಕಾಗಿ ನಮಗೆ ಹಾನಿಯ ಅಂಕಿಅಂಶಗಳು ಬೇಕು.
+  We should lay sandbags; we have {n1} ready.: ನಾವು ಮರಳು ಚೀಲಗಳನ್ನು ಜೋಡಿಸಬೇಕು; ನಮ್ಮಲ್ಲಿ {n1} ಸಿದ್ಧವಿವೆ.
+  We still have {n1} supply deliveries at the depot.: ಡಿಪೋದಲ್ಲಿ ಇನ್ನೂ {n1} ಸರಬರಾಜುಗಳಿವೆ.
+  Wells and pipes are contaminated.: ಬಾವಿಗಳು ಮತ್ತು ಕೊಳವೆಗಳು ಕಲುಷಿತವಾಗಿವೆ.
+  Wheeled transport blocked.: ಚಕ್ರದ ವಾಹನಗಳು ತಡೆಹಿಡಿಯಲ್ಪಟ್ಟವು.
+  Wheeled vehicles cannot safely traverse.: ಚಕ್ರದ ವಾಹನಗಳು ಸುರಕ್ಷಿತವಾಗಿ ದಾಟಲಾರವು.
+  Wheeled vehicles could no longer reach {p1}; only boats could.: ಚಕ್ರದ ವಾಹನಗಳು ಇನ್ನು {p1} ತಲುಪಲಾಗುತ್ತಿರಲಿಲ್ಲ; ದೋಣಿಗಳು ಮಾತ್ರ ತಲುಪಬಲ್ಲವಾಗಿದ್ದವು.
+  Which area's drains should be cleared?: ಯಾವ ಪ್ರದೇಶದ ಚರಂಡಿಗಳನ್ನು ತೆರವುಗೊಳಿಸಬೇಕು?
+  Which ward should engineers survey?: ಎಂಜಿನಿಯರ್‌ಗಳು ಯಾವ ವಾರ್ಡ್ ಸಮೀಕ್ಷೆ ಮಾಡಬೇಕು?
+  Which ward should receive the mandatory evacuation order?: ಯಾವ ವಾರ್ಡ್‌ಗೆ ಕಡ್ಡಾಯ ಸ್ಥಳಾಂತರ ಆದೇಶ ನೀಡಬೇಕು?
+  Which ward should the search and rescue teams go to?: ಶೋಧ ಮತ್ತು ರಕ್ಷಣಾ ತಂಡಗಳು ಯಾವ ವಾರ್ಡ್‌ಗೆ ಹೋಗಬೇಕು?
+  Which ward's residents should return home?: ಯಾವ ವಾರ್ಡ್‌ನ ನಿವಾಸಿಗಳು ಮನೆಗೆ ಮರಳಬೇಕು?
+  Which ward's road should be cleared?: ಯಾವ ವಾರ್ಡ್‌ನ ರಸ್ತೆ ತೆರವುಗೊಳಿಸಬೇಕು?
+  Which zone should the boat(s) be dispatched to?: ದೋಣಿಗಳನ್ನು ಯಾವ ಪ್ರದೇಶಕ್ಕೆ ಕಳುಹಿಸಬೇಕು?
+  With power back, the village health centre reopened.: ವಿದ್ಯುತ್ ಮರಳಿದ ಮೇಲೆ ಗ್ರಾಮದ ಆರೋಗ್ಯ ಕೇಂದ್ರ ಮತ್ತೆ ತೆರೆಯಿತು.
+  With the shelter open, evacuees had a safe place to go.: ಆಶ್ರಯ ತೆರೆದಿದ್ದರಿಂದ ಸ್ಥಳಾಂತರಗೊಂಡವರಿಗೆ ಹೋಗಲು ಸುರಕ್ಷಿತ ಸ್ಥಳವಿತ್ತು.
+  Without clean water, waterborne disease risk kept rising.: ಶುದ್ಧ ನೀರಿಲ್ಲದೆ ನೀರಿನಿಂದ ಹರಡುವ ಕಾಯಿಲೆ ಅಪಾಯ ಏರುತ್ತಲೇ ಇತ್ತು.
+  Zone '{p1}' has no remaining population to evacuate.: '''{p1}''ನಲ್ಲಿ ಸ್ಥಳಾಂತರಿಸಲು ಯಾರೂ ಉಳಿದಿಲ್ಲ.'
+  Zone '{p1}' has no residents awaiting transport.: '''{p1}''ನಲ್ಲಿ ವಾಹನಕ್ಕಾಗಿ ಕಾಯುತ್ತಿರುವ ನಿವಾಸಿ ಯಾರೂ ಇಲ್ಲ.'
+  Zone '{p1}' has no vulnerable individuals awaiting evacuation.: '''{p1}''ನಲ್ಲಿ ಸ್ಥಳಾಂತರಕ್ಕಾಗಿ ಕಾಯುತ್ತಿರುವ ದುರ್ಬಲರು ಯಾರೂ ಇಲ್ಲ.'
+  '{n1} boats need about {n2} ticks to return; landfall is at tick {n3}.': '{n1} ದೋಣಿಗಳು ಮರಳಲು ಸುಮಾರು {n2} ಸರದಿಗಳು ಬೇಕು; ಚಂಡಮಾರುತ ಸರದಿ {n3}ರಲ್ಲಿ ಅಪ್ಪಳಿಸುತ್ತದೆ.'
+  '{n1} fishers were still at sea when the cyclone hit and are missing.': ಚಂಡಮಾರುತ ಅಪ್ಪಳಿಸಿದಾಗ {n1} ಮೀನುಗಾರರು ಸಮುದ್ರದಲ್ಲಿದ್ದರು, ಅವರು ನಾಪತ್ತೆಯಾಗಿದ್ದಾರೆ.
+  '{n1} fishing boats reached the harbour safely.': '{n1} ಮೀನುಗಾರಿಕೆ ದೋಣಿಗಳು ಸುರಕ್ಷಿತವಾಗಿ ಬಂದರು ತಲುಪಿದವು.'
+  '{n1} people are ill now; the camp also slows the spread of disease.': ಈಗ {n1} ಜನ ಕಾಯಿಲೆಯಲ್ಲಿದ್ದಾರೆ; ಶಿಬಿರ ಕಾಯಿಲೆ ಹರಡುವುದನ್ನೂ ನಿಧಾನಿಸುತ್ತದೆ.
+  '{n1} people are in shelters now.': ಈಗ {n1} ಜನ ಆಶ್ರಯಗಳಲ್ಲಿದ್ದಾರೆ.
+  '{n1} people are stranded in {p1}.': '{p1}ನಲ್ಲಿ {n1} ಜನ ಸಿಲುಕಿದ್ದಾರೆ.'
+  '{n1} people from {p1} can go home, easing the crowded shelter.': '{p1}ನ {n1} ಜನ ಮನೆಗೆ ಹೋಗಬಹುದು; ಇದರಿಂದ ಕಿಕ್ಕಿರಿದ ಆಶ್ರಯಕ್ಕೆ ನಿರಾಳ.'
+  '{n1} people have untreated illness.': '{n1} ಜನರ ಕಾಯಿಲೆಗೆ ಚಿಕಿತ್ಸೆ ಆಗಿಲ್ಲ.'
+  '{n1} people in {p1}; the water is forecast to reach {n2} cm against ground at {n3} cm.': '{p1}ನಲ್ಲಿ {n1} ಜನ; ನೆಲ {n3} ಸೆಂ.ಮೀ.ನಲ್ಲಿದೆ, ನೀರು {n2} ಸೆಂ.ಮೀ. ತಲುಪುವ ಅಂದಾಜಿದೆ.'
+  '{n1} residents of {p1} returned home from the shelter.': '{p1}ನ {n1} ನಿವಾಸಿಗಳು ಆಶ್ರಯದಿಂದ ಮನೆಗೆ ಮರಳಿದರು.'
+  '{n1} residents reported stomach illness linked to unsafe water.': '{n1} ನಿವಾಸಿಗಳಿಗೆ ಅಸುರಕ್ಷಿತ ನೀರಿನಿಂದ ಹೊಟ್ಟೆ ಕಾಯಿಲೆ.'
+  '{n1} stranded residents reached the shelter.': '{n1} ಸಿಲುಕಿದ ನಿವಾಸಿಗಳು ಆಶ್ರಯ ತಲುಪಿದರು.'
+  '{n1} truck(s) are free while the roads are still open.': ರಸ್ತೆಗಳು ತೆರೆದಿರುವವರೆಗೆ {n1} ಲಾರಿಗಳು ಖಾಲಿಯಿವೆ.
+  '{n1} truck(s) carry {n2} each while the road is dry; they stop once it floods.': ರಸ್ತೆ ಒಣಗಿರುವವರೆಗೆ {n1} ಲಾರಿಗಳು, ಪ್ರತಿಯೊಂದೂ {n2} ಜನರನ್ನು ಸಾಗಿಸುತ್ತವೆ; ನೀರು ನಿಂತ ಕೂಡಲೇ ನಿಲ್ಲುತ್ತವೆ.
+  '{n1} vulnerable individuals from {p1} reached secure shelter.': '{p1}ನ {n1} ದುರ್ಬಲ ವ್ಯಕ್ತಿಗಳು ಸುರಕ್ಷಿತ ಆಶ್ರಯ ತಲುಪಿದರು.'
+  '{n1} vulnerable residents are still at home.': '{n1} ದುರ್ಬಲ ನಿವಾಸಿಗಳು ಇನ್ನೂ ಮನೆಯಲ್ಲಿದ್ದಾರೆ.'
+  '{n1} vulnerable residents in {p1} move first; others wait a little longer.': '{p1}ನ {n1} ದುರ್ಬಲ ನಿವಾಸಿಗಳು ಮೊದಲು ಹೋಗುತ್ತಾರೆ; ಉಳಿದವರು ಸ್ವಲ್ಪ ಕಾಯುತ್ತಾರೆ.'
+  '{n1} ward(s) had been flooded.': '{n1} ವಾರ್ಡ್‌ಗಳು ಮುಳುಗಿದ್ದವು.'
+  '{p1} has already been surveyed.': '{p1} ಈಗಾಗಲೇ ಸಮೀಕ್ಷೆಯಾಗಿದೆ.'
+  '{p1} is still under {n1} cm of water.': '{p1} ಇನ್ನೂ {n1} ಸೆಂ.ಮೀ. ನೀರಿನಲ್ಲಿದೆ.'
+  '{p1} must have a damage survey before residents return.': ನಿವಾಸಿಗಳು ಮರಳುವ ಮೊದಲು {p1} ಹಾನಿ ಸಮೀಕ್ಷೆ ಅಗತ್ಯ.
+  '{p1} needs clear direction.': '{p1}ಗೆ ಸ್ಪಷ್ಟ ಮಾರ್ಗದರ್ಶನ ಬೇಕು.'
+  '{p1} stayed dry; its residents are safe at home and need no rescue.': '{p1} ಒಣಗಿಯೇ ಇತ್ತು; ಅಲ್ಲಿನ ನಿವಾಸಿಗಳು ಮನೆಯಲ್ಲಿ ಸುರಕ್ಷಿತರು, ರಕ್ಷಣೆ ಬೇಕಿಲ್ಲ.'
+  '{p1} was not flooded; no damage survey is needed.': '{p1}ನಲ್ಲಿ ಪ್ರವಾಹ ಬರಲಿಲ್ಲ; ಹಾನಿ ಸಮೀಕ್ಷೆ ಬೇಕಿಲ್ಲ.'
+  '{p1}: The medical camp treated {n1} residents.': '{p1}: ವೈದ್ಯಕೀಯ ಶಿಬಿರ {n1} ನಿವಾಸಿಗಳಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಿತು.'
+scenarios:
+  cyclone-surge-01:
+    name: ಮಚ್ಛಿವಾಡದಲ್ಲಿ ಚಂಡಮಾರುತ
+    hazard_label: ಚಂಡಮಾರುತದ ಸಮುದ್ರ ಉಬ್ಬರ
+    hook: ಚಂಡಮಾರುತ ಕೆಲವೇ ಗಂಟೆಗಳಲ್ಲಿ ಅಪ್ಪಳಿಸುತ್ತದೆ, ಮೀನುಗಾರಿಕೆ ದೋಣಿಗಳು ಇನ್ನೂ ಸಮುದ್ರದಲ್ಲಿವೆ, ಚಂಡಮಾರುತ ಆಶ್ರಯದಲ್ಲಿ ಎಲ್ಲರಿಗೂ ಜಾಗವಿಲ್ಲ.
+    description: ತೀವ್ರ ಚಂಡಮಾರುತ ಮೀನುಗಾರರ ಗ್ರಾಮದತ್ತ ಬರುತ್ತಿದೆ. ಸಮುದ್ರ ಉಬ್ಬರ ಸಮುದ್ರವನ್ನು ಸಮುದ್ರ ಗೋಡೆಯ ಮೇಲೆ ತಳ್ಳುತ್ತದೆ. ಅಪ್ಪಳಿಸುವ ಮೊದಲು ಜನರನ್ನು ಸ್ಥಳಾಂತರಿಸಿ, ದೋಣಿಗಳನ್ನು ಹಿಂದಕ್ಕೆ ಕರೆಸಿ, ಕಿಕ್ಕಿರಿದ ಚಂಡಮಾರುತ ಆಶ್ರಯವನ್ನು ನಿರ್ವಹಿಸಿ.
+    npcs:
+      village_head: ಎಚ್ಚರಿಕೆಗೂ ಮೊದಲೇ ನಮ್ಮ ಎಂಟು ದೋಣಿಗಳು ಸಮುದ್ರಕ್ಕೆ ಹೋಗಿದ್ದವು. ಅವರ ಕುಟುಂಬಗಳು ಕಡಲತೀರದಲ್ಲಿ ಏನು ಮಾಡಬೇಕೆಂದು ಕೇಳುತ್ತಿವೆ.
+      rescue_worker: ರೇಡಿಯೋ ಮೂಲಕ ಮೀನುಗಾರರನ್ನು ಸಂಪರ್ಕಿಸಬಹುದು, ಆದರೆ ಅವರು ಬಂದರಿಗೆ ಮರಳಲು ಸುಮಾರು ಒಂದೂವರೆ ಗಂಟೆ ಬೇಕು.
+      family_member: ನನ್ನ ಗಂಡ ಇನ್ನೂ ಸಮುದ್ರದಲ್ಲಿದ್ದಾರೆ, ನನ್ನ ಮಾವ ಹಾಸಿಗೆ ಹಿಡಿದಿದ್ದಾರೆ. ಇಬ್ಬರನ್ನೂ ಬಿಟ್ಟು ಹೋಗಲಾರೆ.
+      health_worker: ಚಂಡಮಾರುತ ಆಶ್ರಯ ತುಂಬಾ ಕಿಕ್ಕಿರಿಯುತ್ತದೆ. ಶುದ್ಧ ನೀರು ಮತ್ತು ವೈದ್ಯಕೀಯ ಶಿಬಿರಕ್ಕೆ ಯೋಜನೆ ಮಾಡಬೇಕು.
+      district_official: ರಾಜ್ಯ ದೋಣಿಗಳು ಮತ್ತು ಪರಿಹಾರ ಕಳುಹಿಸಬಹುದು, ಆದರೆ ಗಾಳಿ ಹೆಚ್ಚಾದ ಕೂಡಲೇ ರಸ್ತೆಗಳು ಕಡಿತವಾಗುತ್ತವೆ.
+  dam-release-01:
+    name: ಕಾಳಿಂದಿ ಅಣೆಕಟ್ಟಿನ ಕೆಳಗೆ
+    hazard_label: ಅಣೆಕಟ್ಟು ನೀರು ಬಿಡುಗಡೆ
+    hook: ಕೆಲವೇ ಗಂಟೆಗಳಲ್ಲಿ ಅಣೆಕಟ್ಟು ನೀರು ಬಿಡಬೇಕು. ಪ್ರತಿ ಗ್ರಾಮಕ್ಕೂ ಸಮಯಕ್ಕೆ ಎಚ್ಚರಿಕೆ ನೀಡಿ, ಬಿಡುಗಡೆಯನ್ನು ನಿಧಾನಗೊಳಿಸಬಲ್ಲಿರಾ?
+    description: ಮೇಲ್ಭಾಗದಲ್ಲಿ ಭಾರಿ ಮಳೆಯಿಂದ ಕಾಳಿಂದಿ ಅಣೆಕಟ್ಟಿನಿಂದ ನಿಗದಿತ ನೀರು ಬಿಡುಗಡೆ ಆಗಲಿದೆ. ಕೆಳಗಿನ ನದಿ ಈಗಾಗಲೇ ಎತ್ತರದಲ್ಲಿದೆ. ಸಮಯ ಮತ್ತು ಪ್ರತಿ ಗ್ರಾಮಕ್ಕೆ ಸಂದೇಶ ತಲುಪಿಸುವುದೇ ಫಲಿತಾಂಶ ನಿರ್ಧರಿಸುತ್ತದೆ.
+    npcs:
+      village_head: ಇಲ್ಲಿನ ಅನೇಕ ಕುಟುಂಬಗಳು ನದಿತೀರದಲ್ಲಿ ಕೃಷಿ ಮಾಡುತ್ತವೆ. ಮುನ್ಸೂಚನೆ ಇಲ್ಲದೆ ಅಣೆಕಟ್ಟು ತೆರೆದರೆ ಅವರು ಹೊಲಗಳಲ್ಲಿ ಸಿಲುಕುತ್ತಾರೆ.
+      rescue_worker: ಘಾಟ್‌ನಲ್ಲಿ ನಮ್ಮ ಬಳಿ ಮೂರು ದೋಣಿಗಳು, ಎರಡು ಜೀಪುಗಳಿವೆ. ದೇವಾಲಯದ ಹಳ್ಳಿಗೆ ಹೋಗುವ ತಗ್ಗಿನ ಸೇತುವೆ ಬೇಗ ಮುಳುಗುತ್ತದೆ.
+      family_member: ನನ್ನ ತಾಯಿ ಹೆಚ್ಚು ದೂರ ನಡೆಯಲಾರರು. ನೀರು ಬರುವ ಮೊದಲು ಯಾರಾದರೂ ನಮಗೆ ತಿಳಿಸುತ್ತಾರಾ?
+      health_worker: ಯಾವ ಮನೆಗಳಲ್ಲಿ ವೃದ್ಧರು ಮತ್ತು ಗರ್ಭಿಣಿಯರಿದ್ದಾರೆ ಎಂದು ನನಗೆ ಗೊತ್ತು. ಅವರನ್ನು ಮೊದಲು ಸ್ಥಳಾಂತರಿಸಬೇಕು.
+      district_official: ಅಣೆಕಟ್ಟನ್ನು ಸುರಕ್ಷಿತವಾಗಿಡಲು ಎಂಜಿನಿಯರ್‌ಗಳು ನೀರು ಬಿಡಲೇಬೇಕು. ಬೇಗ ಕೇಳಿದರೆ ನಿಧಾನವಾಗಿ ಬಿಡಲು ಒಪ್ಪಬಹುದು.
+  glacial-lake-01:
+    name: ತ್ಸೋಮೋ ಕಣಿವೆಯ ಮೇಲೆ ಹಿಮನದಿ ಸರೋವರ ಸ್ಫೋಟ
+    hazard_label: ಹಿಮನದಿ ಸರೋವರ ಸ್ಫೋಟ
+    hook: ಕಣಿವೆಯ ಮೇಲಿನ ಸರೋವರದ ಸಂವೇದಕಗಳು ಈಗಷ್ಟೇ ಎಚ್ಚರಿಕೆ ನೀಡಿವೆ. ನೀರು ಮತ್ತು ಬಂಡೆಗಳ ಪ್ರವಾಹ ಬರಲು ಸುಮಾರು ಎರಡು ಗಂಟೆಗಳಿವೆ.
+    description: ಪರ್ವತ ಕಣಿವೆಯ ಮೇಲಿನ ಹಿಮನದಿ ಸರೋವರದ ಸಂವೇದಕಗಳು ಅದರ ಮೊರೈನ್ ಗೋಡೆ ಕುಸಿಯಬಹುದು ಎಂದು ಎಚ್ಚರಿಸುತ್ತಿವೆ. ಸರೋವರ ಒಡೆದರೆ ನೀರು ಮತ್ತು ಅವಶೇಷಗಳ ಗೋಡೆ ಕೆಲವೇ ಗಂಟೆಗಳಲ್ಲಿ ಕಣಿವೆ ತಲುಪುತ್ತದೆ. ಕಡಿಮೆ ಸಮಯದಲ್ಲಿ ಎಲ್ಲರನ್ನೂ ಮೇಲಕ್ಕೆ ಕರೆದೊಯ್ಯಿರಿ, ನಂತರ ಕಣಿವೆಯನ್ನು ಮತ್ತೆ ತೆರೆಯಿರಿ.
+    npcs:
+      village_head: ನದಿ ಸ್ವಲ್ಪವಷ್ಟೇ ಏರಿದೆ ಎನ್ನುತ್ತಾರೆ ಅಂಗಡಿಯವರು. ಎಚ್ಚರಿಕೆ ಸ್ಪಷ್ಟವಾಗಿ ಮತ್ತು ಜೋರಾಗಿ ಇಲ್ಲದಿದ್ದರೆ ಅವರು ಪೇಟೆ ಮುಚ್ಚುವುದಿಲ್ಲ.
+      rescue_worker: ನಾಲ್ಕು ಲಾರಿಗಳು, ಒಂದು ರಬ್ಬರ್ ದೋಣಿ. ಅವಶೇಷಗಳ ಪ್ರವಾಹದಲ್ಲಿ ದೋಣಿ ನಿಷ್ಪ್ರಯೋಜಕ; ರಸ್ತೆ ಇರುವವರೆಗೆ ಲಾರಿಗಳೇ ನಮ್ಮ ಆಧಾರ.
+      family_member: ನನ್ನ ಅಜ್ಜಿಗೆ ತೊಂಬತ್ತು ವರ್ಷ, ಮಠದ ಮೆಟ್ಟಿಲು ಹತ್ತಲಾರರು. ದಯವಿಟ್ಟು ವೃದ್ಧರಿಗೆ ಮೊದಲು ವಾಹನ ಕಳುಹಿಸಿ.
+      health_worker: ಬೆಟ್ಟದ ಮೇಲಿನ ಚಳಿ ರಾತ್ರಿಗಳು ಮಕ್ಕಳು ಮತ್ತು ವೃದ್ಧರಿಗೆ ಕಷ್ಟ. ನಮಗೆ ಕಂಬಳಿ, ಶುದ್ಧ ನೀರು ಮತ್ತು ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಬೇಕು.
+      district_official: ಸರೋವರದ ಸಂವೇದಕಗಳು ಎಚ್ಚರಿಕೆ ಕಳುಹಿಸಿವೆ. ಮೊಬೈಲ್ ಎಚ್ಚರಿಕೆ ಸಿದ್ಧವಿದೆ, ಆದರೆ ಸೈರನ್ ಮೊಳಗಿಸುವ ನಿರ್ಧಾರ ನಿಮ್ಮದು.
+  river-island-01:
+    name: 'ಕಮಲ್‌ಪುರ ದಿಬ್ಬ: ನದಿಯ ನಡುವಿನ ದ್ವೀಪ'
+    hazard_label: ನದಿ ದ್ವೀಪ ಪ್ರವಾಹ
+    hook: ಉಕ್ಕುತ್ತಿರುವ ನದಿಯ ನಡುವೆ ಮರಳು ದಿಬ್ಬದ ಮೇಲೆ ಎರಡು ಹಳ್ಳಿಗಳಿವೆ. ದ್ವೀಪದಿಂದ ರಸ್ತೆ ಇಲ್ಲ, ದೋಣಿಗಳು ಮಾತ್ರ, ನದಿ ಪ್ರತಿ ಗಂಟೆಗೂ ಏರುತ್ತಿದೆ.
+    description: 'ದೊಡ್ಡ ನದಿಯ ಮಳೆಗಾಲದ ಪ್ರವಾಹ ಮರಳು ದಿಬ್ಬವನ್ನು ಸುತ್ತುವರಿಯುತ್ತಿದೆ. ಮುಖ್ಯಭೂಮಿಗೆ ರಸ್ತೆ ಇಲ್ಲ: ಪ್ರತಿ ಬಾರಿ ದಾಟಲು ದೋಣಿ ಬೇಕು. ದ್ವೀಪದ ಕುಟುಂಬಗಳನ್ನು ಬೇಗ ಸ್ಥಳಾಂತರಿಸಿ, ಸುತ್ತು ಒಡ್ಡನ್ನು ಉಳಿಸಿಕೊಳ್ಳಿ, ನಂತರ ಎಲ್ಲರನ್ನೂ ಮನೆಗೆ ಕರೆತನ್ನಿ.'
+    npcs:
+      village_head: ಪ್ರತಿ ಮಳೆಗಾಲದಲ್ಲೂ ನದಿ ನಮ್ಮ ದ್ವೀಪವನ್ನು ಇನ್ನಷ್ಟು ನುಂಗುತ್ತದೆ. ನಂಬಿಕಸ್ಥರು ಬೇಗ ಹೇಳಿದರೆ ಮಾತ್ರ ಜನ ತಮ್ಮ ದನಕರು ಮತ್ತು ಮಗ್ಗಗಳನ್ನು ಬಿಟ್ಟು ಬರುತ್ತಾರೆ.
+      rescue_worker: ಘಾಟ್‌ನಲ್ಲಿ ಎಂಜಿನ್ ಇರುವ ಮೂರು ನಾಡದೋಣಿಗಳನ್ನು ಕಟ್ಟಲಾಗಿದೆ. ಪ್ರತಿ ಬಾರಿ ದಾಟಲು ಸಮಯ ಬೇಕು, ನದಿ ಏರಿದಂತೆ ಹರಿವು ಬಲವಾಗುತ್ತದೆ.
+      family_member: ನನ್ನ ಕಿರಿಯ ಮಗುವಿಗೆ ಜ್ವರ, ನನ್ನ ಅತ್ತೆ ಹೆಚ್ಚು ದೂರ ನಡೆಯಲಾರರು. ನೀರು ಅಂಗಳ ತಲುಪಿದರೆ ನಾವು ಸಿಲುಕುತ್ತೇವೆ.
+      health_worker: ನೀರು ಇಳಿದ ಮೇಲೆ ಜನ ಮುಳುಗಿದ್ದ ಕೈಪಂಪಿನ ನೀರು ಕುಡಿಯುತ್ತಾರೆ. ನಮಗೆ ಕ್ಲೋರಿನ್ ಮಾತ್ರೆಗಳು ಮತ್ತು ವೇದಿಕೆಯ ಮೇಲೆ ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಬೇಕು.
+      district_official: ಜಿಲ್ಲೆ ಇನ್ನಷ್ಟು ದೋಣಿಗಳು ಮತ್ತು ಪರಿಹಾರ ಕಳುಹಿಸಬಹುದು, ಆದರೆ ಅವು ಮೊದಲು ರಸ್ತೆಯಿಂದ ಘಾಟ್‌ಗೆ, ನಂತರ ನೀರಿನ ಮೂಲಕ ಬರುತ್ತವೆ.
+  urban-flash-flood-01:
+    name: ವಾರ್ಡ್ 14 ದಿಢೀರ್ ಪ್ರವಾಹ
+    hazard_label: ನಗರದ ದಿಢೀರ್ ಪ್ರವಾಹ
+    hook: ಜನನಿಬಿಡ ನಗರ ವಾರ್ಡ್ ಮೇಲೆ ಮೇಘಸ್ಫೋಟ. ಚರಂಡಿಗಳು ಕಟ್ಟಿಕೊಂಡಿವೆ, ಕೆಳಸೇತುವೆ ಮೊದಲು ತುಂಬುತ್ತದೆ, ನಿಮ್ಮ ಬಳಿ ಗಂಟೆಗಳಲ್ಲ, ನಿಮಿಷಗಳಿವೆ.
+    description: ನಗರದ ಒಂದು ವಾರ್ಡ್ ಮೇಲೆ ಮೇಘಸ್ಫೋಟ. ಕಟ್ಟಿಕೊಂಡ ಚರಂಡಿಗಳು ಮತ್ತು ರೈಲ್ವೆ ಕೆಳಸೇತುವೆ ಕೆಲವೇ ನಿಮಿಷಗಳಲ್ಲಿ ಬೀದಿಗಳನ್ನು ಹೊಳೆಗಳನ್ನಾಗಿಸುತ್ತವೆ. ವೇಗವಾಗಿ ಕಾರ್ಯ ನಿರ್ವಹಿಸಿ, ನಂತರ ವಿದ್ಯುತ್, ರಸ್ತೆಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ನೀರನ್ನು ಮರುಸ್ಥಾಪಿಸಿ.
+    npcs:
+      village_head: ಮಾರುಕಟ್ಟೆಯ ಹಿಂದಿನ ಚರಂಡಿಗಳು ಮತ್ತೆ ಪ್ಲಾಸ್ಟಿಕ್‌ನಿಂದ ಕಟ್ಟಿಕೊಂಡಿವೆ. ಮಳೆ ಮುಂದುವರಿದರೆ ಕೆಳಸೇತುವೆ ಮೊದಲು ತುಂಬುತ್ತದೆ.
+      rescue_worker: ನಮ್ಮ ಬಳಿ ಎರಡು ರಕ್ಷಣಾ ಡಿಂಗಿಗಳು ಮತ್ತು ನಾಲ್ಕು ಲಾರಿಗಳಿವೆ. ನೀರು ಪಾದಚಾರಿ ಮಾರ್ಗದ ಮೇಲೆ ಬಂದರೆ ಲಾರಿಗಳು ಕೆಳಸೇತುವೆಯ ಮೂಲಕ ಹೋಗಲಾರವು.
+      family_member: ನಮ್ಮ ಓಣಿಯಲ್ಲಿ ಈಗಾಗಲೇ ಪಾದದ ಗಂಟಿನವರೆಗೆ ನೀರಿದೆ, ನನ್ನ ನೆರೆಯವರು ಗಾಲಿಕುರ್ಚಿ ಬಳಸುತ್ತಾರೆ.
+      health_worker: ಚರಂಡಿ ನೀರು ಬೆರೆತ ಪ್ರವಾಹದ ನೀರು ಗಂಭೀರ ಅಪಾಯ. ನಂತರ ನಮಗೆ ಬೇಗ ಶುದ್ಧ ನೀರು ಬೇಕು.
+      district_official: ರಾಜ್ಯ ವಿಪತ್ತು ಪಡೆ ದೋಣಿಗಳನ್ನು ಕಳುಹಿಸಬಹುದು, ಆದರೆ ಈ ವಾರ್ಡ್ ತಲುಪಲು ಅವರಿಗೆ ಕೆಲವು ಗಂಟೆಗಳು ಬೇಕು.
+  village-river-01:
+    name: ನದಿತೀರದ ಗ್ರಾಮದಲ್ಲಿ ಪ್ರವಾಹ ಪರಿಹಾರ
+    hazard_label: ನದಿ ಪ್ರವಾಹ
+    hook: ಮಳೆಗಾಲದ ಉಪನದಿ ಮೂರು ವಾರ್ಡ್‌ಗಳ ಪಕ್ಕ ಏರುತ್ತಿದೆ. ಎಚ್ಚರಿಸಿ, ಸ್ಥಳಾಂತರಿಸಿ, ಒಡ್ಡನ್ನು ರಕ್ಷಿಸಿ, ನಂತರ ಪುನರ್ವಸತಿಯನ್ನು ಮುನ್ನಡೆಸಿ.
+    description: 'ಏರುತ್ತಿರುವ ಉಪನದಿ ಮೂರು ವಾರ್ಡ್‌ಗಳಿಗೆ ಅಪಾಯ ತಂದಿದೆ. ಪ್ರವಾಹ ಗರಿಷ್ಠ ತಲುಪುವ ಮೊದಲು ಎಚ್ಚರಿಸಿ ಸ್ಥಳಾಂತರಿಸಿ, ಪ್ರವಾಹದ ಸಮಯದಲ್ಲಿ ಜನರನ್ನು ರಕ್ಷಿಸಿ, ನಂತರ ಪುನರ್ವಸತಿಯನ್ನು ಮುನ್ನಡೆಸಿ: ಶುದ್ಧ ನೀರು, ಚಿಕಿತ್ಸೆ, ವಿದ್ಯುತ್, ರಸ್ತೆಗಳು ಮತ್ತು ಸುರಕ್ಷಿತ ಮನೆವಾಪಸಿ.'
+    npcs:
+      village_head: ವಾರ್ಡ್ 1ರ ಬಳಿ ನೀರು ವೇಗವಾಗಿ ಏರುತ್ತಿದೆ. ಗ್ರಾಮಸ್ಥರು ನಮ್ಮಿಂದ ಸ್ಪಷ್ಟ ಸೂಚನೆ ನಿರೀಕ್ಷಿಸುತ್ತಿದ್ದಾರೆ. ಅಧಿಕೃತ ಎಚ್ಚರಿಕೆ ನೀಡೋಣವೇ?
+      rescue_worker: ಡಿಪೋದಲ್ಲಿ ನಮ್ಮ ಎರಡು ಯಾಂತ್ರಿಕ ರಕ್ಷಣಾ ದೋಣಿಗಳು ಮತ್ತು ಮೂರು ಸಾರಿಗೆ ಲಾರಿಗಳು ಸಿದ್ಧವಿವೆ. ಮರಳು ಚೀಲಗಳೂ ಸಿದ್ಧ.
+      family_member: ನನ್ನ ತಂದೆತಾಯಿ ಓಡಾಡಲಾರರು. ದಯವಿಟ್ಟು ಕಾಸ್‌ವೇ ಮುಳುಗುವ ಮೊದಲು ನಮ್ಮ ಹಿರಿಯರಿಗೆ ವಾಹನ ಕಳುಹಿಸಿ.
+      health_worker: ಜನ ಹೆಚ್ಚು ಕಾಲ ಆಶ್ರಯದಲ್ಲಿದ್ದರೆ ಕುಡಿಯುವ ನೀರು ಮತ್ತು ಔಷಧಿಗಳ ಬಗ್ಗೆ ಯೋಚಿಸಬೇಕು.
+      district_official: ಜಿಲ್ಲೆ ದೋಣಿಗಳು, ಲಾರಿಗಳು ಮತ್ತು ಪರಿಹಾರದೊಂದಿಗೆ ವಾಹನ ಪಡೆ ಕಳುಹಿಸಬಹುದು, ಆದರೆ ತಲುಪಲು ಸಮಯ ಬೇಕು.
+rulecards:
+  RC-01:
+    title: ಮುಂಚಿತ ಸಾರ್ವಜನಿಕ ಎಚ್ಚರಿಕೆ
+    category: ಎಚ್ಚರಿಕೆಗಳು
+    guidance: ನದಿಯ ಮುನ್ಸೂಚನೆ ದಡ ದಾಟುವ ಅಪಾಯ ತೋರಿಸಿದರೆ ತಕ್ಷಣ ಅಧಿಕೃತ ಸ್ಥಳಾಂತರ ಸೂಚನೆ ಹೊರಡಿಸಿ. ಮುಂಚಿತ ಎಚ್ಚರಿಕೆಯಿಂದ ದುರ್ಬಲ ಕುಟುಂಬಗಳಿಗೆ ತುರ್ತು ಸಾಮಗ್ರಿ ಕಟ್ಟಿಕೊಂಡು ಎತ್ತರದ ಸ್ಥಳಕ್ಕೆ ಹೋಗಲು ಸಮಯ ಸಿಗುತ್ತದೆ.
+  RC-02:
+    title: ಅತ್ಯಂತ ದುರ್ಬಲರಿಗೆ ನೆರವು
+    category: ಸ್ಥಳಾಂತರ
+    guidance: ರಸ್ತೆಗಳು ಮುಳುಗುವ ಮೊದಲು ವೃದ್ಧರು, ಚಿಕ್ಕ ಮಕ್ಕಳು, ಗರ್ಭಿಣಿಯರು ಮತ್ತು ಓಡಾಡಲಾಗದವರಿಗೆ ವಿಶೇಷ ವಾಹನ ಮತ್ತು ನೆರವಿಗೆ ಆದ್ಯತೆ ನೀಡಿ.
+  RC-03:
+    title: ಪ್ರವಾಹದ ನೀರಿನಲ್ಲಿ ವಾಹನ ಸುರಕ್ಷತೆ
+    category: ಸಾರಿಗೆ
+    guidance: ಮೊಣಕಾಲಿಗಿಂತ ಆಳ ಹರಿಯುವ ನೀರಿರುವ ರಸ್ತೆಗಳಲ್ಲಿ ಸಾಮಾನ್ಯ ವಾಹನಗಳನ್ನು ಕಳುಹಿಸಬೇಡಿ. ರಸ್ತೆಗಳು ಮುಳುಗಿದರೆ ದೋಣಿಗಳು ಅಥವಾ ಎತ್ತರದ ವಿಶೇಷ ವಾಹನಗಳನ್ನು ಬಳಸಿ.
+  RC-04:
+    title: ಒಡ್ಡಿನ ಮೇಲೆ ಮರಳು ಚೀಲ ಜೋಡಿಸುವ ಸರಿಯಾದ ವಿಧಾನ
+    category: ಮೂಲಸೌಕರ್ಯ
+    guidance: ಪ್ರವಾಹದ ಗರಿಷ್ಠಕ್ಕೂ ಮೊದಲು ತಗ್ಗಿನ ಒಡ್ಡುಗಳ ಮೇಲೆ ಮರಳು ಚೀಲಗಳನ್ನು ಜೋಡಿಸಿ. ಒಡ್ಡನ್ನು ಬೇಗ ಬಲಪಡಿಸಿದರೆ ಬಿರುಕು ನಿಧಾನವಾಗಿ, ಸ್ಥಳಾಂತರಕ್ಕೆ ಅಮೂಲ್ಯ ಗಂಟೆಗಳು ಸಿಗುತ್ತವೆ.
+  RC-05:
+    title: ಸುರಕ್ಷಿತ ಆಶ್ರಯ ನಿರ್ವಹಣೆ
+    category: ಆಶ್ರಯ
+    guidance: ಜನ ಬರುವ ಮೊದಲು ಎತ್ತರದ ಸ್ಥಳದಲ್ಲಿರುವ ಗಟ್ಟಿಮುಟ್ಟಾದ ಬಹುಮಹಡಿ ಸಾರ್ವಜನಿಕ ಕಟ್ಟಡಗಳನ್ನು ಪರಿಹಾರ ಆಶ್ರಯಗಳಾಗಿ ತೆರೆಯಿರಿ; ಇದರಿಂದ ಪ್ರವೇಶ ವ್ಯವಸ್ಥಿತ ಮತ್ತು ಸುರಕ್ಷಿತವಾಗಿರುತ್ತದೆ.
+  RC-06:
+    title: ಪ್ರವಾಹದ ನಂತರ ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರು
+    category: ಪುನರ್ವಸತಿ
+    guidance: ಪ್ರವಾಹದ ನೀರು ಬಾವಿಗಳು ಮತ್ತು ಕೊಳವೆಗಳನ್ನು ಕಲುಷಿತಗೊಳಿಸುತ್ತದೆ. ಪುನರ್ವಸತಿಯ ಆರಂಭದಲ್ಲೇ ಮೇಲ್ವಿಚಾರಣೆಯ ನೀರು ಶುದ್ಧೀಕರಣ ಕೇಂದ್ರ ಸ್ಥಾಪಿಸಿದರೆ ಆಶ್ರಯದಲ್ಲಿರುವ ಮತ್ತು ಮರಳುವ ಕುಟುಂಬಗಳಿಗೆ ನೀರಿನಿಂದ ಹರಡುವ ಕಾಯಿಲೆ ಅಪಾಯ ಕಡಿಮೆಯಾಗುತ್ತದೆ.
+  RC-07:
+    title: ಆರೋಗ್ಯ ನಿಗಾ ಮತ್ತು ವೈದ್ಯಕೀಯ ಶಿಬಿರಗಳು
+    category: ಪುನರ್ವಸತಿ
+    guidance: ಕಿಕ್ಕಿರಿದ ಆಶ್ರಯಗಳು ಮತ್ತು ನಿಂತ ನೀರು ಹೊಟ್ಟೆ ಮತ್ತು ಚರ್ಮದ ಕಾಯಿಲೆಗಳ ಸಾಧ್ಯತೆ ಹೆಚ್ಚಿಸುತ್ತವೆ. ಆಶ್ರಯದ ಬಳಿಯ ವೈದ್ಯಕೀಯ ಶಿಬಿರ ಕಾಯಿಲೆ ಹರಡುವ ಮೊದಲೇ ಪತ್ತೆಹಚ್ಚಿ ಚಿಕಿತ್ಸೆ ನೀಡಲು ನೆರವಾಗುತ್ತದೆ.
+  RC-08:
+    title: ತಪಾಸಣೆಯ ನಂತರವೇ ಮನೆಗೆ ಮರಳಿ
+    category: ಪುನರ್ವಸತಿ
+    guidance: ಪ್ರದೇಶ ಒಣಗಿ, ರಸ್ತೆ ತೆರೆದು, ಅಧಿಕಾರಿಗಳು ಮನೆಗಳ ರಚನೆ ಮತ್ತು ವಿದ್ಯುತ್ ಹಾನಿ ತಪಾಸಣೆ ಮಾಡಿದ ನಂತರವೇ ನಿವಾಸಿಗಳು ಮರಳಬೇಕು.
+  RC-09:
+    title: ಆಶ್ರಯಗಳಿಗೆ ಸರಬರಾಜು ಮುಂದುವರಿಸುವುದು
+    category: ಪುನರ್ವಸತಿ
+    guidance: ಆಶ್ರಯದ ದಾಸ್ತಾನು ಮುಗಿಯುವ ಮೊದಲೇ ಪರಿಹಾರ ಸರಬರಾಜಿನ ಯೋಜನೆ ಮಾಡಿ. ಆಹಾರ ಮತ್ತು ಅಗತ್ಯ ವಸ್ತುಗಳ ಕೊರತೆ ಆರೋಗ್ಯ ಹಾಳುಮಾಡಿ ಪರಿಹಾರ ಕಾರ್ಯದಲ್ಲಿ ಸಮುದಾಯದ ನಂಬಿಕೆ ಕುಗ್ಗಿಸುತ್ತದೆ.
+  RC-10:
+    title: ರಸ್ತೆ ತೆರವು ಮತ್ತು ಸೇವೆಗಳ ಮರುಸ್ಥಾಪನೆ
+    category: ಪುನರ್ವಸತಿ
+    guidance: ಮೊದಲು ರಸ್ತೆಗಳ ಅವಶೇಷಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ, ಆಗ ದುರಸ್ತಿ ತಂಡಗಳು ಉಪಕೇಂದ್ರಗಳು ಮತ್ತು ಆರೋಗ್ಯ ಕೇಂದ್ರಗಳನ್ನು ತಲುಪಬಲ್ಲವು. ವಿದ್ಯುತ್ ಬಂದರೆ ಚಿಕಿತ್ಸಾಲಯಗಳು ಮತ್ತು ನೀರಿನ ಪಂಪುಗಳು ಮತ್ತೆ ನಡೆಯುತ್ತವೆ.
+  RC-11:
+    title: ನಗರದ ಚರಂಡಿಗಳನ್ನು ಸ್ವಚ್ಛವಾಗಿಡಿ
+    category: ನಗರ ಪ್ರವಾಹ
+    guidance: ಕಟ್ಟಿಕೊಂಡ ಚರಂಡಿಗಳು ಭಾರಿ ಮಳೆಯನ್ನು ಕೆಲವೇ ನಿಮಿಷಗಳಲ್ಲಿ ಬೀದಿ ಪ್ರವಾಹವಾಗಿಸುತ್ತವೆ. ಮೇಘಸ್ಫೋಟಕ್ಕೂ ಮೊದಲು ಮತ್ತು ವೇಳೆ ಅಡಚಣೆ ತೆರವುಗೊಳಿಸಿ ಜನರನ್ನು ಕೆಳಸೇತುವೆಗಳಿಂದ ದೂರವಿಟ್ಟರೆ ಅಪಾಯ ಕಡಿಮೆಯಾಗುತ್ತದೆ.
+  RC-12:
+    title: ಅಣೆಕಟ್ಟು ಬಿಡುಗಡೆ ಮಾಹಿತಿ
+    category: ಎಚ್ಚರಿಕೆಗಳು
+    guidance: ಅಣೆಕಟ್ಟಿನಿಂದ ನೀರು ಬಿಡುವ ಮೊದಲು ಕೆಳಗಿನ ಗ್ರಾಮಗಳಿಗೆ ಮುನ್ಸೂಚನೆ ಬೇಕು. ಅಣೆಕಟ್ಟು ಪ್ರಾಧಿಕಾರದೊಂದಿಗೆ ಬೇಗ ಸಮನ್ವಯ ಮಾಡಿ; ಸ್ಪಷ್ಟ ಎಚ್ಚರಿಕೆಯೊಂದಿಗೆ ನಿಧಾನ, ಹಂತಹಂತದ ಬಿಡುಗಡೆ ಜನರಿಗೆ ಸ್ಥಳಾಂತರಕ್ಕೆ ಸಮಯ ನೀಡುತ್ತದೆ.
+  RC-13:
+    title: ಮೀನುಗಾರ ಸಮುದಾಯಗಳ ಚಂಡಮಾರುತ ಸಿದ್ಧತೆ
+    category: ಚಂಡಮಾರುತ
+    guidance: ಚಂಡಮಾರುತ ಎಚ್ಚರಿಕೆ ಬಂದ ಕೂಡಲೇ, ಅಪ್ಪಳಿಸುವ ಬಹಳ ಮೊದಲೇ, ಮೀನುಗಾರಿಕೆ ದೋಣಿಗಳನ್ನು ಹಿಂದಕ್ಕೆ ಕರೆಸಿ. ಗಾಳಿ ಹೆಚ್ಚಾದಾಗ ರಸ್ತೆ ಮತ್ತು ವಿದ್ಯುತ್ ಕಡಿತವಾಗುವುದರಿಂದ ಕರಾವಳಿ ಕುಟುಂಬಗಳನ್ನು ಬೇಗ ಚಂಡಮಾರುತ ಆಶ್ರಯಗಳಿಗೆ ಕರೆದೊಯ್ಯಿರಿ.
+  RC-14:
+    title: ಹೊರಗಿನ ನೆರವನ್ನು ಬೇಗ ಕೇಳುವುದು
+    category: ಸಮನ್ವಯ
+    guidance: ಜಿಲ್ಲಾ ಮತ್ತು ರಾಜ್ಯ ತಂಡಗಳು ಗ್ರಾಮ ತಲುಪಲು ಸಮಯ ಬೇಕು. ಸ್ಥಳೀಯ ಸಂಪನ್ಮೂಲಗಳು ಸಾಲದು ಎನಿಸಿದ ಕೂಡಲೇ ಹೊರಗಿನ ನೆರವು ಕೇಳಿ; ಅವು ಮುಗಿಯುವವರೆಗೆ ಕಾಯಬೇಡಿ.
