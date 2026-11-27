@@ -39,10 +39,11 @@ animated map and your orders, page 2 (**Village**) is status, the event log and 
 | LLM (optional) | `backend/app/llm/` | Narration, NPC dialogue, Help phrasing and a fallback parser through an OpenAI-compatible API (Sarvam, Cloudflare Workers AI, Hugging Face or a local Ollama); every output is validated, retried twice, then replaced by templates |
 | Frontend | `frontend/` | React + TypeScript + Vite; one-screen two-page UI, inline SVG maps, per-event animations, timeline, replay and report |
 
-**New in v3:** a living, weather-driven map; the Flood Academy (lessons, water-depth explorer, go-bag builder,
-family plan, quiz); medals and stars; eight languages (English, Hindi, Gujarati, Marathi, Bengali, Tamil, Telugu,
-Kannada); a voice assistant (read aloud, speak an order); and an ambient soundscape. Backup and roadmap:
-[FLOODGUARD_BACKUP_AND_VISION](docs/FLOODGUARD_BACKUP_AND_VISION.md).
+**New in v3:** Future Lens (preview both futures of an order on the map before you commit); a chat-style
+conversation with the narrator and characters; everything in eight languages (English, Hindi, Gujarati,
+Marathi, Bengali, Tamil, Telugu, Kannada), including stories and narration with the AI off; a two-voice
+assistant (natural Indian voices and spoken orders with a Sarvam key); a living, weather-driven map; the Flood
+Academy. Backup and roadmap: [FLOODGUARD_BACKUP_AND_VISION](docs/FLOODGUARD_BACKUP_AND_VISION.md).
 
 Docs: [ARCHITECTURE](docs/ARCHITECTURE.md) · [POST_FLOOD_DESIGN](docs/POST_FLOOD_DESIGN.md) ·
 [MODEL_CARD](docs/MODEL_CARD.md) · [LICENSES](docs/LICENSES.md) · [PROGRESS](docs/PROGRESS.md) ·

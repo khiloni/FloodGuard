@@ -1,6 +1,6 @@
 # FloodGuard: backup, everything built so far, and the vision for what comes next
 
-One file to come back to. Written 27 November 2026.
+One file to come back to. Written 27 November 2026, updated the same day after the language, voice and Future Lens work.
 
 > FloodGuard is an educational simulation, not emergency guidance. In a real emergency in India call
 > **112** or the disaster helpline **1078** and follow your local authorities.
@@ -67,45 +67,59 @@ an underpass), Below Kalindi Dam (scheduled dam release you can ask to stagger),
 | **Kamalpur Char: Island in the River** | River island flood | Two hamlets on a sandbar with no road to the mainland: every evacuation is a boat crossing; a raised flood platform on the island; a ring bund; islands visibly shrink as the river rises |
 | **Glacial Lake Burst above Tsomo Valley** | Glacial lake outburst | 15-minute turns, only seven turns of warning before a sudden surge; snow peaks, a glacial lake and a suspension bridge; the surge overtops the gabion wall |
 
-Both run on the existing engine (no new mechanic code), pass the pack tests, and reward good play (expert
-runs score 61 and 67; doing nothing scores 0).
+Both run on the existing engine and are covered by the pack tests (expert play scores well, doing nothing
+scores 0).
 
-### A far more beautiful, living map
-- Lit terrain with texture, soft shadows, new houses with tiled roofs and windows, layered trees and pines.
-- Water with depth gradients, a moving shimmer, foam along the bank; flooded wards show murky water.
-- Weather that follows the story: drifting cloud shadows, wind-blown rain with splashes (heavier near the
-  peak, slanted for the cyclone), lightning when the water is in danger, a pulsing danger glow round the map.
-- Light that follows time: dusk, night with stars, warm glowing windows where people are still home, lamps in
-  an open shelter; a rainbow and birds when recovery begins.
-- Every new animation stops when *Reduce motion* is on or the OS asks for reduced motion.
+### Future Lens: see both futures before you act (new, not found in other simulators)
+Before an order is confirmed, the simulator plays the next few hours twice on copies of its deterministic
+engine: once with your order and once if you wait. You see both side by side (people safe, still at home,
+lost, embankment breaks, a small at-risk curve) and can **watch either future on the map** and scrub through
+it. Because the engine has no randomness, the preview is exactly what will happen if nothing else changes.
+Nothing is saved and no time passes. It is on by default and can be switched off next to the orders.
+(`POST /api/v1/sessions/{id}/preview`.)
 
-### Flood Academy (learn first, then lead)
-- **Seven lessons**: river floods, urban flash floods, dam releases, cyclones and storm surge, river
-  islands, glacial lake outbursts, and what to do after the water goes down.
-- **How deep is too deep?** Slide the water up beside an adult, a child and a car and see what 15, 30, 60
-  and 120 cm of moving water mean.
-- **Go-bag builder**: pack an emergency bag; get told what is missing and what would slow you down.
-- **Family flood plan**: eight-step checklist, saved on the device, printable.
-- **Quiz**: ten questions with explanations.
+### The Village page is now one big conversation
+The story log and the event log were replaced by a single chat thread: the narrator, every character (with
+portraits) and you, as chat bubbles. A "To:" picker sends either an order to Command or a question to a
+character; suggestions from characters can be adopted with one tap; the mic works here too. Status and the
+briefing sit in a narrower side column.
 
-### Medals, stars and progress
-Best score and 1 to 3 stars per story on the story cards; twelve medals (for example *No One Left Behind*,
-*Clean Water Hero*, *Every Shore*, *Academy Graduate*). Kept only in this browser.
+### Everything in eight languages
+English, हिन्दी, ગુજરાતી, मराठी, বাংলা, தமிழ், తెలుగు, ಕನ್ನಡ. One choice on the story list changes
+**everything**: menus, buttons, map labels, the six stories (names, descriptions, characters and their
+lines), every narration line, character reply, rejection, help option, the report and rule cards, and the
+whole Flood Academy. It works with the AI off.
+- Server side (`backend/app/i18n/<lang>.yaml`): each English sentence the engine produces is matched against
+  a catalogue of 245 sentence patterns and rewritten in the chosen language, with numbers and 165 place and
+  person names carried across. The engine and the English API are untouched.
+  `backend/tests/test_i18n.py` replays every story and fails if any sentence is left untranslated or loses a
+  number or name.
+- Screen side (`frontend/src/i18n/<lang>.json`, loaded only when chosen): 583 interface strings.
+  `npm run i18n:check` fails if a language misses one.
+- Translations were drafted for this project and **should be reviewed by native speakers** before wide use.
 
-### Indian languages and a voice assistant
-- **Eight languages** for menus, AI narration and voice: English, हिन्दी, ગુજરાતી, मराठी, বাংলা, தமிழ்,
-  తెలుగు, ಕನ್ನಡ. One choice on the story list sets all three. The AI is told the language by name and its
-  output must be in that language's script, or it is rejected and the template is used. Story text and the
-  fixed template narration stay in English for now.
-- **Read aloud**: the narrator speaks each new line (English text in an Indian-English voice, translated AI
-  text in the chosen language's voice, where the device has one).
-- **Speak an order**: tap the microphone and say an order such as "evacuate ward 1". Uses the browser's own
-  speech recognition (Chrome and Edge). Offline, the order parser understands English best; with the AI on,
-  orders in other languages are interpreted by the AI parser.
+### Voice assistant with two voices
+- Two clearly different voices: a **narrator** for the story and characters, and a **command** voice that
+  reads back your orders. Lines are queued, never cut off.
+- **With a Sarvam AI key** (`SARVAM_API_KEY`): natural Indian-language voices (bulbul:v3, narrator `priya`,
+  command `rahul`, changeable with `SARVAM_NARRATOR_SPEAKER` / `SARVAM_COMMAND_SPEAKER`), and spoken orders in
+  any of the languages are turned into English for the order parser (saaras:v4, translate mode). Audio is
+  passed through and not stored.
+- **Without a key**: the browser's own voices. Many Windows PCs only have English voices installed; add a
+  language under Windows Settings > Time & language > Speech, or use the Sarvam option.
 
-### Ambient soundscape
-Rain, wind and thunder generated live in the browser (no audio files) that follow the phase and water level;
-birds in recovery; soft cues for good and bad events. Off until you turn it on.
+### A more beautiful, living map
+Lit terrain, soft shadows, tiled-roof houses, layered trees and pines; water with depth and moving shimmer;
+cloud shadows, wind-blown rain with splashes, lightning at danger level; night with stars and glowing windows;
+a rainbow and birds when recovery begins. All motion stops with *Reduce motion*.
+
+### Flood Academy
+Seven lessons, a water-depth explorer (what 15, 30, 60 and 120 cm of moving water does), a go-bag builder, a
+printable family flood plan and a ten-question quiz, all translated.
+
+### Removed on request
+Medals, the ambient rain soundscape and the per-card difficulty tag (difficulty is chosen once, above the
+story cards). Best score and stars per story remain.
 
 ---
 
@@ -115,8 +129,8 @@ The goal: **the most trusted, most beautiful way for anyone in India, from a sch
 officer, to feel what a flood is like and learn what saves lives.**
 
 ### Phase A (next 1 to 2 months): reach everyone
-1. **Full translation of story content.** Move scenario text, characters, events and template narration into
-   language files; get each language reviewed by native speakers and disaster-management educators.
+1. **Native-speaker review of all eight languages** with disaster-management educators; add Malayalam,
+   Odia, Punjabi and Assamese (Sarvam already speaks them).
 2. **Voice-first mode.** A hands-free mode for low-literacy players: the narrator reads everything, the
    player answers by voice, buttons have spoken labels. Offline speech models for Indian languages
    (for example open models served from the backend) so it works without Chrome.
@@ -148,7 +162,10 @@ officer, to feel what a flood is like and learn what saves lives.**
 - Keep the safety line everywhere: an educational simulation, never a forecast; 112 and 1078 always visible.
 - Every new number in a story comes from the scenario file and is covered by tests.
 - Every AI output stays validated against engine facts; template fallback always works without an LLM.
-- Keep the bundle small (currently about 177 KB gzip of a 300 KB budget) so it loads on cheap phones.
+- Keep the bundle small (about 174 KB gzip of a 300 KB budget; each language pack about 21 KB, loaded only
+  when chosen) so it loads on cheap phones.
+- Future Lens next steps: compare three or more candidate orders at once, and a "what went wrong" mode in the
+  report that shows the best alternative at each turning point.
 
 ---
 

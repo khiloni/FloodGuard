@@ -10,7 +10,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "size": "node scripts/check-size.mjs",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "i18n:check": "node scripts/i18n-extract.mjs --check"
   },
   "dependencies": {
     "lucide-react": "^1.78.0",
