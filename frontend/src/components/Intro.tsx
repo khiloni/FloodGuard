@@ -16,7 +16,7 @@ export const Intro: React.FC<{ scenario: ScenarioInfo | null; onDone: () => void
   return (
     <div className="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title" data-testid="intro">
       <div className="card intro-card" key={i}>
-        <p className="intro-step">Step {i + 1} of {steps.length}</p>
+        <p className="intro-step">{tr('Step {i} of {n}', { i: i + 1, n: steps.length })}</p>
         <h2 id="intro-title" tabIndex={-1} ref={ref}>{steps[i].title}</h2>
         <p>{steps[i].body}</p>
         <div className="intro-actions">

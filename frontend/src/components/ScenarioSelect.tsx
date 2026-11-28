@@ -84,7 +84,7 @@ export const ScenarioSelect: React.FC<{
                 </p>
               )}
               <p className="hook">{s.hook}</p>
-              <p className="muted small">{s.total_ticks} turns of {s.tick_duration_minutes} min · {s.npcs.length} characters · {s.shelters.length} shelter{s.shelters.length > 1 ? 's' : ''}</p>
+              <p className="muted small">{tr('{t} turns of {m} min', { t: s.total_ticks, m: s.tick_duration_minutes })} · {tr('{c} characters', { c: s.npcs.length })} · {tr('Shelters: {n}', { n: s.shelters.length })}</p>
               <button className="btn primary" disabled={busy} onClick={() => onStart({ scenario_id: s.id, difficulty, language })}
                 data-testid={`start-${s.id}`} autoFocus={i === 0 ? undefined : undefined}>
                 {t('begin')} <ChevronRight aria-hidden="true" />

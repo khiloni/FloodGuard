@@ -68,6 +68,10 @@ export const WakingUp: React.FC<{ seconds: number; failed: boolean; onRetry: () 
       <p>{failed
         ? tr('Please check your connection and try again.')
         : tr('Free hosting sleeps when idle; the first visit can take up to a minute ({s}s so far).', { s: seconds })}</p>
+      {failed && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname) && (
+        <p className="small" data-testid="api-hint">{tr('Running on this computer? Start the API server first, in the project folder:')}<br />
+          <code>uvicorn backend.app.main:app --port 10000</code></p>
+      )}
       {failed && <button className="btn primary" onClick={onRetry}>{tr('Try again')}</button>}
     </div>
   </div>

@@ -90,7 +90,8 @@ export const App: React.FC = () => {
     }, 1000);
     try {
       let ok = false;
-      while (!ok && Date.now() - t0 < 120000) {
+      const local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname);
+      while (!ok && Date.now() - t0 < (local ? 15000 : 120000)) {
         try { await api.health(20000); ok = true; } catch { await sleep(2500); }
       }
       if (!ok) throw new Error('unreachable');
@@ -117,7 +118,9 @@ export const App: React.FC = () => {
   langRef.current = lang;
   useEffect(() => {
     if (screen !== 'select' && screen !== 'gate') return;
-    api.scenarios(lang).then((sc) => setScenarios(sc.scenarios)).catch(() => { /* keep the current list */ });
+    let live = true; // the newest language choice wins if replies arrive out of order
+    api.scenarios(lang).then((sc) => { if (live) setScenarios(sc.scenarios); }).catch(() => { /* keep the current list */ });
+    return () => { live = false; };
   }, [lang, screen]);
 
   // ---- Event animations: one short animation per engine event, staggered ----
@@ -377,7 +380,7 @@ export const App: React.FC = () => {
           </div>
           <ActionPanel layout={layout} phase={summary?.phase ?? 'before'} busy={!canAct} mechanic={scenario?.mechanic_type}
             onSubmit={(a) => (lensOn && a.name !== 'wait' ? setPending({ action: a }) : submit({ type: 'button', action: a }))} onHint={(h) => addMsg({ kind: 'hint', text: h })} />
-          <CommandBox examples={finished ? [] : examples.slice(0, 3)} busy={!canAct} clarify={clarify} zoneNames={names}
+          <CommandBox examples={finished || lang !== 'en' ? [] : examples.slice(0, 3)} busy={!canAct} clarify={clarify} zoneNames={names}
             onText={(txt) => submit({ type: 'text', text: txt })} onOption={(a) => submit({ type: 'button', action: a })}
             onMic={onMic} listening={voice.listening} micLabel={voice.listening ? t('listening') : t('speakOrder')} />
         </div>
